@@ -26,7 +26,8 @@ Date: 29/05/2019
 * using R for GIS
 	+ a demo to show what’s possible
 * EXTRA: examples of data visualizations with the data file.
-
+* EXTRA: version control
+* EXTRA: Rmarkdown
 
 
 ## Resources
