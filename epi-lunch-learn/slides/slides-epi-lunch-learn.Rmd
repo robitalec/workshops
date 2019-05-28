@@ -1,0 +1,21 @@
+---
+title: "Data + R"
+author: Alec Robitaille
+date: "`r paste0('May 29 2019 [updated: ', paste(month.name[data.table::month(Sys.Date())], data.table::mday(Sys.Date()), data.table::year(Sys.Date())), ']')`"
+output: 
+  xaringan::moon_reader:
+    nature:
+      highlightStyle: github
+      beforeInit: "macros.js"
+    css: [metropolis, metropolis-fonts, "extra.css"]
+---
+  
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      eval = FALSE)
+```
+
+
+# Potato
+
+# Cheese
