@@ -31,6 +31,9 @@ Date: 29/05/2019
 
 
 ## Resources
+* [Advanced R](http://adv-r.had.co.nz/)
+* [Efficient R](https://csgillespie.github.io/efficientR)
+* [R for Data Science](https://r4ds.had.co.nz/)
 
 
 ## 
