@@ -36,4 +36,12 @@ Date: 29/05/2019
 * [R for Data Science](https://r4ds.had.co.nz/)
 
 
-## 
+## Questions
+* What are some advantages of using an R project?
+* Basic project/folder structure
+* What is a function
+* Examples of functions in R
+* Why write functions
+* long vs wide data
+* tidy data defined
+
