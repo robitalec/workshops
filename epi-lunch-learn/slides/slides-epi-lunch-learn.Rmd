@@ -234,3 +234,16 @@ ggplot(mtcars) +
 * [RMarkdown](http://rmarkdown.rstudio.com/)
 * [data.table](https://cran.r-project.org/web/packages/data.table/)
 * [GitHub](http://github.com/)
+
+
+
+<!--
+## Questions
+* What are some advantages of using an R project?
+* Basic project/folder structure
+* What is a function
+* Examples of functions in R
+* Why write functions
+* long vs wide data
+* tidy data defined
+-->
