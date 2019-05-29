@@ -53,11 +53,10 @@ Getting tidy data from untidy data
 
 
 
+---
+# Functions
+DRY slide
+Write a function slide
+Apply it with tidyverse, group_by etc
 
 
-lift functions slides:
-dry
-write a function
-apply it with tidyverse
-+ group_by
-mutate etc
