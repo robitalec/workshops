@@ -24,3 +24,11 @@ DT <- DT %>%
 ## Processing
 DT %>%
 	tabyl(Diagnosis, Gender)
+### Visualize
+ggplot(alcDT) +
+	geom_histogram(aes(Diagnosis, group = Gender, fill = Gender), stat = 'count')
+
+
+ggplot(alcDT) +
+	geom_histogram(aes(Diagnosis), stat = 'count') +
+	facet_wrap(~Gender)
