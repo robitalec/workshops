@@ -12,28 +12,47 @@ p <- lapply(pkgs, library, character.only = TRUE)
 ### Data ----
 DT <- readRDS('data/derived-data/1-prep/cleaned-ed-visits.Rds')
 
-# TODO: multiple drug uses, or shared/common diagnosis often found together
-library(igraph)
-library(spatsoc)
-library(data.table)
+
+### Processing ----
+# Add a group index (VisitId)
 DT <- DT %>%
 	group_by(ChartNumber, VisitDate) %>%
 	mutate(VisitId = group_indices())
 
 
-freqTab <- get_gbi(
-	data.table(DT),
-	group = 'VisitId',
-	id = 'Diagnosis'
+# Generate the frequency table of associated diagnoses within visits
+freqTab <- get_gbi(data.table(DT),
+									 group = 'VisitId',
+									 id = 'Diagnosis')
+
+# Generate the network
+net <- get_network(freqTab,
+									 data_format = "GBI",
+									 association_index = "SRI")
+
+# Generate the graph
+g <- graph_from_adjacency_matrix(net,
+																 mode = 'undirected',
+																 diag = FALSE, weighted = TRUE, )
+
+
+### Plot ----
+plot(
+	g,
+	vertex.color = NA,
+	vertex.shape = 'none',
+	layout = layout_with_fr
 )
 
-net <-
-	asnipe::get_network(freqTab,
-											data_format = "GBI",
-											association_index = "SRI")
+
+plot(
+	g,
+	vertex.color = NA,
+	vertex.shape = 'none',
+	layout = layout_in_circle
+)
 
 
-g <- igraph::graph_from_adjacency_matrix(net,
-																				 diag = FALSE, weighted = TRUE)
-
-plot(g)
+### Stats ----
+betweenness(g)
+degree(g)
