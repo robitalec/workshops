@@ -10,13 +10,54 @@ output:
       beforeInit: "macros.js"
     css: [metropolis, metropolis-fonts, "extra.css"]
 ---
-  
+
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE,
                       eval = FALSE)
 ```
 
 
-# Potato
+# Good practices with data
+Keep raw data raw
+Metadata/CHANGELOG/etc
 
-# Cheese
+No spaces in file names or column names
+No weird characters
+
+
+```{bash, eval = TRUE, echo = FALSE, results = 'asis'}
+tree ../data/
+```
+
+
+---
+# Good R practices
+Use RProjects
+Use relative not absolute paths
+Use a common project structure (*example*)
+Comment code and follow a similar structure across scripts (Load packages, import data, prep data, process, output)
+
+
+---
+# Tidy data
+
+Defined
+Why
+Getting tidy data from untidy data
+(e.g.: reshape/cast/melt + janitor)
+
+
+---
+# 
+
+
+
+
+
+lift functions slides:
+dry
+write a function
+apply it with tidyverse
++ group_by
+mutate etc
