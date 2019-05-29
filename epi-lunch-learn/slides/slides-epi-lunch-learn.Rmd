@@ -60,3 +60,11 @@ Write a function slide
 Apply it with tidyverse, group_by etc
 
 
+---
+# Plotting
+
+
+--- 
+# Spatial methods
+
+`sf`
