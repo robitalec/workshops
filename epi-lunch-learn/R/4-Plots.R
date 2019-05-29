@@ -27,3 +27,5 @@ ggplot(alcDT) +
 ggplot(alcDT) +
 	geom_histogram(aes(Diagnosis), stat = 'count') +
 	facet_wrap(~Gender)
+
+ggsave('graphics/diagnosis-gender-histo.png')
