@@ -5,43 +5,53 @@ Author: Alec Robitaille
 Date: 29/05/2019
 
 
+## Data
+1. `ED visits for Alec.xls` 
 
-## TODO
-* Join/merge tables
-* Fill rows
-* spatial
-* tidy data (defined + get there)
-* vs data.table
-* ggplot
-* handling multiple diagnosis
-* single script not 1- etc etc  (but show this sort of thing in the EWC)
+From: Julia Sohn
+Received: May 24 2019
 
-## Skeleton
-* data management
-	+ multiple diagnoses
-	+ not dates, etc
-* good data mangement principles
-* creating functions
-	+ what does it mean, how to do it, how does it get used?
-* using R for GIS
-	+ a demo to show what’s possible
-* EXTRA: examples of data visualizations with the data file.
-* EXTRA: version control
-* EXTRA: Rmarkdown
+## 
+
+```
+.
+├── data
+│   ├── derived-data
+│   │   └── 1-prep
+│   │       └── cleaned-ed-visits.Rds
+│   └── raw-data
+│       └── ED visits for Alec.xls
+├── R
+│   ├── 1-Prep-Data.R
+│   ├── 2-Summary-Stats.R
+│   ├── 3-Associated-Diagnoses.R
+│   └── 4-Plots.R
+├── slides
+│   ├── slides-epi-lunch-learn_files
+│   ├── extra.css
+│   ├── macros.js
+│   ├── slides-epi-lunch-learn.html
+│   └── slides-epi-lunch-learn.Rmd
+├── epi-lunch-learn.Rproj
+└── README.md
+```
 
 
 ## Resources
 * [Advanced R](http://adv-r.had.co.nz/)
 * [Efficient R](https://csgillespie.github.io/efficientR)
 * [R for Data Science](https://r4ds.had.co.nz/)
+	+ [Tidy data](https://r4ds.had.co.nz/tidy-data.html)
 
 
-## Questions
-* What are some advantages of using an R project?
-* Basic project/folder structure
-* What is a function
-* Examples of functions in R
-* Why write functions
-* long vs wide data
-* tidy data defined
 
+## Other common project structures
+```
+project/
+├── input/
+├── output/
+├── graphics/
+├── R/
+├── epi-lunch-learn.Rproj
+└── README.md
+```
