@@ -14,7 +14,7 @@ Date: 29/05/2019
 * vs data.table
 * ggplot
 * handling multiple diagnosis
-
+* single script not 1- etc etc  (but show this sort of thing in the EWC)
 
 ## Skeleton
 * data management
