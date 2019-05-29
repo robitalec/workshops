@@ -15,6 +15,8 @@ DT <- readRDS('data/derived-data/1-prep/cleaned-ed-visits.Rds')
 
 ### Processing ----
 # Select specific diagnoses, e.g. alcohol specific
+# NOTE: alcohol grepl'ed may not be sufficient to find all diagnoses (typos etc)
+#       recommended to use the Diagnosis Code
 alcDT <- DT %>%
 	filter(grepl('alcohol', DiagnosisLongText))
 
