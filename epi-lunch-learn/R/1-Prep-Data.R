@@ -18,6 +18,20 @@ DT <- read_excel('data/raw-data/ED visits for Alec.xls')
 DT <- DT %>%
 	clean_names(case = 'upper_camel')
 
+
+# Find rows where duplicate visits in same day by same individual
+DT %>%
+	group_by(ChartNumber, VisitDate) %>%
+	count() %>%
+	filter(n > 1)
+
+# Count for possible duplicate visits in same day, by same individual
+DT <- DT %>%
+	group_by(ChartNumber, VisitDate)  %>%
+	mutate(ChartDateCount = ifelse(is.na(ChartNumber) | is.na(VisitDate),
+																 NA, seq(1, n()))) %>%
+	ungroup()
+
 # Fill missing information in all columns except Diagnosis columns
 DT <- DT %>%
 	fill(-DiagnosisType, -Diagnosis, -DiagnosisLongText)
@@ -67,6 +81,12 @@ DT %>%
 	group_by(PatientAge) %>%
 	count()
 
+
+
+### Optionally, create a unique visit (date by individual by visit number) ID ----
+DT <- DT %>%
+	group_by(ChartNumber, VisitDate, ChartDateCount) %>%
+	mutate(UniqueId = group_indices())
 
 ### Export data ----
 saveRDS(DT, 'data/derived-data/1-prep/cleaned-ed-visits.Rds')
