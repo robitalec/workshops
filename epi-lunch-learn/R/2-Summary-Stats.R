@@ -5,7 +5,7 @@
 
 
 ### Packages ----
-pkgs <- c('tidyr', 'dplyr', 'assertr', 'ggplot2')
+pkgs <- c('tidyr', 'dplyr', 'ggplot2')
 p <- lapply(pkgs, library, character.only = TRUE)
 
 
@@ -14,41 +14,9 @@ DT <- readRDS('data/derived-data/1-prep/cleaned-ed-visits.Rds')
 
 
 ### Processing ----
-# TODO: multiple drug uses, or shared/common diagnosis often found together
-library(igraph)
-library(spatsoc)
-DT <- DT %>%
-	group_by(ChartNumber, VisitDate) %>%
-	mutate(VisitId = group_indices())
-
-
-freqTab <- get_gbi(
-	data.table(DT),
-	group = 'VisitId',
-	id = 'Diagnosis'
-)
-
-graph_from_adjacency_matrix(freqTab)
-
-
-
-DT %>%
-	group_by(ChartNumber, VisitDate) %>%
-	select(Diagnosis) %>%
-	crossprod(as.matrix(.))
-
-DT %>%
-	mutate(n = 1) %>%
-	spread(Diagnosis, n, fill=0) %>%
-	select(-ChartNumber, -VisitDate) %>%
-	{crossprod(as.matrix(.))} %>%
-	`diag<-`(0)
-
-
-## Alcohol specific
+# Select specific diagnoses, e.g. alcohol specific
 alcDT <- DT %>%
 	filter(grepl('alcohol', DiagnosisLongText))
-
 
 # Counts
 # Number of Alcohol + DiagnosisType = M, by Gender
@@ -60,6 +28,3 @@ alcDT %>%
 alcDT %>%
 	group_by(YtResidenceCode, cut_number(PatientAge, n = 3)) %>%
 	count()
-
-
-
