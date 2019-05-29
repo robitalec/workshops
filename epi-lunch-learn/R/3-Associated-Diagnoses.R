@@ -16,7 +16,7 @@ DT <- readRDS('data/derived-data/1-prep/cleaned-ed-visits.Rds')
 ### Processing ----
 # Add a group index (VisitId)
 DT <- DT %>%
-	group_by(ChartNumber, VisitDate) %>%
+	group_by(UniqueId) %>%
 	mutate(VisitId = group_indices())
 
 
@@ -26,6 +26,7 @@ freqTab <- get_gbi(data.table(DT),
 									 id = 'Diagnosis')
 
 # Generate the network
+# TODO: (on your own time/fyinterest) look into SRI/etc and relevance for health data
 net <- get_network(freqTab,
 									 data_format = "GBI",
 									 association_index = "SRI")
@@ -42,14 +43,6 @@ plot(
 	vertex.color = NA,
 	vertex.shape = 'none',
 	layout = layout_with_fr
-)
-
-
-plot(
-	g,
-	vertex.color = NA,
-	vertex.shape = 'none',
-	layout = layout_in_circle
 )
 
 
