@@ -1,6 +1,8 @@
 # Tables in Rmd
 ## Alec Robitaille
 
+As part of a reproducible framework, integrating model results, etc
+
 
 1. Intro to Markdown, knitr, tinytex, Yihui Xie
 1. Basics of Rmarkdown
