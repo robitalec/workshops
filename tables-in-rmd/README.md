@@ -4,6 +4,9 @@
 As part of a reproducible framework, integrating model results, etc
 
 
+
+tinytex::install_tinytex
+
 1. Intro to Markdown, knitr, tinytex, Yihui Xie
 1. Basics of Rmarkdown
     + preamble
@@ -16,3 +19,12 @@ As part of a reproducible framework, integrating model results, etc
     + load data
     + label chunks
     + output figs/tabs
+
+
+bookdown::pdf_document2
+
+
+including pictures in tables
+wicked cool rmd knitr kable stuff
+
+* using ![]() syntax and LaTeX \includegraphics{}
