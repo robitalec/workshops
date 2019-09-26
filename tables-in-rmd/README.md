@@ -28,3 +28,9 @@ including pictures in tables
 wicked cool rmd knitr kable stuff
 
 * using ![]() syntax and LaTeX \includegraphics{}
+* figure out a word document solution
+https://stackoverflow.com/questions/25106481/add-an-image-to-a-table-like-output-in-r
+
+
+Strategies that are Git diffable:
+1. CSVs
