@@ -31,6 +31,17 @@ wicked cool rmd knitr kable stuff
 * figure out a word document solution
 https://stackoverflow.com/questions/25106481/add-an-image-to-a-table-like-output-in-r
 
+flextable??
+
+stargazer
 
 Strategies that are Git diffable:
 1. CSVs
+
+
+http://rapporter.github.io/pander
+## Models
+ml <- with(lm(mpg ~ hp + wt), data = mtcars)
+pander(ml)
+pander(anova(ml))
+pander(aov(ml))
