@@ -31,8 +31,8 @@ wicked cool rmd knitr kable stuff
 * figure out a word document solution
 https://stackoverflow.com/questions/25106481/add-an-image-to-a-table-like-output-in-r
 
-flextable??
-
+flextable?? https://davidgohel.github.io/flextable/articles/offcran/examples.html
+https://community.rstudio.com/t/nice-tables-when-knitting-to-word/38402/
 stargazer
 
 Strategies that are Git diffable:
