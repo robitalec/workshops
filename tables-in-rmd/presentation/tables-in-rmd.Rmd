@@ -17,6 +17,14 @@ knitr::opts_chunk$set(echo = TRUE,
 ```
 
 
+.
+
+---
+class: important 
+
+
+???
+
 <!-- 
 .pull-left[]
 .pull-right[]
@@ -25,10 +33,4 @@ knitr::opts_chunk$set(echo = TRUE,
 .footnote[]
 
 ---
-class: important 
-
-...
-
-
-???
 -->
