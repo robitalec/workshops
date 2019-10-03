@@ -73,7 +73,7 @@ Helper packages include:
 
 
 ---
-# Markdown Basics
+# Markdown basics
 
 .pull-left[
 ```markdown
@@ -149,7 +149,7 @@ plot(cars)
 abline(fit)
 ```
 
-The slope of the regression is `r b[1]`.
+The slope of the regression is NA.
 ````
 
 .footnote[
@@ -157,10 +157,24 @@ The slope of the regression is `r b[1]`.
 
 
 ---
+class: example
+
+# Example: minimum working example
 
 
 
-# YAML frontmatter 
+1. Open `examples/example-mwe.Rmd`
+
+1. Knit the document
+
+1. Check out the results
+
+1. Add headers in the text
+
+---
+class: example
+
+# Example: YAML frontmatter 
 
 ```yaml
 ---
@@ -171,7 +185,13 @@ output: html_document
 ---
 ```
 
+1. Open `examples/example-mwe.Rmd`
 
+1. Switch the output to `word_document` or `pdf_document`
+
+1. Update the title and author fields. 
+
+1. Add a table of contents.
 
 
 
@@ -179,7 +199,28 @@ output: html_document
 tabs
 
 
+---
+# Text references
 
+
+The syntax for a text reference is (ref:label) text, where label is a unique label5 throughout the document for text. It must be in a separate paragraph with empty lines above and below it. The paragraph must not be wrapped into multiple lines, and should not end with a white space. For example,
+
+
+---
+# Word documents - template
+
+```yaml
+---
+title: "Some title"
+author: "Dwigt"
+date: "2018-01-01"
+output:
+  word_document:
+*    reference_docx: style.docx
+---
+```
+
+**TODO:** make a reference docx
 
 ---
 # References
@@ -209,6 +250,11 @@ Briefly:
 ```
 
 
+---
+# Advanced
+
+Using LaTeX include_headers
+
 
 
 
@@ -222,6 +268,8 @@ class: important
 * Shortcut: ctrl/command + shift + k to knit in RStudio
 
 * Tabs only in YAML
+
+* Text references: The syntax for a text reference is (ref:label) text, where label is a unique label5 throughout the document for text. It must be in a separate paragraph with empty lines above and below it. The paragraph must not be wrapped into multiple lines, and should not end with a white space. For example,
 
 ---
 # Resource
@@ -240,13 +288,25 @@ class: important
 
 ![:scale 20%](images/knit-logo.png) 
 ![:scale 30%](images/pandoc.png)
-![:scale 20%](https://bookdown.org/yihui/bookdown/images/logo.png)
+![:scale 20%](https://bookdown.org/yihui/bookdown/images/logo.png) 
+
+
+
+---
+
+# Setup
+
+1. Install packages
+  * knitr, tinytex, rmarkdown, bookdown, kableExtra, pander
+2. Install tinytex
+  * `tinytex::install_tinytex()`
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script src="macros.js"></script>
 <script>var slideshow = remark.create({
-"highlightStyle": "github"
+"highlightStyle": "github",
+"highlightLines": true
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
@@ -286,7 +346,24 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
     deleted = true;
   });
-})();</script>
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
 
 <script>
 (function() {

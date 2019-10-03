@@ -184,7 +184,13 @@ output: html_document
 ---
 ```
 
+1. Open `examples/example-mwe.Rmd`
 
+1. Switch the output to `word_document` or `pdf_document`
+
+1. Update the title and author fields. 
+
+1. Add a table of contents.
 
 
 
@@ -243,6 +249,11 @@ Briefly:
 ```
 
 
+---
+# Advanced
+
+Using LaTeX include_headers
+
 
 
 
@@ -278,6 +289,9 @@ class: important
 ![:scale 30%](images/pandoc.png)
 ![:scale 20%](https://bookdown.org/yihui/bookdown/images/logo.png) 
 
+
+
+https://rmarkdown.rstudio.com/articles_docx.html
 
 
 ---
