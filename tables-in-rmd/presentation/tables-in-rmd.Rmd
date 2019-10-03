@@ -188,14 +188,24 @@ output: html_document
 
 1. Switch the output to `word_document` or `pdf_document`
 
-1. Update the title and author fields. 
+1. Update the title and author fields
 
-1. Add a table of contents.
+1. Add a table of contents ([hint](https://bookdown.org/yihui/rmarkdown/pdf-document.html#table-of-contents-1))
 
+1. Knit the document!
+
+.footnote[
+See options relevant to each output type in the [cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf) or extended descriptions in the [R Markdown book](https://bookdown.org/yihui/rmarkdown)
+]
 
 
 ???
-tabs
+tabs not spaces
+
+
+---
+# Code chunks
+
 
 
 
@@ -203,6 +213,17 @@ tabs
 
 
 ---
+class: example
+
+# Example: code chunks
+
+1. Remove the base R plot
+1. Load `ggplot2`
+1. Plot the cars dataset with `qplot` or `ggplot` e.g.: `qplot(speed, dist, data = cars)`
+1. Knit the document!
+
+
+
 # Text references
 
 

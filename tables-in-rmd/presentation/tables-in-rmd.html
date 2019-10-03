@@ -189,17 +189,36 @@ output: html_document
 
 1. Switch the output to `word_document` or `pdf_document`
 
-1. Update the title and author fields. 
+1. Update the title and author fields
 
-1. Add a table of contents.
+1. Add a table of contents ([hint](https://bookdown.org/yihui/rmarkdown/pdf-document.html#table-of-contents-1))
 
+1. Knit the document!
+
+.footnote[
+See options relevant to each output type in the [cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf) or extended descriptions in the [R Markdown book](https://bookdown.org/yihui/rmarkdown)
+]
 
 
 ???
-tabs
+tabs not spaces
 
 
 ---
+# Code chunks
+
+
+
+---
+# Example: code chunks
+
+1. Remove the base R plot
+1. Load `ggplot2`
+1. Plot the cars dataset with `qplot` or `ggplot` e.g.: `qplot(speed, dist, data = cars)`
+1. Knit the document!
+
+
+
 # Text references
 
 
@@ -220,7 +239,7 @@ output:
 ---
 ```
 
-**TODO:** make a reference docx
+**TODO:** make a good reference docx
 
 ---
 # References
@@ -292,6 +311,9 @@ class: important
 
 
 
+https://rmarkdown.rstudio.com/articles_docx.html
+
+
 ---
 
 # Setup
@@ -346,24 +368,7 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
     deleted = true;
   });
-})();
-// adds .remark-code-has-line-highlighted class to <pre> parent elements
-// of code chunks containing highlighted lines with class .remark-code-line-highlighted
-(function(d) {
-  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
-  const preParents = [];
-  const findPreParent = function(line, p = 0) {
-    if (p > 1) return null; // traverse up no further than grandparent
-    const el = line.parentElement;
-    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
-  };
-
-  for (let line of hlines) {
-    let pre = findPreParent(line);
-    if (pre && !preParents.includes(pre)) preParents.push(pre);
-  }
-  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
-})(document);</script>
+})();</script>
 
 <script>
 (function() {
