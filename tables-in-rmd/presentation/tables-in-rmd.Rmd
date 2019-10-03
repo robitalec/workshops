@@ -155,6 +155,21 @@ The slope of the regression is `r b[2]`.
 
 
 ---
+class: example
+
+# Example: minimum working example
+
+
+
+1. Open `examples/example-mwe.Rmd`
+
+1. Knit the document
+
+1. Check out the results
+
+1. Modify something in the YAML, text and code block
+
+---
 
 
 
