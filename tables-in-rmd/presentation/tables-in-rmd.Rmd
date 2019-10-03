@@ -250,3 +250,14 @@ class: important
 ![:scale 30%](images/pandoc.png)
 ![:scale 20%](https://bookdown.org/yihui/bookdown/images/logo.png) 
 
+
+
+---
+
+# Setup
+
+1. Install packages
+  * knitr, tinytex, rmarkdown, bookdown, kableExtra, pander
+2. Install tinytex
+  * `tinytex::install_tinytex()`
+
