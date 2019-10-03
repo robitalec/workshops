@@ -35,29 +35,24 @@ knitr::opts_chunk$set(echo = TRUE,
 .pull-right[
 
 R Markdown combines: 
-* `knitr` - executes code chunks and converts from Rmd to md
-* Pandoc - converts from md to any format (pdf, docx, html, ...)
+* [`knitr`](https://github.com/yihui/knitr)  - executes code chunks and converts from Rmd to md
+* [Pandoc](https://pandoc.org/) - converts from md to any format (pdf, docx, html, ...)
 
 Helper packages include:
-* `pander` - converts R objects to markdown
-* `kableExtra` - styles `knitr` tables
-* `bookdown` - extends R Markdown
+* [`pander`](https://github.com/Rapporter/pander) - converts R objects to markdown
+* [`tinytex`](https://github.com/yihui/tinytex) - provides a cross-platform, lightweight LaTeX distribution (for rendering PDFs)
+* [`kableExtra`](https://github.com/haozhu233/kableExtra) - styles `knitr` tables
+* [`bookdown`](https://github.com/rstudio/bookdown) - extends R Markdown
+
 
 .footnote[
-[`rmarkdown`](https://github.com/rstudio/rmarkdown/)
-[`knitr`](https://github.com/yihui/knitr) 
-[`pander`](https://github.com/Rapporter/pander)
-[`bookdown`](https://github.com/rstudio/bookdown)
-
 
 ]
 ]
+
 
 
 ---
-
-class: center
-
 # Markup languages
 
 
