@@ -168,13 +168,12 @@ class: example
 
 1. Check out the results
 
-1. Modify something in the YAML, text and code block
+1. Add headers in the text
 
 ---
+class: example
 
-
-
-# YAML frontmatter 
+# Example: YAML frontmatter 
 
 ```yaml
 ---
