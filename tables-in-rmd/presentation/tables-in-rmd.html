@@ -39,29 +39,24 @@ class: center, middle, inverse, title-slide
 .pull-right[
 
 R Markdown combines: 
-* `knitr` - executes code chunks and converts from Rmd to md
-* Pandoc - converts from md to any format (pdf, docx, html, ...)
+* [`knitr`](https://github.com/yihui/knitr)  - executes code chunks and converts from Rmd to md
+* [Pandoc](https://pandoc.org/) - converts from md to any format (pdf, docx, html, ...)
 
 Helper packages include:
-* `pander` - converts R objects to markdown
-* `kableExtra` - styles `knitr` tables
-* `bookdown` - extends R Markdown
+* [`pander`](https://github.com/Rapporter/pander) - converts R objects to markdown
+* [`tinytex`](https://github.com/yihui/tinytex) - provides a cross-platform, lightweight LaTeX distribution (for rendering PDFs)
+* [`kableExtra`](https://github.com/haozhu233/kableExtra) - styles `knitr` tables
+* [`bookdown`](https://github.com/rstudio/bookdown) - extends R Markdown
+
 
 .footnote[
-[`rmarkdown`](https://github.com/rstudio/rmarkdown/)
-[`knitr`](https://github.com/yihui/knitr) 
-[`pander`](https://github.com/Rapporter/pander)
-[`bookdown`](https://github.com/rstudio/bookdown)
-
 
 ]
 ]
+
 
 
 ---
-
-class: center
-
 # Markup languages
 
 
@@ -80,31 +75,165 @@ class: center
 ---
 # Markdown Basics
 
+.pull-left[
+```markdown
+# Header one
+
+
+
+
+
+
+## Header two
+
+
+
+*Italics*
+
+
+**Bold**
+
+
+
+
+
+![](images/beets.jpg)
+```
+]
+
+
+.pull-right[
+# Header one
+## Header two
+
+*Italics*
+
+**Bold**
+
+
+![:scale 60%](https://cdn-prod.medicalnewstoday.com/content/images/articles/277/277432/beetroot-on-a-white-background.jpg)
+]
 
 
 
 ---
-# R Markdown - YAML
-
-preamble
-output options
+# A minimum working example
 
 
+
+`example.Rmd`
+
+
+```yaml
+---
+title: "Some title"
+author: "Dwigt"
+date: "2018-01-01"
+output: html_document
+---
+```
+````markdown
+This is a paragraph in an R Markdown document.
+
+Below is a code chunk:
+
+```{r}
+fit = lm(dist ~ speed, data = cars)
+b   = coef(fit)
+plot(cars)
+abline(fit)
+```
+
+The slope of the regression is `r b[1]`.
+````
+
+.footnote[
+```]
+
+
+---
+
+
+
+# YAML frontmatter 
+
+```yaml
+---
+title: "Some title"
+author: "Dwigt"
+date: "2018-01-01"
+output: html_document
+---
+```
+
+
+
+
+
+???
+tabs
+
+
+
+
+---
+# References
+
+Briefly:
+1. create a `references.bib` file
+1. add `references: references.bib` to the YAML
+1. fill the `references.bib` file with your references
+1. cite with reference key throughout text e.g. `[@vanderwal2015]` becomes [@vanderwal2015]
+
+```bib
+@article{vanderwal2015,
+    author = {Vander Wal, Eric and Gagné-Delorme, Audrey and Festa-Bianchet, Marco and Pelletier, Fanie},
+    title = "{Dyadic associations and individual sociality in bighorn ewes}",
+    journal = {Behavioral Ecology},
+    volume = {27},
+    number = {2},
+    pages = {560-566},
+    year = {2015},
+    month = {11},
+    issn = {1045-2249},
+    doi = {10.1093/beheco/arv193},
+    url = {https://doi.org/10.1093/beheco/arv193},
+    eprint = {http://oup.prod.sis.lan},
+}
+
+```
+
+
+
+
+
+---
+class: important
+
+# Important notes
+
+* R Markdown documents always set the working directory relative to the `.Rmd` file
+
+* Shortcut: ctrl/command + shift + k to knit in RStudio
+
+* Tabs only in YAML
 
 ---
 # Resource
 
 [R Markdown Gallery](https://rmarkdown.rstudio.com/gallery.html)
 
+[R Markdown Cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf)
+
 [`knitr`](https://github.com/yihui/knitr) 
 
 [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/) 
 
+![](https://d33wubrfki0l68.cloudfront.net/15c2850da53a2f8d8a1a30aa003bda21155e16ec/db869/images/logo-tinytex.png)
 
-![:scale 20%](images/rmarkdown-logo.png) R Markdown combines:
+![:scale 20%](https://bookdown.org/yihui/rmarkdown/images/hex-rmarkdown.png)
 
-![:scale 20%](images/knit-logo.png) for executing code chunks and converting to markdown
-
+![:scale 20%](images/knit-logo.png) 
 ![:scale 30%](images/pandoc.png)
 ![:scale 20%](https://bookdown.org/yihui/bookdown/images/logo.png)
     </textarea>
