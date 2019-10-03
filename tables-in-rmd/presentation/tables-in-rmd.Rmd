@@ -61,15 +61,15 @@ Helper packages include:
 ]
 
 .pull-right[
-* Presentational: *Word*
-* Descriptive: ![:scale 7%](images/LaTeX_logo.svg)
+* Presentational: *Word* (not a "language")
+* Descriptive: ![:scale 12%](images/LaTeX_logo.svg)
 * Lightweight: Markdown
 ]
 
 
 
 ---
-# Markdown Basics
+# Markdown basics
 
 .pull-left[
 ```markdown
