@@ -8,6 +8,7 @@ output:
     nature:
       highlightStyle: github
       beforeInit: "macros.js"
+      highlightLines: true
     css: [metropolis, metropolis-fonts, "extra.css"]
 ---
   
@@ -199,8 +200,21 @@ tabs
 The syntax for a text reference is (ref:label) text, where label is a unique label5 throughout the document for text. It must be in a separate paragraph with empty lines above and below it. The paragraph must not be wrapped into multiple lines, and should not end with a white space. For example,
 
 
+---
+# Word documents - template
 
+```yaml
+---
+title: "Some title"
+author: "Dwigt"
+date: "2018-01-01"
+output:
+  word_document:
+*    reference_docx: style.docx
+---
+```
 
+**TODO:** make a good reference docx
 
 ---
 # References
