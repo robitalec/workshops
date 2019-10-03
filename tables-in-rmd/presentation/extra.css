@@ -1,7 +1,7 @@
 /* New colors */
 
 .important {
-  background-color: #a48e97;
+  background-color: #bfafb6;
   color: #000000;
 }
 
@@ -17,6 +17,12 @@
   padding-right: 4em;
   font-size: 90%
 }
+
+.example {
+  background-color: #cacdba;
+  color: #000000;
+}
+
 
 
 /* Two-column layout */
