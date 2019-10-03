@@ -17,20 +17,90 @@ knitr::opts_chunk$set(echo = TRUE,
 ```
 
 
-.
+# R Markdown
+
+.pull-left[
+[R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/) 
+
+![:scale 30%](https://bookdown.org/yihui/rmarkdown/images/cover.png)
+
+
+[bookdown: Authoring Books and Technical Documents with R Markdown](https://bookdown.org/yihui/bookdown/)
+
+![:scale 30%](https://bookdown.org/yihui/bookdown/images/cover.jpg)
+
+
+]
+
+.pull-right[
+
+R Markdown combines: 
+* `knitr` - executes code chunks and converts from Rmd to md
+* Pandoc - converts from md to any format (pdf, docx, html, ...)
+
+Helper packages include:
+* `pander` - converts R objects to markdown
+* `kableExtra` - styles `knitr` tables
+* `bookdown` - extends R Markdown
+
+.footnote[
+[`rmarkdown`](https://github.com/rstudio/rmarkdown/)
+[`knitr`](https://github.com/yihui/knitr) 
+[`pander`](https://github.com/Rapporter/pander)
+[`bookdown`](https://github.com/rstudio/bookdown)
+
+
+]
+]
+
 
 ---
-class: important 
+
+class: center
+
+# Markup languages
 
 
-???
+.pull-left[
+![](images/WYSIWYG.png)
+]
 
-<!-- 
-.pull-left[]
-.pull-right[]
-![:scale 20%]()
+.pull-right[
+* Presentational: *Word*
+* Descriptive: ![:scale 7%](images/LaTeX_logo.svg)
+* Lightweight: Markdown
+]
 
-.footnote[]
+
 
 ---
--->
+# Markdown Basics
+
+
+
+
+---
+# R Markdown - YAML
+
+preamble
+output options
+
+
+
+---
+# Resource
+
+[R Markdown Gallery](https://rmarkdown.rstudio.com/gallery.html)
+
+[`knitr`](https://github.com/yihui/knitr) 
+
+[R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/) 
+
+
+![:scale 20%](images/rmarkdown-logo.png) R Markdown combines:
+
+![:scale 20%](images/knit-logo.png) for executing code chunks and converting to markdown
+
+![:scale 30%](images/pandoc.png)
+![:scale 20%](https://bookdown.org/yihui/bookdown/images/logo.png) 
+
