@@ -1,20 +1,22 @@
 ---
-title: "Some title"
-author: "Dwigt"
-date: "2018-01-01"
+title: "Overview of packages for generating tables"
+author: "Alec Robitaille"
+date: "`r Sys.Date()`"
 output: html_document
 ---
 
-This is a paragraph in an R Markdown document.
+Packages:
+* `knitr`
+* `pander`
+* `xtable`
 
-Below is a code chunk:
 
 ````{r}
-fit = lm(dist ~ speed, data = cars)
-b   = coef(fit)
-plot(cars)
-abline(fit)
+library(labelled)
+library(ggplot2)
+
+var_label(cars$speed) <- "Speed of car"
+cars
+
+qplot(speed, dist, data = cars)
 ```
-
-
-The slope of the regression is `r b[2]`.
