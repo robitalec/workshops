@@ -7,6 +7,9 @@ output: html_document
 
 Packages:
 * `knitr`
+  * `kable` 
+* `kableExtra` 
+  * pipe + header above
 * `pander`
 * `xtable`
 
