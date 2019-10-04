@@ -7,16 +7,25 @@ output: html_document
 
 Packages:
 * `knitr`
+* `broom.mixed` and `broom`
 * `pander`
 * `xtable`
 
 
+
+# Single model
+
+
 ````{r}
-library(labelled)
-library(ggplot2)
-
-var_label(cars$speed) <- "Speed of car"
-cars
-
-qplot(speed, dist, data = cars)
+ml <- with(lm(mpg ~ hp + wt), data = mtcars)
+pander(ml)
+pander(anova(ml))
+pander(aov(ml))
 ```
+
+
+# Multiple models
+
+
+
+# AIC tables
