@@ -36,6 +36,8 @@ DT <- rbindlist(lapply(seq_along(listModels), function(m) {
   data.table(broom.mixed::tidy(listModels[[m]]))[, model := names(listModels[m])]
 }))
 
+dcast(DT, model ~ term, value.var = c('estimate', 'std.error'))
+
 
 ##Looking for a table that takes all coefficients and standard errors, with p-values or indicators of significance
 #if p-values makes things too complicated, leave them out, not that important. 
