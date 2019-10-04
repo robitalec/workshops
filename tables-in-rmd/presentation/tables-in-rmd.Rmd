@@ -198,6 +198,10 @@ output: html_document
 tabs
 
 
+
+---
+
+
 ---
 # Text references
 
@@ -275,6 +279,8 @@ class: important
 * Tabs only in YAML
 
 * Text references: The syntax for a text reference is (ref:label) text, where label is a unique label5 throughout the document for text. It must be in a separate paragraph with empty lines above and below it. The paragraph must not be wrapped into multiple lines, and should not end with a white space. For example,
+
+* git diffable: preserve github_document. use CSVs
 
 ---
 # Resource
