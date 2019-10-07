@@ -219,7 +219,7 @@ class: example
 
 1. Remove the base R plot
 1. Load `ggplot2`
-1. Plot the cars dataset with `qplot` or `ggplot` e.g.: `qplot(speed, dist, data = cars)`
+1. Plot the cars dataset with `qplot()` or `ggplot()` e.g.: `qplot(speed, dist, data = cars)`
 1. Knit the document!
 
 
