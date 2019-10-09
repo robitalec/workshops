@@ -13,7 +13,7 @@ class: center, middle, inverse, title-slide
 
 # Tables in R Markdown
 ### <div class="line-block">Alec Robitaille</div>
-### October 7 2019 [updated: October 3 2019]
+### October 7 2019 [updated: October 9 2019]
 
 ---
 
@@ -114,7 +114,7 @@ Helper packages include:
 ![:scale 60%](https://cdn-prod.medicalnewstoday.com/content/images/articles/277/277432/beetroot-on-a-white-background.jpg)
 ]
 
-.footnote[[cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf)]
+.footnote[[Cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf)]
 
 
 ???
@@ -124,36 +124,16 @@ image local or URL
 ---
 # A minimum working example
 
-
-
 `example.Rmd`
 
+![:scale 40%](images/mwe.png)
 
-```yaml
----
-title: "Some title"
-author: "Dwigt"
-date: "2018-01-01"
-output: html_document
----
-```
-````markdown
-This is a paragraph in an R Markdown document.
 
-Below is a code chunk:
-
-```{r}
-fit = lm(dist ~ speed, data = cars)
-b   = coef(fit)
-plot(cars)
-abline(fit)
-```
-
-The slope of the regression is NA.
-````
-
-.footnote[
-```]
+???
+Three parts of an RMarkdown document:
+* YAML
+* text
+* code chunks and inline code
 
 
 ---
@@ -170,6 +150,17 @@ class: example
 1. Check out the results
 
 1. Add headers in the text
+
+---
+# YAML frontmatter
+
+
+* Set the output format
+* Author, title, date
+* TOC, 
+
+
+
 
 ---
 class: example
@@ -207,14 +198,29 @@ tabs not spaces
 ---
 # Code chunks
 
+![](images/eg-code-chunk.png)
+
+
+* Three back ticks
+
+* Curly braces
+
+* Language name (`r`, `python`, `bash`)
+
+* Chunk label and options
+
+
+
 
 
 ---
+class: example
+
 # Example: code chunks
 
 1. Remove the base R plot
 1. Load `ggplot2`
-1. Plot the cars dataset with `qplot` or `ggplot` e.g.: `qplot(speed, dist, data = cars)`
+1. Plot the cars dataset with `qplot()` or `ggplot()` e.g.: `qplot(speed, dist, data = cars)`
 1. Knit the document!
 
 
@@ -272,8 +278,14 @@ Briefly:
 ---
 # Advanced
 
-Using LaTeX include_headers
+* Using LaTeX include_headers
 
+* including pictures in tables
+wicked cool rmd knitr kable stuff
+
+* using ![]() syntax and LaTeX \includegraphics{}
+* figure out a word document solution
+https://stackoverflow.com/questions/25106481/add-an-image-to-a-table-like-output-in-r
 
 
 
@@ -289,6 +301,8 @@ class: important
 * Tabs only in YAML
 
 * Text references: The syntax for a text reference is (ref:label) text, where label is a unique label5 throughout the document for text. It must be in a separate paragraph with empty lines above and below it. The paragraph must not be wrapped into multiple lines, and should not end with a white space. For example,
+
+* git diffable: preserve github_document. use CSVs
 
 ---
 # Resource
@@ -368,7 +382,24 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
     deleted = true;
   });
-})();</script>
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
 
 <script>
 (function() {

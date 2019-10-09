@@ -111,7 +111,7 @@ Helper packages include:
 ![:scale 60%](https://cdn-prod.medicalnewstoday.com/content/images/articles/277/277432/beetroot-on-a-white-background.jpg)
 ]
 
-.footnote[[cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf)]
+.footnote[[Cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf)]
 
 
 ???
@@ -121,38 +121,16 @@ image local or URL
 ---
 # A minimum working example
 
-
-
 `example.Rmd`
 
-```{r include=FALSE}
-b = '`r b[1]`'  # an ugly hack; don't look at me
-```
-```yaml
----
-title: "Some title"
-author: "Dwigt"
-date: "2018-01-01"
-output: html_document
----
-```
-````markdown
-This is a paragraph in an R Markdown document.
+![:scale 40%](images/mwe.png)
 
-Below is a code chunk:
 
-`r ''````{r}
-fit = lm(dist ~ speed, data = cars)
-b   = coef(fit)
-plot(cars)
-abline(fit)
-```
-
-The slope of the regression is `r b[2]`.
-````
-
-.footnote[
-```]
+???
+Three parts of an RMarkdown document:
+* YAML
+* text
+* code chunks and inline code
 
 
 ---
@@ -169,6 +147,17 @@ class: example
 1. Check out the results
 
 1. Add headers in the text
+
+---
+# YAML frontmatter
+
+
+* Set the output format
+* Author, title, date
+* TOC, 
+
+
+
 
 ---
 class: example
@@ -206,10 +195,19 @@ tabs not spaces
 ---
 # Code chunks
 
+![](images/eg-code-chunk.png)
+
+
+* Three back ticks
+
+* Curly braces
+
+* Language name (`r`, `python`, `bash`)
+
+* Chunk label and options
 
 
 
----
 
 
 ---
