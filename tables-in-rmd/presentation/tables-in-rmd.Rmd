@@ -308,6 +308,8 @@ class: important
 
 [R Markdown Cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf)
 
+[Yihui Xie's Customizing & Extending R Markdown](https://slides.yihui.name/2017-rstudio-conf-ext-rmd-Yihui-Xie.html#1)
+
 [`knitr`](https://github.com/yihui/knitr) 
 
 [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/) 
