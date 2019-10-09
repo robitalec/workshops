@@ -221,13 +221,6 @@ class: example
 1. Knit the document!
 
 
-
-# Text references
-
-
-The syntax for a text reference is (ref:label) text, where label is a unique label5 throughout the document for text. It must be in a separate paragraph with empty lines above and below it. The paragraph must not be wrapped into multiple lines, and should not end with a white space. For example,
-
-
 ---
 # Word documents - template
 
@@ -243,6 +236,18 @@ output:
 ```
 
 **TODO:** make a good reference docx
+
+
+
+---
+
+
+# Text references
+
+
+The syntax for a text reference is (ref:label) text, where label is a unique label5 throughout the document for text. It must be in a separate paragraph with empty lines above and below it. The paragraph must not be wrapped into multiple lines, and should not end with a white space. For example,
+
+
 
 ---
 # References
