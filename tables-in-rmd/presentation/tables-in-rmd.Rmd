@@ -156,9 +156,28 @@ class: example
 # YAML frontmatter
 
 
-* Set the output format
+* Output format
 * Author, title, date
-* TOC, 
+
+```yaml
+---
+title: "Some title"
+author: "Dwigt"
+date: "2018-01-01"
+output: html_document
+---
+```
+
+* See `?rmarkdown::pdf_document`, `?rmarkdown::word_document`, ... for details
+
+
+---
+class: clear
+
+```{r, echo = FALSE, printr.help.sections = c('usage')}
+library(printr)
+?rmarkdown:::pdf_document()
+```
 
 
 
