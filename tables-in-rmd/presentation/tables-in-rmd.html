@@ -295,17 +295,39 @@ output:
 
 
 ---
-# Text references
+# Captions with text references
+
+1. Switch the output format to `bookdown::word_document2`
+1. Use `(ref:label)` syntax to set the caption's label
+1. Pass the label to `fig.cap` chunk option
 
 
+````markdown
+A normal paragraph.
+
+(ref:fig1) A scatterplot of the data `cars` using base R graphics. 
+
+```{r, fig.cap='(ref:fig1)'}
+plot(cars)
+```
+
+Another paragraph.
+
+(ref:tab1) A summary table of the data `cars` using base R graphics. 
+
+```{r, fig.cap='(ref:tab1)'}
+knitr::kable(summary(cars))
+```
+````
+
+???
 The syntax for a text reference is (ref:label) text, where label is a unique label5 throughout the document for text. It must be in a separate paragraph with empty lines above and below it. The paragraph must not be wrapped into multiple lines, and should not end with a white space. For example,
 
 
 
 ---
-# References
+# Extra: References
 
-Briefly:
 1. create a `references.bib` file
 1. add `bibliography: references.bib` to the YAML
 1. fill the `references.bib` (manually, using [Mendeley](https://blog.mendeley.com/2011/10/25/howto-use-mendeley-to-create-citations-using-latex-and-bibtex/) or [Zotero](https://github.com/retorquere/zotero-better-bibtex))
