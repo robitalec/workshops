@@ -1,14 +1,18 @@
 ---
 title: "Tables in R Markdown"
-author: | 
-  | Alec Robitaille
-date: "`r paste0('October 7 2019 [updated: ', paste(month.name[data.table::month(Sys.Date())], data.table::mday(Sys.Date()), data.table::year(Sys.Date())), ']')`"
+author: Alec Robitaille 
+date: "`r paste0('October 21 2019 [updated: ', paste(month.name[data.table::month(Sys.Date())], data.table::mday(Sys.Date()), data.table::year(Sys.Date())), ']')`"
 output: 
   xaringan::moon_reader:
     nature:
       highlightStyle: github
       beforeInit: "macros.js"
       highlightLines: true
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>`
     css: [metropolis, metropolis-fonts, "extra.css"]
 ---
   
