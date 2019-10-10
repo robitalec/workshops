@@ -225,11 +225,14 @@ tabs not spaces
 
 * Curly braces
 
-* Language name (`r`, `python`, `bash`)
+* Language name (`r`, `python`, `bash`, [etc](https://bookdown.org/yihui/rmarkdown/language-engines.html))
 
 * Chunk label and options
 
 
+.footnote[
+[List of chunk options](https://yihui.name/knitr/options/)
+]
 
 
 
