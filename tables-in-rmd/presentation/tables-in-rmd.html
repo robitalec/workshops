@@ -3,6 +3,7 @@
   <head>
     <title>Tables in R Markdown</title>
     <meta charset="utf-8" />
+    <meta name="author" content="Alec Robitaille" />
     <link href="tables-in-rmd_files/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
     <link href="tables-in-rmd_files/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
     <link rel="stylesheet" href="extra.css" type="text/css" />
@@ -12,8 +13,8 @@
 class: center, middle, inverse, title-slide
 
 # Tables in R Markdown
-### <div class="line-block">Alec Robitaille</div>
-### October 7 2019 [updated: October 9 2019]
+### Alec Robitaille
+### October 21 2019 [updated: October 10 2019]
 
 ---
 
@@ -124,9 +125,9 @@ image local or URL
 ---
 # A minimum working example
 
-`example.Rmd`
+`example-mwe.Rmd`
 
-![:scale 40%](images/mwe.png)
+![:scale 70%](images/mwe.png)
 
 
 ???
@@ -142,7 +143,6 @@ class: example
 # Example: minimum working example
 
 
-
 1. Open `examples/example-mwe.Rmd`
 
 1. Knit the document
@@ -155,9 +155,49 @@ class: example
 # YAML frontmatter
 
 
-* Set the output format
+* Output format
 * Author, title, date
-* TOC, 
+
+```yaml
+---
+title: "Some title"
+author: "Dwigt"
+date: "2018-01-01"
+output: html_document
+---
+```
+
+* See `?rmarkdown::pdf_document`, `?rmarkdown::word_document`, ... for details
+
+
+---
+class: clear
+
+&lt;div class="r-help-page"&gt;
+
+&lt;table width="100%" summary="page for pdf_document"&gt;&lt;tr&gt;&lt;td&gt;pdf_document&lt;/td&gt;&lt;td style="text-align: right;"&gt;R Documentation&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;h2&gt;Convert to a PDF/LaTeX document&lt;/h2&gt;
+
+&lt;h3&gt;Usage&lt;/h3&gt;
+
+&lt;pre class="r"&gt;
+pdf_document(toc = FALSE, toc_depth = 2, number_sections = FALSE,
+  fig_width = 6.5, fig_height = 4.5, fig_crop = TRUE,
+  fig_caption = TRUE, dev = "pdf", df_print = "default",
+  highlight = "default", template = "default", keep_tex = FALSE,
+  keep_md = FALSE, latex_engine = "pdflatex",
+  citation_package = c("none", "natbib", "biblatex"), includes = NULL,
+  md_extensions = NULL, output_extensions = NULL, pandoc_args = NULL,
+  extra_dependencies = NULL)
+
+latex_document(...)
+
+latex_fragment(...)
+&lt;/pre&gt;
+
+
+&lt;/div&gt;
 
 
 
@@ -205,11 +245,14 @@ tabs not spaces
 
 * Curly braces
 
-* Language name (`r`, `python`, `bash`)
+* Language name (`r`, `python`, `bash`, [etc](https://bookdown.org/yihui/rmarkdown/language-engines.html))
 
 * Chunk label and options
 
 
+.footnote[
+[List of chunk options](https://yihui.name/knitr/options/)
+]
 
 
 
@@ -218,22 +261,18 @@ class: example
 
 # Example: code chunks
 
+1. Open `examples/example-mwe.Rmd`
 1. Remove the base R plot
 1. Load `ggplot2`
 1. Plot the cars dataset with `qplot()` or `ggplot()` e.g.: `qplot(speed, dist, data = cars)`
+1. Set the figure width and figure height ([hint](https://yihui.name/knitr/options/#plots))
 1. Knit the document!
 
 
 ---
-
-# Text references
-
-
-The syntax for a text reference is (ref:label) text, where label is a unique label5 throughout the document for text. It must be in a separate paragraph with empty lines above and below it. The paragraph must not be wrapped into multiple lines, and should not end with a white space. For example,
+# Styling Word documents
 
 
----
-# Word documents - template
 
 ```yaml
 ---
@@ -242,11 +281,26 @@ author: "Dwigt"
 date: "2018-01-01"
 output:
   word_document:
-*    reference_docx: style.docx
+*    reference_docx: styles.docx
 ---
 ```
 
-**TODO:** make a good reference docx
+
+
+1. Set desired styles in the reference docx (`examples/styles.docx`)
+1. Add path in YAML
+1. Knit the document!
+
+
+
+
+---
+# Text references
+
+
+The syntax for a text reference is (ref:label) text, where label is a unique label5 throughout the document for text. It must be in a separate paragraph with empty lines above and below it. The paragraph must not be wrapped into multiple lines, and should not end with a white space. For example,
+
+
 
 ---
 # References
@@ -345,7 +399,8 @@ https://rmarkdown.rstudio.com/articles_docx.html
 <script src="macros.js"></script>
 <script>var slideshow = remark.create({
 "highlightStyle": "github",
-"highlightLines": true
+"highlightLines": true,
+"slideNumberFormat": "<div class=\"progress-bar-container\">   <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">   </div> </div>` "
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));

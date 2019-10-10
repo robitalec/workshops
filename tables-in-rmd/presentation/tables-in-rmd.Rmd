@@ -143,7 +143,6 @@ class: example
 # Example: minimum working example
 
 
-
 1. Open `examples/example-mwe.Rmd`
 
 1. Knit the document
@@ -241,14 +240,18 @@ class: example
 
 # Example: code chunks
 
+1. Open `examples/example-mwe.Rmd`
 1. Remove the base R plot
 1. Load `ggplot2`
 1. Plot the cars dataset with `qplot()` or `ggplot()` e.g.: `qplot(speed, dist, data = cars)`
+1. Set the figure width and figure height ([hint](https://yihui.name/knitr/options/#plots))
 1. Knit the document!
 
 
 ---
-# Word documents - template
+# Styling Word documents
+
+
 
 ```yaml
 ---
@@ -257,17 +260,20 @@ author: "Dwigt"
 date: "2018-01-01"
 output:
   word_document:
-*    reference_docx: style.docx
+*    reference_docx: styles.docx
 ---
 ```
 
-**TODO:** make a good reference docx
+
+
+1. Set desired styles in the reference docx (`examples/styles.docx`)
+1. Add path in YAML
+1. Knit the document!
+
 
 
 
 ---
-
-
 # Text references
 
 

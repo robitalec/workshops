@@ -18,3 +18,7 @@ abline(fit)
 
 
 The slope of the regression is `r b[2]`.
+
+
+
+
