@@ -125,9 +125,9 @@ image local or URL
 ---
 # A minimum working example
 
-`example.Rmd`
+`example-mwe.Rmd`
 
-![:scale 40%](images/mwe.png)
+![:scale 70%](images/mwe.png)
 
 
 ???
