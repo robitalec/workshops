@@ -14,7 +14,7 @@ class: center, middle, inverse, title-slide
 
 # Tables in R Markdown
 ### Alec Robitaille
-### October 21 2019 [updated: October 10 2019]
+### October 21 2019 [updated: October 11 2019]
 
 ---
 
@@ -173,6 +173,13 @@ output: html_document
 ---
 class: clear
 
+
+```
+## Registered S3 method overwritten by 'printr':
+##   method                from     
+##   knit_print.data.frame rmarkdown
+```
+
 &lt;div class="r-help-page"&gt;
 
 &lt;table width="100%" summary="page for pdf_document"&gt;&lt;tr&gt;&lt;td&gt;pdf_document&lt;/td&gt;&lt;td style="text-align: right;"&gt;R Documentation&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
@@ -270,6 +277,25 @@ class: example
 
 
 ---
+# Summary tables
+
+* `data.table`
+  * `.N` 
+  * `uniqueN`
+* `knitr::kable`
+* `kableExtra`
+  * `add_header_above`
+
+
+---
+# Models
+
+* `broom`
+* Ben Bolker's `broom.mixed`
+* `pander`
+
+
+---
 # Styling Word documents
 
 
@@ -321,12 +347,11 @@ knitr::kable(summary(cars))
 ````
 
 ???
-The syntax for a text reference is (ref:label) text, where label is a unique label5 throughout the document for text. It must be in a separate paragraph with empty lines above and below it. The paragraph must not be wrapped into multiple lines, and should not end with a white space. For example,
-
+The syntax for a text reference is (ref:label) text, where label is a unique label throughout the document for text. It must be in a separate paragraph with empty lines above and below it. The paragraph must not be wrapped into multiple lines, and should not end with a white space. 
 
 
 ---
-# Extra: References
+# Extra: bibliographies
 
 1. create a `references.bib` file
 1. add `bibliography: references.bib` to the YAML

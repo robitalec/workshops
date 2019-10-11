@@ -249,6 +249,27 @@ class: example
 
 
 ---
+# Summary tables
+
+`examples-tables.Rmd`
+
+* `data.table`
+  * `.N` 
+  * `uniqueN`
+* `knitr::kable`
+* `kableExtra`
+  * `add_header_above`
+
+
+---
+# Models
+
+* `broom`
+* Ben Bolker's `broom.mixed`
+* `pander`
+
+
+---
 # Styling Word documents
 
 
@@ -300,12 +321,11 @@ knitr::kable(summary(cars))
 ````
 
 ???
-The syntax for a text reference is (ref:label) text, where label is a unique label5 throughout the document for text. It must be in a separate paragraph with empty lines above and below it. The paragraph must not be wrapped into multiple lines, and should not end with a white space. For example,
-
+The syntax for a text reference is (ref:label) text, where label is a unique label throughout the document for text. It must be in a separate paragraph with empty lines above and below it. The paragraph must not be wrapped into multiple lines, and should not end with a white space. 
 
 
 ---
-# Extra: References
+# Extra: bibliographies
 
 1. create a `references.bib` file
 1. add `bibliography: references.bib` to the YAML
