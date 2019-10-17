@@ -371,12 +371,11 @@ class: important
 
 * Tabs only in YAML
 
-* Text references: The syntax for a text reference is (ref:label) text, where label is a unique label5 throughout the document for text. It must be in a separate paragraph with empty lines above and below it. The paragraph must not be wrapped into multiple lines, and should not end with a white space. For example,
-
 * git diffable: preserve github_document. use CSVs
 
 * Something isn't working? (common example: bullets aren't formatting correctly) Add spaces everywhere
 
+* when working with PDF outputs, remember it's LaTeX  intermediate, so most solutions for LaTeX will work too
 
 ---
 # Advanced
@@ -390,6 +389,7 @@ wicked cool rmd knitr kable stuff
 * figure out a word document solution
 https://stackoverflow.com/questions/25106481/add-an-image-to-a-table-like-output-in-r
 
+* change fonts - easiest for PDFs
 
 
 ---
