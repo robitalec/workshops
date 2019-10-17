@@ -428,14 +428,3 @@ shortcuts! `ctrl/cmd + shift + k`
 
 
 <!-- https://rmarkdown.rstudio.com/articles_docx.html -->
-
-
----
-
-# Setup
-
-1. Install packages
-  * knitr, tinytex, rmarkdown, bookdown, kableExtra, pander
-2. Install tinytex
-  * `tinytex::install_tinytex()`
-

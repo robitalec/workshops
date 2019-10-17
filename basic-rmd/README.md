@@ -3,6 +3,15 @@ Author: Alec Robitaille
 Presentation date: October 21 2019
 
 
+
+## Setup
+
+1. Install packages
+  * `knitr`, `tinytex`, `rmarkdown`, `bookdown`, `kableExtra`, `pander`
+2. Install tinytex on the system
+  * `tinytex::install_tinytex()`
+
+
 ## Skeleton
 1. Markup languages
 1. Markdown basics
