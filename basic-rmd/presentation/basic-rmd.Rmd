@@ -263,7 +263,7 @@ File: `examples/example-basic.Rmd`
 ---
 class: review
 
-# Review:
+# Review
 
 **TODO: fix this bg color** 
 
@@ -284,6 +284,27 @@ To either:
 ## Text
 All other text surrounding code chunks and inline code. Text references, citations, etc. 
 
+
+---
+class: review
+
+# Review 
+
+1. Pick one example R Markdown document
+  * 
+  * 
+  *
+1. Identify the YAML
+  * What output format is it? 
+  * Who is the author?
+1. Pick a code chunk
+  * What is the chunk (generally) doing?
+  * What chunk options did they use?
+1. Find an example of inline code. 
+  * What does it do?
+  * Where does the data come from?
+
+  
 
 ---
 # Styling Word documents
