@@ -70,7 +70,7 @@ Helper packages include:
 
 ???
 * Presentational: *Word* (not a "language")
-* Descriptive: ![:scale 12%](images/LaTeX_logo.svg)
+* Descriptive: LaTeX
 * Lightweight: Markdown
 
 ---
@@ -267,17 +267,21 @@ class: review
 **TODO: fix this bg color** 
 
 ## YAML
+To set:
 * document type - PDF, Word, HTML, Markdown
 * author, date
 * document options - font type and size, 
 
 ## Code chunks
-* Run code
-* Show code
+To either:
+* Run code producing figures, tables, *numbers*
+* Show code 
+
+
 * Chunk options: include code (`echo`), run code (`eval`), set figure options
 
 ## Text
-**TODO**
+All other text surrounding code chunks and inline code. Text references, citations, etc. 
 
 
 ---
@@ -306,7 +310,7 @@ output:
 ---
 # Captions with text references
 
-1. Switch the output format to `bookdown::word_document2`
+1. **Switch the output format** to `bookdown::word_document2`
 1. Use `(ref:label)` syntax to set the caption's label
 1. Pass the label to `fig.cap` chunk option
 
@@ -367,15 +371,18 @@ class: important
 
 * R Markdown documents always set the working directory relative to the `.Rmd` file
 
-* Shortcut: ctrl/command + shift + k to knit in RStudio
+* YAML does not accept spaces, *only tabs*
 
-* Tabs only in YAML
+* Git diff-able formats: `output: github_document` or `keep_me: true`. For (small) data - use CSVs. 
 
-* git diffable: preserve github_document. use CSVs
+* Something isn't working? (common example: bullets aren't formatting correctly) - add spaces everywhere. 
 
-* Something isn't working? (common example: bullets aren't formatting correctly) Add spaces everywhere
+* when working with PDF outputs, remember it uses a LaTeX  intermediate, so most solutions for LaTeX will work too. 
 
-* when working with PDF outputs, remember it's LaTeX  intermediate, so most solutions for LaTeX will work too
+.footnote[
+shortcuts! `ctrl/cmd + shift + k`
+]
+
 
 ---
 # Advanced
@@ -390,6 +397,7 @@ wicked cool rmd knitr kable stuff
 https://stackoverflow.com/questions/25106481/add-an-image-to-a-table-like-output-in-r
 
 * change fonts - easiest for PDFs
+
 
 
 ---
