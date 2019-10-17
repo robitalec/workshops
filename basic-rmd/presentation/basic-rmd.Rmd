@@ -386,29 +386,48 @@ shortcuts! `ctrl/cmd + shift + k`
 
 
 ---
-# Resource
+# Resources
 
-[R Markdown Gallery](https://rmarkdown.rstudio.com/gallery.html)
+# R Markdown
 
-[R Markdown Cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf)
-
-[Yihui Xie's Customizing & Extending R Markdown](https://slides.yihui.name/2017-rstudio-conf-ext-rmd-Yihui-Xie.html#1)
-
-[`knitr`](https://github.com/yihui/knitr) 
+.pull-left[
+### Books
 
 [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/) 
 
-![](https://d33wubrfki0l68.cloudfront.net/15c2850da53a2f8d8a1a30aa003bda21155e16ec/db869/images/logo-tinytex.png)
-
-![:scale 20%](https://bookdown.org/yihui/rmarkdown/images/hex-rmarkdown.png)
-
-![:scale 20%](images/knit-logo.png) 
-![:scale 30%](images/pandoc.png)
-![:scale 20%](https://bookdown.org/yihui/bookdown/images/logo.png) 
+![:scale 25%](https://bookdown.org/yihui/rmarkdown/images/cover.png)
 
 
+[bookdown: Authoring Books and Technical Documents with R Markdown](https://bookdown.org/yihui/bookdown/)
 
-https://rmarkdown.rstudio.com/articles_docx.html
+![:scale 25%](https://bookdown.org/yihui/bookdown/images/cover.jpg)
+
+
+]
+
+.pull-right[
+
+### Packages:
+* [`knitr`](https://github.com/yihui/knitr)  - executes code chunks and converts from Rmd to md
+* [`pander`](https://github.com/Rapporter/pander) - converts R objects to markdown
+* [`tinytex`](https://github.com/yihui/tinytex) - provides a cross-platform, lightweight LaTeX distribution (for rendering PDFs)
+* [`kableExtra`](https://github.com/haozhu233/kableExtra) - styles `knitr` tables
+* [`bookdown`](https://github.com/rstudio/bookdown) - extends R Markdown
+
+### Cheatsheets & Slides
+[R Markdown Cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf)
+
+[Yihui Xie's Customizing & Extending R Markdown](https://slides.yihui.name/2017-rstudio-conf-ext-rmd-Yihui-Xie.html#1)
+]
+
+.footnote[
+[R Markdown Gallery](https://rmarkdown.rstudio.com/gallery.html)
+
+]
+
+
+
+<!-- https://rmarkdown.rstudio.com/articles_docx.html -->
 
 
 ---
