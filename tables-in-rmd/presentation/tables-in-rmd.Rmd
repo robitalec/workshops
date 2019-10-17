@@ -146,7 +146,7 @@ class: example
 
 1. Check out the results
 
-1. Add headers in the text
+1. Add Markdown in the text (headers, bold, ...)
 
 
 ---

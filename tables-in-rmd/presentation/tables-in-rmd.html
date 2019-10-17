@@ -146,7 +146,7 @@ class: example
 
 1. Check out the results
 
-1. Add headers in the text
+1. Add Markdown in the text (headers, bold, ...)
 
 
 ---
@@ -155,6 +155,7 @@ class: example
 
 * Output format
 * Author, title, date
+* Document properties: font size, line spacing, bibliography file
 
 ```yaml
 ---
@@ -198,7 +199,7 @@ See options relevant to each output type in the [cheatsheet](https://github.com/
 
 
 ???
-tabs not spaces
+break it with tabs not spaces
 
 
 ---
@@ -216,11 +217,6 @@ tabs not spaces
 * Chunk label and options
 
 
-.footnote[
-[List of chunk options](https://yihui.name/knitr/options/)
-]
-
-
 
 ---
 class: example
@@ -231,9 +227,34 @@ class: example
 1. Remove the base R plot
 1. Load `ggplot2`
 1. Plot the cars dataset with `qplot()` or `ggplot()` e.g.: `qplot(speed, dist, data = cars)`
+1. Knit the document!
+
+
+class: example
+
+# Example: chunk options
+
+.footnote[
+[List of chunk options](https://yihui.name/knitr/options/)
+]
+
+1. Open `examples/example-basic.Rmd`
 1. Set the figure width and figure height ([hint](https://yihui.name/knitr/options/#plots))
 1. Knit the document!
 
+
+---
+# Useful chunk options
+
+
+**TODO:  Look for good img / table by category/type of option**
+
+* `echo`
+* `eval` 
+* `fig.width`
+* `fig.height`
+* `include`
+* 
 
 ---
 class: review
