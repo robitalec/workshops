@@ -50,14 +50,18 @@ Helper packages include:
 * [`bookdown`](https://github.com/rstudio/bookdown) - extends R Markdown
 
 
-.footnote[
+]
 
-]
-]
+---
+
+# Demo: why use R Markdown?
+
 
 
 
 ---
+
+
 # Markup languages
 
 
