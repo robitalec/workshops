@@ -14,7 +14,7 @@ class: center, middle, inverse, title-slide
 
 # Tables in R Markdown
 ### Alec Robitaille
-### October 21 2019 [updated: October 11 2019]
+### October 21 2019 [updated: October 17 2019]
 
 ---
 
@@ -61,15 +61,12 @@ Helper packages include:
 # Markup languages
 
 
-.pull-left[
 ![](images/WYSIWYG.png)
-]
 
-.pull-right[
+???
 * Presentational: *Word* (not a "language")
 * Descriptive: ![:scale 12%](images/LaTeX_logo.svg)
 * Lightweight: Markdown
-]
 
 
 
@@ -173,13 +170,6 @@ output: html_document
 ---
 class: clear
 
-
-```
-## Registered S3 method overwritten by 'printr':
-##   method                from     
-##   knit_print.data.frame rmarkdown
-```
-
 &lt;div class="r-help-page"&gt;
 
 &lt;table width="100%" summary="page for pdf_document"&gt;&lt;tr&gt;&lt;td&gt;pdf_document&lt;/td&gt;&lt;td style="text-align: right;"&gt;R Documentation&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
@@ -278,6 +268,8 @@ class: example
 
 ---
 # Summary tables
+
+`examples-tables.Rmd`
 
 * `data.table`
   * `.N` 
@@ -487,24 +479,7 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
     deleted = true;
   });
-})();
-// adds .remark-code-has-line-highlighted class to <pre> parent elements
-// of code chunks containing highlighted lines with class .remark-code-line-highlighted
-(function(d) {
-  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
-  const preParents = [];
-  const findPreParent = function(line, p = 0) {
-    if (p > 1) return null; // traverse up no further than grandparent
-    const el = line.parentElement;
-    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
-  };
-
-  for (let line of hlines) {
-    let pre = findPreParent(line);
-    if (pre && !preParents.includes(pre)) preParents.push(pre);
-  }
-  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
-})(document);</script>
+})();</script>
 
 <script>
 (function() {

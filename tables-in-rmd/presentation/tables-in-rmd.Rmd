@@ -61,15 +61,12 @@ Helper packages include:
 # Markup languages
 
 
-.pull-left[
 ![](images/WYSIWYG.png)
-]
 
-.pull-right[
+???
 * Presentational: *Word* (not a "language")
 * Descriptive: ![:scale 12%](images/LaTeX_logo.svg)
 * Lightweight: Markdown
-]
 
 
 
