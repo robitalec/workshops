@@ -384,21 +384,6 @@ shortcuts! `ctrl/cmd + shift + k`
 ]
 
 
----
-# Advanced
-
-* Using LaTeX include_headers
-
-* including pictures in tables
-wicked cool rmd knitr kable stuff
-
-* using ![]() syntax and LaTeX \includegraphics{}
-* figure out a word document solution
-https://stackoverflow.com/questions/25106481/add-an-image-to-a-table-like-output-in-r
-
-* change fonts - easiest for PDFs
-
-
 
 ---
 # Resource
