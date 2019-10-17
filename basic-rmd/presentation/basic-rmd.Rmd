@@ -142,8 +142,7 @@ class: example
 
 # Example: minimum working example
 
-
-1. Open `examples/example-basic.Rmd`
+File: `examples/example-basic.Rmd`
 
 1. Knit the document
 
@@ -186,7 +185,7 @@ output: html_document
 ---
 ```
 
-1. Open `examples/example-basic.Rmd`
+File: `examples/example-basic.Rmd`
 
 1. Switch the output to `word_document` or `pdf_document`
 
@@ -226,7 +225,8 @@ class: example
 
 # Example: code chunks
 
-1. Open `examples/example-basic.Rmd`
+File: `examples/example-basic.Rmd`
+
 1. Remove the base R plot
 1. Load `ggplot2`
 1. Plot the cars dataset with `qplot()` or `ggplot()` e.g.: `qplot(speed, dist, data = cars)`
@@ -241,7 +241,8 @@ class: example
 [List of chunk options](https://yihui.name/knitr/options/)
 ]
 
-1. Open `examples/example-basic.Rmd`
+File: `examples/example-basic.Rmd`
+
 1. Set the figure width and figure height ([hint](https://yihui.name/knitr/options/#plots))
 1. Knit the document!
 
