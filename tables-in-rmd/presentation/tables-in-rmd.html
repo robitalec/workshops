@@ -63,33 +63,33 @@ Helper packages include:
 
 ![](images/WYSIWYG.png)
 
+
+
 ???
 * Presentational: *Word* (not a "language")
 * Descriptive: ![:scale 12%](images/LaTeX_logo.svg)
 * Lightweight: Markdown
 
-
-
 ---
 # Markdown basics
 
 .pull-left[
-```markdown
-# Header one
+```
+# Header one   
 
 
 
 
 
 
-## Header two
+## Header two   
 
 
 
-*Italics*
+*Italics*  
 
 
-**Bold**
+**Bold**   
 
 
 
@@ -122,7 +122,7 @@ image local or URL
 ---
 # A minimum working example
 
-`example-mwe.Rmd`
+`example-basic.Rmd`
 
 ![:scale 70%](images/mwe.png)
 
@@ -140,13 +140,14 @@ class: example
 # Example: minimum working example
 
 
-1. Open `examples/example-mwe.Rmd`
+1. Open `examples/example-basic.Rmd`
 
 1. Knit the document
 
 1. Check out the results
 
 1. Add headers in the text
+
 
 ---
 # YAML frontmatter
@@ -168,38 +169,6 @@ output: html_document
 
 
 ---
-class: clear
-
-&lt;div class="r-help-page"&gt;
-
-&lt;table width="100%" summary="page for pdf_document"&gt;&lt;tr&gt;&lt;td&gt;pdf_document&lt;/td&gt;&lt;td style="text-align: right;"&gt;R Documentation&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-
-&lt;h2&gt;Convert to a PDF/LaTeX document&lt;/h2&gt;
-
-&lt;h3&gt;Usage&lt;/h3&gt;
-
-&lt;pre class="r"&gt;
-pdf_document(toc = FALSE, toc_depth = 2, number_sections = FALSE,
-  fig_width = 6.5, fig_height = 4.5, fig_crop = TRUE,
-  fig_caption = TRUE, dev = "pdf", df_print = "default",
-  highlight = "default", template = "default", keep_tex = FALSE,
-  keep_md = FALSE, latex_engine = "pdflatex",
-  citation_package = c("none", "natbib", "biblatex"), includes = NULL,
-  md_extensions = NULL, output_extensions = NULL, pandoc_args = NULL,
-  extra_dependencies = NULL)
-
-latex_document(...)
-
-latex_fragment(...)
-&lt;/pre&gt;
-
-
-&lt;/div&gt;
-
-
-
-
----
 class: example
 
 # Example: YAML frontmatter 
@@ -213,7 +182,7 @@ output: html_document
 ---
 ```
 
-1. Open `examples/example-mwe.Rmd`
+1. Open `examples/example-basic.Rmd`
 
 1. Switch the output to `word_document` or `pdf_document`
 
@@ -258,12 +227,32 @@ class: example
 
 # Example: code chunks
 
-1. Open `examples/example-mwe.Rmd`
+1. Open `examples/example-basic.Rmd`
 1. Remove the base R plot
 1. Load `ggplot2`
 1. Plot the cars dataset with `qplot()` or `ggplot()` e.g.: `qplot(speed, dist, data = cars)`
 1. Set the figure width and figure height ([hint](https://yihui.name/knitr/options/#plots))
 1. Knit the document!
+
+
+---
+class: review
+
+# Review:
+
+**TODO: fix this bg color** 
+
+## YAML
+* document type - PDF, Word, HTML, Markdown
+* author, date
+* document options - font type and size, 
+
+## Code chunks
+* Run code
+* Show code
+* Chunk options: include code (`echo`), run code (`eval`), set figure options
+
+## Text
 
 
 ---
