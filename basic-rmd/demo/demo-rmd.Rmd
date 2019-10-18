@@ -2,7 +2,7 @@
 title: Wicked cool demo
 author: Alec Robitaile
 output: 
-  pdf_document:
+  bookdown::pdf_document2:
     toc: true
     toc_depth: 3
     keep_md: true
@@ -10,13 +10,11 @@ output:
 bibliography: refs.bib
 ---
 
-# Table of Contents
-
 
 \newpage
 
 # Introduction
-Lorem ipsum... 
+
 
 
 # Methods
@@ -27,8 +25,36 @@ Lorem ipsum...
 ![](www.some-study-area-pic.jpg)
 
 -->
+
+# Results
+
+With a random example dataset, we can produce a random example figure. 
+
+(ref:clarity) The relationship between clarity and carat. Who knows anything about diamonds?
+
+```{r, eval = TRUE, echo = FALSE, fig.cap = '(ref:clarity)'}
+library(ggplot2)
+ggplot(diamonds) + 
+  geom_count(aes(clarity, carat)) +
+  guides(color = FALSE) + 
+  facet_wrap(~cut)
+```
+
+(ref:color) The relationship between color and carat, colored by carat. Huh, look at that, I'm representing the same information in two different ways. Feels like that's an unnecessary (though aesthetically pleasant) thing to do. 
+
+```{r, eval = TRUE, echo = FALSE, fig.cap = '(ref:color)'}
+library(ggplot2)
+ggplot(diamonds) + 
+  geom_count(aes(color, carat, color = color)) +
+  guides(color = FALSE) + 
+  facet_wrap(~cut)
+```
+
 # Discussion
 
 Some statement requiring a citation [@webber2018]. 
+
+
+\newpage 
 
 # References
