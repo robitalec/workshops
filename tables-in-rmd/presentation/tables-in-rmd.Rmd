@@ -29,6 +29,9 @@ knitr::opts_chunk$set(echo = TRUE,
 * `data.table`
   * `.N` 
   * `uniqueN`
+  * `dcast`
+  * `melt`
+  * `by`
 * `knitr::kable`
 * `kableExtra`
   * `add_header_above`

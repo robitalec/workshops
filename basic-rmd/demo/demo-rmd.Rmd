@@ -15,17 +15,27 @@ bibliography: refs.bib
 
 ```{r, eval = TRUE, echo = FALSE}
 library(ggplot2)
-diamonds
+library(knitr)
 
 # (For later)
 # diamonds <- diamonds[diamonds$price < 2400]
 ```
 # Introduction
-
+There are some better examples out there, check [this]() and [that]() and over [here](). 
 
 
 # Methods
+Look at the diamonds we research. See Table \ref:diamonds
 
+(ref:diamonds) Look at these diamonds. 
+
+```{r, echo = FALSE}
+options(knitr.kable.NA = '')
+kable(summary(diamonds[, c('carat', 'cut', 'color', 'clarity', 'depth')]),
+      booktabs = TRUE,
+      caption = '(ref:diamonds)')
+
+```
 ## Study Area
 
 <!--
@@ -62,9 +72,11 @@ Some statement requiring a citation [@webber2018].
 
 # Cool things to try:
 
-1. reorder some of these sections
-1. reorder the code chunks
-1. change the data, and notice the plots change
+1. reorder some of these sections (wow, look the toc changes)
+1. reorder the code chunks (hmm will the figure numbers change?)
+1. change the data, and notice the plots change (reproducible, neat!)
+1. Change the output format
+1. Change something and look at git
 
 \newpage 
 
