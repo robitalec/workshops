@@ -7,13 +7,10 @@ output:
     toc_depth: 3
     keep_md: true
     number_section: true
-bibliography: refs.bib
 ---
 
 # Table of Contents
 
-
-\newpage
 
 # Introduction
 Lorem ipsum... 
@@ -23,12 +20,4 @@ Lorem ipsum...
 
 ## Study Area
 
-<!--
-![](www.some-study-area-pic.jpg)
-
--->
-# Discussion
-
-Some statement requiring a citation [@webber2018]. 
-
-# References
+## 
