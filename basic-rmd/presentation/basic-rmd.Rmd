@@ -52,8 +52,11 @@ Helper packages include:
 ]
 
 ---
+class: middle
 
-# Demo: why use R Markdown?
+.center[
+## Demo: why use R Markdown?
+]
 
 
 
