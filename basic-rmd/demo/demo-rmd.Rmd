@@ -1,6 +1,8 @@
 ---
 title: Wicked cool demo
 author: Alec Robitaile
+header-includes: 
+  - \usepackage{lipsum}
 output: 
   bookdown::pdf_document2:
     toc: true
@@ -13,8 +15,6 @@ bibliography: refs.bib
 
 \newpage
 
-**switch pdfs to pngs**
-
 ```{r, eval = TRUE, echo = FALSE}
 library(ggplot2)
 library(knitr)
@@ -23,15 +23,19 @@ library(knitr)
 # diamonds <- diamonds[diamonds$price < 2400]
 ```
 # Introduction
-There are some better examples out there, check [this]() and [that]() and over [here](). 
-
+\lipsum[2-4]
 
 # Methods
-Look at the diamonds we research. See Table \ref:diamonds
+Look at the diamonds we research. See Table \@ref(tab:diamonds-tab)
+
 
 (ref:diamonds) Look at these diamonds. 
 
-```{r, echo = FALSE}
+\lipsum[3-8]
+
+
+
+```{r diamonds-tab, echo = FALSE}
 options(knitr.kable.NA = '')
 kable(summary(diamonds[, c('carat', 'cut', 'color', 'clarity', 'depth')]),
       booktabs = TRUE,
@@ -47,20 +51,30 @@ kable(summary(diamonds[, c('carat', 'cut', 'color', 'clarity', 'depth')]),
 
 # Results
 
-With a random example dataset, we can produce a random example figure \@ref{fig:clarity}. 
+
+With a random example dataset, we can produce a random example Figure \@ref(fig:clarity-fig).
 
 (ref:clarity) The relationship between clarity and carat. Who knows anything about diamonds?
 
-```{r clarity, eval = TRUE, echo = FALSE, fig.cap = '(ref:clarity)'}
+\lipsum[2]
+
+
+```{r clarity-fig, eval = TRUE, echo = FALSE, fig.cap = '(ref:clarity)'}
 ggplot(diamonds) + 
   geom_count(aes(clarity, carat)) +
   guides(color = FALSE) + 
   facet_wrap(~cut)
 ```
 
+
+Some more interesting things about diamonds in Figure \@ref(fig:color-fig)
+ 
 (ref:color) The relationship between color and carat, colored by carat. Huh, look at that, I'm representing the same information in two different ways. Feels like that's an unnecessary (though aesthetically pleasant) thing to do. 
 
-```{r color, eval = TRUE, echo = FALSE, fig.cap = '(ref:color)'}
+\lipsum[1]
+
+
+```{r color-fig, eval = TRUE, echo = FALSE, fig.cap = '(ref:color)'}
 ggplot(diamonds) + 
   geom_count(aes(color, carat, color = color)) +
   guides(color = FALSE) + 
@@ -71,6 +85,7 @@ ggplot(diamonds) +
 
 Some statement requiring a citation [@webber2018]. 
 
+\lipsum[3]
 
 # Cool things to try:
 

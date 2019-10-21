@@ -257,12 +257,10 @@ class: review
 
 # Review
 
-**TODO: fix this bg color** 
-
 ## YAML
 To set:
 * document type - PDF, Word, HTML, Markdown
-* author, date
+* author, date 
 * document options - font type and size, 
 
 ## Code chunks
@@ -283,8 +281,7 @@ class: review
 # Review 
 
 1. Pick one example R Markdown document
-  * 
-  * 
+  * [cboettig/noise-phenomena](https://github.com/cboettig/noise-phenomena/blob/master/paper/paper.Rmd)
   *
 1. Identify the YAML
   * What output format is it? 
