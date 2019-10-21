@@ -63,8 +63,9 @@ Helper packages include:
 
 # Markup languages
 
-
-![](images/WYSIWYG.png)
+.center[
+![:scale 70%](images/WYSIWYG.png)
+]
 
 
 
