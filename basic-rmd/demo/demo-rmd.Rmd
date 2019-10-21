@@ -13,6 +13,8 @@ bibliography: refs.bib
 
 \newpage
 
+**switch pdfs to pngs**
+
 ```{r, eval = TRUE, echo = FALSE}
 library(ggplot2)
 library(knitr)
