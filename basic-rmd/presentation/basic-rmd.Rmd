@@ -242,15 +242,11 @@ File: `examples/example-basic.Rmd`
 ---
 # Useful chunk options
 
+.center[
+![](https://dibsi-rnaseq.readthedocs.io/en/latest/_images/chunk_options.png)
+]
 
-**TODO:  Look for good img / table by category/type of option**
 
-* `echo`
-* `eval` 
-* `fig.width`
-* `fig.height`
-* `include`
-* 
 
 ---
 class: review
