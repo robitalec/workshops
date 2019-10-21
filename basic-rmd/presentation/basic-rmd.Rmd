@@ -77,29 +77,20 @@ Helper packages include:
 # Markdown basics
 
 .pull-left[
-```
-# Header one   
+
+`# Header one`   
+
+
+`## Header two`  
+
+
+`*Italics*  `
+
+`**Bold**`   
 
 
 
-
-
-
-## Header two   
-
-
-
-*Italics*  
-
-
-**Bold**   
-
-
-
-
-
-![](images/beets.jpg)
-```
+`![](images/beets.jpg)`
 ]
 
 
