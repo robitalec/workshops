@@ -225,6 +225,7 @@ File: `examples/example-basic.Rmd`
 1. Knit the document!
 
 
+---
 class: example
 
 # Example: chunk options
