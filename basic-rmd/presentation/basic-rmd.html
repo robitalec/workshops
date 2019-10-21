@@ -14,7 +14,7 @@ class: center, middle, inverse, title-slide
 
 # R Markdown Basics
 ### Alec Robitaille
-### October 21 2019 [updated: October 18 2019]
+### October 21 2019 [updated: October 21 2019]
 
 ---
 
@@ -52,8 +52,11 @@ Helper packages include:
 ]
 
 ---
+class: middle
 
-# Demo: why use R Markdown?
+.center[
+## Demo: why use R Markdown?
+]
 
 
 
@@ -77,10 +80,10 @@ Helper packages include:
 ---
 # Markdown basics
 
-\being{verbatim}
+.pull-left[
+
 `# Header one`   
 
-    
 
 `## Header two`  
 
@@ -88,10 +91,11 @@ Helper packages include:
 `*Italics*  `
 
 `**Bold**`   
-\end{verbatim}`
+
 
 
 `![](images/beets.jpg)`
+]
 
 
 .pull-right[
@@ -253,12 +257,10 @@ class: review
 
 # Review
 
-**TODO: fix this bg color** 
-
 ## YAML
 To set:
 * document type - PDF, Word, HTML, Markdown
-* author, date
+* author, date 
 * document options - font type and size, 
 
 ## Code chunks
@@ -279,7 +281,7 @@ class: review
 # Review 
 
 1. Pick one example R Markdown document
-  * 
+  * [cboettig/noise-phenomena](https://github.com/cboettig/noise-phenomena/blob/master/paper/paper.Rmd)
   * 
   *
 1. Identify the YAML
@@ -485,7 +487,24 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
     deleted = true;
   });
-})();</script>
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
 
 <script>
 (function() {
