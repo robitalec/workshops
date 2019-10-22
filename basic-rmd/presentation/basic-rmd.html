@@ -14,7 +14,7 @@ class: center, middle, inverse, title-slide
 
 # R Markdown Basics
 ### Alec Robitaille
-### October 21 2019 [updated: October 21 2019]
+### October 21 2019 [updated: October 22 2019]
 
 ---
 
@@ -145,6 +145,7 @@ File: `examples/example-basic.Rmd`
 
 1. Add Markdown in the text (headers, bold, ...)
 
+1. Knit the document to see the changes!
 
 ---
 # YAML frontmatter
@@ -163,7 +164,10 @@ output: html_document
 ---
 ```
 
-* See `?rmarkdown::pdf_document`, `?rmarkdown::word_document`, ... for details
+.footnote[
+See the documentation for `rmarkdown::pdf_document`, `rmarkdown::word_document`, or other output formats for more details
+
+]
 
 
 ---
@@ -213,6 +217,15 @@ break it with tabs not spaces
 
 * Chunk label and options
 
+
+.footnote[
+Inline code: surround the code with single backticks. Specify the language to evaluate the code.
+
+
+```echo
+`r 2+2`
+```
+]
 
 
 ---
@@ -399,8 +412,6 @@ shortcuts! `ctrl/cmd + shift + k`
 ---
 # Resources
 
-# R Markdown
-
 .pull-left[
 ### Books
 
@@ -486,24 +497,7 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
     deleted = true;
   });
-})();
-// adds .remark-code-has-line-highlighted class to <pre> parent elements
-// of code chunks containing highlighted lines with class .remark-code-line-highlighted
-(function(d) {
-  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
-  const preParents = [];
-  const findPreParent = function(line, p = 0) {
-    if (p > 1) return null; // traverse up no further than grandparent
-    const el = line.parentElement;
-    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
-  };
-
-  for (let line of hlines) {
-    let pre = findPreParent(line);
-    if (pre && !preParents.includes(pre)) preParents.push(pre);
-  }
-  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
-})(document);</script>
+})();</script>
 
 <script>
 (function() {

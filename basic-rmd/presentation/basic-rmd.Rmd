@@ -145,6 +145,7 @@ File: `examples/example-basic.Rmd`
 
 1. Add Markdown in the text (headers, bold, ...)
 
+1. Knit the document to see the changes!
 
 ---
 # YAML frontmatter
@@ -163,7 +164,10 @@ output: html_document
 ---
 ```
 
-* See `?rmarkdown::pdf_document`, `?rmarkdown::word_document`, ... for details
+.footnote[
+See the documentation for `rmarkdown::pdf_document`, `rmarkdown::word_document`, or other output formats for more details
+
+]
 
 
 ---
@@ -213,6 +217,14 @@ break it with tabs not spaces
 
 * Chunk label and options
 
+
+.footnote[
+Inline code: surround the code with single backticks. Specify the language to evaluate the code.
+
+```{echo = TRUE, eval = FALSE}
+`r 2+2`
+``` 
+]
 
 
 ---
@@ -398,8 +410,6 @@ shortcuts! `ctrl/cmd + shift + k`
 
 ---
 # Resources
-
-# R Markdown
 
 .pull-left[
 ### Books
