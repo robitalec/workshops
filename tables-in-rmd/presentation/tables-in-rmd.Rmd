@@ -37,6 +37,9 @@ knitr::opts_chunk$set(echo = TRUE,
   * `add_header_above`
 
 
+`pander(ftest(DT)))`
+
+
 ---
 # Models
 
