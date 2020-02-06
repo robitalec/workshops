@@ -58,11 +58,17 @@ class: review
 
 # Exercise: an example project
 
-1. Note folders
+.large[
+1. Note folders under `git-and-projects/example-project`
+
 1. Find and open scripts
+
 1. Modify the subset of the input data
+
 1. Modify the plot and save in the appropriate folder
-1. 
+
+1. Document your changes in the code comments and README.md 
+]
 
 ---
 
@@ -70,21 +76,19 @@ class: important
 
 # Review:
 
-.center[
+
 .large[
-1- number scripts 
+1. always use an R Project
 
+1. organize files into folders and number scripts 
 
-2- separate input/output files
+1. separate input/output files
 
+1. keep raw data raw
 
-3- keep raw data raw
+1. document everything
 
-
-4- document everything
-
-5- save intermediate objects as `.Rds` `\(^{[1]}\)`
-]
+1. save intermediate objects (.Rds) `\(^{[1]}\)`
 ]
 
 .footnote[
@@ -93,7 +97,32 @@ class: important
 
 
 ---
+# What is git?
+
+.center[
+![](http://swcarpentry.github.io/git-novice/fig/play-changes.svg)
+]
+
+
+.pull-left[
+![:scale 82%](http://swcarpentry.github.io/git-novice/fig/versions.svg) 
+]
+
+.pull-right[
+![:scale 83%](http://swcarpentry.github.io/git-novice/fig/merge.svg)
+]
+
+
+.footnote[Images: [SW Carpentry](http://swcarpentry.github.io/git-novice/01-basics/index.html)]
+
+---
 # Why use git? Why use GitLab / GitHub?
+
+* Open science
+* Collaboration
+* Exposure
+* Reproducible research
+* Connect with larger community (e.g.: rOpenSci, Carpentries)
 
 
 
@@ -111,6 +140,79 @@ class: important
 ]
 
 ---
+# Git basics
+
+
+
+---
+class: review
+
+# Guide: Making a new repository
+
+At [gitlab.com/projects/new](gitlab.com/projects/new):
+
+1. Name your project (no spaces)
+1. Check the namespace (e.g.: `robit.a/potato` vs `WEEL/potato`)
+1. Set visibility level (public/private)
+1. Check initialize with a README
+1. Create project
+1. [Set members](https://gitlab.com/robit.a/potato/-/project_members)
+
+On your computer: 
+
+1. `git clone https://gitlab.com/robit.a/potato.git`
+1. 
+
+---
+# Git subtleties
+
+
+* Git doesn't track folders, only the files within them
+* 
+
+
+
+---
+class: review
+
+# Exercise: paired practice
+
+
+
+
+
+.large[
+1. Create a new repository on GitLab.com under your own namespace
+
+1. Set members, optionally share with the WEEL group
+
+1. Clone the repository to your computer
+
+1. Add your scripts, etc. to folders
+
+1. Commit and push your changes
+
+1. Continue using Git?
+]
+
+---
+class: review
+
+# Exercise: your own project!
+
+.large[
+1. Create a new repository on GitLab.com under your own namespace
+
+1. Set members, optionally share with the WEEL group
+
+1. Clone the repository to your computer
+
+1. Add your scripts, etc. to folders
+
+1. Commit and push your changes
+
+1. Continue using Git?
+]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
