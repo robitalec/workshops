@@ -109,4 +109,6 @@ $^{[1]}$: [Efficient R: IO](https://csgillespie.github.io/efficientR/input-outpu
 * books: [Advanced R](https://adv-r.hadley.nz/), [Efficient R](https://csgillespie.github.io/efficientR/). 
 * websites: [robitalec.ca](robitalec.ca)
 * courses: [stat545](https://github.com/rstudio-education/stat545)
+* papers: [Noise Phenomena](https://github.com/cboettig/noise-phenomena) and [WEEL/SocCaribou](https://gitlab.com/WEEL_grp/SocCaribou)
+* packages: [`spatsoc`](https://github.com/ropensci/spatsoc)
 ]
