@@ -150,6 +150,8 @@ $^{[1]}$: [Efficient R: IO](https://csgillespie.github.io/efficientR/input-outpu
 ]
 
 .footnote[Image: [SW Carpentry](http://swcarpentry.github.io/git-novice/07-github/index.html)]
+
+
 ---
 class: review
 
