@@ -15,4 +15,4 @@ smallcarb <- cars[carb < 4]
 
 
 ### Output ----
-fwrite(smallcarb, 'output/small-carb.csv')
+saveRDS(smallcarb, 'output/1-small-carb.Rds')

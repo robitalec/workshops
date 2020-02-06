@@ -7,7 +7,7 @@ pkgs <- lapply(p, library, character.only = TRUE)
 
 
 ### Input ----
-smallcarb <- fread('output/small-carb.csv')
+smallcarb <- readRDS('output/1-small-carb.Rds')
 
 
 ### Plot ----
