@@ -103,3 +103,9 @@ img, video, iframe {
 .clear{
   border-top: 0px solid #FAFAFA;
 }
+
+
+/* font size */
+.large { font-size: 130% }
+.larger { font-size: 180% }
+.small { font-size: 70% }
