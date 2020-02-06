@@ -254,6 +254,7 @@ class: review
 
 [Data Carpentry: Version Control with Git](http://swcarpentry.github.io/git-novice/)
 
+[Pro Git](https://git-scm.com/book/en/v2)
 
 ---
 # Etc: setup GitAhead with GitLab
