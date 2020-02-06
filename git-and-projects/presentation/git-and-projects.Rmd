@@ -131,6 +131,10 @@ $^{[1]}$: [Efficient R: IO](https://csgillespie.github.io/efficientR/input-outpu
 
 .footnote[[Why use Git/GitHub - Jenny Bryan](https://peerj.com/preprints/3159v2/)]
 
+???
+gitlab/github simply host the repository
+
+
 ---
 # Examples
 
