@@ -178,30 +178,6 @@ On your computer:
 1. Use GitAhead to clone or `git clone https://gitlab.com/robit.a/potato.git`
 1. Make edits, commit, push, ...
 
----
-
-.pull-left[
-### Git subtleties
-* Git doesn't track folders, only the files within them
-* Conflicts occur when two or more people change the same lines of the same file
-* Git can't diff binary files e.g.: docx files
-]
-
-.pull-right[
-### Best practices
-* Commits should be atomic
-* Commit messages should be informative and use imperative mood
-* Always commit before pulling
-* Always fetch before pulling
-
-
-[![](https://imgs.xkcd.com/comics/git_commit_2x.png)](https://xkcd.com/1296/)
-
-[Plenty more...](https://sethrobertson.github.io/GitBestPractices/)
-
-]
-
-
 
 
 
@@ -228,7 +204,36 @@ class: review
 1. Merge them both into the master branch
 ]
 
+
 ---
+
+.pull-left[
+### Git subtleties
+* Git doesn't track folders, only the files within them
+* Conflicts occur when two or more people change the same lines of the same file
+* Git can't diff binary files e.g.: docx files
+]
+
+.pull-right[
+### Best practices
+* Commits should be atomic
+* Commit messages should be informative and use imperative mood
+* Always commit before pulling
+* Always fetch before pulling
+
+
+[![](https://imgs.xkcd.com/comics/git_commit_2x.png)](https://xkcd.com/1296/)
+
+[Plenty more...](https://sethrobertson.github.io/GitBestPractices/)
+
+]
+
+
+
+
+---
+
+
 class: review
 
 # Exercise: your own project!
@@ -312,7 +317,24 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
     deleted = true;
   });
-})();</script>
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
 
 <script>
 (function() {
