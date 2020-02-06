@@ -118,11 +118,14 @@ $^{[1]}$: [Efficient R: IO](https://csgillespie.github.io/efficientR/input-outpu
 ---
 # Why use git? Why use GitLab / GitHub?
 
+.large[
 * Open science
 * Collaboration
 * Exposure
 * Reproducible research
 * Connect with larger community (e.g.: rOpenSci, Carpentries)
+]
+
 
 
 
@@ -142,8 +145,11 @@ $^{[1]}$: [Efficient R: IO](https://csgillespie.github.io/efficientR/input-outpu
 ---
 # Git basics
 
+.center[
+![](http://swcarpentry.github.io/git-novice/fig/github-repo-after-first-push.svg)
+]
 
-
+.footnote[Image: [SW Carpentry](http://swcarpentry.github.io/git-novice/07-github/index.html)]
 ---
 class: review
 
@@ -215,3 +221,8 @@ class: review
 ]
 
 
+
+---
+# Resources
+
+[Data Carpentry: Version Control with Git](http://swcarpentry.github.io/git-novice/)
