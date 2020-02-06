@@ -211,21 +211,21 @@ class: review
 # Exercise: paired practice
 
 
-
-
-
 .large[
-1. Create a new repository on GitLab.com under your own namespace
 
-1. Set members, optionally share with the WEEL group
-
+#### Together:
+1. Create a new repository on GitLab.com under one of your namespaces 
+1. Set members (include me!)
 1. Clone the repository to your computer
-
-1. Add your scripts, etc. to folders
-
+1. Setup a new project
 1. Commit and push your changes
 
-1. Continue using Git?
+#### Separate:
+1. Create a branch 
+1. Make some changes on your own branch
+1. Commit, push
+1. Checkout your partner's branch
+1. Merge them both into the master branch
 ]
 
 ---
