@@ -168,19 +168,35 @@ At [gitlab.com/projects/new](gitlab.com/projects/new):
 1. Set visibility level (public/private)
 1. Check initialize with a README
 1. Create project
-1. [Set members](https://gitlab.com/robit.a/potato/-/project_members)
+1. [Add members](https://gitlab.com/robit.a/potato/-/project_members)
 
 On your computer: 
 
-1. `git clone https://gitlab.com/robit.a/potato.git`
-1. 
+1. Use GitAhead to clone or `git clone https://gitlab.com/robit.a/potato.git`
+1. Make edits, commit, push, ...
 
 ---
-# Git subtleties
 
-
+.pull-left[
+### Git subtleties
 * Git doesn't track folders, only the files within them
-* 
+* Conflicts occur when two or more people change the same lines of the same file
+
+]
+
+.pull-right[
+### Best practices
+
+* Commit messages should be informative and use imperative mood
+* Always commit before pulling. 
+* Always fetch before pulling
+
+
+[![](https://imgs.xkcd.com/comics/git_commit_2x.png)](https://xkcd.com/1296/)
+
+]
+
+
 
 
 

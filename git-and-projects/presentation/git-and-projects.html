@@ -131,6 +131,10 @@ class: important
 
 .footnote[[Why use Git/GitHub - Jenny Bryan](https://peerj.com/preprints/3159v2/)]
 
+???
+gitlab/github simply host the repository
+
+
 ---
 # Examples
 
@@ -164,19 +168,35 @@ At [gitlab.com/projects/new](gitlab.com/projects/new):
 1. Set visibility level (public/private)
 1. Check initialize with a README
 1. Create project
-1. [Set members](https://gitlab.com/robit.a/potato/-/project_members)
+1. [Add members](https://gitlab.com/robit.a/potato/-/project_members)
 
 On your computer: 
 
-1. `git clone https://gitlab.com/robit.a/potato.git`
-1. 
+1. Use GitAhead to clone or `git clone https://gitlab.com/robit.a/potato.git`
+1. Make edits, commit, push, ...
 
 ---
-# Git subtleties
 
-
+.pull-left[
+### Git subtleties
 * Git doesn't track folders, only the files within them
-* 
+* Conflicts occur when two or more people change the same lines of the same file
+
+]
+
+.pull-right[
+### Best practices
+
+* Commit messages should be informative and use imperative mood
+* Always commit before pulling. 
+* Always fetch before pulling
+
+
+[![](https://imgs.xkcd.com/comics/git_commit_2x.png)](https://xkcd.com/1296/)
+
+]
+
+
 
 
 
@@ -228,6 +248,17 @@ class: review
 # Resources
 
 [Data Carpentry: Version Control with Git](http://swcarpentry.github.io/git-novice/)
+
+
+---
+# Etc: setup GitAhead with GitLab
+
+1. Fill GitLab username
+1. [Generate a personal access token](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html)
+    1. [Gitlab.com -&gt; Profile -&gt; Personal Access Tokens](https://gitlab.com/profile/personal_access_tokens)
+    1. Name it `gitahead`
+    1. Grant it all permissions except read_registry
+1. Copy the access token and use it to fill the password
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
