@@ -126,10 +126,13 @@ $^{[1]}$: [Efficient R: IO](https://csgillespie.github.io/efficientR/input-outpu
 * Connect with larger community (e.g.: rOpenSci, Carpentries)
 ]
 
+.footnote[
+![:scale 20%](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Git-logo.svg/1280px-Git-logo.svg.png)
+![:scale 20%](https://about.gitlab.com/images/press/logo/svg/gitlab-logo-gray-rgb.svg) ![:scale 20%](https://s19386.pcdn.co/wp-content/uploads/2017/10/github-logo-1.png)
 
 
 
-.footnote[[Why use Git/GitHub - Jenny Bryan](https://peerj.com/preprints/3159v2/)]
+[Why use Git/GitHub - Jenny Bryan](https://peerj.com/preprints/3159v2/)]
 
 ???
 gitlab/github simply host the repository
