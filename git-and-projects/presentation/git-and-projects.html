@@ -126,10 +126,13 @@ class: important
 * Connect with larger community (e.g.: rOpenSci, Carpentries)
 ]
 
+.footnote[
+![:scale 20%](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Git-logo.svg/1280px-Git-logo.svg.png)
+![:scale 20%](https://about.gitlab.com/images/press/logo/svg/gitlab-logo-gray-rgb.svg) ![:scale 20%](https://s19386.pcdn.co/wp-content/uploads/2017/10/github-logo-1.png)
 
 
 
-.footnote[[Why use Git/GitHub - Jenny Bryan](https://peerj.com/preprints/3159v2/)]
+[Why use Git/GitHub - Jenny Bryan](https://peerj.com/preprints/3159v2/)]
 
 ???
 gitlab/github simply host the repository
@@ -181,18 +184,20 @@ On your computer:
 ### Git subtleties
 * Git doesn't track folders, only the files within them
 * Conflicts occur when two or more people change the same lines of the same file
-
+* Git can't diff binary files e.g.: docx files
 ]
 
 .pull-right[
 ### Best practices
-
+* Commits should be atomic
 * Commit messages should be informative and use imperative mood
-* Always commit before pulling. 
+* Always commit before pulling
 * Always fetch before pulling
 
 
 [![](https://imgs.xkcd.com/comics/git_commit_2x.png)](https://xkcd.com/1296/)
+
+[Plenty more...](https://sethrobertson.github.io/GitBestPractices/)
 
 ]
 
@@ -206,21 +211,21 @@ class: review
 # Exercise: paired practice
 
 
-
-
-
 .large[
-1. Create a new repository on GitLab.com under your own namespace
 
-1. Set members, optionally share with the WEEL group
-
+#### Together:
+1. Create a new repository on GitLab.com under one of your namespaces 
+1. Set members (include me!)
 1. Clone the repository to your computer
-
-1. Add your scripts, etc. to folders
-
+1. Setup a new project
 1. Commit and push your changes
 
-1. Continue using Git?
+#### Separate:
+1. Create a branch 
+1. Make some changes on your own branch
+1. Commit, push
+1. Checkout your partner's branch
+1. Merge them both into the master branch
 ]
 
 ---
@@ -249,6 +254,7 @@ class: review
 
 [Data Carpentry: Version Control with Git](http://swcarpentry.github.io/git-novice/)
 
+[Pro Git](https://git-scm.com/book/en/v2)
 
 ---
 # Etc: setup GitAhead with GitLab
