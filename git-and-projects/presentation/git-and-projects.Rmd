@@ -6,14 +6,14 @@ output:
   xaringan::moon_reader:
     nature:
       highlightStyle: github
-      beforeInit: "macros.js"
+      beforeInit: "macros-git.js"
       highlightLines: true
       slideNumberFormat: |
         <div class="progress-bar-container">
           <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
           </div>
         </div>`
-    css: [metropolis, metropolis-fonts, "extra.css"]
+    css: [metropolis, metropolis-fonts, "extra-git.css"]
 ---
   
 ```{r setup, include=FALSE}
@@ -143,7 +143,7 @@ gitlab/github simply host the repository
 
 .large[
 * books: [Advanced R](https://adv-r.hadley.nz/), [Efficient R](https://csgillespie.github.io/efficientR/). 
-* websites: [robitalec.ca](robitalec.ca)
+* websites: [robitalec.ca](http://robitalec.ca)
 * courses: [stat545](https://github.com/rstudio-education/stat545)
 * papers: [Noise Phenomena](https://github.com/cboettig/noise-phenomena) and [WEEL/SocCaribou](https://gitlab.com/WEEL_grp/SocCaribou)
 * packages: [`spatsoc`](https://github.com/ropensci/spatsoc)
@@ -163,7 +163,7 @@ class: review
 
 # Guide: Making a new repository
 
-At [gitlab.com/projects/new](gitlab.com/projects/new):
+At [gitlab.com/projects/new](https://gitlab.com/projects/new):
 
 1. Name your project (no spaces)
 1. Check the namespace (e.g.: `robit.a/potato` vs `WEEL/potato`)
