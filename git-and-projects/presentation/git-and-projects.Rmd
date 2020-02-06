@@ -144,4 +144,74 @@ $^{[1]}$: [Efficient R: IO](https://csgillespie.github.io/efficientR/input-outpu
 
 
 
+---
+class: review
+
+# Guide: Making a new repository
+
+At [gitlab.com/projects/new](gitlab.com/projects/new):
+
+1. Name your project (no spaces)
+1. Check the namespace (e.g.: `robit.a/potato` vs `WEEL/potato`)
+1. Set visibility level (public/private)
+1. Check initialize with a README
+1. Create project
+1. [Set members](https://gitlab.com/robit.a/potato/-/project_members)
+
+On your computer: 
+
+1. `git clone https://gitlab.com/robit.a/potato.git`
+1. 
+
+---
+# Git subtleties
+
+
+* Git doesn't track folders, only the files within them
+* 
+
+
+
+---
+class: review
+
+# Exercise: paired practice
+
+
+
+
+
+.large[
+1. Create a new repository on GitLab.com under your own namespace
+
+1. Set members, optionally share with the WEEL group
+
+1. Clone the repository to your computer
+
+1. Add your scripts, etc. to folders
+
+1. Commit and push your changes
+
+1. Continue using Git?
+]
+
+---
+class: review
+
+# Exercise: your own project!
+
+.large[
+1. Create a new repository on GitLab.com under your own namespace
+
+1. Set members, optionally share with the WEEL group
+
+1. Clone the repository to your computer
+
+1. Add your scripts, etc. to folders
+
+1. Commit and push your changes
+
+1. Continue using Git?
+]
+
 
