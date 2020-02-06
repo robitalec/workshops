@@ -93,14 +93,11 @@ $^{[1]}$: [Efficient R: IO](https://csgillespie.github.io/efficientR/input-outpu
 
 
 ---
-# Why `git`?
+# Why use git? Why use GitLab / GitHub?
 
 
 
----
-# Why GitHub / GitLab?
-
-
+.footnote[[Why use Git/GitHub - Jenny Bryan](https://peerj.com/preprints/3159v2/)]
 
 ---
 # Examples
@@ -112,3 +109,6 @@ $^{[1]}$: [Efficient R: IO](https://csgillespie.github.io/efficientR/input-outpu
 * papers: [Noise Phenomena](https://github.com/cboettig/noise-phenomena) and [WEEL/SocCaribou](https://gitlab.com/WEEL_grp/SocCaribou)
 * packages: [`spatsoc`](https://github.com/ropensci/spatsoc)
 ]
+
+---
+
