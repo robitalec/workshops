@@ -158,7 +158,6 @@ gitlab/github simply host the repository
 
 .footnote[Image: [SW Carpentry](http://swcarpentry.github.io/git-novice/07-github/index.html)]
 
-
 ---
 class: review
 
@@ -179,9 +178,8 @@ On your computer:
 1. Make edits, commit, push, ...
 
 
-
-
 ---
+
 class: review
 
 # Exercise: paired practice
@@ -192,10 +190,38 @@ class: review
 #### Together:
 1. Create a new repository on GitLab.com under one of your namespaces 
 1. Set members (include me!)
-1. Clone the repository to your computer
-1. Setup a new project
-1. Commit and push your changes
+1. Clone the repository to one computer
+1. Setup a new project (together)
+1. Commit and push your changes (together)
+1. Clone the project on the other computer
+]
 
+
+---
+
+class: review
+
+# Exercise: paired practice
+
+
+#### Together:
+1. Create a new repository on GitLab.com under one of your namespaces 
+1. Set members (include me!)
+1. Clone the repository to one computer
+1. Setup a new project (together)
+1. Commit and push your changes (together)
+1. Clone the project on the other computer
+
+#### Separate:
+1. Make changes to *different files*
+1. Practice rebasing, merging changes 
+
+---
+class: review
+
+# Exercise: paired practice - branches
+
+.large[
 #### Separate:
 1. Create a branch 
 1. Make some changes on your own branch
@@ -203,6 +229,8 @@ class: review
 1. Checkout your partner's branch
 1. Merge them both into the master branch
 ]
+
+
 
 
 ---
