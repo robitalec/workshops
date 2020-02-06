@@ -58,11 +58,17 @@ class: review
 
 # Exercise: an example project
 
-1. Note folders
+.large[
+1. Note folders under `git-and-projects/example-project`
+
 1. Find and open scripts
+
 1. Modify the subset of the input data
+
 1. Modify the plot and save in the appropriate folder
-1. 
+
+1. Document your changes in the code comments and README.md 
+]
 
 ---
 
@@ -70,21 +76,19 @@ class: important
 
 # Review:
 
-.center[
+
 .large[
-1- number scripts 
+1. always use an R Project
 
+1. organize files into folders and number scripts 
 
-2- separate input/output files
+1. separate input/output files
 
+1. keep raw data raw
 
-3- keep raw data raw
+1. document everything
 
-
-4- document everything
-
-5- save intermediate objects as `.Rds` $^{[1]}$
-]
+1. save intermediate objects (.Rds) $^{[1]}$
 ]
 
 .footnote[
@@ -93,7 +97,32 @@ $^{[1]}$: [Efficient R: IO](https://csgillespie.github.io/efficientR/input-outpu
 
 
 ---
+# What is git?
+
+.center[
+![](http://swcarpentry.github.io/git-novice/fig/play-changes.svg)
+]
+
+
+.pull-left[
+![:scale 82%](http://swcarpentry.github.io/git-novice/fig/versions.svg) 
+]
+
+.pull-right[
+![:scale 83%](http://swcarpentry.github.io/git-novice/fig/merge.svg)
+]
+
+
+.footnote[Images: [SW Carpentry](http://swcarpentry.github.io/git-novice/01-basics/index.html)]
+
+---
 # Why use git? Why use GitLab / GitHub?
+
+* Open science
+* Collaboration
+* Exposure
+* Reproducible research
+* Connect with larger community (e.g.: rOpenSci, Carpentries)
 
 
 
@@ -111,4 +140,8 @@ $^{[1]}$: [Efficient R: IO](https://csgillespie.github.io/efficientR/input-outpu
 ]
 
 ---
+# Git basics
+
+
+
 
