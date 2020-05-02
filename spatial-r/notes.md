@@ -54,6 +54,21 @@ Raster vs vector
 	+ JSON based
 	+ good for streaming data
 	- not all geometries supported 
+
+```
+{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [125.6, 10.1]
+  },
+  "properties": {
+    "name": "Dinagat Islands"
+  }
+}
+```
+	
+	
 * KML
 	 + XML based
 	 + popular since it's used in Google Earth
