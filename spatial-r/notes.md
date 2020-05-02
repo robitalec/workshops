@@ -1,3 +1,9 @@
+# TODO
+host online
+easy install of pkg
+make workshops public?
+
+
 # Survey results:
 Most took a couple courses
 Most have done a couple projects
