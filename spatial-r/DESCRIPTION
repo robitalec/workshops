@@ -21,3 +21,4 @@ SystemRequirements: GEOS, GDAL, PROJ
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
 URL: https::gitlab.com/robit.a/workshops/
+RoxygenNote: 7.1.0
