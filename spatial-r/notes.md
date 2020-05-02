@@ -1,3 +1,9 @@
+https://keen-swartz-3146c4.netlify.com/
+https://mapschool.io/
+https://bookdown.org/robinlovelace/geocompr/intro.html
+https://keen-swartz-3146c4.netlify.com/
+
+
 use hands for questions / +1 going well / -1 going poorly
 
 screenshots / copy paste to a common g doc
@@ -12,6 +18,7 @@ anyone can answer
 ```
 
 [PROJ, GDAL install help](https://r-spatial.github.io/sf/#installing)
+
 
 
 Remember: don't update R until after the workshop unless you have some time to reinstall your packages.
