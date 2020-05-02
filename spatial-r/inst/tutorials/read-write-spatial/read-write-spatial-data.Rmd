@@ -67,15 +67,11 @@ Note: We are ignoring raster-based file formats for now.
 
 ### Are these available in R?
 
-```{r drivers}
-# in the sf package, the function st_drivers() gives us all available file formats
+```{r drivers, exercise = TRUE, exercise.eval = FALSE}
+# In the sf package, the function st_drivers() gives us all available file formats
 drivers <- st_drivers()
-```
 
-```{r exploredrivers, exercise = TRUE, exercise.eval = FALSE}
 # Explore the drivers to find a couple of the above file formats
-drivers
-
 # If we convert to a data.table we can filter easily
 data.table(drivers)[name == 'GPKG']
 ```
