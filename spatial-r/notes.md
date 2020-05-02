@@ -1,9 +1,52 @@
+# Day of
+use hands for questions / +1 going well / -1 going poorly
+
+screenshots / copy paste to a common g doc
+anyone can answer
+
+you just work through the learnr exercises? folks say +1? etc?
+
+
 # TODO
+## General
 * host online
 * easy install of pkg
 * make workshops public?
-* install `usethis`
 * emphasize learnr tutorials are not really running the same way - the output folder is not visible for example
+
+## User setup
+* install `usethis`
+
+## Reading/writing
+* add JSON example - use highlighting
+* reading files, what type of object are they in R etc
+* TODO: add url shapefiles etc 
+
+
+## Working with spatial data
+* buffers, bbox, spatial operations
+* converting from data.table to sf
+	+ providing crs properly
+* projections
+* really quick subsetting sf objects
+
+## Collar data
+* read in csv
+* read in many csvs and combine
+* ordering data
+* working by individual
+* converting between data.table and sf 
+* plotting trajectories with ggplot (time ordered)
+
+
+## Exploring data, making maps
+* mapview
+* mapview with data.tables
+* with sf objects
+* why isnt the basemap coming up (crs)
+* mapview(raster)
+* basic cartography
+
 
 
 # Survey results:
@@ -87,15 +130,7 @@ Raster vs vector
 
 # Questions
 
-# Look up.. 
-mapview(raster)
 
-
-# Day of
-use hands for questions / +1 going well / -1 going poorly
-
-screenshots / copy paste to a common g doc
-anyone can answer
 
 
 

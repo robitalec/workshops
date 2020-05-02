@@ -155,3 +155,11 @@ colnames(st_read('output/breweries.shp', quiet = TRUE))
 
 
 Thankfully we were warned... Otherwise we might be confused by "nmbr_f_" and "nmbr_s_" in our output. 
+
+
+## Reading spatial data
+
+
+TODO: reading spatial data, similar dsn/layer, etc. with sf, we get sf objects. 
+
+TODO: on to manipulating them in spatial buffers etc 
