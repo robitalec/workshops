@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>Version Control &amp; Project Management</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Alec Robitaille" />
+    <link href="git-and-projects_files/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
+    <link href="git-and-projects_files/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="extra.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Version Control &amp; Project Management
+### Alec Robitaille
+### February 6 2020 [updated: February 6 2020]
+
+---
+
+  
+
+
+# Project Management
+
+.pull-left[
+```
+project
+└───input/
+└───output/
+└───R/
+└───graphics/
+└───README.md
+
+```
+]
+
+.pull-right[
+```
+project
+└───data/
+    └───derived/
+    └───raw/
+└───R/
+└───script/
+└───graphics/
+└───README.md
+```
+]
+
+
+
+
+.footnote[[Efficient R: Projects](https://csgillespie.github.io/efficientR/set-up.html#project-management)]
+
+---
+class: review
+
+# Exercise: an example project
+
+.large[
+1. Note folders under `git-and-projects/example-project`
+
+1. Find and open scripts
+
+1. Modify the subset of the input data
+
+1. Modify the plot and save in the appropriate folder
+
+1. Document your changes in the code comments and README.md 
+]
+
+---
+
+class: important
+
+# Review:
+
+
+.large[
+1. always use an R Project
+
+1. organize files into folders and number scripts 
+
+1. separate input/output files
+
+1. keep raw data raw
+
+1. document everything
+
+1. save intermediate objects (.Rds) `\(^{[1]}\)`
+]
+
+.footnote[
+`\(^{[1]}\)`: [Efficient R: IO](https://csgillespie.github.io/efficientR/input-output.html#top-5-tips-for-efficient-data-io)
+]
+
+
+---
+# What is git?
+
+.center[
+![](http://swcarpentry.github.io/git-novice/fig/play-changes.svg)
+]
+
+
+.pull-left[
+![:scale 82%](http://swcarpentry.github.io/git-novice/fig/versions.svg) 
+]
+
+.pull-right[
+![:scale 83%](http://swcarpentry.github.io/git-novice/fig/merge.svg)
+]
+
+
+.footnote[Images: [SW Carpentry](http://swcarpentry.github.io/git-novice/01-basics/index.html)]
+
+---
+# Why use git? Why use GitLab / GitHub?
+
+.large[
+* Open science
+* Collaboration
+* Exposure
+* Reproducible research
+* Connect with larger community (e.g.: rOpenSci, Carpentries)
+]
+
+.footnote[
+![:scale 20%](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Git-logo.svg/1280px-Git-logo.svg.png)
+![:scale 20%](https://about.gitlab.com/images/press/logo/svg/gitlab-logo-gray-rgb.svg) ![:scale 20%](https://s19386.pcdn.co/wp-content/uploads/2017/10/github-logo-1.png)
+
+
+
+[Why use Git/GitHub - Jenny Bryan](https://peerj.com/preprints/3159v2/)]
+
+???
+gitlab/github simply host the repository
+
+
+---
+# Examples
+
+.large[
+* books: [Advanced R](https://adv-r.hadley.nz/), [Efficient R](https://csgillespie.github.io/efficientR/). 
+* websites: [robitalec.ca](robitalec.ca)
+* courses: [stat545](https://github.com/rstudio-education/stat545)
+* papers: [Noise Phenomena](https://github.com/cboettig/noise-phenomena) and [WEEL/SocCaribou](https://gitlab.com/WEEL_grp/SocCaribou)
+* packages: [`spatsoc`](https://github.com/ropensci/spatsoc)
+]
+
+---
+# Git basics
+
+.center[
+![](http://swcarpentry.github.io/git-novice/fig/github-repo-after-first-push.svg)
+]
+
+.footnote[Image: [SW Carpentry](http://swcarpentry.github.io/git-novice/07-github/index.html)]
+
+---
+class: review
+
+# Guide: Making a new repository
+
+At [gitlab.com/projects/new](gitlab.com/projects/new):
+
+1. Name your project (no spaces)
+1. Check the namespace (e.g.: `robit.a/potato` vs `WEEL/potato`)
+1. Set visibility level (public/private)
+1. Check initialize with a README
+1. Create project
+1. [Add members](https://gitlab.com/robit.a/potato/-/project_members)
+
+On your computer: 
+
+1. Use GitAhead to clone or `git clone https://gitlab.com/robit.a/potato.git`
+1. Make edits, commit, push, ...
+
+
+---
+
+class: review
+
+# Exercise: paired practice
+
+
+.large[
+
+#### Together:
+1. Create a new repository on GitLab.com under one of your namespaces 
+1. Set members (include me!)
+1. Clone the repository to one computer
+1. Setup a new project (together)
+1. Commit and push your changes (together)
+1. Clone the project on the other computer
+]
+
+
+---
+
+class: review
+
+# Exercise: paired practice
+
+
+#### Together:
+1. Create a new repository on GitLab.com under one of your namespaces 
+1. Set members (include me!)
+1. Clone the repository to one computer
+1. Setup a new project (together)
+1. Commit and push your changes (together)
+1. Clone the project on the other computer
+
+#### Separate:
+1. Make changes to *different files*
+1. Practice rebasing, merging changes 
+
+---
+class: review
+
+# Exercise: paired practice - branches
+
+.large[
+#### Separate:
+1. Create a branch 
+1. Make some changes on your own branch
+1. Commit, push
+1. Checkout your partner's branch
+1. Merge them both into the master branch
+]
+
+
+
+
+---
+
+.pull-left[
+### Git subtleties
+* Git doesn't track folders, only the files within them
+* Conflicts occur when two or more people change the same lines of the same file
+* Git can't diff binary files e.g.: docx files
+]
+
+.pull-right[
+### Best practices
+* Commits should be atomic
+* Commit messages should be informative and use imperative mood
+* Always commit before pulling
+* Always fetch before pulling
+
+
+[![](https://imgs.xkcd.com/comics/git_commit_2x.png)](https://xkcd.com/1296/)
+
+[Plenty more...](https://sethrobertson.github.io/GitBestPractices/)
+
+]
+
+
+
+
+---
+
+
+class: review
+
+# Exercise: your own project!
+
+.large[
+1. Create a new repository on GitLab.com under your own namespace
+
+1. Set members, optionally share with the WEEL group
+
+1. Clone the repository to your computer
+
+1. Add your scripts, etc. to folders
+
+1. Commit and push your changes
+
+1. Continue using Git?
+]
+
+
+
+---
+# Resources
+
+[Data Carpentry: Version Control with Git](http://swcarpentry.github.io/git-novice/)
+
+[Pro Git](https://git-scm.com/book/en/v2)
+
+---
+# Etc: setup GitAhead with GitLab
+
+1. Fill GitLab username
+1. [Generate a personal access token](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html)
+    1. [Gitlab.com -&gt; Profile -&gt; Personal Access Tokens](https://gitlab.com/profile/personal_access_tokens)
+    1. Name it `gitahead`
+    1. Grant it all permissions except read_registry
+1. Copy the access token and use it to fill the password
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"slideNumberFormat": "<div class=\"progress-bar-container\">   <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">   </div> </div>` "
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

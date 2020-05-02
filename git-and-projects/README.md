@@ -55,3 +55,8 @@ Git doesnt track folders
 Quality commit messages
 Revert/reset
 
+dont push large files
+
+
+## TODO: 
+* host on website
