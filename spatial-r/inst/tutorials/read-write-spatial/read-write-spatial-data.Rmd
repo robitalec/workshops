@@ -5,12 +5,12 @@ output:
     allow_skip: false
 runtime: shiny_prerendered
 description: >
-  This tutorial demonstrates reading and writing spatial data in R
+  This tutorial demonstrates reading and writing spatial data in R, and has a basic comparison of different spatial file formats. 
 ---
 
 ```{r setup, include=FALSE}
 library(learnr)
-knitr::opts_chunk$set(echo = FALSE, 
+knitr::opts_chunk$set(echo = TRUE, 
                       highlight = TRUE)
 ```
 
@@ -31,7 +31,7 @@ post_message
 
 ## Packages
 
-```{r packages, echo = TRUE}
+```{r packages}
 library(sf)
 library(mapview)
 library(data.table)
@@ -39,7 +39,7 @@ library(data.table)
 
 ## Example data
 
-```{r data, echo = TRUE}
+```{r data}
 # Load breweries data from mapview
 data(breweries)
 
@@ -47,8 +47,44 @@ data(breweries)
 plot(breweries, max.plot = 1)
 ```
 
-```{r map, echo = TRUE}
+```{r map}
 # Or interactive:
 mapview(breweries)
+
+```
+
+
+## Spatial file formats
+
+```{r, echo = FALSE}
+knitr::kable(fread('../../extdata/data-formats.csv', header = TRUE, col.names = c('File format', '')))
+```
+
+Note: We are ignoring raster-based file formats for now. 
+
+
+### Are these available in R?
+
+```{r drivers}
+# in the sf package, the function st_drivers() gives us all available file formats
+drivers <- st_drivers()
+```
+
+```{r exploredrivers, exercise = TRUE, exercise.eval = FALSE}
+# Explore the drivers to find a couple of the above file formats
+drivers
+
+# If we convert to a data.table we can filter easily
+data.table(drivers)[name == 'GPKG']
+```
+
+
+## Writing spatial data
+
+Since we have the `breweries` data loaded, let's write it out using `sf`. 
+
+```{r write, exercise = TRUE, exercise.eval = TRUE}
+dir.create('input')
+
 
 ```
