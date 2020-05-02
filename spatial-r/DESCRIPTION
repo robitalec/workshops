@@ -1,0 +1,24 @@
+Package: spatialworkshop
+Title: Package accompanying workshop: Spatial data analysis in R
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Alec L.",
+             family = "Robitaille",
+             role = c("aut", "cre"),
+             email = "robit.alec@gmail.com",
+             comment = c(ORCID = "0000-0002-4706-1762"))
+Description: Set of learnr exercises and slides accompanying workshop
+             on spatial data analysis in R. Delivered to Wildlife 
+             Evolutionary Ecology Lab on May 4 2020. 
+Depends: R
+Imports: data.table (>= 1.10.5),
+    sf,
+    mapview
+Suggests: 
+    testthat (>= 2.1.0),
+    knitr,
+    rmarkdown
+SystemRequirements: GEOS, GDAL, PROJ
+VignetteBuilder: knitr
+Roxygen: list(markdown = TRUE)
+URL: https::gitlab.com/robit.a/workshops/
