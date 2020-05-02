@@ -7,7 +7,7 @@ Most made maps, projected data, raster sampling
 Interests:
 1. Explore spatial data interactively
 2. Working with collar data
-3. [tied] Types of spatial data
+3. ~~[tied] Types of spatial data~~
 3. [tied] Reading spatial data in R
 3. [tied] Sampling rasters
 3. [tied] Making maps
@@ -34,13 +34,12 @@ Raster vs vector
 
 ## File types
 
-* Shapefiles
+* Shapefile
 	+ widely used and supported
 	- multifile format
 	- limit to 10 character attribute names, automatic renaming/shortening
 	- maximum file size of 2-4GB
 	- limited to single geometry types
-
 * GeoPackage
 	+ single file
 	+ stores vectors and rasters
@@ -48,10 +47,15 @@ Raster vs vector
 	+ uses a SQLite backend
 	- non-streaming format
 * GeoJSON
-	+ 
+	+ JSON based
+	+ good for streaming data
+	- not all geometries supported 
 * KML
-	 + Google Earth
-* 
+	 + XML based
+	 + popular since it's used in Google Earth
+	 - only supports WGS-84
+
+
 
 
 # Questions
