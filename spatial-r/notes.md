@@ -2,7 +2,7 @@
 host online
 easy install of pkg
 make workshops public?
-
+install `usethis`
 
 # Survey results:
 Most took a couple courses
