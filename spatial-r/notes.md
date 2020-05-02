@@ -32,6 +32,10 @@ Questions:
 Raster vs vector
 
 
+## Reading/writing spatial data in R 
+
+
+
 ## File types
 
 * Shapefile

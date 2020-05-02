@@ -7,6 +7,7 @@ library(data.table)
 # Load breweries example data from mapview
 data(breweries)
 
+dir.create('input')
 
 # st_write --
 #  obj: the sf or sfc object
@@ -20,14 +21,14 @@ drivers <- st_drivers()
 data.table(drivers)[name == 'GPKG']
 
 # Write the breweries out
-st_write(breweries, 'input/breweries.shp')
+st_write(breweries, 'input/brew/breweries.shp')
 
 # Warning message:
 # In abbreviate_shapefile_names(obj) :
 # 	Field names abbreviated for ESRI Shapefile driver
 
 colnames(breweries)
-colnames(st_read('input/breweries.shp', quiet = TRUE))
+colnames(st_read('input/brew/breweries.shp', quiet = TRUE))
 
 # !!! Thankfully we were warned... Otherwise we might be confused by "nmbr_f_" and "nmbr_s_"
 
