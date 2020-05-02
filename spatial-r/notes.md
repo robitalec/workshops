@@ -32,6 +32,27 @@ Questions:
 Raster vs vector
 
 
+## File types
+
+* Shapefiles
+	+ widely used and supported
+	- multifile format
+	- limit to 10 character attribute names, automatic renaming/shortening
+	- maximum file size of 2-4GB
+	- limited to single geometry types
+
+* GeoPackage
+	+ single file
+	+ stores vectors and rasters
+	+ widely supported (in `sf` for example)
+	+ uses a SQLite backend
+	- non-streaming format
+* GeoJSON
+	+ 
+* KML
+	 + Google Earth
+* 
+
 
 # Questions
 
