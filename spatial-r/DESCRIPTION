@@ -9,10 +9,11 @@ Authors@R:
              comment = c(ORCID = "0000-0002-4706-1762"))
 Description: Set of learnr exercises and slides accompanying workshop
              on spatial data analysis in R. Delivered to Wildlife 
-             Evolutionary Ecology Lab on May 4 2020. 
+             Evolutionary Ecology Lab at Memorial University on May 4 2020. 
 Imports: data.table,
     sf,
-    mapview
+    mapview,
+    learnr
 Suggests: 
     testthat (>= 2.1.0),
     knitr,
