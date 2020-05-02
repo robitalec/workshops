@@ -10,9 +10,12 @@ description: >
 
 ```{r setup, include=FALSE}
 library(learnr)
-knitr::opts_chunk$set(echo = TRUE, highlight = TRUE)
+knitr::opts_chunk$set(echo = FALSE, 
+                      highlight = TRUE)
 ```
 
+
+<!--
 
   allow_retry = TRUE
   random_answer_order
@@ -24,4 +27,28 @@ questions..
 )
 post_message
 
+-->
 
+## Packages
+
+```{r packages, echo = TRUE}
+library(sf)
+library(mapview)
+library(data.table)
+```
+
+## Example data
+
+```{r data, echo = TRUE}
+# Load breweries data from mapview
+data(breweries)
+
+# Have a look!
+plot(breweries, max.plot = 1)
+```
+
+```{r map, echo = TRUE}
+# Or interactive:
+mapview(breweries)
+
+```
