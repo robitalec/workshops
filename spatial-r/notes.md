@@ -1,8 +1,10 @@
 # TODO
-host online
-easy install of pkg
-make workshops public?
-install `usethis`
+* host online
+* easy install of pkg
+* make workshops public?
+* install `usethis`
+* emphasize learnr tutorials are not really running the same way - the output folder is not visible for example
+
 
 # Survey results:
 Most took a couple courses
