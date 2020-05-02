@@ -12,6 +12,8 @@ description: >
 library(learnr)
 knitr::opts_chunk$set(echo = TRUE, 
                       highlight = TRUE)
+
+tutorial_options(exercise.eval = FALSE)
 ```
 
 
