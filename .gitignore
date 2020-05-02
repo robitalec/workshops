@@ -59,3 +59,6 @@ Thumbs.db
 \.snakemake/
 tables-in-rmd/examples/.~lock.example-docx1.docx#
 spatial-r/input/
+spatial-r/inst/tutorials/read-write-spatial/read-write-spatial-data.html
+spatial-r/inst/tutorials/read-write-spatial/read-write-spatial-data_data/
+spatial-r/inst/tutorials/read-write-spatial/read-write-spatial-data_files/
