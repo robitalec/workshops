@@ -79,13 +79,22 @@ data.table(drivers)[name == 'GPKG']
 
 ## Writing spatial data
 
-Since we have the `breweries` data loaded, let's write it out using `sf`. 
+Since we have the `breweries` data loaded, let's write it out using `sf::st_write`. 
 
 ```{r write, echo = TRUE, eval = FALSE}
 # Write to a GeoPackage
 st_write(breweries, 'output/breweries.gpkg')
 ```
 
+Some arguments from the `st_write` function:
+
+* 'obj': the sf or sfc object
+* 'dsn': data source name.
+* 'layer': layer name. if layer is missing, the basename is used (eg. "breweries" above).
+* 'driver': guesses from the dsn, or passed explicitly here.
+* 'overwrite': default FALSE. set it to TRUE when are going to be updating the file (be careful!). 
+
+The arguments 'dsn' and 'layer' depend on which drive/file format is used. This can be a bit confusing at times - usually we can just provide the full path with the filename and it should work! 
 
 ### Quiz!
 
