@@ -1,0 +1,72 @@
+---
+title: "Tables in R Markdown"
+author: Alec Robitaille 
+date: "`r paste0('October 21 2019 [updated: ', paste(month.name[data.table::month(Sys.Date())], data.table::mday(Sys.Date()), data.table::year(Sys.Date())), ']')`"
+output: 
+  xaringan::moon_reader:
+    nature:
+      highlightStyle: github
+      beforeInit: "macros.js"
+      highlightLines: true
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>`
+    css: [metropolis, metropolis-fonts, "extra.css"]
+---
+  
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      eval = TRUE)
+```
+
+
+# Summary tables
+
+`examples-tables.Rmd`
+
+* `data.table`
+  * `.N` 
+  * `uniqueN`
+  * `dcast`
+  * `melt`
+  * `by`
+* `knitr::kable`
+* `kableExtra`
+  * `add_header_above`
+
+
+`pander(ftest(DT)))`
+
+
+---
+# Models
+
+* `broom`
+* Ben Bolker's `broom.mixed`
+* `pander`
+
+
+---
+# Styling Word documents
+
+
+
+```yaml
+---
+title: "Some title"
+author: "Dwigt"
+date: "2018-01-01"
+output:
+  word_document:
+*    reference_docx: styles.docx
+---
+```
+
+
+
+1. Set desired styles in the reference docx (`examples/styles.docx`)
+1. Add path in YAML
+1. Knit the document!
+

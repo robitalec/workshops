@@ -1,0 +1,100 @@
+---
+title: Wicked cool demo
+author: Alec Robitaile
+header-includes: 
+  - \usepackage{lipsum}
+output: 
+  bookdown::pdf_document2:
+    toc: true
+    toc_depth: 3
+    keep_md: true
+    number_section: true
+bibliography: refs.bib
+---
+
+
+\newpage
+
+```{r, eval = TRUE, echo = FALSE}
+library(ggplot2)
+library(knitr)
+
+# (For later)
+# diamonds <- diamonds[diamonds$price < 2400]
+```
+# Introduction
+\lipsum[2-4]
+
+# Methods
+Look at the diamonds we research. See Table \@ref(tab:diamonds-tab)
+
+
+(ref:diamonds) Look at these diamonds. 
+
+\lipsum[3-8]
+
+
+
+```{r diamonds-tab, echo = FALSE}
+options(knitr.kable.NA = '')
+kable(summary(diamonds[, c('carat', 'cut', 'color', 'clarity', 'depth')]),
+      booktabs = TRUE,
+      caption = '(ref:diamonds)')
+
+```
+## Study Area
+
+<!--
+![](www.some-study-area-pic.jpg)
+
+-->
+
+# Results
+
+
+With a random example dataset, we can produce a random example Figure \@ref(fig:clarity-fig).
+
+(ref:clarity) The relationship between clarity and carat. Who knows anything about diamonds?
+
+\lipsum[2]
+
+
+```{r clarity-fig, eval = TRUE, echo = FALSE, fig.cap = '(ref:clarity)'}
+ggplot(diamonds) + 
+  geom_count(aes(clarity, carat)) +
+  guides(color = FALSE) + 
+  facet_wrap(~cut)
+```
+
+
+Some more interesting things about diamonds in Figure \@ref(fig:color-fig)
+ 
+(ref:color) The relationship between color and carat, colored by carat. Huh, look at that, I'm representing the same information in two different ways. Feels like that's an unnecessary (though aesthetically pleasant) thing to do. 
+
+\lipsum[1]
+
+
+```{r color-fig, eval = TRUE, echo = FALSE, fig.cap = '(ref:color)'}
+ggplot(diamonds) + 
+  geom_count(aes(color, carat, color = color)) +
+  guides(color = FALSE) + 
+  facet_wrap(~cut)
+```
+
+# Discussion
+
+Some statement requiring a citation [@webber2018]. 
+
+\lipsum[3]
+
+# Cool things to try:
+
+1. reorder some of these sections (wow, look the toc changes)
+1. reorder the code chunks (hmm will the figure numbers change?)
+1. change the data, and notice the plots change (reproducible, neat!)
+1. Change the output format
+1. Change something and look at git
+
+\newpage 
+
+# References

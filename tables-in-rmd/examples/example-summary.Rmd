@@ -1,0 +1,25 @@
+---
+title: "Overview of packages for generating tables"
+author: "Alec Robitaille"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+Packages:
+* `knitr`
+  * `kable` 
+* `kableExtra` 
+  * pipe + header above
+* `pander`
+* `xtable`
+
+
+````{r}
+library(labelled)
+library(ggplot2)
+
+var_label(cars$speed) <- "Speed of car"
+cars
+
+qplot(speed, dist, data = cars)
+```
