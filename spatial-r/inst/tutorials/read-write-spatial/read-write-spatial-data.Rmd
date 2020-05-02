@@ -81,8 +81,68 @@ data.table(drivers)[name == 'GPKG']
 
 Since we have the `breweries` data loaded, let's write it out using `sf`. 
 
-```{r write, exercise = TRUE, exercise.eval = TRUE}
-dir.create('input')
+```{r write, echo = TRUE, eval = FALSE}
+# Write to a GeoPackage
+st_write(breweries, 'output/breweries.gpkg')
+```
 
+
+### Quiz!
+
+Write out the breweries to a GeoPKG, Shapefile, and GeoJSON. Check your solution by hitting "Run" or look at the solution. 
+
+
+```{r writequiz, exercise = TRUE, exercise.eval = TRUE}
+# Create an output folder
+dir.create('output')
+
+# Write to a GeoPackage
+
+
+# Write to a Shapefile
+
+
+# Write to a GeoJSON
+
+
+# Check for yourself!
+dir('output/', full.names = TRUE)
+```
+
+
+```{r writequiz-solution}
+# Create an output folder
+dir.create('output')
+
+# Write to a GeoPackage
+st_write(breweries, 'output/breweries.gpkg')
+
+# Write to a Shapefile
+st_write(breweries, 'output/breweries.shp')
+
+# Write to a GeoJSON
+st_write(breweries, 'output/breweries.GeoJSON')
+
+# Check for yourself!
+dir('output/', full.names = TRUE)
+```
+
+
+#### Note: A warning was generated when writing to shapefile
 
 ```
+Warning in abbreviate_shapefile_names(obj): Field names abbreviated
+for ESRI Shapefile driver
+```
+
+One disadvantage to using shapefiles is they limit attribute names to 10 characters. 
+
+Let's see what happened:
+
+```{r limnames, eval = TRUE, echo = TRUE}
+colnames(breweries)
+colnames(st_read('output/breweries.shp', quiet = TRUE))
+```
+
+
+Thankfully we were warned... Otherwise we might be confused by "nmbr_f_" and "nmbr_s_" in our output. 
