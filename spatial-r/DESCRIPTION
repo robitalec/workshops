@@ -10,7 +10,7 @@ Authors@R:
 Description: Set of learnr exercises and slides accompanying workshop
              on spatial data analysis in R. Delivered to Wildlife 
              Evolutionary Ecology Lab on May 4 2020. 
-Imports: data.table (>= 1.10.5),
+Imports: data.table,
     sf,
     mapview
 Suggests: 
