@@ -137,7 +137,7 @@ dir('output/', full.names = TRUE)
 ```
 
 
-#### Note: A warning was generated when writing to shapefile
+#### Note: a warning was generated when writing to shapefile
 
 ```
 Warning in abbreviate_shapefile_names(obj): Field names abbreviated
