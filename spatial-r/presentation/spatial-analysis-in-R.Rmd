@@ -10,6 +10,7 @@ output:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
+    css: [metropolis, metropolis-fonts, "extra.css"]
 ---
 
 ```{r setup, include=FALSE}
@@ -17,5 +18,26 @@ options(htmltools.dir.version = FALSE)
 ```
 
 
-from geocompr
+
+class: center
+
+# Why use R for spatial analysis?
+
+Discuss.
+
 > Provide three reasons for using a scriptable language such as R for geocomputation instead of using an established GIS program such as QGIS.
+
+
+
+---
+
+# Spatial R ecosystem
+
+![](https://keen-swartz-3146c4.netlify.app/images/sf_deps.png)
+
+CRAN Task Views:  [Spatial](https://cran.r-project.org/web/views/Spatial.html) and  [SpatioTemporal](https://cran.r-project.org/web/views/SpatioTemporal.html). [History of R spatial](https://bookdown.org/robinlovelace/geocompr/intro.html#the-history-of-r-spatial)
+
+
+
+---
+
