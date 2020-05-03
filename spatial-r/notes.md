@@ -9,6 +9,9 @@ you just work through the learnr exercises? folks say +1? etc?
 
 # TODO
 ## General
+
+* **spatial package ecosystem in R** - find the spatial view, find the recommended packages (rstudio I think)
+
 * host online
 * easy install of pkg
 * make workshops public?
