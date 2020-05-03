@@ -1,0 +1,21 @@
+---
+title: 'Spatial analysis in R'
+author: 'Alec Robitaille'
+institute: 'Wildlife Evolutionary Ecology Lab'
+date: 'May 4 2020 (updated: `r format(Sys.Date(), "%B %d %Y")`)'
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+
+from geocompr
+> Provide three reasons for using a scriptable language such as R for geocomputation instead of using an established GIS program such as QGIS.
