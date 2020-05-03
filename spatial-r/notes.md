@@ -26,9 +26,10 @@ you just work through the learnr exercises? folks say +1? etc?
 ## Working with spatial data
 * buffers, bbox, spatial operations
 * converting from data.table to sf
-	+ providing crs properly
+	+ providing crs properly according to new gdal/proj
 * projections
 * really quick subsetting sf objects
+
 
 ## Collar data
 * read in csv
@@ -37,6 +38,7 @@ you just work through the learnr exercises? folks say +1? etc?
 * working by individual
 * converting between data.table and sf 
 * plotting trajectories with ggplot (time ordered)
+* gold lines
 
 
 ## Exploring data, making maps
@@ -46,7 +48,7 @@ you just work through the learnr exercises? folks say +1? etc?
 * why isnt the basemap coming up (crs)
 * mapview(raster)
 * basic cartography
-
+* basic plotting vect, rast
 
 
 # Survey results:
