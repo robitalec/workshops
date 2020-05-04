@@ -25,3 +25,14 @@ tutorial_options(exercise.eval = FALSE)
 library(mapview)
 library(data.table)
 ```
+
+
+
+# TODO:
+* read in csv
+* read in many csvs and combine
+* ordering data
+* working by individual
+* converting between data.table and sf 
+* plotting trajectories with ggplot (time ordered)
+* gold lines
