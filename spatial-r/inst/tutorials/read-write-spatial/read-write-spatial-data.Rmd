@@ -17,20 +17,6 @@ tutorial_options(exercise.eval = FALSE)
 ```
 
 
-<!--
-
-  allow_retry = TRUE
-  random_answer_order
-
-echo = FALSE
-
-quiz (
-questions..
-)
-post_message
-
--->
-
 ## Packages
 
 ```{r packages}
