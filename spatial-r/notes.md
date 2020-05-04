@@ -9,21 +9,10 @@ you just work through the learnr exercises? folks say +1? etc?
 
 # TODO
 ## General
-
-* **spatial package ecosystem in R** - find the spatial view, find the recommended packages (rstudio I think)
-
 * host online
 * easy install of pkg
 * make workshops public?
 * emphasize learnr tutorials are not really running the same way - the output folder is not visible for example
-
-## User setup
-* ~~install `usethis`~~
-
-## Reading/writing
-* ~~add JSON example - use highlighting~~
-* reading files, what type of object are they in R etc
-* TODO: add url shapefiles etc 
 
 
 ## Working with spatial data
@@ -64,7 +53,7 @@ Interests:
 1. Explore spatial data interactively
 2. Working with collar data
 3. ~~[tied] Types of spatial data~~
-3. [tied] Reading spatial data in R
+3. ~~[tied] Reading spatial data in R~~
 3. [tied] Sampling rasters
 3. [tied] Making maps
 3. [tied] Spatial operations
