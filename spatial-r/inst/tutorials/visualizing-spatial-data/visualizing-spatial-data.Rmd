@@ -223,6 +223,18 @@ mapview(
 ###
 On your own time, check customizing [popups](https://r-spatial.github.io/mapview/articles/articles/mapview_04-popups.html)
 
+
+```{r, eval = TRUE}
+mapview(
+	dtbrew,
+	xcol = 'X',
+	ycol = 'Y',
+	zcol = 'brewery',
+	crs = st_crs(breweries)
+)
+```
+
+
 ```{r map6, exercise = TRUE}
 mapview(
 	dtbrew,
