@@ -46,7 +46,8 @@ difference in x, y between relocations
 step length
 
 caution when working with collar data
-* time zones
+* time zones (use UTC where possible)
 * missed fixes
 * irregular fix rates
-* there is error to GPS fixes! 
+* there is error to GPS fixes!  topography
+* biological relevance
