@@ -53,12 +53,88 @@ CRAN Task Views:  [Spatial](https://cran.r-project.org/web/views/Spatial.html) a
 
 <!-- TODO: incremental slides, with quiz.. match raster/vector to types of data -->
 
+--
+Raster
+
+--
+Vector
 
 ---
-# Simple features
+# Vector file formats: Shapefile
+
+\+ widely used and supported
+
+\- multifile format
+
+\- limit to 10 character attribute names, automatic
+
+\- maximum file size of 2-4GB
+
+\- limited to single geometry types
+
+.pull-left[
+```
+input/
+├── breweries.dbf
+├── breweries.prj
+├── breweries.shp
+└── breweries.shx
+```
+]
+
+.pull-right[
+![:scale 20%](https://www.mapdiva.com/wp-content/uploads/2017/07/what-are-shapefiles-.png)
+]
+
+
+
+
+---
+# Vector file formats: GeoJSON
+
+
+```{json}
+{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [125.6, 10.1]
+  },
+  "properties": {
+    "name": "Dinagat Islands"
+  }
+}
+```
+
+
+---
+# Vector file formats: GeoPackage
+
+\+ single file
+
+\+ stores vectors and rasters
+
+\+ widely supported
+
+\+ uses a SQLite backend
+
+\- non-streaming format
+	
+	
+
+
+---
+# Encoding vectors: Simple features
 
 .center[
 ![](https://bookdown.org/robinlovelace/geocompr/figures/sf-classes.png)
 ]
 
 
+
+---
+# Raster data
+https://bookdown.org/robinlovelace/geocompr/spatial-class.html#raster-data
+
+---
+# Encoding rasters
