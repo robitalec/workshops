@@ -4,6 +4,7 @@ author: Alec Robitaille
 date: 'May 4 2020 (updated: `r format(Sys.Date(), "%B %d %Y")`)'
 output:
   learnr::tutorial:
+    proggressive: true
     allow_skip: false
 runtime: shiny_prerendered
 description: >
@@ -12,22 +13,127 @@ description: >
 
 ```{r setup, include=FALSE}
 library(learnr)
+library(data.table)
 knitr::opts_chunk$set(echo = TRUE,
-											highlight = TRUE)
+											highlight = TRUE,
+											eval = TRUE)
 
 tutorial_options(exercise.eval = FALSE)
+
+DT <- fread('https://raw.githubusercontent.com/ropensci/spatsoc/master/inst/extdata/DT.csv')
+
+DT[, idate := as.IDate(datetime)]
+DT[, itime := as.ITime(datetime)]
+
+DT[, year := year(idate)]
+DT[, month := month(idate)]
+
+DT[, datetime := as.POSIXct(paste(idate, itime, sep = ' '))]
+dir.create('input')
+
+DT[, fwrite(.SD, paste0('input/ID-', .GRP[[1]], 
+												'.csv')), by = ID]
+
+
 ```
 
 
 ## Packages
 
-```{r packages}
+```{r packages, eval = TRUE}
 library(mapview)
 library(data.table)
+library(rgdal)
 ```
 
 
+## Some precautions / nuances of collar data
 
+* Missed fixes
+* Duplicate fixes
+* Irregular fix time (off by a 1 or 2 minutes up to 30+)
+* Irregular fix rate
+* Time zones, daylight savings time
+* Location error
+* Biological relevant
+
+
+## Reading data
+
+Usually data from collars will be provided as a spreadsheet. In this case, we are downloading the example data from the `spatsoc` repository. 
+
+```{r read, exercise = TRUE}
+DT <- fread('https://raw.githubusercontent.com/ropensci/spatsoc/master/inst/extdata/DT.csv')
+
+DT
+```
+
+
+## Reading data from many individuals
+
+Sometimes, data is separated into separate sheets for many individuals. No one wants to copy + paste right?
+
+
+###
+Let's mimick this, by first writing out our individuals to separate sheets. 
+
+
+```{r}
+DT[, fwrite(.SD, paste0('input/ID-', .GRP[[1]], 
+												'.csv')), by = ID]
+
+dir('input/ID-*', full.names = TRUE)
+```
+
+###
+
+Use the functions `rbindlist`, `lapply` and `fread` to read in all of the data. 
+We can use a wildcard here ("input/ID-*") to only select the relevant files. 
+
+```{r all, exercise = TRUE}
+dir('input/ID-*', full.names = TRUE)
+
+
+
+```
+
+```{r all-solution}
+files <- dir('input/ID-*', full.names = TRUE)
+
+DT <- rbindlist(lapply(files, fread))
+```
+
+Note: sometimes files will have different column names. In this case, use the arguments 'fill' and 'check.names' to combine them. 
+
+
+## Casting date and time columns
+
+```{r, datetime, exercise = TRUE}
+DT[, idate := as.IDate(datetime)]
+DT[, itime := as.ITime(datetime)]
+
+DT[, year := year(idate)]
+DT[, month := month(idate)]
+
+DT[, datetime := as.POSIXct(paste(idate, itime, sep = ' '))]
+```
+
+
+## Ordering by datetime
+
+```{r order, exercise = TRUE}
+setorder(DT, datetime, ID)
+```
+
+
+## ...
+
+```{r diftime, exercise = TRUE}
+
+         
+
+```
+<!-- 
 # TODO:
 * read in csv
 * read in many csvs and combine
@@ -51,3 +157,4 @@ caution when working with collar data
 * irregular fix rates
 * there is error to GPS fixes!  topography
 * biological relevance
+-->
