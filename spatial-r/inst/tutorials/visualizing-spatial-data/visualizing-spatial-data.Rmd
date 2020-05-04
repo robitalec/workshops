@@ -4,6 +4,7 @@ author: Alec Robitaille
 date: 'May 4 2020 (updated: `r format(Sys.Date(), "%B %d %Y")`)'
 output:
   learnr::tutorial:
+    progressive: true
     allow_skip: false
 runtime: shiny_prerendered
 description: todo
