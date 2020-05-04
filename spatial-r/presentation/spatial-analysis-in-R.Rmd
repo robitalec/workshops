@@ -141,3 +141,30 @@ https://bookdown.org/robinlovelace/geocompr/spatial-class.html#raster-data
 
 ---
 # Encoding rasters
+
+
+
+
+---
+# Resources
+
+**This is not a comprehensive list**
+
+## Packages
+* [`sf`](https://github.com/r-spatial/sf)
+* [`raster`](https://rspatial.org/raster/pkg/index.html)
+* [`mapview`](https://github.com/r-spatial/mapview)
+
+## Books / Websites
+
+### Spatial
+* [Geocomputation with R - Robin Lovelace, Jakub Nowosad, Jannes Muenchow ](https://bookdown.org/robinlovelace/geocompr)
+
+* [Spatial Data Science - Edzer Pebesma, Roger Bivand](https://keen-swartz-3146c4.netlify.app/)
+
+* [Spatial Data Science with R](https://rspatial.org/)
+
+* A good basic overview: [mapschool.io](https://mapschool.io/)
+
+### General
+* [Efficient R programming](https://csgillespie.github.io/efficientR/)
