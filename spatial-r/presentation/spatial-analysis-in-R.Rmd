@@ -8,28 +8,37 @@ output:
     lib_dir: libs
     nature:
       highlightStyle: github
+      beforeInit: "macros.js"
       highlightLines: true
-      countIncrementalSlides: false
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>`
     css: [metropolis, metropolis-fonts, "extra.css"]
 ---
 
+class: clear, middle, review
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
 ```
 
 
-
-class: center
-
-# Why use R for spatial analysis?
-
-Discuss.
-
-> Provide three reasons for using a scriptable language such as R for geocomputation instead of using an established GIS program such as QGIS.
+.center[
+.large[
+First, a discussion: why use R for spatial analysis?
+]
+]
 
 
+???
+Walk away from long running tasks
+History of commands, steps
+Automated complex workflows
+Use Git
 
 ---
+class: review
 
 # Spatial R ecosystem
 
