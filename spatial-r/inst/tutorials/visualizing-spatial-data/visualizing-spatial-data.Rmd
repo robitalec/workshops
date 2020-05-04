@@ -29,7 +29,7 @@ library(ggplot2)
 ```
 
 ## Data
-```{r data}
+```{r data, exercise = TRUE}
 ## Load breweries data from mapview
 data(breweries)
 
@@ -52,8 +52,6 @@ dtbrew[, (coordcols) := xy]
 
 ```{r plot1, exercise = TRUE}
 plot(breweries)
-
-options
 ```
 
 
@@ -77,25 +75,51 @@ plot(breweries['name'])
 
 
 ## Plotting sf objects with ggplot
-```{r plot3, exercise = TRUE}
+Use `geom_sf`!
+
+```{r, eval = FALSE}
 ggplot(breweries) + 
 	geom_sf()
-
 ```
+
+
+Explore the breweries data and modify the aesthetics. 
+
+```{r plot3, exercise = TRUE}
+ggplot(breweries, aes()) + 
+	geom_sf()
+```
+
+```{r plot3-solution}
+ggplot(breweries, aes(color = brewery)) + 
+	geom_sf()
+```
+
 
 
 ## Plotting data.table spatial objects
 
+data.tables can be plotted using ggplot with regular geoms. 
+
+Plot the data.table version of the breweries data.
+
+```{r plot4, exercise = TRUE}
+dtbrew
+
+??ggplot
+```
+
+```{r plot4-solution}
+ggplot(dtbrew, aes(X, Y)) +
+	geom_point()
+```
 
 
 
-# TODO:
+## TODO:
 
+mapview with sf
+mapview with data.table
 
-* buffers, bbox, spatial operations
-* converting from data.table to sf
-+ providing crs properly according to new gdal/proj
-* projections
-* really quick subsetting sf objects
-* converting between sf, sp and sf and raster (fasterize)
-* title, description
+show no basemap because of missing crs
+st_crs
