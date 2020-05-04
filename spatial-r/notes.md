@@ -144,3 +144,9 @@ https://keen-swartz-3146c4.netlify.com/
 https://mapschool.io/
 https://bookdown.org/robinlovelace/geocompr/intro.html
 https://keen-swartz-3146c4.netlify.com/
+
+
+## Packages
+sf website
+https://github.com/rspatial 
+https://github.com/r-spatial
