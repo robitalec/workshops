@@ -18,10 +18,10 @@ you just work through the learnr exercises? folks say +1? etc?
 * emphasize learnr tutorials are not really running the same way - the output folder is not visible for example
 
 ## User setup
-* install `usethis`
+* ~~install `usethis`~~
 
 ## Reading/writing
-* add JSON example - use highlighting
+* ~~add JSON example - use highlighting~~
 * reading files, what type of object are they in R etc
 * TODO: add url shapefiles etc 
 

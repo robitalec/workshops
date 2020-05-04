@@ -36,3 +36,9 @@ library(sf)
 * projections
 * really quick subsetting sf objects
 * converting between sf, sp and sf and raster (fasterize)
+
+
+* focal operation on raster (only go up, never go down res)
+* mean, median, mode
+* crop
+* use wildcam example data

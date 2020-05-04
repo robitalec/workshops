@@ -5,8 +5,9 @@
     <meta charset="utf-8" />
     <meta name="author" content="Alec Robitaille" />
     <script src="libs/header-attrs/header-attrs.js"></script>
-    <link href="libs/remark-css/default.css" rel="stylesheet" />
-    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="extra.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
@@ -15,26 +16,30 @@ class: center, middle, inverse, title-slide
 # Spatial analysis in R
 ### Alec Robitaille
 ### Wildlife Evolutionary Ecology Lab
-### May 4 2020 (updated: May 03 2020)
+### May 4 2020 (updated: May 04 2020)
 
 ---
 
 
+class: clear, middle, review
 
 
 
-
-class: center
-
-# Why use R for spatial analysis?
-
-Discuss.
-
-&gt; Provide three reasons for using a scriptable language such as R for geocomputation instead of using an established GIS program such as QGIS.
+.center[
+.large[
+First, a discussion: why use R for spatial analysis?
+]
+]
 
 
+???
+Walk away from long running tasks
+History of commands, steps
+Automated complex workflows
+Use Git
 
 ---
+class: review
 
 # Spatial R ecosystem
 
@@ -45,14 +50,104 @@ CRAN Task Views:  [Spatial](https://cran.r-project.org/web/views/Spatial.html) a
 
 
 ---
+# Types of spatial data
 
+&lt;!-- TODO: incremental slides, with quiz.. match raster/vector to types of data --&gt;
+
+--
+Raster
+
+--
+Vector
+
+---
+# Vector file formats: Shapefile
+
+\+ widely used and supported
+
+\- multifile format
+
+\- limit to 10 character attribute names, automatic
+
+\- maximum file size of 2-4GB
+
+\- limited to single geometry types
+
+.pull-left[
+```
+input/
+├── breweries.dbf
+├── breweries.prj
+├── breweries.shp
+└── breweries.shx
+```
+]
+
+.pull-right[
+![:scale 20%](https://www.mapdiva.com/wp-content/uploads/2017/07/what-are-shapefiles-.png)
+]
+
+
+
+
+---
+# Vector file formats: GeoJSON
+
+
+
+```json
+{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [125.6, 10.1]
+  },
+  "properties": {
+    "name": "Dinagat Islands"
+  }
+}
+```
+
+
+---
+# Vector file formats: GeoPackage
+
+\+ single file
+
+\+ stores vectors and rasters
+
+\+ widely supported
+
+\+ uses a SQLite backend
+
+\- non-streaming format
+	
+	
+
+
+---
+# Encoding vectors: Simple features
+
+.center[
+![](https://bookdown.org/robinlovelace/geocompr/figures/sf-classes.png)
+]
+
+
+
+---
+# Raster data
+https://bookdown.org/robinlovelace/geocompr/spatial-class.html#raster-data
+
+---
+# Encoding rasters
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
 <script>var slideshow = remark.create({
 "highlightStyle": "github",
 "highlightLines": true,
-"countIncrementalSlides": false
+"slideNumberFormat": "<div class=\"progress-bar-container\">   <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">   </div> </div>` "
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));

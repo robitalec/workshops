@@ -36,3 +36,17 @@ library(data.table)
 * converting between data.table and sf 
 * plotting trajectories with ggplot (time ordered)
 * gold lines
+
+
+introduce these concepts using the basic math / functions
+there are helper packages (list them) that assist in this
+
+difference in time between relocations
+difference in x, y between relocations
+step length
+
+caution when working with collar data
+* time zones
+* missed fixes
+* irregular fix rates
+* there is error to GPS fixes! 
