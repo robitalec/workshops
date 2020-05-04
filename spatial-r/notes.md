@@ -111,7 +111,7 @@ Raster vs vector
 	+ good for streaming data
 	- not all geometries supported 
 
-```
+```{json}
 {
   "type": "Feature",
   "geometry": {
