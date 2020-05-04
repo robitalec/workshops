@@ -1,14 +1,16 @@
 ---
-	title: "An introduction to collar data"
+title: "Introduction to collar data"
+author: Alec Robitaille
+date: 'May 4 2020 (updated: `r format(Sys.Date(), "%B %d %Y")`)'
 output:
-	learnr::tutorial:
-	allow_skip: false
+  learnr::tutorial:
+    allow_skip: false
 runtime: shiny_prerendered
 description: >
-	This tutorial introduces working with collar data in R. Since collar data is often obtained in a spreadsheet format, we will assume a CSV input file format. 
+  This tutorial introduces working with collar data in R. Since collar data is often obtained in a spreadsheet format, we will assume a CSV input file format. 
 ---
 
-	```{r setup, include=FALSE}
+```{r setup, include=FALSE}
 library(learnr)
 knitr::opts_chunk$set(echo = TRUE,
 											highlight = TRUE)
