@@ -13,7 +13,8 @@ description: >
 ```{r setup, include=FALSE}
 library(learnr)
 knitr::opts_chunk$set(echo = TRUE, 
-                      highlight = TRUE)
+                      highlight = TRUE,
+											eval = FALSE)
 
 tutorial_options(exercise.eval = FALSE)
 ```
@@ -21,7 +22,7 @@ tutorial_options(exercise.eval = FALSE)
 
 ## Packages
 
-```{r packages}
+```{r packages, eval = TRUE}
 library(sf)
 library(mapview)
 library(data.table)
@@ -29,7 +30,7 @@ library(data.table)
 
 ## Example data
 
-```{r data}
+```{r data, eval = TRUE}
 # Load breweries data from mapview
 data(breweries)
 
@@ -37,20 +38,19 @@ data(breweries)
 plot(breweries, max.plot = 1)
 ```
 
-```{r map}
+```{r map, eval = TRUE}
 # Or interactive:
 mapview(breweries)
 
 ```
 
 
-## Spatial file formats
+## Vector file formats
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, eval = TRUE}
 knitr::kable(fread('../../extdata/data-formats.csv', header = TRUE, col.names = c('File format', '')))
 ```
 
-Note: We are ignoring raster-based file formats for now. 
 
 
 ### Are these available in R?
@@ -65,7 +65,7 @@ data.table(drivers)[name == 'GPKG']
 ```
 
 
-## Writing spatial data
+## Writing vector data
 
 Since we have the `breweries` data loaded, let's write it out using `sf::st_write`. 
 
@@ -145,9 +145,42 @@ colnames(st_read('output/breweries.shp', quiet = TRUE))
 Thankfully we were warned... Otherwise we might be confused by "nmbr_f_" and "nmbr_s_" in our output. 
 
 
-## Reading spatial data
+## Reading vector data
+
+Practice reading in the outputs we just generated. 
 
 
-TODO: reading spatial data, similar dsn/layer, etc. with sf, we get sf objects. 
+```{r read, exercise = TRUE, exercise.eval = FALSE}
+# Check available data in the output folder
+dir('output/', full.names = TRUE)
 
-TODO: on to manipulating them in spatial buffers etc 
+# Read the GeoPackage
+
+# Read the Shapefile
+
+# Read the GeoJSON
+
+```
+
+
+```{r read-solution}
+# Check available data in the output folder
+dir('output/', full.names = TRUE)
+
+# Read the GeoPackage
+brewgpkg <- st_read('output/breweries.gpkg')
+
+# Read the Shapefile
+brewshp <- st_read('output/breweries.shp')
+
+# Read the GeoJSON
+brewjson <- st_read('output/breweries.GeoJSON')
+```
+
+
+
+### Note, there are other functions in other packages for reading spatial data:
+
+* `rgdal::readOGR` and `rgdal::readGDAL`
+* `raster::shapefile`
+* ...
