@@ -179,7 +179,23 @@ brewjson <- st_read('output/breweries.GeoJSON')
 
 
 
-### Note, there are other functions in other packages for reading spatial data:
+With one of the inputs we just read in, explore the object!
+
+```{r explore, exercise = TRUE, exercise.eval = FALSE}
+# Print it
+
+
+# Plot it
+
+
+# Mapview it
+
+
+# Summarize it
+
+```
+
+Note, there are other functions in other packages for reading spatial data:
 
 * `rgdal::readOGR` and `rgdal::readGDAL`
 * `raster::shapefile`
