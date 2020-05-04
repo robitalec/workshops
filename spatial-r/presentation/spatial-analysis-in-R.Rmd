@@ -47,6 +47,9 @@ class: review
 CRAN Task Views:  [Spatial](https://cran.r-project.org/web/views/Spatial.html) and  [SpatioTemporal](https://cran.r-project.org/web/views/SpatioTemporal.html). [History of R spatial](https://bookdown.org/robinlovelace/geocompr/intro.html#the-history-of-r-spatial)
 
 
+???
+Note: we are going to emphasize the `sf` package here since it is the *way forward*
+
 
 ---
 # Types of spatial data
