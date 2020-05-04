@@ -1,19 +1,22 @@
 /* New colors */
-
 .important {
-  background-color: #5A8653;
+  background-color: #c2e2e2;
   color: #000000;
 }
 
 .review {
-  background-color: #BA963F;
+  background-color: #e6b5ce;
   color: #000000;
 }
 
 .remark-slide-content {
-  border-top: 80px solid #A03636;
+  border-top: 80px solid #a0366b;
 }
 /* New colors */
+
+
+.large { font-size: 130% }
+.small { font-size: 70% }
 
 
 .footnote{
