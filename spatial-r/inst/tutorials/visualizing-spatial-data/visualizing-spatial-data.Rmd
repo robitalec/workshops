@@ -12,7 +12,8 @@ description: todo
 ```{r setup, include=FALSE}
 library(learnr)
 knitr::opts_chunk$set(echo = TRUE,
-											highlight = TRUE)
+											highlight = TRUE,
+											eval = TRUE)
 
 tutorial_options(exercise.eval = FALSE)
 ```
@@ -24,11 +25,73 @@ tutorial_options(exercise.eval = FALSE)
 library(mapview)
 library(data.table)
 library(sf)
+library(ggplot2)
 ```
+
+## Data
+```{r data}
+## Load breweries data from mapview
+data(breweries)
+
+## Convert to data.table for example
+# Grab the coordinates from the sf object and cast the matrix as a data.table
+xy <- data.table(st_coordinates(breweries))
+
+# Cast the sf object as a data.table
+dtbrew <- data.table(breweries)
+
+# Soft code coordinate column names (for later)
+coordcols <- c('X', 'Y')
+
+# Add the xy to the data.table
+dtbrew[, (coordcols) := xy]
+```
+
+
+## Plotting sf objects
+
+```{r plot1, exercise = TRUE}
+plot(breweries)
+
+options
+```
+
+
+Why so many subplots?
+
+```{r plot2, exercise = TRUE}
+## Set it universally as a default
+options(sf_max.plot = 1)
+
+# Or individually for each plot
+# eg. 1
+plot(breweries, max.plot = 1)
+
+# eg. 4
+plot(breweries, max.plot = 4)
+
+
+## Or specify directly the column name to plot
+plot(breweries['name'])
+```
+
+
+## Plotting sf objects with ggplot
+```{r plot3, exercise = TRUE}
+ggplot(breweries) + 
+	geom_sf()
+
+```
+
+
+## Plotting data.table spatial objects
+
 
 
 
 # TODO:
+
+
 * buffers, bbox, spatial operations
 * converting from data.table to sf
 + providing crs properly according to new gdal/proj
