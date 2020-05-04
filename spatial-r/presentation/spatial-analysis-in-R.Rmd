@@ -49,4 +49,16 @@ CRAN Task Views:  [Spatial](https://cran.r-project.org/web/views/Spatial.html) a
 
 
 ---
+# Types of spatial data
+
+<!-- TODO: incremental slides, with quiz.. match raster/vector to types of data -->
+
+
+---
+# Simple features
+
+.center[
+![](https://bookdown.org/robinlovelace/geocompr/figures/sf-classes.png)
+]
+
 
