@@ -153,7 +153,7 @@ https://bookdown.org/robinlovelace/geocompr/spatial-class.html#raster-data
 ## Packages
 * [`sf`](https://github.com/r-spatial/sf)
 * [`raster`](https://rspatial.org/raster/pkg/index.html)
-* [`mapview`](https://github.com/r-spatial/mapview)
+* [`mapview`](https://r-spatial.github.io/mapview/index.html)
 
 ## Books / Websites
 
