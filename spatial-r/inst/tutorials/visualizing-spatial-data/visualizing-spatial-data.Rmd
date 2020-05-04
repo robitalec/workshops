@@ -17,6 +17,28 @@ knitr::opts_chunk$set(echo = TRUE,
 											eval = TRUE)
 
 tutorial_options(exercise.eval = FALSE)
+
+
+library(mapview)
+library(data.table)
+library(sf)
+library(ggplot2)
+
+## Load breweries data from mapview
+data(breweries)
+
+## Convert to data.table for example
+# Grab the coordinates from the sf object and cast the matrix as a data.table
+xy <- data.table(st_coordinates(breweries))
+
+# Cast the sf object as a data.table
+dtbrew <- data.table(breweries)
+
+# Soft code coordinate column names (for later)
+coordcols <- c('X', 'Y')
+
+# Add the xy to the data.table
+dtbrew[, (coordcols) := xy]
 ```
 
 
