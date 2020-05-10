@@ -105,25 +105,30 @@ setDT(diamonds)
 
 class(diamonds)
 ```
+]
 
-Notice how the class is still data.frame.
+.pull-right[
+Function  | Second Header
+:------------ | :------------
+`setDT`  | coerce by reference lists or DFs
+`as.data.table`  | cast to data.table (requires assignment)
+`data.table`  | general constructor
+]
 
-This allows data.tables to (usually) go anywhere a data.frame can.
 
-<!-- differentiate setDT and data.table and as.data.table
-     note that this isn't the only way
-     if it is used though, it only needs to be run
-     once. stick it on a line and move on
-     -->
-     
-## data.table's i
-<!-- back to the grammar -->
+
+???
+differentiate setDT and data.table and as.data.table
+note that this isn't the only way
+if it is used though, it only needs to be run
+once. stick it on a line and move on
+
+---
+
+# data.table "i"
 
 forget `base::subset` and its weird issues
 
-
-
-<!-- it is a simple as: -->
 
 ```{r, eval = FALSE, echo = TRUE}
 diamonds[cut == 'Very Good']
