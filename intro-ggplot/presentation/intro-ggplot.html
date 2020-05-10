@@ -102,11 +102,11 @@ really important to think about data like this
 
 ```
 ##   Price Fair Good Very.Good Premium Ideal
-## 1  3653    1    2         5       6     2
-## 2  9241    0    0         1       1     0
-## 3  8160    0    0         0       2     0
-## 4    71    0    0         4       0     7
-## 5  4494    0    0         0       0     1
+## 1 11448    0    0         1       0     1
+## 2  3808    0    1         1       0     0
+## 3  8572    0    0         0       0     1
+## 4  7716    0    0         0       0     1
+## 5  8198    0    0         0       0     1
 ```
 
 
@@ -120,11 +120,11 @@ melt(DT, measure.vars = colnames(DT)[-1],
 ```
 ##     Price       Cut Count
 ##    &lt;char&gt;    &lt;fctr&gt; &lt;int&gt;
-## 1:    706   Premium    28
-## 2:   1705 Very Good     6
-## 3:   1036     Ideal    11
-## 4:    906     Ideal    12
-## 5:    896     Ideal    18
+## 1:   3250     Ideal     6
+## 2:   3578   Premium     6
+## 3:    412     Ideal    29
+## 4:   1503     Ideal     6
+## 5:   1705 Very Good     6
 ```
 
 ---
@@ -168,7 +168,7 @@ Type of layer added, for example:
 ---
 # ggplot2 syntax: aes
 
-**The rule is: if there is a data link, set it in the `aes`. Otherwise, it is set outside of the `aes`**
+**The rule is: if there is a data link, set it in the `aes`. Otherwise, it is set outside of the `aes`.**
 
 Links the data to aesthetic properties.
 
@@ -260,7 +260,7 @@ ggplot(diamonds) +
 ---
 # Combining plots
 
-The one and only: [`patchwork`](https://patchwork.data-imaginist.com/)
+**UPDATE**: The one and only...  [`patchwork`](https://patchwork.data-imaginist.com/)
 
 ---
 # Spatial Plotting
@@ -273,15 +273,13 @@ Considerations:
 * ensure your data is consistently projected/unprojected
 * `broom::tidy()` (or `fortify()`) SpatialPolygons
 
-* UPDATE: use the `sf` package and `geom_sf`
+**UPDATE**: use the `sf` package and `geom_sf`
 
 ---
 # Iterative plotting
 Need to make a plot more than once? 
 
-**Don't Repeat Yourself (DRY)**
-
-Write a function!
+**Don't Repeat Yourself...** Write a function!
 
 
 ```r
@@ -326,9 +324,11 @@ dev.off()
 
 ---
 # Multipanel plotting
+**UPDATE**: use `patchwork`
+
+
 function = `gridExtra::grid.arrange()`
 
-UPDATE: use `patchwork`
 
 
 ```r
@@ -356,6 +356,8 @@ do.call(grid.arrange, lsPlots)
 
 ---
 # Resources and references
+
+**UPDATE**: [the ggplot book](https://ggplot2-book.org/)
 
 https://github.com/jennybc/ggplot2-tutorial/blob/master/ggplot2-tutorial-slides/
 
