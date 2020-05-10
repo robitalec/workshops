@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Functions in R</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Alec Robitaille" />
+    <link href="Functions-In-R_files/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
+    <link href="Functions-In-R_files/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="extra.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Functions in R
+### Alec Robitaille
+### October 25 2018 [updated: October 29 2018]
+
+---
+
+  
+
+
+# Why use functions in R?
+
+
+.center[
+R is a functional programming language 
+
+Functions are flexible, reusable, testable
+
+Don't repeat yourself (DRY)
+
+![:scale 20%](https://www.northerntool.com/images/product/2000x2000/278/278091_2000x2000.jpg)   
+
+
+When should you write a function?
+
+**Whenever you've copy+pasted a code block more than twice.** `\(^1\)`
+]
+
+
+
+.footnote[
+[1] [R for Data Science](http://r4ds.had.co.nz/functions.html), [Advanced R](http://adv-r.had.co.nz/Functional-programming.html)
+]
+
+???
+R is an interpreted language
+Contrast with Java, C, C++ (compiled languages)
+
+Interactive, messing around  
+
+**Output can't be recreated from scripts**
+
+EMPHASIS: 
+CTRL+SHIFT+F10
+
+
+---
+# DRY
+Do you find yourself copy+pasting code, repeating lines on subsets of a data set, across different projects...
+
+.pull-left[
+`MooseMean.R`
+
+```r
+a2015 &lt;- abs(mean(b2015) - b2015)
+a2016 &lt;- abs(mean(b2016) - b2016)
+a2017 &lt;- abs(mean(b2017) - b2015)
+a2018 &lt;- abs(mean(b2018) - b2018)
+```
+]
+
+.pull-right[
+`WolfMean.R`
+
+```r
+c2015 &lt;- abs(mean(d2015) - d2015)
+c2016 &lt;- abs(mean(d2016) - d2016)
+c2016 &lt;- abs(mean(d2017) - d2015)
+c2018 &lt;- abs(mean(d2018) - d2018)
+```
+]
+
+
+--
+
+Problems...
+--
+
+* a greater risk of typos = hidden errors
+--
+
+* more lines of code = lost in your scripts
+--
+
+* more typing = tiring, [carpal tunnel](https://www.youtube.com/watch?v=fhauC2TwgxI)
+--
+
+* can't use in other projects or scripts = not reusable
+--
+
+* any change you make has to be made everywhere
+
+???
+what are the problems with this strategy?
+
+---
+# Alternatively..
+
+--
+
+#### Write a function
+
+
+```r
+calc &lt;- function(b) {
+  abs(mean(b) - b)
+}
+a2015 &lt;- calc(b2015)
+a2016 &lt;- calc(b2016)
+# ...
+```
+
+--
+
+### Apply that function over a list
+
+```r
+bees &lt;- list(b2015, b2016, b2017, b2018)
+lapply(bees, calc)
+```
+
+--
+
+### Or with a data.table `by`
+
+```r
+bDT &lt;- data.table(yr = rep(c('2015', '2016', '2017', '2018'), each = 100),
+								 val = c(b2015, b2016, b2017, b2018))
+bDT[, calc(val), by = yr]
+```
+
+
+???
+apply functions are a good example of higher level 
+
+---
+
+# Advantages of functions
+
+.pull-left[
+* clear, more concise ([do one thing well](https://en.wikipedia.org/wiki/Unix_philosophy#Do_One_Thing_and_Do_It_Well))
+
+![scale 40%](https://upload.wikimedia.org/wikipedia/commons/4/46/Ken_Thompson_and_Dennis_Ritchie.jpg)
+
+* easier to maintain (update only in one place)
+
+|                   |                          |
+|-------------------|--------------------------|
+| `R/group_times.R` | `48hr/2-SocialNet.R` |
+|                   | `EWC/1-PrepData.R`       |
+|                   | `CAH-RDH/2-Networks.R`   |
+|                   | `...`                    |
+
+
+]
+
+.pull-right[
+* *potentially* faster ([profiling](https://csgillespie.github.io/efficientR/performance.html))
+
+![:scale 100%](https://csgillespie.github.io/efficientR/figures/f7_2_profvis_monopoly.png)  
+
+* less prone to bugs 
+
+unit testing, `R CMD check`, `devtools`
+
+* flexible, easier to apply in different situations
+
+
+]
+&lt;!-- link to sections --&gt;
+
+???
+not a steve jobs quote
+
+UNIX theory
+Doug McIlroy
+Ken Thompson and Dennis Ritchie (these guys made C and Unix)
+
+
+---
+
+# Functions are defined by their:
+
+
+.pull-left[
+
+* formals
+* body
+* environment
+
+    
+
+```r
+add &lt;- function(x, y) {
+  x + y
+}
+```
+]
+
+.pull-right[
+
+```r
+formals(add)
+```
+
+```
+## [1] "x" "y"
+```
+
+
+```r
+body(add)
+```
+
+```
+## {
+##     x + y
+## }
+```
+
+
+```r
+environment(add)
+```
+
+```
+## &lt;environment: R_GlobalEnv&gt;
+```
+]
+
+
+???
+won't dig into environments too much here
+
+If the end of a function is reached without calling return, the value of the last evaluated expression is returned.
+
+
+---
+# Side note: on naming `\(^1\)`
+
+
+.pull-left[
+#### functions: verbs,
+* `dplyr::mutate()`
+
+* `data.table::fwrite()`
+
+
+#### snake_case
+* `spatsoc::group_times()`
+
+* `ggplot2::geom_point()`
+
+
+]
+
+.pull-right[
+#### arguments should be nouns
+
+* `ggplot(data, ...)`
+
+* `between(lower, upper, ...)`
+
+* `group_lines(threshold, ...)`
+
+]
+
+
+.footnote[
+  [1] [Hadley's style guide](http://adv-r.had.co.nz/Style.html), [rOpenSci guidelines](https://ropensci.github.io/dev_guide/building.html#function-and-argument-naming)
+
+]
+
+???
+pop quiz: what is the meaning of the `::` and `:::`?
+
+
+---
+
+class: important
+
+# A recipe for writing a function
+
+1. Work with a subset
+  - `DT[1:1000]`, single individual or year
+1. Solve the problem
+  - Write the code that gives you the desired output
+1. Wrap it as a function 
+  - use the `fun` snippet or `ctrl+atl+x`
+1. Generalize the function
+  - Provide options, remove assumptions of data structure, check input types
+1. Write tests
+  - test output format, ensure warning or error messages are returned, logical outputs
+1. Apply it to your data
+  - `lapply`, `DT[, function(.SD), by = yr]`
+
+   
+???
+writing tests is best practice, not required
+
+
+---
+# 1. Work with a subset
+
+
+```r
+# Take some of the rows
+subDT &lt;- DT[1:1000]
+
+# Maybe randomly
+subDT &lt;- DT[sample(.N, 1000)]
+
+# Maybe just an individual
+subDT &lt;- DT[ID == 'A']
+```
+
+
+---
+class: important 
+
+# 2. Solve the problem
+
+## Another recipe:
+
+.pull-left[
+1. Understand your problem or goals
+  - doodle or explain the problem in plain language 
+1. Plan
+  - Pseudocode steps (*or unit tests*)
+1. Divide
+  - Solve the smallest part of this problem. 
+1. Stuck?
+  - Talk to the duck.
+]
+
+.pull-right[
+![:scale 80%](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Rubber_duck_assisting_with_debugging.jpg/330px-Rubber_duck_assisting_with_debugging.jpg)
+]
+
+???
+1. 
+  - doodle, write out, explain the problem in plain language 
+1. 
+  - given this input, what will the output look like? How will it be manipulated or changed?
+1. 
+  - Solve the smallest part of this problem. 
+1. Stuck?
+  - Talk to the duck.
+
+
+---
+# 3. Wrap it in a function
+
+Put your working code in the body of the function. 
+
+What arguments do you need to provide to the user?
+
+------
+
+
+Check out the fun snippet:
+
+
+```r
+name &lt;- function(variables) {
+  
+}
+```
+
+May or may not work... 
+`ctrl+alt+x`
+
+???
+use tab to jump between name and variables
+
+---
+# 4. Generalize the function
+
+### Data input, column names
+
+
+&lt;!-- Some useful functions: --&gt;
+
+.pull-left[
+
+`ggplot2::aes_string` `\(^1\)`
+
+
+```r
+pts_plot &lt;- function(DT, xCol, 
+                     yCol, bys) {
+  ggplot(DT) +
+    geom_point(aes_string(
+      x = xCol, y = yCol, col = bys))
+}
+pts_plot(DT, 'X', 'Y', 'ID')
+```
+
+
+
+]
+
+.pull-right[
+
+`base::get` `\(^2\)` 
+
+```r
+mean_by &lt;- function(DT, xCol, byCol) {
+  DT[, mean(get(xCol)), by = byCol]
+}
+mean_by(DT = DT, 
+        xCol = 'X', byCol = 'ID')
+```
+
+`data.table::.SDcols` `\(^3\)` `\(^4\)`
+
+```r
+mean_by &lt;- function(DT, xCol, byCol) {
+  DT[, lapply(.SD, mean), by = byCol, 
+     .SDcols = xCol]
+}
+mean_by(DT = DT, 
+        xCol = 'X', byCol = 'ID')
+```
+]
+
+.footnote[
+[1] [SO: Specify column name ggplot2](https://stackoverflow.com/questions/22309285/how-to-use-a-variable-to-specify-column-name-in-ggplot)  
+[2] [Advanced data.table (Andrew Brooks)](http://brooksandrew.github.io/simpleblog/articles/advanced-data-table/#method-2-quotes-and-get)  
+[3] [SO: Michael Chirico's discussion of .SD and .SDcols](https://stackoverflow.com/a/47406952/3481674)  
+[4] [SO: Matt Dowle's programmatic ways to select vars](https://stackoverflow.com/questions/12391950/select-assign-to-data-table-when-variable-names-are-stored-in-a-character-vect)  
+
+]
+
+
+???
+let's recognize that this ggplot function isn't actually useful
+it's doing the same thing as the function is
+   
+---
+# 4. Generalize the function
+
+### Required types
+
+Does this work?
+
+```r
+mean_by &lt;- function(DT, xCol, byCol) {
+  DT[, mean(get(xCol)), by = byCol]
+}
+mean_by(DT, xCol = 'datetime', 'ID')
+```
+
+
+Check the input type:
+
+```r
+mean_by &lt;- function(DT, xCol, byCol) {
+  if (!is.numeric(DT[[xCol]])) stop('xCol must be numeric')
+  DT[, mean(get(xCol)), by = byCol]
+}
+mean_by(DT, xCol = 'datetime', 'ID')
+```
+
+
+
+
+???
+yes the mean function will provide an error
+but you want your errors to be expected, anticipated and well handled
+risk of nonsense/challenging to interpret error messages
+
+
+---
+# 5. Applying the function 
+
+The `*apply` family are higher-order functions; functions using functions as arguments. 
+
+
+
+The first argument to your function is each element in the list.
+
+.left-tight[
+
+```r
+lapply(list, function)
+```
+
+]
+.right-wide[
+
+```r
+lsFiles &lt;- dir('input/', '*.csv', 
+							 full.names = TRUE)
+names(lsFiles) &lt;- dir('input/', '*.csv')
+
+lapply(seq_along(lsFiles), function(x) {
+	fread(lsFiles[x])[, nm := names(lsFiles)[x]]
+}) %&gt;% rbindlist()
+```
+]
+
+some options for `list`:
+
+* files:   
+`dir('input/', '*.csv')`  
+
+* IDs:   
+`lsIDs &lt;- DT[, unique(ID)]`  
+
+* index of list:   
+`seq_along()`  
+
+
+.footnote[
+[1] [SO: Apply family](https://stackoverflow.com/questions/3505701/grouping-functions-tapply-by-aggregate-and-the-apply-family)
+]
+
+???
+`lapply` is faster than `for` loops.  
+
+seq_along for named list
+
+lapply + rbindlist is golden
+
+---
+# 5. Applying the function 
+
+`mapply` can use multiple inputs. 
+
+Instead of a named list, a `data.table` of unique combinations. 
+
+
+```r
+comb &lt;- unique(DT[, .(ID, yr)])
+
+xy &lt;- mapply(FUN = function(i, y) {
+  DT[ID == i &amp; yr == y, .(X, Y)]
+  },
+  i = comb$ID,
+  y = comb$yr,
+  SIMPLIFY = FALSE
+)
+```
+
+???
+SIMPLIFY
+we don't want the default action which is to simplify to a vector or matrix
+
+could've used this in lapply as well
+---
+
+# Review: check your functions
+
+* does it do one thing? does it do it well?
+
+* is it generalized? can it be used elsewhere with different data?
+
+* do you unnecessarily recalculate things every iteration? `\(^1\)`
+	
+* set argument defaults
+
+.footnote[
+	[1] [Efficient R: Caching variables](https://csgillespie.github.io/efficientR/programming.html#caching-variables)
+]
+
+???
+**documentation** in the next step
+
+
+&lt;!-- take home- rewrite a bunch of copy+pastes into functions --&gt;
+
+---
+
+# References
+
+.pull-left[
+Advanced R:
+* [Functional Programming](http://adv-r.had.co.nz/Functional-programming.html
+)
+* [Functions](http://adv-r.had.co.nz/Functions.html
+)
+
+R for Data Science:
+* [Functions](http://r4ds.had.co.nz/functions.html
+)
+
+Efficient R:
+* [Code profiling](https://csgillespie.github.io/efficientR/performance.html#performance-profvis)
+
+Misc:
+* [Advanced data.table (Andrew Brooks)](http://brooksandrew.github.io/simpleblog/articles/advanced-data-table/#method-2-quotes-and-get)
+
+
+]
+
+.pull-right[
+Stack Overflow:
+* [Organizing source code](https://stackoverflow.com/questions/2284446/organizing-r-source-code#2284486)
+* [How to organize large R programs?](https://stackoverflow.com/questions/1266279/how-to-organize-large-r-programs)
+* [Matt Dowle's programmatic ways to select variables](https://stackoverflow.com/questions/12391950/select-assign-to-data-table-when-variable-names-are-stored-in-a-character-vect)
+* [Specific column name ggplot2](https://stackoverflow.com/questions/22309285/how-to-use-a-variable-to-specify-column-name-in-ggplot)
+* [Using substitute instead of get](https://stackoverflow.com/questions/45982595/r-using-get-and-data-table-within-a-user-defined-function
+* [SO: Michael Chirico's discussion of .SD and .SDcols](https://stackoverflow.com/a/47406952/3481674)  
+)
+
+]
+
+
+&lt;!-- https://github.com/jennybc/row-oriented-workflows/blob/master/ex01_leave-it-in-the-data-frame.md --&gt;
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
