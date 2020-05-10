@@ -144,8 +144,8 @@ diamonds[carat < 0.24 & color != 'J']
 diamonds[carat < 0.24 & color != 'J'][1:5]
 ```
 
-
-## Ordering the data.table
+---
+# data.table "i": ordering the rows
 
 ```{r, eval = FALSE, echo = TRUE}
 diamonds[order(price)]
@@ -163,19 +163,20 @@ diamonds[order(depth, price, carat)]
 diamonds[order(depth, price, carat)][1:5]
 ```
 
-<!-- ## a quick note about non-standard evaluation -->
-<!-- <!-- fill more actual description about what non-standard eval is --> -->
-<!-- notice how in the previous example, we used the column names directly?  -->
+???
+a quick note about non-standard evaluation
+fill more actual description about what non-standard eval is
+notice how in the previous example, we used the column names directly?
 
-<!-- so easy, so clean..  -->
+so easy, so clean..
 
-## data.table's j
-<!-- j is the real workhorse.  -->
+---
+# data.table  "j"
+
 this is where we can select, compute on, add or delete columns. 
 
-the only requirement for j is to return a list, list of lists or data.frame/data.table. ie: no SpatialPolygons, etc. 
+the only requirement for j is to return a list, list of lists or data.frame/data.table. ie: no SpatialPolygons, etc. [1]
 
-<!-- without intermediate output changed my life -->
 
 ```{r, echo = TRUE}
 diamonds[, sum(price)]
