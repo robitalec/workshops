@@ -122,7 +122,7 @@ ggplot(breweries, aes(color = brewery)) +
 
 ## Plotting: data.table + ggplot
 
-data.tables can be plotted using ggplot with regular geoms. 
+<!-- data.tables can be plotted using ggplot with regular geoms.  -->
 
 Plot the data.table version of the breweries data.
 
