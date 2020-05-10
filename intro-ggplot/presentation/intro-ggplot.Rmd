@@ -234,7 +234,10 @@ ggplot(diamonds) +
 **UPDATE**: The one and only...  [`patchwork`](https://patchwork.data-imaginist.com/)
 
 ---
-# Spatial Plotting
+class:review
+
+# Exercise: spatial Plotting
+
 1. Open `intro-ggplot-worksheet.R`
 1. Section - Spatial ggplot2
 
