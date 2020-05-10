@@ -51,7 +51,7 @@ setDT(diamonds)
 * flexible, efficient
 * **consistent** syntax
 
-![](images/ggplot2-tutorial-slides.021.png)
+![](../images/ggplot2-tutorial-slides.021.png)
 
 
 ## Example data
@@ -62,7 +62,7 @@ knitr::kable(diamonds[1:5])
 ---
 # Expected data structure
 
-![](images/tidy.png)
+![](../images/tidy.png)
 
 ???
 really important to think about data like this
@@ -107,7 +107,8 @@ pander::pander(melt(DT, measure.vars = colnames(DT)[-1], variable.name = 'Cut',
      value.name = 'Count')[Count > 5][sample(.N, 5)])
 ```
 
-## Basic ggplot2 syntax
+---
+# ggplot2 syntax
 
 ```{r, eval = FALSE, echo = TRUE}
 ggplot(DT) + 
@@ -118,7 +119,8 @@ ggplot(DT) +
 * `geom_*()`
 * `aes()`
 
-## `ggplot`
+---
+# ggplot2 syntax: `ggplot()`
 
 Usually called with...
 
@@ -126,31 +128,27 @@ Usually called with...
 1. `ggplot(df)`
 1. `ggplot(df, aes(x, y, ..))`
 
+???
 
-<!-- 1. for empty 
-     2. to set the data source
-     3. to set data source and consistent aes
+1. for empty
+2. to set the data source
+3. to set data source and consistent aes
         most restrictive, but can be changed below
         in geoms regardless still
-        
-      -->
 
-## `geom_*`
-<!-- This is the type of graph created.
-     Simple as points vs lines.
-     Or histograms.
-     Or....  -->
+---
+# ggplot2 syntax: `geom_*`
+Type of layer added, for example:
+
 
 [ggplot2 graph gallery](http://www.r-graph-gallery.com/portfolio/ggplot2-package/)
 
 
-## `aes`
-<!-- THE RULE TO THINK ABOUT IS: -->
-<!--   am i using the data to set an aesthetic  -->
-<!--   or is it a global setting -->
+---
+# ggplot2 syntax: `aes`
 
-<!-- inside aes we can call column names without quoting -->
-<!-- non standard evaluation  -->
+**The rule is: if there is a data link, set it in the `aes`. Otherwise, it is set outside of the `aes`**
+
 Links the data to aesthetic properties.
 
 * ID -> color
@@ -163,12 +161,20 @@ eg: pch to shape, cex to size)
 
 Many properties: 
 
-
 * size, shape, type
 * fill, color, alpha
 * linetype
+???
+<!-- THE RULE TO THINK ABOUT IS: -->
+<!--   am i using the data to set an aesthetic  -->
+<!--   or is it a global setting -->
 
-## Basic Plotting
+<!-- inside aes we can call column names without quoting -->
+<!-- non standard evaluation  -->
+
+---
+
+# Basic plotting
 
 Open: 
 
