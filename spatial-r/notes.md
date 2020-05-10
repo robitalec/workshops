@@ -129,6 +129,10 @@ Raster vs vector
 
 
 # Resources
+## Other workshops
+https://github.com/ldnagel/spatial-r-for-gis-users
+
+## Books
 https://keen-swartz-3146c4.netlify.com/
 https://mapschool.io/
 https://bookdown.org/robinlovelace/geocompr/intro.html
