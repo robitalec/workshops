@@ -1,19 +1,19 @@
 ---
-title: "data.table or: How I Learned To Stop For-Looping and Love With I Do J By Group"
+title: 'data.table or: How I Learned To Stop For-Looping and Love With I Do J By Group'
 author: Alec Robitaille 
 date: "`r paste0('November 16 2017 [updated: ', paste(month.name[data.table::month(Sys.Date())], data.table::mday(Sys.Date()), data.table::year(Sys.Date())), ']')`"
 output: 
   xaringan::moon_reader:
     nature:
       highlightStyle: github
-      beforeInit: "macros.js"
+      beforeInit: 'macros.js'
       highlightLines: true
       slideNumberFormat: |
-        <div class="progress-bar-container">
-          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+        <div class='progress-bar-container'>
+          <div class='progress-bar' style='width: calc(%current% / %total% * 100%);'>
           </div>
         </div>`
-    css: [metropolis, metropolis-fonts, "extra.css"]
+    css: [metropolis, metropolis-fonts, 'extra.css']
 ---
 
 
@@ -40,7 +40,14 @@ i never learned for loops in R.
 knitr::opts_chunk$set(echo = FALSE, eval = TRUE,
                       fig.align='center',
                       message = FALSE, warning = FALSE)
-options(knitr.table.format = "html")
+
+library(kableExtra)
+library(knitr)
+options(knitr.table.format = 'html') 
+kable <- function(data, ...) {
+   knitr::kable(data, digits = 3, booktabs = TRUE, ...) %>% kable_styling(c('striped', 'hover', 'condensed', 'responsive'), full_width = FALSE, position = 'center')
+}
+library(printr)
 ```
 
 ```{r, echo = FALSE, message = FALSE}
@@ -218,7 +225,10 @@ diamonds[, meanPrice := mean(price)]
 ```{r}
 diamonds[1:3, .(carat, cut, color, clarity, depth, meanPrice)]
 ```
-<!-- no output ?? did anything happen ??  -->
+
+
+---
+# :=  add/modify columns 
 
 For multiple columns:
 
@@ -226,11 +236,14 @@ For multiple columns:
 diamonds[, c('meanPrice', 'meanCarat')  := .(mean(price), mean(carat))]
 ```
 
+Or with a list of column names, wrap with brackets. 
 ```{r}
-diamonds[1:3, .(carat, cut, color, clarity, depth, price, meanPrice, meanCarat)]
+outcols <- c('meanPrice', 'meanCarat')
+diamonds[, (outcols)  := .(mean(price), mean(carat))]
 ```
 
-## Remove columns
+---
+# := remove columns
 ```{r}
 diamonds[1:3, .(carat, cut, color, clarity, depth, meanPrice)]
 ```
@@ -251,43 +264,41 @@ diamonds[, c('carat', 'cut') := NULL]
 diamonds[1:3, .(color, clarity, depth)]
 ```
 
+---
+# data.table's by
 
-## data.table's by
-
+## Single column
 ```{r, echo = TRUE}
 diamonds[, mean(price), by = color]
 ```
 
-<!-- how do we fix this column name? 
-     instant pop quiz review
-     
-     alternatively, how can we add it as a column
-     -->
-
-syntax for multiple columns to group by:
-
+## Multiple columns
 ```{r, echo = TRUE, eval = FALSE}
 diamonds[, mean(price), by = .(color, clarity)]
 diamonds[, mean(price), by = c('color', 'clarity')]
 diamonds[, mean(price), by = color:clarity]
 ```
 
-<!-- highlight the clarity and unambiguous nature of this syntax
-     we aren't using any strange numbers that have no meaning
-     -->
+???
+how do we fix this column name?
+instant pop quiz review
+alternatively, how can we add it as a column
 
 
-## 
+highlight the clarity and unambiguous nature of this syntax
+we aren't using any strange numbers that have no meaning
 
-We can also group by a conditional statement
+
+---
+#  data.table "by"
+
+## Group by a conditional statement
 
 ```{r, echo = TRUE}
 diamonds[, mean(price), by = price > 500]
-
 ```
 
-
-If we had column names preassigned, we can pass those to the by argument as well. 
+## Group by a list of columns 
 
 ```{r, eval = FALSE, echo = TRUE}
 cols <- c('color', 'clarity')
@@ -296,8 +307,9 @@ diamonds[, mean(price), by = cols]
 
 ```
 
+---
 
-## Chaining expressions 
+# Chaining expressions 
 
 ```{r, echo = TRUE, eval = FALSE}
 diamonds[, mnPrice := mean(price), by = cut][, dif := price - mnPrice]
@@ -306,7 +318,10 @@ diamonds[, mnPrice := mean(price), by = cut][, dif := price - mnPrice]
 diamonds[, mnPrice := mean(price), by = cut][, dif := price - mnPrice][sample(.N, 5), .(price, mnPrice, dif)]
 ```
 
-<!-- order locs by datetime then calculate step length -->
+???
+order locs by datetime then calculate step length
+
+---
 
 ## data.table's special symbols
 
@@ -385,7 +400,7 @@ diamonds[, .(adjustedMeanPrice = if(.BY %in% bestCuts){
 if multiple by columns, simply select the .BY of interest
 
 ```{r, eval = FALSE, echo = TRUE}
-diamonds[1:3, paste("the carat is...", .BY[1]),  by = .(carat, color)]
+diamonds[1:3, paste('the carat is...', .BY[1]),  by = .(carat, color)]
 ```
 
 ```{r, eval = FALSE, echo = TRUE}
@@ -491,7 +506,7 @@ random.locs <- locs[, ..cols][, observed := 0]
 # (updating the observed locs EASTING, NORTHING columns)
 random.locs[, c('EASTING', 'NORTHING') :=
  as.data.table(spsample(vertices.95[vertices.95@data$id == .BY[[1]],],
-      .N, iter = 100, type = "random")@coords),
+      .N, iter = 100, type = 'random')@coords),
             by = blockByIDYear]
 ```
 
