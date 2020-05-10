@@ -184,24 +184,30 @@ diamonds[, sum(price)]
 ```{r, echo = TRUE}
 diamonds[, .(sum(price))]
 ```
+
+.footnote[
+[1] You can store complex data in columns if they are within a list. See [here](http://brooksandrew.github.io/simpleblog/articles/advanced-data-table/#columns-of-lists) for an example.
+]
+
+---
+# data.table  "j"
+
 ```{r, echo = TRUE}
 diamonds[, .(sumPrice = sum(price))]
 ```
-
-<!-- highlight the differences between these three lines  -->
-
-
-
-## 
 
 ```{r, echo = TRUE}
 diamonds[, .(sumPrice = sum(price),
              meanCarat = mean(carat))]
 ```
 
+???
+j is the real workhorse.
+without intermediate output changed my life
+highlight the differences between these three lines
 
-## Add/modify columns (by reference)
-:=
+---
+# :=  add/modify columns 
 
 For one column:
 
