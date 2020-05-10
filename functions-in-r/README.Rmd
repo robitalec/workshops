@@ -1,0 +1,38 @@
+---
+output: github_document
+---
+
+# Functions in R
+A workshop delivered by Alec Robitaille to the Wildlife Evolutionary Ecology Lab at Memorial University on October 25 2018.
+
+```{bash}
+tree
+```
+
+## Details
+
+The presentation is found in the `core` repo at `core/Workshops/presentation/Functions-In-R.html`
+
+Pull the `core` repo to check out the source. This presentation was written in `RMarkdown` using the `xaringan` package by Yihui Xie.
+
+The code chunks are pulled out of the presentation and stored in `R/Chunks-FunctionsInR.R`.
+
+The setup script (`R/Setup-FunctionsInR.R`) is combined with the code chunks to produce a worksheet (`R/Worksheet-FunctionsInR.R`).
+
+Follow along with this worksheet...
+
+### Directions
+
+1. Open the Functions-In-R project (`Functions-In-R.Rproj`) as we go through the presentation. 
+1. Open the Workseet. 
+1. Load libraries, generate fake data, etc. Data for this presentation is stored in an `input` folder. 
+
+    Section label `### From Chunks-From-FunctionsInR.R ----` indicates the beginning of the chunks from the presentation. 
+
+1. Run through the examples of excess typing from copy+paste. 
+1. Make the `calc` function instead. 
+1. Use it 3 ways. 
+1. Learn about formals, body and environment. Try this with another function you use often!
+1. Three examples of using subsets of your data. 
+1. More examples of functions. 
+1. Comparison of using the `seq_along` or a unique combination `data.table`. 
