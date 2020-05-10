@@ -41,13 +41,13 @@ knitr::opts_chunk$set(echo = FALSE, eval = TRUE,
                       fig.align='center',
                       message = FALSE, warning = FALSE)
 
-library(kableExtra)
-library(knitr)
-options(knitr.table.format = 'html') 
-kable <- function(data, ...) {
-   knitr::kable(data, digits = 3, booktabs = TRUE, ...) %>% kable_styling(c('striped', 'hover', 'condensed', 'responsive'), full_width = FALSE, position = 'center')
-}
-library(printr)
+# library(kableExtra)
+# library(knitr)
+# options(knitr.table.format = 'html') 
+# k <- function(data, ...) {
+#    knitr::kable(data, digits = 3, booktabs = FALSE, ...) %>% kable_styling(c('striped', 'responsive'), full_width = TRUE, font_size = 16)
+# }
+# library(printr)
 ```
 
 ```{r, echo = FALSE, message = FALSE}
@@ -243,11 +243,14 @@ diamonds[, (outcols)  := .(mean(price), mean(carat))]
 ```
 
 ---
+
 # := remove columns
+Our example data:
 ```{r}
 diamonds[1:3, .(carat, cut, color, clarity, depth, meanPrice)]
 ```
 
+Remove the meanPrice column
 ```{r, echo = TRUE}
 diamonds[, meanPrice := NULL]
 ```
@@ -256,6 +259,11 @@ diamonds[, meanPrice := NULL]
 diamonds[1:3, .(carat, cut, color, clarity, depth)]
 ```
 
+---
+
+# := remove columns
+
+Remove multiple columns
 ```{r, echo = TRUE, eval = FALSE}
 diamonds[, c('carat', 'cut') := NULL]
 ```
@@ -264,8 +272,10 @@ diamonds[, c('carat', 'cut') := NULL]
 diamonds[1:3, .(color, clarity, depth)]
 ```
 
+
 ---
-# data.table's by
+
+# data.table "by"
 
 ## Single column
 ```{r, echo = TRUE}
@@ -323,7 +333,7 @@ order locs by datetime then calculate step length
 
 ---
 
-## data.table's special symbols
+# data.table special symbols
 
 `.SD`
 - **S**ubset of the **D**ata.table
@@ -341,14 +351,20 @@ order locs by datetime then calculate step length
 - number of rows (in each group)
 
 
-## .SD
+---
+# data.table .SD
+
+.left-tight[
 .SD is the list of columns in the data.table and represents the subset of the data.table when grouping. 
 
 .SDcols informs data.table that only a subset of the columns are needed for a function. 
 
 (note that .SDcols doesn't accept the .(col1, col2) syntax)
 
-## 
+]
+
+.right-wide[
+
 ```{r, eval = TRUE, echo = TRUE}
 diamonds[, lapply(.SD, mean), .SDcols = c('price', 'carat')]
 ```
@@ -358,14 +374,22 @@ diamonds[, lapply(.SD, mean),
          .SDcols = c('price', 'carat'), 
          by = color]
 ```
+]
 
-## .N
-How many rows?
+---
+
+# data.table .N
+
+.pull-left[
+## How many rows?
 ```{r, eval = TRUE, echo = TRUE}
 diamonds[, .N]
 ```
 
-In a group?
+]
+
+.pull-right[
+## In a group?
 ```{r, eval = FALSE, echo = TRUE}
 diamonds[, .N, by = .(color, cut)]
 ```
@@ -374,18 +398,25 @@ diamonds[, .N, by = .(color, cut)]
 diamonds[, .N, by = .(color, cut)][1:5]
 ```
 
-<!-- recently juliana and I were running into an issue with  -->
-<!-- multiple locs for the same individual at the same time -->
-<!-- this caused a major issue for  -->
+]
 
-## .BY
-For plotting...
+???
+recently juliana and I were running into an issue with
+multiple locs for the same individual at the same time
+this caused a major issue for
+
+---
+
+# data.table .BY
+
+
+## For plotting:
 
 ```{r, eval = FALSE, echo = TRUE}
 diamonds[, print(qplot(price, main = as.character(.BY))), by = color]
 ```
 
-...if statements on the value of the group...
+## Conditional statements on the value of the group
 
 ```{r, eval = FALSE, echo = TRUE}
 bestCuts <- c('Ideal', 'Premium', 'Very Good')
@@ -397,7 +428,7 @@ diamonds[, .(adjustedMeanPrice = if(.BY %in% bestCuts){
 }), by = cut]
 ```
 
-if multiple by columns, simply select the .BY of interest
+## If using multiple by columns, simply select the .BY of interest
 
 ```{r, eval = FALSE, echo = TRUE}
 diamonds[1:3, paste('the carat is...', .BY[1]),  by = .(carat, color)]
@@ -407,7 +438,7 @@ diamonds[1:3, paste('the carat is...', .BY[1]),  by = .(carat, color)]
 diamonds[1:3, paste0(.BY[1], .BY[2]),  by = .(carat, color)]
 ```
 
-## .I
+# data.table .I
 
 ```{r, echo = TRUE}
 diamonds[, rowN := .I]
@@ -421,37 +452,65 @@ diamonds[1:5, .(cut, color, depth, price, rowN)]
 diamonds[, .I[which.max(price)], by = color]
 ```
 
-## .GRP
+# data.table .GRP
 Group counter
 
 ```{r}
 diamonds[, .GRP, by = color]
 ```
 
-<!-- add grp as grp then use on grp later -->
+???
+add grp as grp then use on grp later
 
-## Good practices with data.table
-build your expressions stepwise, ensuring each is working before adding any columns to the DT. 
+---
+class: important
+# Good practices with data.table
+build your expressions stepwise, ensuring each works before adding any columns to the DT. 
 
 
 1. check that your subsetting is working
 1. with subsetting check the j
 1. with sub and j, check group 
-1. THEN add the column, once you are sure the result is good. 
+1. then add the column, once you are sure the result is good. 
 
 
-## Advanced methods
-functions in data.table's i or by
+---
+# Advanced methods
 
-```{r}
-diamonds[price == max(price)]
+## Functions in data.table's i or by
+
+```{r, echo = TRUE}
+diamonds[price == max(price), .(carat, color, price, clarity, depth)]
 ```
 
-```{r}
-diamonds[sample(.N, 5)]
+```{r, echo = TRUE}
+diamonds[sample(.N, 5), .(carat, color, price, clarity, depth)]
 ```
 
-## 
+---
+
+# Plenty of other functionality
+* the amazing fread, fwrite
+* setnames
+* setcolorder
+* shift
+* merge
+* dcast
+* melt
+* IDate, ITime
+
+my favorite combo: lapply -> rbindlist
+
+
+
+???
+why you shouldn't use subset:
+https://stackoverflow.com/questions/9860090/why-is-better-than-subset
+
+
+---
+class: clear
+
 ```{r, echo = TRUE, eval =FALSE}
 ### data.table Step Length ----
 # Set columns
@@ -477,7 +536,11 @@ locs[, (difference.cols) := .((get(coord.cols[1]) - get(lag.cols[1])) ^2,
 # Square root the summed difference for a simple step length
 locs[, simpleStep := sqrt(rowSums(.SD)),
      .SDcols = difference.cols]
+```
 
+---
+
+```{r, echo = TRUE, eval = FALSE}
 ## Delta Time
 locs[order(get(time.col)), (lag.time.col) := shift(.SD, 1, NA, 'lag'), 
      by = .(ANIMAL_ID, year),
@@ -491,7 +554,9 @@ locs[, moveRate := simpleStep / (get(dif.time.col))]
 
 ```
 
-## 
+---
+
+class: clear
 ```{r, eval = FALSE, echo = TRUE}
 # Drop columns leaving only needed
 cols <- c('EASTING', 'NORTHING', 'blockByIDYear', 'ANIMAL_ID', 'block', 'HERD')
@@ -509,20 +574,3 @@ random.locs[, c('EASTING', 'NORTHING') :=
       .N, iter = 100, type = 'random')@coords),
             by = blockByIDYear]
 ```
-
-## Plenty of other functionality
-* the amazing fread, fwrite
-* setnames
-* setcolorder
-* shift
-* merge
-* dcast
-* melt
-* IDate, ITime
-
-my favorite combo: lapply -> rbindlist
-
-##
-
-why you shouldn't use subset:
-https://stackoverflow.com/questions/9860090/why-is-better-than-subset

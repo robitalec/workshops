@@ -291,7 +291,9 @@ Or with a list of column names, wrap with brackets.
 
 
 ---
-# Remove columns
+
+# := remove columns
+Our example data:
 
 ```
 ##    carat     cut color clarity depth meanPrice
@@ -301,6 +303,7 @@ Or with a list of column names, wrap with brackets.
 ## 3:  0.23    Good     E     VS1  56.9      3933
 ```
 
+Remove the meanPrice column
 
 ```r
 diamonds[, meanPrice := NULL]
@@ -315,6 +318,11 @@ diamonds[, meanPrice := NULL]
 ## 3:  0.23    Good     E     VS1  56.9
 ```
 
+---
+
+# := remove columns
+
+Remove multiple columns
 
 ```r
 diamonds[, c('carat', 'cut') := NULL]
@@ -330,8 +338,11 @@ diamonds[, c('carat', 'cut') := NULL]
 ```
 
 
-## data.table's by
+---
 
+# data.table "by"
+
+## Single column
 
 ```r
 diamonds[, mean(price), by = color]
@@ -349,14 +360,7 @@ diamonds[, mean(price), by = color]
 ## 7:     D  3170
 ```
 
-&lt;!-- how do we fix this column name? 
-     instant pop quiz review
-     
-     alternatively, how can we add it as a column
-     --&gt;
-
-syntax for multiple columns to group by:
-
+## Multiple columns
 
 ```r
 diamonds[, mean(price), by = .(color, clarity)]
@@ -365,6 +369,11 @@ diamonds[, mean(price), by = color:clarity]
 ```
 
 ???
+how do we fix this column name?
+instant pop quiz review
+alternatively, how can we add it as a column
+
+
 highlight the clarity and unambiguous nature of this syntax
 we aren't using any strange numbers that have no meaning
 
@@ -405,18 +414,21 @@ diamonds[, mnPrice := mean(price), by = cut][, dif := price - mnPrice]
 ```
 
 ```
-##    price mnPrice   dif
-##    &lt;int&gt;   &lt;num&gt; &lt;num&gt;
-## 1:   419    3982 -3563
-## 2:  5293    3929  1364
-## 3:   798    3982 -3184
-## 4: 11389    3982  7407
-## 5:  7802    3458  4344
+##    price mnPrice     dif
+##    &lt;int&gt;   &lt;num&gt;   &lt;num&gt;
+## 1:   982    3982 -2999.8
+## 2: 10267    4584  5682.7
+## 3:  1610    4584 -2974.3
+## 4:  8044    4584  3459.7
+## 5:  4666    3982   684.2
 ```
 
-&lt;!-- order locs by datetime then calculate step length --&gt;
+???
+order locs by datetime then calculate step length
 
-## data.table's special symbols
+---
+
+# data.table special symbols
 
 `.SD`
 - **S**ubset of the **D**ata.table
@@ -434,14 +446,20 @@ diamonds[, mnPrice := mean(price), by = cut][, dif := price - mnPrice]
 - number of rows (in each group)
 
 
-## .SD
+---
+# data.table .SD
+
+.left-tight[
 .SD is the list of columns in the data.table and represents the subset of the data.table when grouping. 
 
 .SDcols informs data.table that only a subset of the columns are needed for a function. 
 
 (note that .SDcols doesn't accept the .(col1, col2) syntax)
 
-## 
+]
+
+.right-wide[
+
 
 ```r
 diamonds[, lapply(.SD, mean), .SDcols = c('price', 'carat')]
@@ -471,9 +489,14 @@ diamonds[, lapply(.SD, mean),
 ## 6:     G  3999 0.7712
 ## 7:     D  3170 0.6578
 ```
+]
 
-## .N
-How many rows?
+---
+
+# data.table .N
+
+.pull-left[
+## How many rows?
 
 ```r
 diamonds[, .N]
@@ -483,7 +506,10 @@ diamonds[, .N]
 ## [1] 53940
 ```
 
-In a group?
+]
+
+.pull-right[
+## In a group?
 
 ```r
 diamonds[, .N, by = .(color, cut)]
@@ -500,19 +526,26 @@ diamonds[, .N, by = .(color, cut)]
 ## 5:     J    Good   307
 ```
 
-&lt;!-- recently juliana and I were running into an issue with  --&gt;
-&lt;!-- multiple locs for the same individual at the same time --&gt;
-&lt;!-- this caused a major issue for  --&gt;
+]
 
-## .BY
-For plotting...
+???
+recently juliana and I were running into an issue with
+multiple locs for the same individual at the same time
+this caused a major issue for
+
+---
+
+# data.table .BY
+
+
+## For plotting:
 
 
 ```r
 diamonds[, print(qplot(price, main = as.character(.BY))), by = color]
 ```
 
-...if statements on the value of the group...
+## Conditional statements on the value of the group
 
 
 ```r
@@ -525,7 +558,7 @@ diamonds[, .(adjustedMeanPrice = if(.BY %in% bestCuts){
 }), by = cut]
 ```
 
-if multiple by columns, simply select the .BY of interest
+## If using multiple by columns, simply select the .BY of interest
 
 
 ```r
@@ -537,7 +570,7 @@ diamonds[1:3, paste('the carat is...', .BY[1]),  by = .(carat, color)]
 diamonds[1:3, paste0(.BY[1], .BY[2]),  by = .(carat, color)]
 ```
 
-## .I
+# data.table .I
 
 
 ```r
@@ -572,7 +605,7 @@ diamonds[, .I[which.max(price)], by = color]
 ## 7:     D 27677
 ```
 
-## .GRP
+# data.table .GRP
 Group counter
 
 
@@ -588,50 +621,76 @@ Group counter
 ## 7:     D     7
 ```
 
-&lt;!-- add grp as grp then use on grp later --&gt;
+???
+add grp as grp then use on grp later
 
-## Good practices with data.table
-build your expressions stepwise, ensuring each is working before adding any columns to the DT. 
+---
+class: important
+# Good practices with data.table
+build your expressions stepwise, ensuring each works before adding any columns to the DT. 
 
 
 1. check that your subsetting is working
 1. with subsetting check the j
 1. with sub and j, check group 
-1. THEN add the column, once you are sure the result is good. 
+1. then add the column, once you are sure the result is good. 
 
 
-## Advanced methods
-functions in data.table's i or by
+---
+# Advanced methods
+
+## Functions in data.table's i or by
 
 
-```
-##    carat     cut color clarity depth table price     x     y     z meanCarat
-##    &lt;num&gt;   &lt;ord&gt; &lt;ord&gt;   &lt;ord&gt; &lt;num&gt; &lt;num&gt; &lt;int&gt; &lt;num&gt; &lt;num&gt; &lt;num&gt;     &lt;num&gt;
-## 1:  2.29 Premium     I     VS2  60.8    60 18823   8.5  8.47  5.16    0.7979
-##    mnPrice   dif  rowN
-##      &lt;num&gt; &lt;num&gt; &lt;int&gt;
-## 1:    4584 14239 27750
+```r
+diamonds[price == max(price), .(carat, color, price, clarity, depth)]
 ```
 
-
 ```
-##    carat     cut color clarity depth table price     x     y     z meanCarat
-##    &lt;num&gt;   &lt;ord&gt; &lt;ord&gt;   &lt;ord&gt; &lt;num&gt; &lt;num&gt; &lt;int&gt; &lt;num&gt; &lt;num&gt; &lt;num&gt;     &lt;num&gt;
-## 1:  0.53   Ideal     H     VS2  62.4    56  1314  5.17  5.18  3.23    0.7979
-## 2:  0.57   Ideal     E     VS2  61.7    56  1949  5.36  5.34  3.30    0.7979
-## 3:  0.31    Good     H    VVS1  63.3    58   707  4.28  4.32  2.72    0.7979
-## 4:  1.03 Premium     D     SI1  61.2    54  6056  6.61  6.53  4.02    0.7979
-## 5:  1.07   Ideal     G     VS2  62.2    57  6355  6.53  6.55  4.07    0.7979
-##    mnPrice   dif  rowN
-##      &lt;num&gt; &lt;num&gt; &lt;int&gt;
-## 1:    3458 -2144 42439
-## 2:    3458 -1509 48224
-## 3:    3929 -3222 29722
-## 4:    4584  1472 15069
-## 5:    3458  2897 15901
+##    carat color price clarity depth
+##    &lt;num&gt; &lt;ord&gt; &lt;int&gt;   &lt;ord&gt; &lt;num&gt;
+## 1:  2.29     I 18823     VS2  60.8
 ```
 
-## 
+
+```r
+diamonds[sample(.N, 5), .(carat, color, price, clarity, depth)]
+```
+
+```
+##    carat color price clarity depth
+##    &lt;num&gt; &lt;ord&gt; &lt;int&gt;   &lt;ord&gt; &lt;num&gt;
+## 1:  1.00     E  5396     SI1  62.3
+## 2:  1.21     E  3795      I1  63.3
+## 3:  0.92     J  2880     SI2  58.7
+## 4:  0.41     E  1130    VVS1  60.0
+## 5:  0.52     E  1773     VS2  63.5
+```
+
+---
+
+# Plenty of other functionality
+* the amazing fread, fwrite
+* setnames
+* setcolorder
+* shift
+* merge
+* dcast
+* melt
+* IDate, ITime
+
+my favorite combo: lapply -&gt; rbindlist
+
+
+
+???
+why you shouldn't use subset:
+https://stackoverflow.com/questions/9860090/why-is-better-than-subset
+
+
+---
+class: clear
+
 
 ```r
 ### data.table Step Length ----
@@ -658,7 +717,12 @@ locs[, (difference.cols) := .((get(coord.cols[1]) - get(lag.cols[1])) ^2,
 # Square root the summed difference for a simple step length
 locs[, simpleStep := sqrt(rowSums(.SD)),
      .SDcols = difference.cols]
+```
 
+---
+
+
+```r
 ## Delta Time
 locs[order(get(time.col)), (lag.time.col) := shift(.SD, 1, NA, 'lag'), 
      by = .(ANIMAL_ID, year),
@@ -671,7 +735,9 @@ locs[, (dif.time.col) := as.numeric(get(time.col) - get(lag.time.col), units = '
 locs[, moveRate := simpleStep / (get(dif.time.col))]
 ```
 
-## 
+---
+
+class: clear
 
 ```r
 # Drop columns leaving only needed
@@ -690,23 +756,6 @@ random.locs[, c('EASTING', 'NORTHING') :=
       .N, iter = 100, type = 'random')@coords),
             by = blockByIDYear]
 ```
-
-## Plenty of other functionality
-* the amazing fread, fwrite
-* setnames
-* setcolorder
-* shift
-* merge
-* dcast
-* melt
-* IDate, ITime
-
-my favorite combo: lapply -&gt; rbindlist
-
-##
-
-why you shouldn't use subset:
-https://stackoverflow.com/questions/9860090/why-is-better-than-subset
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

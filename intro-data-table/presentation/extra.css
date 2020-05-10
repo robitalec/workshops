@@ -69,11 +69,11 @@ img, video, iframe {
 
 /* custom.css */
 .left-tight {
-  width: 33%;
+  width: 30%;
   float: left;
 }
 .right-wide {
-  width: 65%;
+  width: 69%;
   float: right;
   padding-left: 1%;
 }
