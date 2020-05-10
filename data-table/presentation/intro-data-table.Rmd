@@ -1,5 +1,5 @@
 ---
-title: "`data.table` or: How I Learned To Stop For-Looping and Love With I Do J By Group"
+title: "data.table or: How I Learned To Stop For-Looping and Love With I Do J By Group"
 author: Alec Robitaille 
 date: "`r paste0('November 16 2017 [updated: ', paste(month.name[data.table::month(Sys.Date())], data.table::mday(Sys.Date()), data.table::year(Sys.Date())), ']')`"
 output: 
@@ -17,21 +17,30 @@ output:
 ---
 
 
-## What is wrong with my for loops?
+<!-- ## TODO: 
+* ADD merge, melt, dcast, shift 
+* highlight how if your for loop is simply looking at the next row, just shift it 
+* invite Anne... other labs  
 
-<!-- ## TODO: -->
-<!-- * ADD merge, melt, dcast, shift -->
-<!-- * highlight how if your for loop is simply looking at the next row, just shift it -->
-<!-- * invite Anne... other labs  -->
+reiterate, if you are learning R for the first time, why not learn  
+most flexible/efficient packages? 
+if it wasn't for data.table i would abandon R 
 
-<!-- reiterate, if you are learning R for the first time, why not learn  -->
-<!-- most flexible/efficient packages? -->
-<!-- if it wasn't for data.table i would abandon R -->
+compare next/previous row
+     eg shift with data.table
+     
+
+
+## Why learn something new? 
+i never learned for loops in R.
+     i barely know how to write them
+     -->
 
 ```{r, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, eval = TRUE,
                       fig.align='center',
                       message = FALSE, warning = FALSE)
+options(knitr.table.format = "html")
 ```
 
 ```{r, echo = FALSE, message = FALSE}
@@ -40,58 +49,55 @@ library(ggplot2)
 diamonds <- fread('../input/diamonds.csv')
 ```
 
+# What is wrong with my for loops?
+
 for loops (*in R*) are inefficient, especially when growing objects iteratively. 
 
 they can be improved by pre-allocating the vectors or lists, if we know the expected size of the final objects. 
 
 regardless, there are more concise and efficient ways of writing R (both in number of keystrokes and processing efficiency)
 
-```{r}
+
+
+```{r, echo = FALSE}
 DF <- data.frame(n = runif(1e5, 1, 5),
                  grp = seq(1:100))
 # for(i in seq_along(unique(DF$grp))){
 #   DF[DF$grp == i,] + DF[DF$grp == i+1,]
 # }
+data(diamonds)
 ```
 
-<!-- compare next/previous row
-     eg shift with data.table
-     -->
+---
+class:middle, center, clear, review
 
-
-<!-- ## Why learn something new? -->
-<!-- i never learned for loops in R.
-     i barely know how to write them
-     -->
-
-
-## data.table
 `DT[i, j, by]`
 
 which reads: 
 
 > with I do J by group
 
-<!-- whenever you want to write a data.table expression, repeat these words...  -->
+???
+whenever you want to write a data.table expression, repeat these words...
 
-## 
+---
+
+# Modify by reference
+
 One of data.table's main driving philosophies is to modify objects *by reference*. 
 
-This avoids the major memory cost of assigning and reassigning objects by changing them in place. 
+This avoids the memory cost of assigning and reassigning objects by changing them in place. 
 
 This also means that methods on small tables translate better to large ones. 
 
-## Creating a data.table
+---
 
-```{r, echo=FALSE}
-pander::pander(data.table(
-`function` = c('setDT', 'as.data.table', 'data.table'),
-description = c('coerce by reference lists or DFs', 
-                'cast to data.table (requires assignment)',
-                'general constructor')
-))
-```
+# Creating a data.table
 
+
+
+.pull-left[
+data.tables can go anywhere data.frames go because they share the data.frame class:
 ```{r, echo = TRUE}
 diamonds <- data.frame(diamonds)
 
