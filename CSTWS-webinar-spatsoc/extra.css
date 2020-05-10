@@ -1,0 +1,47 @@
+.pull-left {
+  float: left;
+  width: 47%;
+}
+.pull-right {
+  float: right;
+  width: 47%;
+}
+
+.sidebar {
+	position:absolute;
+  top:32%;
+  padding: 0.5em;
+  left:60%;
+  background-color: #a3cbc8;
+  color: #000000;
+}
+
+.footnote{
+  position: absolute;
+  bottom: 3em;
+  padding-right: 4em;
+  font-size: 90%
+}
+
+
+.fixed-pos-r {
+	position:absolute;
+  top:15%;
+  padding: 1em;
+  left:50%;
+}
+
+.fixed-pos-b {
+	position:absolute;
+  top:65%;
+  padding: 1em;
+  left:5%;
+}
+
+.warn {
+  position: absolute;
+  bottom: 4em;
+  background-color: #bf854a;
+  color: #000000;
+  padding: 0.5em;
+}
