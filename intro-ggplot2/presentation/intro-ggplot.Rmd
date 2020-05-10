@@ -6,14 +6,14 @@ output:
   xaringan::moon_reader:
     nature:
       highlightStyle: github
-      beforeInit: 'intro-ggplot/macros.js'
+      beforeInit: 'macros.js'
       highlightLines: true
       slideNumberFormat: |
         <div class='progress-bar-container'>
           <div class='progress-bar' style='width: calc(%current% / %total% * 100%);'>
           </div>
         </div>`
-    css: [metropolis, metropolis-fonts, 'intro-ggplot/extra.css']
+    css: [metropolis, metropolis-fonts, 'extra.css']
 ---
 
 ```{r, include=FALSE}
@@ -51,7 +51,7 @@ setDT(diamonds)
 * flexible, efficient
 * **consistent** syntax
 
-![](../images/ggplot2-tutorial-slides.021.png)
+![:scale 80%](../images/ggplot2-tutorial-slides.021.png)
 
 
 ## Example data
@@ -72,26 +72,26 @@ really important to think about data like this
 
 * columns with >1 variable
 ```{r}
-pander::pander(diamonds[1:5, .(cut_color = paste(cut, color, sep="_"),
-             price)])
-
+diamonds[1:5, .(cut_color = paste(cut, color, sep="_"),
+                price)]
 ```
 
 
 * rows with multiple measures of the same individual/group
 ```{r}
-pander::pander(dcast(diamonds, price ~ cut, value.var = 'z', fun.aggregate = length)[1:5])
+dcast(diamonds, price ~ cut, value.var = 'z', fun.aggregate = length)[1:5]
 ```
 
 
-## The solution: `data.table::melt()` and `data.table::dcast`
+---
+# The solution: data.table melt() and dcast()
 
 ```{r}
 dcastDiamonds <- dcast(diamonds, price ~ cut, value.var = 'z', fun.aggregate = length, fill=0)
 dcastDiamonds[, Price := rownames(dcastDiamonds)][, price := NULL]
 setcolorder(dcastDiamonds, c('Price', 'Fair', 'Good', 'Very Good', 'Premium', 'Ideal'))
 dfDiamonds <- data.frame(dcastDiamonds[sample(.N, 5)])
-pander::pander(dfDiamonds)
+dfDiamonds
 
 DT <- dcastDiamonds
 ```
@@ -103,8 +103,8 @@ melt(DT, measure.vars = colnames(DT)[-1],
 ```
 
 ```{r , echo=FALSE, eval = TRUE}
-pander::pander(melt(DT, measure.vars = colnames(DT)[-1], variable.name = 'Cut',
-     value.name = 'Count')[Count > 5][sample(.N, 5)])
+melt(DT, measure.vars = colnames(DT)[-1], variable.name = 'Cut',
+     value.name = 'Count')[Count > 5][sample(.N, 5)]
 ```
 
 ---
@@ -120,7 +120,7 @@ ggplot(DT) +
 * `aes()`
 
 ---
-# ggplot2 syntax: `ggplot()`
+# ggplot2 syntax: ggplot()
 
 Usually called with...
 
@@ -137,7 +137,7 @@ Usually called with...
         in geoms regardless still
 
 ---
-# ggplot2 syntax: `geom_*`
+# ggplot2 syntax: geom_*
 Type of layer added, for example:
 
 
@@ -145,9 +145,9 @@ Type of layer added, for example:
 
 
 ---
-# ggplot2 syntax: `aes`
+# ggplot2 syntax: aes
 
-**The rule is: if there is a data link, set it in the `aes`. Otherwise, it is set outside of the `aes`**
+**The rule is: if there is a data link, set it in the `aes`. Otherwise, it is set outside of the `aes`.**
 
 Links the data to aesthetic properties.
 
@@ -173,17 +173,17 @@ Many properties:
 <!-- non standard evaluation  -->
 
 ---
+class: review
 
-# Basic plotting
+# Exercise: basic plotting
 
-Open: 
+1. Open: `R/intro-ggplot-worksheet.R` 
+2. Complete section - Basic ggplot2
 
-`Worksheet-IntroductionToGgplot.R` 
+---
+# Legend
 
-Section - Basic ggplot2
-
-## Legend
-function = `guides()`
+Legends are controlled by the function `guides()`
 
 To remove the legend
 ```{r, eval = FALSE, echo=TRUE}
@@ -197,8 +197,10 @@ To make finer adjustments to the legend, use:
 * `guide_legend` for discrete
 * `guide_colorbar` for continuous
 
-## Axis Labels
-function = `labs()`
+---
+# Axis Labels
+
+Axis labels are controlled by the function `labs()`
 
 ```{r, eval = FALSE, echo=TRUE}
 ggplot(diamonds) + 
@@ -206,8 +208,8 @@ ggplot(diamonds) +
   labs(x = 'Cut', y = 'Carat', color = 'Price')
 ```
 
-
-## Use of factor
+---
+# Use of factor variables
 ```{r, eval = TRUE, echo=TRUE, out.height = '400px', out.width = '550px'}
 ggplot(diamonds) + 
   geom_point(aes(cut, carat, 
@@ -216,7 +218,8 @@ ggplot(diamonds) +
   labs(x = 'Cut', y = 'Carat', color = 'Cut')
 ```
 
-## Facetting
+---
+# Facetting
 
 ```{r, eval = TRUE, echo = TRUE, out.height = '400px', out.width = '550px'}
 ggplot(diamonds) + 
@@ -224,12 +227,16 @@ ggplot(diamonds) +
   facet_wrap(~cut)
 ```
 
-## Spatial Plotting
-Open: 
 
-Worksheet-IntroductionToGgplot.R
+---
+# Combining plots
 
-Section - Spatial ggplot2
+**UPDATE**: The one and only...  [`patchwork`](https://patchwork.data-imaginist.com/)
+
+---
+# Spatial Plotting
+1. Open `intro-ggplot-worksheet.R`
+1. Section - Spatial ggplot2
 
 
 Considerations:
@@ -237,12 +244,13 @@ Considerations:
 * ensure your data is consistently projected/unprojected
 * `broom::tidy()` (or `fortify()`) SpatialPolygons
 
-## Iterative plotting
+**UPDATE**: use the `sf` package and `geom_sf`
+
+---
+# Iterative plotting
 Need to make a plot more than once? 
 
-**Don't Repeat Yourself (DRY)**
-
-Write a function!
+**Don't Repeat Yourself...** Write a function!
 
 ```{r, eval=FALSE, echo=TRUE}
 PlotXY = function(in.dt, group, xcol, ycol){
@@ -259,7 +267,8 @@ DT[, PlotXY(.SD, .BY,
 ```
 
 
-##
+---
+class: clear
 ```{r, eval = FALSE, echo = TRUE}
 HistoWithVline <- function(in.dt, metric){
   ggplot(in.dt[observed == 0]) +  
@@ -282,8 +291,13 @@ all.dyn.net[, ByIDHisto(.SD, .BY), by = ID]
 dev.off() 
 ```
 
-## Multipanel plotting
+---
+# Multipanel plotting
+**UPDATE**: use `patchwork`
+
+
 function = `gridExtra::grid.arrange()`
+
 
 ```{r, eval = FALSE, echo = TRUE}
 lsPlots <- lapply(seq_along(lsDTs), FUN = function(i){
@@ -302,12 +316,16 @@ do.call(grid.arrange, lsPlots)
 # grid.arrange(grobs = lsPlots)
 ```
 
-## Things to explore on your own
+---
+# Things to explore on your own
 * changing the theme (`theme()`)
 * `scale_color_*()` (and similar functions) for changing color ramps
 * `rasterVis::gmap()` for plotting rasters
 
-## Sources
+---
+# Resources and references
+
+**UPDATE**: [the ggplot book](https://ggplot2-book.org/)
 
 https://github.com/jennybc/ggplot2-tutorial/blob/master/ggplot2-tutorial-slides/
 
