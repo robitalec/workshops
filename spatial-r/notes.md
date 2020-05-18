@@ -12,7 +12,7 @@ you just work through the learnr exercises? folks say +1? etc?
 ## NEW *********
 Plotting rasters on top of vectors
 Projections
-
+https://www.r-spatial.org/r/2020/03/17/wkt.html
 https://github.com/plotly/rasterly
 
 what else
