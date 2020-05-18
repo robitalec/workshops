@@ -8,6 +8,17 @@ you just work through the learnr exercises? folks say +1? etc?
 
 
 # TODO
+
+## NEW *********
+Plotting rasters on top of vectors
+Projections
+
+https://github.com/plotly/rasterly
+
+what else
+
+
+
 ## General
 * host online
 * easy install of pkg
