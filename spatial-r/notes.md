@@ -142,6 +142,7 @@ Raster vs vector
 # Resources
 ## Other workshops
 https://github.com/ldnagel/spatial-r-for-gis-users
+https://r-spatialecology.github.io/ialena-2020/#p1
 
 ## Books
 https://keen-swartz-3146c4.netlify.com/
