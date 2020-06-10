@@ -52,17 +52,6 @@ Note: we are going to emphasize the `sf` package here since it is the *way forwa
 
 
 ---
-# Types of spatial data
-
-<!-- TODO: incremental slides, with quiz.. match raster/vector to types of data -->
-
---
-Raster
-
---
-Vector
-
----
 # Vector file formats: Shapefile
 
 \+ widely used and supported
