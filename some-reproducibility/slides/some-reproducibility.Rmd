@@ -1,0 +1,27 @@
+---
+title: "Some Reproducibility"
+subtitle: ""
+author: "Alec L. Robitaille"
+institute: "Wildlife Evolutionary Ecology Lab - Memorial University"
+date: "`r paste0('August 4 2020 [updated: ', paste(month.name[data.table::month(Sys.Date())], data.table::mday(Sys.Date()), data.table::year(Sys.Date())), ']')`"
+output: 
+  xaringan::moon_reader:
+    chakra: "libs/remark-latest.min.js"
+    nature:
+      highlightStyle: github
+      beforeInit: "macros-git.js"
+      highlightLines: true
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>`
+    css: [metropolis, metropolis-fonts, "extra-git.css"]
+---
+
+
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
