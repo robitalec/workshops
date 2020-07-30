@@ -32,6 +32,10 @@ project and how `drake` helps us explictly define and track our workflow.
 1. Vis, edit, vis. 93 till infinity. 
 
 
+1. Zip up your results: `zip::zip('a.zip', 'a')`
+
+
+
 ### Resources
 
 https://milesmcbain.xyz/the-drake-post/
