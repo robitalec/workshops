@@ -18,6 +18,14 @@ Focusing on two packages:
 Starting with a completed example, we'll look at how `renv` help us track packages (and versions) used for a 
 project and how `drake` helps us explictly define and track our workflow. 
 
+* zip
+* ggplot2
+* data.table
+* renv
+* drake
+* curl
+* usethis
+
 
 
 ### Exercise
