@@ -9,14 +9,14 @@ output:
     chakra: "libs/remark-latest.min.js"
     nature:
       highlightStyle: github
-      beforeInit: "macros-git.js"
+      beforeInit: "macros-some.js"
       highlightLines: true
       slideNumberFormat: |
         <div class="progress-bar-container">
           <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
           </div>
         </div>`
-    css: [metropolis, metropolis-fonts, "extra-git.css"]
+    css: [metropolis, metropolis-fonts, "extra-some.css"]
 ---
 
 
