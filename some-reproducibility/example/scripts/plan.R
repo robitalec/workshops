@@ -15,11 +15,15 @@ plot_data <- code_to_function('scripts/5-plot.R')
 # The plan
 plan <- drake_plan(
   downloaded = download_data(),
-  prepared = prep_data(downloaded),
+  prepared = prepare_data(downloaded),
   processed = process_data(prepared),
   summarized = summarize_data(processed),
   plotted = plot_data(summarized),
 )
+
+# Note, these are not really functions.. we declare dependencies when
+#  using code_to_function by putting different steps of the plan
+#  within brackets. But these aren't true inputs.
 
 # Plans can extend in many ways:
 # * multiple dependencies
