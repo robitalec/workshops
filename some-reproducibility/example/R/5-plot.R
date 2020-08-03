@@ -12,7 +12,7 @@ metrics <- readRDS('output/4-metrics.Rds')
 
 
 # Plot --------------------------------------------------------------------
-(g1 <- ggplot(observed) +geom_point(aes(ID, strength)))
+(g1 <- ggplot(metrics) +geom_point(aes(ID, strength)))
 
 
 # Output ------------------------------------------------------------------
