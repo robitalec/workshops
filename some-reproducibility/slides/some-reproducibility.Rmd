@@ -25,3 +25,24 @@ output:
 options(htmltools.dir.version = FALSE)
 ```
 
+
+
+
+---
+
+# `renv`
+
+
+* set the package version, and when you go back a year later, it still works
+* share a project with a colleague and it forces everyone to use the same package version
+
+
+
+---
+
+# `drake`
+
+* explicit workflow
+* what's outdated?
+* only rerun what you need to
+* emphasizes functional 
