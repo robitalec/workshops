@@ -8,8 +8,8 @@ and automating workflows.
 
 Focusing on two packages:
 
-* [`renv`]()
-* [`drake`]()
+* [`renv`](https://rstudio.github.io/renv)
+* [`drake`](https://github.com/ropensci/drake/)
 
 
 
@@ -17,14 +17,6 @@ Focusing on two packages:
 
 Starting with a completed example, we'll look at how `renv` help us track packages (and versions) used for a 
 project and how `drake` helps us explictly define and track our workflow. 
-
-* zip
-* ggplot2
-* data.table
-* renv
-* drake
-* curl
-* usethis
 
 
 
@@ -38,16 +30,20 @@ project and how `drake` helps us explictly define and track our workflow.
 1. Make a figure. Wrap it as a function.
 1. Make a plan. 
 1. Vis, edit, vis. 93 till infinity. 
-
-
 1. Zip up your results: `zip::zip('a.zip', 'a')`
 
 
 
 ### Resources
 
-https://milesmcbain.xyz/the-drake-post/
+#### `drake`
 
+* https://books.ropensci.org/drake/
+* https://milesmcbain.xyz/the-drake-post/
+
+
+#### `renv`
 https://ropensci.github.io/reproducibility-guide/sections/introduction/
 
 https://the-turing-way.netlify.app/welcome
+
