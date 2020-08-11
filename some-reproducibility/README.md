@@ -1,9 +1,8 @@
 # Some Reproducibility
 
-<!-- badges: start -->
-<!-- badges: end -->
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gl/robit.a%2Fsome-reproducibility-example/master?urlpath=rstudio)
 
-Workshop focusing on some parts of reproducible research, namely capturing the computational environment
+Workshop focusing on some parts of reproducible research: capturing the computational environment
 and automating workflows.
 
 Focusing on two packages:
