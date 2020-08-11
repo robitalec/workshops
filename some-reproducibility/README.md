@@ -42,12 +42,17 @@ Two example projects:
 
 #### `drake`
 
-* https://books.ropensci.org/drake/
-* https://milesmcbain.xyz/the-drake-post/
+* [`drake` book](https://books.ropensci.org/drake/), [`drake` docs](https://docs.ropensci.org/drake/), so many resources!
+* [Miles McBain's drake post](https://milesmcbain.xyz/the-drake-post/)
 
 
 #### `renv`
-https://ropensci.github.io/reproducibility-guide/sections/introduction/
 
-https://the-turing-way.netlify.app/welcome
+* [renv docs](https://rstudio.github.io/renv/articles/renv.html)
+
+
+#### General Reproducibility
+
+* [rOpenSci Guide](https://ropensci.github.io/reproducibility-guide/sections/introduction/)
+* [The Turing Way](https://the-turing-way.netlify.app/welcome)
 
