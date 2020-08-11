@@ -23,6 +23,10 @@ Two example projects:
 1. Script based workflow
 2. Function based workflow
 
+### Binder
+
+Binder is used to run this workshop in the browser and I've isolated the example
+in a separate repository here: [robit.a/some-reproducibility-example](https://gitlab.com/robit.a/some-reproducibility-example). 
 
 
 ### Exercise
