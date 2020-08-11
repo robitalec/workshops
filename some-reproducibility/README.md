@@ -11,25 +11,30 @@ Focusing on two packages:
 * [`drake`](https://github.com/ropensci/drake/)
 
 
+### Example projects
 
-### Example project
-
-Starting with a completed example, we'll look at how `renv` help us track packages (and versions) used for a 
+Starting with two completed examples, we'll look at how `renv` help us track packages (and versions) used for a 
 project and how `drake` helps us explictly define and track our workflow. 
+A bit trickier to setup Binder with `renv`, so the 
+
+
+Two example projects:
+
+1. Script based workflow
+2. Function based workflow
 
 
 
 ### Exercise
 
-1. Open the [Binder]() link here: TODO.
-1. Make a new RStudio project. 
-1. Setup renv.
-1. Setup drake. 
-1. Write three functions to process TODO input process1 process2 output TODO
-1. Make a figure. Wrap it as a function.
-1. Make a plan. 
-1. Vis, edit, vis. 93 till infinity. 
-1. Zip up your results: `zip::zip('a.zip', 'a')`
+1. Open the Binder link [here](https://mybinder.org/v2/gl/robit.a%2Fsome-reproducibility-example/master?urlpath=rstudio)
+1. Open one of the example RStudio projects. 
+1. Run `drake::r_vis_drake_graph()` to see the targets and outputs. 
+1. Run `drake::r_make()` to make them. 
+1. Explore the outputs, figures, etc. 
+1. Make some changes, vis, edit, vis. 93 till infinity.
+1. Compare: scripts vs functions
+1. Optionally, zip up your results to take them home with you (`zip::zip('mine.zip', 'mine')`)
 
 
 
