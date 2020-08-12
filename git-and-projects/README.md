@@ -1,6 +1,7 @@
 # Git & Projects
 Alec Robitaille
 
+
 ## Plan
 Projects -> Git intro -> Setup a project with Git
 
@@ -8,7 +9,7 @@ Paired
 
 
 ## Projects
-https://csgillespie.github.io/efficientR/set-up.html#project-management
+[Efficient R: Project Set Up](https://csgillespie.github.io/efficientR/set-up.html#project-management)
 
 ```
 project/
@@ -43,20 +44,13 @@ project/
   * user auth token
   * pull
   * git config
-
-
-gitignore  
-Branches why
-Pull rebase/merge why
-Conflicts
-
-Git doesnt track folders
-
-Quality commit messages
-Revert/reset
-
-dont push large files
-
-
-## TODO: 
-* host on website
+1. More Git
+  * gitignore  
+  * Branches why
+  * Pull rebase/merge why
+  * Conflicts
+  * Revert/reset
+1. Nuances
+  * Git doesnt track folders
+  * Quality commit messages
+  * don't push large files
