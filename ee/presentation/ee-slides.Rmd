@@ -1,0 +1,34 @@
+---
+title: "Google Earth Engine 101"
+author: Alec Robitaille + Isabella C. Richmond
+date: "`r paste0('November 26 2020 [updated: ', paste(month.name[data.table::month(Sys.Date())], data.table::mday(Sys.Date()), data.table::year(Sys.Date())), ']')`"
+output: 
+  xaringan::moon_reader:
+    nature:
+      highlightStyle: github
+      beforeInit: "macros-ee.js"
+      highlightLines: true
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>`
+    css: [metropolis, metropolis-fonts, "extras-ee.css"]
+---
+  
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      eval = TRUE)
+```
+
+
+
+# Slide 1 
+
+
+---
+
+class:important
+
+
+# We love this colour
