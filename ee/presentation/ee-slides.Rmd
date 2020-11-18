@@ -22,13 +22,110 @@ knitr::opts_chunk$set(echo = TRUE,
 ```
 
 
+# What is Google Earth Engine?
 
-# Slide 1 
+Large processing platform 
+
+
+
+---
+# Data Types 
+
+
+Image, image collection, feature, feature collection
+
+
+
+---
+# EE Set-Up 
+
+
+Left side 
+
+Middle - script box
+
+Right side 
+
+Bottom - map
+
+
+
+---
+# Sources of Data 
+
+
+Landsat, land cover, etc.  
+
 
 
 ---
 
-class:important
+# Sources of Data Example 
+
+let's do it
 
 
-# We love this colour
+
+
+---
+
+# Filtering Data 
+
+is this the same as sampling?
+
+
+
+---
+
+# Filtering Data Example 
+
+let's do it together
+
+
+
+---
+
+# Importing Objects 
+
+bring in things relevant to your study
+
+
+---
+
+# Importing Objects Example 
+
+let's do it together
+
+
+
+---
+
+# Sampling 
+
+
+
+Reduce it to relevant time/space/etc.
+
+
+---
+
+# Sampling Example 
+
+let's do it together
+
+
+
+
+---
+# Exporting 
+
+Exporting your work to your google drive - MUN is unlimited
+
+
+
+
+---
+# Exporting Example 
+
+let's do it together
+
