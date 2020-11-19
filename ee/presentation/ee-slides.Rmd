@@ -43,14 +43,14 @@ $^{[1]}$: [Google Developers: Get Started with Earth Engine ](https://developers
 # Data Types
 
 ## Image 
-- All raster data is represented as an Image object in Earth Engine
-- The ee.Image function is the main function to load in images in the Code Editor
+- All raster data is represented as an `Image` object in Earth Engine
+- The `ee.Image` function is the main function to load in `Images` in the Code Editor
 - E.g. a single Landsat photo
 
 --
 
 ## Image Collection
-- A stack or sequence of Images
+- A stack or sequence of `Images`
 - Can be found in the Earth Engine data catalog
 - E.g. **All** the Landsat 7 imagery 
 
@@ -60,15 +60,15 @@ $^{[1]}$: [Google Developers: Get Started with Earth Engine ](https://developers
 # Data Types Continued
 
 ## Feature
-- A Feature in Earth Engine is an object with a geometry (vector)
+- A `Feature` in Earth Engine is an object with a geometry (vector)
 - Polygon, line, point
-- Features can be created in Earth Engine or uploaded
+- `Features` can be created in Earth Engine or uploaded
 - E.g. a study area polygon
 
 --
 
 ## Feature Collection
-- Groups of related Features
+- Groups of related `Features`
 - Do not need to have the same geometries or properties to be in a Feature Collection
 - E.g. Relocation points for all animals in a study
 
@@ -88,33 +88,54 @@ $^{[1]}$: [Geohackweek: GEE](https://geohackweek.github.io/GoogleEarthEngine/02-
 ---
 # Sources of Data 
 
-
-Landsat, land cover, etc.  
+1. Climate & Weather
+  - Surface temps
+  - Atmosphere
+  - Weather & Climate
+  - etc.  
+  
+2. Imagery
+  - Landsat (NDVI, NDMI, EVI, etc.)
+  - Sentinel (weather, land cover conditions, etc.)
+  - MODIS (surface reflectance, snow cover, etc.)
+  - Hi. Res. (aerial imagery at 1 m resolution)  
+  
+3. Geophysical
+  - Terrain
+  - Land cover 
+  - Cropland
+  - etc.
 
 
 
 ---
+class:review
 
 # Sources of Data Example 
 
-let's do it
+- Let's try getting some data together
 
 
 
 
 ---
-
 # Filtering Data 
 
-is this the same as sampling?
+- Obviously these data files are far larger than necessary 
+- We want to filter the data so it is relevant to us  
+
+--
+
+- We are going to filter the data we found to be within our study area AND our study dates
 
 
 
 ---
+class:review
 
 # Filtering Data Example 
 
-let's do it together
+- Let's filter this data! 
 
 
 
@@ -122,45 +143,48 @@ let's do it together
 
 # Importing Objects 
 
-bring in things relevant to your study
+- You don't need to manually choose a point or polygon within Google Earth Engine when filtering data, you can import your relevant features and use them  
+
+- E.g. Importing relocation points, study grid, study area boundaries, etc.
+
 
 
 ---
+class:review
 
 # Importing Objects Example 
-
-let's do it together
+- Let's import our study points and use them to filter our data! 
 
 
 
 ---
+# Processing
+- Earth Engine is extremely powerful when it comes to processing power 
+- Options are (almost) limitless 
+- We can extract the values we are interested in, calculate a mean over our study time, and much more 
+- Saves us the trouble of processing these massive images in R 
 
-# Sampling 
-
-
-
-Reduce it to relevant time/space/etc.
 
 
 ---
+class:review
 
-# Sampling Example 
+# Processing Example 
 
-let's do it together
-
+- Let's get the mean NDVI value at each of our study points
 
 
 
 ---
 # Exporting 
-
-Exporting your work to your google drive - MUN is unlimited
-
-
+- Now we have a processed `Image Collection` and we can export our work 
+- Earth Engine exports your work to your Google Drive account 
+- **NOTE:** MUN students have unlimited storage in their Google Drive and their email does not expire (as of right now)
 
 
 ---
+class:review
 # Exporting Example 
 
-let's do it together
+- Let's export our processed data to our Google Drive
 
