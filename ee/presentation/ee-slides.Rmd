@@ -122,10 +122,9 @@ https://code.earthengine.google.com/3fe19d2bd8471b21b309d03650300329
 ---
 # Filtering Data 
 
-- Obviously these data files are far larger than necessary 
-- We want to filter the data so it is relevant to us  
+- Obviously these data files are far larger than necessary  
 
---
+- We want to filter the data so it is relevant to us  
 
 - We are going to filter the data we found to be within our study area AND our study dates
 
