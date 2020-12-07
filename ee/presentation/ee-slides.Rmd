@@ -188,3 +188,16 @@ class:review
 
 - Let's export our processed data to our Google Drive
 
+
+
+---
+# Next steps
+
+* Modules
+  * https://developers.google.com/earth-engine/guides/playground#script-modules
+
+* Charts
+  * https://developers.google.com/earth-engine/guides/charts
+
+* Objects, gt/lt 
+  * https://developers.google.com/earth-engine/guides/image_objects
