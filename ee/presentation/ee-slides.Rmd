@@ -382,6 +382,31 @@ class:review
 
 
 ---
+
+# Example - Band math
+
+## Image
+
+Script: Examples/Image/Normalized Difference
+or Expression
+
+## Image Collection
+
+see full example for map function ndvi
+
+---
+
+# Example - Sampling
+
+
+## Image
+Scripts: Examples/Image/Reduce Region
+
+## Image Collection
+
+See full example for map + reduce regions
+
+---
 # Exporting 
 - Now we have a processed `Image Collection` and we can export our work 
 - Earth Engine exports your work to your Google Drive account 
