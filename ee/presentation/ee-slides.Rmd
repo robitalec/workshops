@@ -324,8 +324,7 @@ class:review
 
 # Importing features 
 
-Either a shapefile (and related `.dbf`, `.shx` and `.prj` files) or a zip file of these. 
-
+Upload either a shapefile (and related `.dbf`, `.shx` and `.prj` files) or a zip file of these, or a CSV
 
 ```{r}
 library(sf)
@@ -339,6 +338,12 @@ points <- st_as_sf(df, coords = c('lon', 'lat'))
 st_write(points, 'example-features/ex-abc.shp')
 
 zip('example-abc.zip', 'example-features')
+```
+
+Then load the asset in Earth Engine
+
+```{js}
+var features = ee.FeatureCollection('users/robit.a/example-abc');
 ```
 
 .footnote[
