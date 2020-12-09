@@ -123,26 +123,50 @@ var polyFeature = ee.Feature(polygon, {foo: 42, bar: 'tart'});
 .footnote[
 [1]: [Basic JavaScript data types](https://developers.google.com/earth-engine/tutorials/tutorial_js_01
 )
+
+Dictionary: key value
+Lists []
+Array
 ]
 
-
---- 
-
+---
 # Data Types: Comparing R and EE
 
 
+.pull-left[
+## Earth Engine
+* `ee.Image`
+* `ee.ImageCollection`
+
+* `ee.Feature`
+* `ee.FeatureCollection
+
+]
+
+.pull-left[
+## R
+* `raster`
+* `raster` stack, `stars`, ...
+
+* `sf::st_geometry`
+* `sf`, `sfc`
+]
+
 
 ---
-background-image: url(https://geohackweek.github.io/GoogleEarthEngine/fig/02_codeeditor.png)
+background-image: url(https://developers.google.com/earth-engine/images/Code_editor.png)
 background-position: center
 background-size: contain
 
-# Earth Engine Set-Up 
+# Earth Engine Code Editor
 
 .footnote[
-$^{[1]}$: [Geohackweek: GEE](https://geohackweek.github.io/GoogleEarthEngine/02-code-editor/)
+$[1]$: [](https://developers.google.com/earth-engine/guides/playground)
 ]
 
+???
+
+Code editor also called the EE Playground
 
 ---
 # Sources of Data 
