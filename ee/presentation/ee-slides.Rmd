@@ -359,14 +359,6 @@ var features = ee.FeatureCollection('users/robit.a/example-abc');
 
 
 ---
-class:review
-
-# Importing Objects Example 
-- Let's import our study points and use them to filter our data! 
-
-
-
----
 Band math
 
 sampling
