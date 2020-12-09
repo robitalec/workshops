@@ -295,6 +295,9 @@ class:review
 ---
 # Next steps
 
+* Javascript + Earth Engine
+  * https://developers.google.com/earth-engine/tutorials/tutorial_js_01
+
 * Modules
   * https://developers.google.com/earth-engine/guides/playground#script-modules
 
