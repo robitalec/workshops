@@ -311,19 +311,42 @@ var filteredCollection = ee.ImageCollection('LANDSAT/LC08/C01/T1')
 ---
 class:review
 
-# Filtering Data Example 
+# Example - filtering data
 
-## Images
+## Image Collection
 - Script: [Examples/Image Collection/Filtered Composite Name](https://code.earthengine.google.com/6341485b408675e989a40ad039753f4d)
 
-## Feature Collections
+## Feature Collection
 - Script: [Filtering attributes in feature collections](https://code.earthengine.google.com/6dbb2653b3d988049ff6ad115bc9b8e3)
 
 
 ---
 
-# Importing Objects 
+# Importing features 
 
+Either a shapefile (and related `.dbf`, `.shx` and `.prj` files) or a zip file of these. 
+
+
+```{r}
+library(sf)
+dir.create('example-features')
+
+df <- data.frame(id = LETTERS[1:3],
+                 lon = c(-137.03, -136.94, -137.10),
+                 lat = c(60.46, 60.50, 60.52))
+points <- st_as_sf(df, coords = c('lon', 'lat'))
+
+st_write(points, 'example-features/ex-abc.shp')
+
+zip('example-abc.zip', 'example-features')
+```
+
+.footnote[
+[Importing features](https://developers.google.com/earth-engine/guides/importing)
+]
+
+
+???
 - You don't need to manually choose a point or polygon within Google Earth Engine when filtering data, you can import your relevant features and use them  
 
 - E.g. Importing relocation points, study grid, study area boundaries, etc.
