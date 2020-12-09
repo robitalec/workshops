@@ -125,23 +125,70 @@ Differences between R and EE:
 ---
 # Data Types
 
+.pull-left[
 
-* Dictionary
-* List
-* Array
-* Date
-* Number
-* String
+
+### String
+
+```{js}
+// Use single (or double) quotes 
+//  to make a string.
+var potato = 'yukon gold';
+// Use parentheses to pass 
+//  arguments to functions.
+print(potato);
+```
+
+### Numbers
+```{js}
+// Store a number in a variable.
+var number = 17;
+print(number);
+```
+
+]
+
+.pull-right[
+
+
+
+### Dictionary
+
+```{js}
+// Use curly brackets {} to make a 
+//  dictionary of key:value pairs.
+var object = {
+  foo: 'bar',
+  baz: 13,
+  stuff: ['kilo', 'lima', 'mike']
+};
+
+print('Print stuff:', object['stuff']);
+```
+
+### List
+
+```{js}
+// Use square brackets [] to 
+//  make a list.
+var listOfNumbers = [0, 1, 1, 2, 3, 5];
+```
+
+
+]
 
 
 .footnote[
 [1]: [Basic JavaScript data types](https://developers.google.com/earth-engine/tutorials/tutorial_js_01
 )
+]
 
+
+???
 Dictionary: key value
 Lists []
 Array
-]
+
 
 ---
 # Data Types: Comparing R and EE
@@ -149,19 +196,25 @@ Array
 
 .pull-left[
 ## Earth Engine
+
+### Images
 * `ee.Image`
 * `ee.ImageCollection`
 
+### Features
 * `ee.Feature`
-* `ee.FeatureCollection
+* `ee.FeatureCollection`
 
 ]
 
 .pull-left[
 ## R
+
+### Rasters
 * `raster`
 * `raster` stack, `stars`, ...
 
+### Vectors
 * `sf::st_geometry`
 * `sf`, `sfc`
 ]
