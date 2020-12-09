@@ -48,7 +48,7 @@ The code editor allows you to find relevant imagery, process it, share your code
 
 ---
 
-# Data Types
+# Data types
 
 ## Image
 - `ee.Image`
@@ -79,7 +79,7 @@ Image in EE = `ee.Image`
 Image in R = mainly `raster`
 
 ---
-# Data Types
+# Data types
 
 ## Feature
 - `ee.Feature`
@@ -100,7 +100,7 @@ var polyFeature = ee.Feature(polygon, {foo: 42, bar: 'tart'});
 
 ---
 
-# Data Types
+# Data types
 
 ## Feature Collection
 - `ee.FeatureCollection`
@@ -123,7 +123,7 @@ Differences between R and EE:
 
 
 ---
-# Data Types
+# Data types
 
 .pull-left[
 
@@ -191,7 +191,7 @@ Array
 
 
 ---
-# Data Types: Comparing R and EE
+# Data types: Comparing R and EE
 
 
 .pull-left[
