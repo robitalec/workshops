@@ -24,9 +24,9 @@ knitr::opts_chunk$set(echo = TRUE,
 ```
 
 
-# What is Google Earth Engine?
+# What is Earth Engine?
 
-- A processing platform that allows you to run algorithms on georeferenced imagery and vectors on Google's super computers  
+- A processing platform that allows you to run algorithms on georeferenced imagery and vectors on Google's servers 
 
 - Contains a **massive** catalog of geospatial data 
 
@@ -225,7 +225,7 @@ background-image: url(https://developers.google.com/earth-engine/images/Code_edi
 background-position: center
 background-size: contain
 
-# Earth Engine Code Editor
+# Earth Engine code editor
 
 
 
@@ -236,7 +236,7 @@ background-size: contain
 Code editor also called the EE Playground
 
 ---
-# Examples of available data
+# Sources of data
 
 1. Climate & Weather
   - Surface temps
@@ -262,17 +262,17 @@ class: review
 
 # Example - sources of data 
 
-## Images
+## Image
 - Script: [Examples/Image/From Name](https://code.earthengine.google.com/856e0c5d65858be858aabada28a5d5da)
 
-## Image Collections
+## Image Collection
 - Script: [Exploring image collections](https://code.earthengine.google.com/1a5ee71d43b85ac287afe0285126f804)
 - Use the Search bar to see all the Image Collections that are available
 - Use the asset id to load the image collection and add them to the map
 
 
 ---
-# Filtering Data
+# Filtering data
 
 - Unlike R, Earth Engine optimizes the *final* call using deferred execution. In short, this means that operations like "clip" are usually unnecessary. 
 
