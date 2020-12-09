@@ -306,3 +306,8 @@ class:review
 
 * Objects, gt/lt 
   * https://developers.google.com/earth-engine/guides/image_objects
+
+
+--- 
+
+Many examples throughout used directly or adapted for this workshop from the [Earth Engine documentation](https://developers.google.com/earth-engine). 
