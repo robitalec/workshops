@@ -263,7 +263,7 @@ class: review
 # Example - sources of data 
 
 ## Images
-- Script: [Examples/Images/From Name](https://code.earthengine.google.com/856e0c5d65858be858aabada28a5d5da)
+- Script: [Examples/Image/From Name](https://code.earthengine.google.com/856e0c5d65858be858aabada28a5d5da)
 
 ## Image Collections
 - Script: [Exploring image collections](https://code.earthengine.google.com/1a5ee71d43b85ac287afe0285126f804)
@@ -272,8 +272,35 @@ class: review
 
 
 ---
-# Filtering Data 
+# Filtering Data
 
+- Unlike R, Earth Engine optimizes the *final* call using deferred execution. In short, this means that operations like "clip" are usually unnecessary. 
+
+- Instead, we filter our data:
+   - spatial filter e.g. within bounds
+   - temporal filter e.g. within dates
+   - attribute filter e.g. type equals "cheese"
+
+
+
+```{js}
+var point = ee.Geometry.Point(-122.262, 37.8719);
+
+var start = ee.Date('2014-06-01');
+var finish = ee.Date('2014-10-01');
+
+var filteredCollection = ee.ImageCollection('LANDSAT/LC08/C01/T1')
+  .filterBounds(point)
+  .filterDate(start, finish);
+```
+
+.footnote[
+[Get Started: Filtering](https://developers.google.com/earth-engine/guides/getstarted#filtering-and-sorting)
+
+[Deferred execution](https://developers.google.com/earth-engine/guides/deferred_execution)
+]
+
+???
 - Obviously these data files are far larger than necessary  
 
 - We want to filter the data so it is relevant to us  
@@ -281,14 +308,16 @@ class: review
 - We are going to filter the data we found to be within our study area AND our study dates
 
 
-
 ---
 class:review
 
 # Filtering Data Example 
 
-- Let's filter this data! 
+## Images
+- Script: [Examples/Image Collection/Filtered Composite Name](https://code.earthengine.google.com/6341485b408675e989a40ad039753f4d)
 
+## Feature Collections
+- Script: [Filtering attributes in feature collections](https://code.earthengine.google.com/6dbb2653b3d988049ff6ad115bc9b8e3)
 
 
 ---
