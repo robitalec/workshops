@@ -28,51 +28,112 @@ knitr::opts_chunk$set(echo = TRUE,
 
 - A processing platform that allows you to run algorithms on georeferenced imagery and vectors on Google's super computers  
 
-- Essentially, it is the easiest way to deal with remote sensing data
+- Contains a **massive** catalog of geospatial data 
 
-- Contains a **massive** public data catalogue of documentation, scripts, functions, and imagery
+- Accessible through the online Code Editor, and a Javascript and Python libraries 
 
-- Earth Engine has an interactive interface called the 'Code Editor', which runs largely on Java or Python 
 
-- The code editor allows you to find relevant imagery, process it, share your code, and save your code and processed imagery to your Google Drive
+.pull-right[
+![:scale 55%](https://developers.google.com/earth-engine/images/EE_new_logo_480.png)
+]
+
 
 .footnote[
-$^{[1]}$: [Google Developers: Get Started with Earth Engine ](https://developers.google.com/earth-engine/guides/getstarted)
+[1]: [Google Developers: Get Started with Earth Engine ](https://developers.google.com/earth-engine/guides/getstarted)
 ]
+
+???
+
+The code editor allows you to find relevant imagery, process it, share your code, and save your code and processed imagery to your Google Drive
 
 ---
 
 # Data Types
 
-## Image 
-- All raster data is represented as an `Image` object in Earth Engine
-- The `ee.Image` function is the main function to load in `Images` in the Code Editor
-- E.g. a single Landsat photo
+-- 
+.pull-left[
+## Image (`ee.Image`)
+- An image composed of one or many bands
+- Properties: name, data type, scale, mask and projection
+- E.g.: a single Landsat scene, a single land cover raster
+
+```{js}
+var l7scene = ee.Image('LANDSAT/LE07/C01/T1_RT/LE07_001004_20000610');
+```
+]
 
 --
+.pull-right[
 
-## Image Collection
-- A stack or sequence of `Images`
-- Can be found in the Earth Engine data catalog
-- E.g. **All** the Landsat 7 imagery 
+## Feature (`ee.Feature`)
+- A feature composed of a Geometry object and properties
+- Properties:
+- `Features` can be created in Earth Engine or uploaded
+- E.g. points, lines and polygons, a study area polygon
+
+
+```{js}
+// Create an ee.Geometry.
+var polygon = ee.Geometry.Polygon([
+  [[-35, -10], [35, -10], [35, 10], [-35, 10], [-35, -10]]
+]);
+
+// Create a Feature from the Geometry.
+var polyFeature = ee.Feature(polygon, {foo: 42, bar: 'tart'});
+```
+
+
+
+]
+
+???
+Differences between R and EE:
 
 
 ---
-
-# Data Types Continued
-
-## Feature
-- A `Feature` in Earth Engine is an object with a geometry (vector)
-- Polygon, line, point
-- `Features` can be created in Earth Engine or uploaded
-- E.g. a study area polygon
+# Data Types
 
 --
 
+.pull-left [
+## Image Collection (`ee.Image.Collection`)
+- A stack or sequence of images
+- E.g. *All* the Landsat 7 imagery 
+]
+
+--
+.pull-right [
 ## Feature Collection
 - Groups of related `Features`
 - Do not need to have the same geometries or properties to be in a Feature Collection
 - E.g. Relocation points for all animals in a study
+
+
+]
+
+
+---
+# Data Types
+
+
+* Dictionary
+* List
+* Array
+* Date
+* Number
+* String
+
+
+.footnote[
+[1]: [Basic JavaScript data types](https://developers.google.com/earth-engine/tutorials/tutorial_js_01
+)
+]
+
+
+--- 
+
+# Data Types: Comparing R and EE
+
 
 
 ---
