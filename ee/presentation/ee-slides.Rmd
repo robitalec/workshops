@@ -255,6 +255,11 @@ class:review
 
 
 ---
+Band math
+
+sampling
+
+
 # Processing
 - Earth Engine is extremely powerful when it comes to processing power 
 - Options are (almost) limitless 
