@@ -1,7 +1,9 @@
 ---
-title: "Google Earth Engine 101"
-author: Alec Robitaille + Isabella C. Richmond
-date: "`r paste0('November 26 2020 [updated: ', paste(month.name[data.table::month(Sys.Date())], data.table::mday(Sys.Date()), data.table::year(Sys.Date())), ']')`"
+title: "Remote Sensing with Earth Engine"
+author: 
+  - Alec Robitaille
+  - Isabella C. Richmond
+date: "`r paste0('December 10 2020 [updated: ', paste(month.name[data.table::month(Sys.Date())], data.table::mday(Sys.Date()), data.table::year(Sys.Date())), ']')`"
 output: 
   xaringan::moon_reader:
     nature:
