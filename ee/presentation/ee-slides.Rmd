@@ -227,16 +227,16 @@ background-size: contain
 
 # Earth Engine Code Editor
 
-.footnote[
-$[1]$: [](https://developers.google.com/earth-engine/guides/playground)
-]
+
 
 ???
+[EE Playground](https://developers.google.com/earth-engine/guides/playground)
+
 
 Code editor also called the EE Playground
 
 ---
-# Sources of Data 
+# Examples of available data
 
 1. Climate & Weather
   - Surface temps
@@ -257,16 +257,18 @@ Code editor also called the EE Playground
   - etc.
 
 
-
 ---
-class:review
+class: review
 
-# Sources of Data Example 
+# Example - sources of data 
 
-- Let's try getting some data together
-- Use the Search bar in Earth Engine to see all the Images/Image Collections that are available to you  
+## Images
+- Script: [Examples/Images/From Name](https://code.earthengine.google.com/856e0c5d65858be858aabada28a5d5da)
 
-https://code.earthengine.google.com/3fe19d2bd8471b21b309d03650300329
+## Image Collections
+- Script: [Exploring image collections](https://code.earthengine.google.com/1a5ee71d43b85ac287afe0285126f804)
+- Use the Search bar to see all the Image Collections that are available
+- Use the asset id to load the image collection and add them to the map
 
 
 ---
