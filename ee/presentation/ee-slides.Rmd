@@ -50,8 +50,6 @@ The code editor allows you to find relevant imagery, process it, share your code
 
 # Data Types
 
--- 
-.pull-left[
 ## Image (`ee.Image`)
 - An image composed of one or many bands
 - Properties: name, data type, scale, mask and projection
@@ -60,10 +58,30 @@ The code editor allows you to find relevant imagery, process it, share your code
 ```{js}
 var l7scene = ee.Image('LANDSAT/LE07/C01/T1_RT/LE07_001004_20000610');
 ```
-]
 
 --
-.pull-right[
+
+## Image Collection (`ee.Image.Collection`)
+- A stack or sequence of images
+- E.g. *All* the Landsat 7 imagery 
+]
+
+```{js}
+var l7 = ee.ImageCollection('LANDSAT/LE07/C01/T1_RT');
+```
+
+???
+Differences between R and EE:
+
+Image in EE = `ee.Image`
+Image in R = mainly `raster`
+
+
+
+---
+# Data Types
+
+
 
 ## Feature (`ee.Feature`)
 - A feature composed of a Geometry object and properties
@@ -82,34 +100,12 @@ var polygon = ee.Geometry.Polygon([
 var polyFeature = ee.Feature(polygon, {foo: 42, bar: 'tart'});
 ```
 
-
-
-]
-
-???
-Differences between R and EE:
-
-
----
-# Data Types
-
 --
-
-.pull-left [
-## Image Collection (`ee.Image.Collection`)
-- A stack or sequence of images
-- E.g. *All* the Landsat 7 imagery 
-]
-
---
-.pull-right [
 ## Feature Collection
 - Groups of related `Features`
 - Do not need to have the same geometries or properties to be in a Feature Collection
 - E.g. Relocation points for all animals in a study
 
-
-]
 
 
 ---
