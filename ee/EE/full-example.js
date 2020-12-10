@@ -31,16 +31,23 @@ function maskL8sr(image) {
 
 
 // Function to calculate NDVI and add it as a band
-function calcNDVI(image) {
-	var ndvi = image.normalizedDifference(['B4','B3']).rename('ndvi');
-	return image.addBands(ndvi);
+function calcNDVI(im) {
+	var ndvi = im.normalizedDifference(['B5','B4']).rename('ndvi');
+	return im.addBands(ndvi);
 }
 
+// Function to grab date from image and add it as a band
+function addDates(img) {
+  var date = img.date();
+  return img.addBands(ee.Image([date.getRelative('day', 'year'),
+                                date.get('year')]).rename(['doy', 'year'])).float();
+}
+
+
 // Function to sample an image in each region of supplied geometry
-function sampleregions (im, geometry) {
-	return(im.reduceRegions(geometry,
-													ee.Reducer.mean(),
-													30));
+function sampleregions (im) {
+	return(im.reduceRegions(geometry, ee.Reducer.mean(), 30)
+           .copyProperties(im));
 }
 
 
