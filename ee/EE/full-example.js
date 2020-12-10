@@ -107,6 +107,19 @@ Map.addLayer(l8.select('ndvi'));
 
 
 // Chart =======================================================================
+var ndviTimeSeries = ui.Chart.feature.byFeature({
+  features: sample,
+  xProperty: 'doy',
+  yProperties: 'ndvi'
+});
 
+ndviTimeSeries = ndviTimeSeries.setChartType('ScatterChart')
+                               .setOptions({title: 'NDVI at sample regions by julian day'});
+print(ndviTimeSeries);
 
 // Export ======================================================================
+Export.table.toDrive({
+  collection: sample,
+  description: 'sampled-ndvi',
+  folder: 'ee-workshop'
+});
