@@ -1,10 +1,16 @@
-// Full worked example
+// Workshop: An Introduction to Remote Sensing with Earth Engine and R =========
+// Full worked example - annotated
+// Alec Robitaille, Isabella Richmond
+// December 10 2020
 
+
+// Functions ===================================================================
 // First we are going to build some functions
 // Earth Engine has several functions ready to go in the example scripts
 // Functions are often dependent on the image collection you are working with
 
 // Function to cloud mask from the pixel_qa band of Landsat 8 SR data.
+// From: Examples/Cloud Masking/Landsat8 Surface Reflectance
 function maskL8sr(image) {
 	// Bits 3 and 5 are cloud shadow and cloud, respectively.
 	var cloudShadowBitMask = 1 << 3;
