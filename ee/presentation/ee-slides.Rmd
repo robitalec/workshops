@@ -255,8 +255,7 @@ Code editor also called the EE Playground
   - Elevation, terrain
   - Land cover
   - Cropland
-
-
+ 
 3. Climate
   - Surface temperature
   - Atmosphere
