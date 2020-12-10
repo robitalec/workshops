@@ -32,16 +32,16 @@ function maskL8sr(image) {
 
 // Function to calculate NDVI and add it as a band
 function calcNDVI(image) {
-	var ndvi = image.normalizedDifference(['B4','B3']).rename('ndvi')
+	var ndvi = image.normalizedDifference(['B4','B3']).rename('ndvi');
 	return image.addBands(ndvi);
 }
 
 // Function to sample an image in each region of supplied geometry
-function sampleregions = function(im, geometry) {
+function sampleregions (im, geometry) {
 	return(im.reduceRegions(geometry,
 													ee.Reducer.mean(),
 													30));
-};
+}
 
 
 // Images ======================================================================
