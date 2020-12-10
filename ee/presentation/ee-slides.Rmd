@@ -191,7 +191,7 @@ Array
 
 
 ---
-# Data types -  Comparing R and EE
+# Data types -  comparing R and EE
 
 
 .pull-left[
@@ -352,81 +352,72 @@ var features = ee.FeatureCollection('users/robit.a/example-abc');
 
 
 ---
-# Processing: band math
+class:review
+# Example - band math
 
-Two approaches: 
+## Image
+
+* Script: [Examples/Image/Normalized Difference](https://code.earthengine.google.com/afcb9f29454529683d855696f5a9d681)
 
 
+## Image Collection
 
+* Script: [Full example](https://code.earthengine.google.com/940ada34c9099e1df33259df21b3c649)
 
 
 ---
 class:review
 
-## Image
+# Example - sampling
 
-Script: Examples/Image/Normalized Difference
-or Expression
+## Image
+* Script: [Examples/Image/Reduce Region](https://code.earthengine.google.com/3eddec46a224a2491d070057ab73419f)
 
 ## Image Collection
 
-see full example for map function ndvi
+* Script: [Full example](https://code.earthengine.google.com/940ada34c9099e1df33259df21b3c649)
 
 
 ---
-# Processing -  sampling 
+# Exporting
 
 
+???
+
+Earth Engine exports your work to your Google Drive account (or to an asset or to a Cloud Storage account)
 
 
----
-
-# Example - Band math
-
-
----
-
-# Example - Sampling
-
-
-## Image
-Scripts: Examples/Image/Reduce Region
-
-## Image Collection
-
-See full example for map + reduce regions
-
----
-# Exporting 
-- Now we have a processed `Image Collection` and we can export our work 
-- Earth Engine exports your work to your Google Drive account 
-- **NOTE:** MUN students have unlimited storage in their Google Drive and their email does not expire (as of right now)
+Note: MUN students have unlimited storage in their Google Drive and their email does not expire (as of right now)
 
 
 ---
-class:review
-# Exporting Example 
+# Resources
 
-- Let's export our processed data to our Google Drive
+.left-column[
+[Earth Engine Documentation](https://developers.google.com/earth-engine/guides)
 
+Earth Engine user group
 
+Github: [gee-community](https://github.com/gee-community/), specifically the [examples](https://github.com/gee-community/example-scripts)
 
----
-# Next steps
+* [`rgee`](https://github.com/r-spatial/rgee)
 
-* Javascript + Earth Engine
-  * https://developers.google.com/earth-engine/tutorials/tutorial_js_01
+* [QGIS examples](https://github.com/giswqs/qgis-earthengine-examples)
 
-* Modules
-  * https://developers.google.com/earth-engine/guides/playground#script-modules
-
-* Charts
-  * https://developers.google.com/earth-engine/guides/charts
-
-* Objects, gt/lt 
-  * https://developers.google.com/earth-engine/guides/image_objects
+Many examples throughout are taken directly, or adapted slightly for this workshop, from the [Earth Engine documentation](https://developers.google.com/earth-engine) and sidebar examples. Thanks to the EE team for the incredible tool, and accompanying documentation and support. 
 
 
---- 
+]
 
-Many examples throughout used directly or adapted for this workshop from the [Earth Engine documentation](https://developers.google.com/earth-engine). 
+.right-column[
+[Javascript + Earth Engine](https://developers.google.com/earth-engine/tutorials/tutorial_js_01)
+
+[Script modules](https://developers.google.com/earth-engine/guides/playground#script-modules)
+
+[Charts](https://developers.google.com/earth-engine/guides/charts)
+
+[Objects, gt/lt](https://developers.google.com/earth-engine/guides/image_objects)
+
+]
+
+

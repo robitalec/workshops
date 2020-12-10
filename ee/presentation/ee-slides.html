@@ -263,7 +263,7 @@ Array
 
 
 ---
-# Data types: Comparing R and EE
+# Data types -  comparing R and EE
 
 
 .pull-left[
@@ -444,87 +444,75 @@ var features = ee.FeatureCollection('users/robit.a/example-abc');
 
 
 ---
-Band math
+class:review
+# Example - band math
 
-sampling
+## Image
+
+* Script: [Examples/Image/Normalized Difference](https://code.earthengine.google.com/afcb9f29454529683d855696f5a9d681)
 
 
-# Processing
-- Earth Engine is extremely powerful when it comes to processing power 
-- Options are (almost) limitless 
-- We can extract the values we are interested in, calculate a mean over our study time, and much more 
-- Saves us the trouble of processing these massive images in R 
+## Image Collection
 
+* Script: [Full example](https://code.earthengine.google.com/940ada34c9099e1df33259df21b3c649)
 
 
 ---
 class:review
 
-# Processing Example 
-
-- Let's get the mean NDVI value at each of our study points
-
-
-
----
-
-# Example - Band math
+# Example - sampling
 
 ## Image
-
-Script: Examples/Image/Normalized Difference
-or Expression
+* Script: [Examples/Image/Reduce Region](https://code.earthengine.google.com/3eddec46a224a2491d070057ab73419f)
 
 ## Image Collection
 
-see full example for map function ndvi
-
----
-
-# Example - Sampling
-
-
-## Image
-Scripts: Examples/Image/Reduce Region
-
-## Image Collection
-
-See full example for map + reduce regions
-
----
-# Exporting 
-- Now we have a processed `Image Collection` and we can export our work 
-- Earth Engine exports your work to your Google Drive account 
-- **NOTE:** MUN students have unlimited storage in their Google Drive and their email does not expire (as of right now)
+* Script: [Full example](https://code.earthengine.google.com/940ada34c9099e1df33259df21b3c649)
 
 
 ---
-class:review
-# Exporting Example 
+# Exporting
 
-- Let's export our processed data to our Google Drive
 
+???
+
+Earth Engine exports your work to your Google Drive account (or to an asset or to a Cloud Storage account)
+
+
+Note: MUN students have unlimited storage in their Google Drive and their email does not expire (as of right now)
 
 
 ---
-# Next steps
+# Resources
 
-* Javascript + Earth Engine
-  * https://developers.google.com/earth-engine/tutorials/tutorial_js_01
+.left-column[
+[Earth Engine Documentation](https://developers.google.com/earth-engine/guides)
 
-* Modules
-  * https://developers.google.com/earth-engine/guides/playground#script-modules
+Earth Engine user group
 
-* Charts
-  * https://developers.google.com/earth-engine/guides/charts
+Github: [gee-community](https://github.com/gee-community/), specifically the [examples](https://github.com/gee-community/example-scripts)
 
-* Objects, gt/lt 
-  * https://developers.google.com/earth-engine/guides/image_objects
+* [`rgee`](https://github.com/r-spatial/rgee)
+
+* [QGIS examples](https://github.com/giswqs/qgis-earthengine-examples)
+
+Many examples throughout are taken directly, or adapted slightly for this workshop, from the [Earth Engine documentation](https://developers.google.com/earth-engine) and sidebar examples. Thanks to the EE team for the incredible tool, and accompanying documentation and support. 
 
 
---- 
+]
 
-Many examples throughout used directly or adapted for this workshop from the [Earth Engine documentation](https://developers.google.com/earth-engine). 
+.right-column[
+[Javascript + Earth Engine](https://developers.google.com/earth-engine/tutorials/tutorial_js_01)
+
+[Script modules](https://developers.google.com/earth-engine/guides/playground#script-modules)
+
+[Charts](https://developers.google.com/earth-engine/guides/charts)
+
+[Objects, gt/lt](https://developers.google.com/earth-engine/guides/image_objects)
+
+]
+
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
