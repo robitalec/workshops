@@ -381,6 +381,30 @@ class:review
 ---
 # Exporting
 
+Most common method: export to your Google Drive
+
+```{js}
+// Make a collection of points.
+var features = ee.FeatureCollection([
+  ee.Feature(ee.Geometry.Point(30.41, 59.933), {name: 'a'}),
+  ee.Feature(ee.Geometry.Point(-73.96, 40.781), {name: 'b'}),
+  ee.Feature(ee.Geometry.Point(6.4806, 50.8012), {name: 'c'})
+]);
+
+// Export the FeatureCollection to a CSV file.
+Export.table.toDrive({
+  collection: features,
+  description:'vectorsToDriveExample',
+  fileFormat: 'CSV'
+});
+
+```
+
+
+.footnote[
+[Exporting Data](https://developers.google.com/earth-engine/guides/exporting)
+]
+
 
 ???
 
