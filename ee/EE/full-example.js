@@ -51,6 +51,8 @@ function sampleregions (im) {
 }
 
 // Geometry ====================================================================
+// Create a polygon that outlines your area of interest
+// Can also do this using the tools on the left hand side of the map pane
 var geometry = ee.Geometry.MultiPoint(
         [[-60.53, 46.55],
          [-60.52, 46.55],
@@ -80,14 +82,14 @@ l8 = l8.filterDate('2018-01-01', '2020-01-01')
 
 
 // Process images ==============================================================
-// Mask clouds and calculate NDVI
+// Mask clouds, add dates, and calculate NDVI
 l8 = l8.map(maskL8sr)
        .map(addDates)
        .map(calcNDVI);
 
 
 // Sample images ===============================================================
-// Sample images using our geometry
+// Sample images using our study area geometry
 var sample = l8.map(sampleregions)
                .flatten();
 
@@ -116,6 +118,7 @@ Map.addLayer(l8.select('ndvi'));
 
 
 // Chart =======================================================================
+// Visualize your data within Earth Engine
 var ndviTimeSeries = ui.Chart.feature.byFeature({
   features: sample,
   xProperty: 'doy',
@@ -127,6 +130,7 @@ ndviTimeSeries = ndviTimeSeries.setChartType('ScatterChart')
 print(ndviTimeSeries);
 
 // Export ======================================================================
+// Earth engine saves to your Google Drive
 Export.table.toDrive({
   collection: sample,
   description: 'sampled-ndvi',
