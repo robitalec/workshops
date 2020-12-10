@@ -68,19 +68,21 @@ var l8 = ee.ImageCollection("LANDSAT/LC08/C01/T1_SR");
 //   specified timeframe
 // .filterBounds filters images in the image collection that overlap with our
 //   study area
-l8 = l8.filterDate('2018-01-01', '2019-01-01')
-			 .filterBounds(geometry);
+l8 = l8.filterDate('2018-01-01', '2020-01-01')
+       .filterBounds(geometry);
 
 
 // Process images ==============================================================
 // Mask clouds and calculate NDVI
 l8 = l8.map(maskL8sr)
-			 .map(calcNDVI);
+       .map(addDates)
+       .map(calcNDVI);
 
 
 // Sample images ===============================================================
 // Sample images using our geometry
-var sample = l8.map(sampleregions, geometry);
+var sample = l8.map(sampleregions)
+               .flatten();
 
 
 // Check output ================================================================
