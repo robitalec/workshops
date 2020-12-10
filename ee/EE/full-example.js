@@ -50,6 +50,13 @@ function sampleregions (im) {
            .copyProperties(im));
 }
 
+// Geometry ====================================================================
+var geometry = ee.Geometry.MultiPoint(
+        [[-60.53, 46.55],
+         [-60.52, 46.55],
+         [-60.55, 46.57],
+         [-60.49, 46.57],
+         [-60.53, 46.58]]);
 
 // Images ======================================================================
 // Now we are going to import the image collection that we want
