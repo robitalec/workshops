@@ -300,14 +300,6 @@ var filteredCollection = ee.ImageCollection('LANDSAT/LC08/C01/T1')
 [Deferred execution](https://developers.google.com/earth-engine/guides/deferred_execution)
 ]
 
-???
-- Obviously these data files are far larger than necessary  
-
-- We want to filter the data so it is relevant to us  
-
-- We are going to filter the data we found to be within our study area AND our study dates
-
-
 ---
 class:review
 
@@ -324,7 +316,9 @@ class:review
 
 # Importing features 
 
-Upload either a shapefile (and related `.dbf`, `.shx` and `.prj` files) or a zip file of these, or a CSV
+Either a Shapefile (and related `.dbf`, `.shx` and `.prj` files) or a zip file of these, or a CSV
+
+In R, take an example sf object and zip it
 
 ```{r, eval = FALSE}
 library(sf)
@@ -340,7 +334,7 @@ st_write(points, 'example-features/ex-abc.shp')
 zip('example-abc.zip', 'example-features')
 ```
 
-Then load the asset in Earth Engine
+Upload the asset, then load the asset in your Earth Engine scripts
 
 ```{js}
 var features = ee.FeatureCollection('users/robit.a/example-abc');
