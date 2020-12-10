@@ -238,23 +238,23 @@ Code editor also called the EE Playground
 ---
 # Sources of data
 
-1. Climate & Weather
-  - Surface temps
-  - Atmosphere
-  - Weather & Climate
-  - etc.  
+
+1. Imagery
+  - Landsat
+  - Sentinel 
+  - MODIS 
+  - Derived imagery (e.g. NDVI)
   
-2. Imagery
-  - Landsat (NDVI, NDMI, EVI, etc.)
-  - Sentinel (weather, land cover conditions, etc.)
-  - MODIS (surface reflectance, snow cover, etc.)
-  - Hi. Res. (aerial imagery at 1 m resolution)  
-  
-3. Geophysical
-  - Terrain
-  - Land cover 
+2. Geophysical
+  - Elevation, terrain
+  - Land cover
   - Cropland
-  - etc.
+
+
+3. Climate
+  - Surface temperature
+  - Atmosphere
+  - Weather
 
 
 ---
