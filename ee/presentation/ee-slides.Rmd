@@ -191,7 +191,7 @@ Array
 
 
 ---
-# Data types: Comparing R and EE
+# Data types -  Comparing R and EE
 
 
 .pull-left[
@@ -352,31 +352,16 @@ var features = ee.FeatureCollection('users/robit.a/example-abc');
 
 
 ---
-Band math
+# Processing: band math
 
-sampling
+Two approaches: 
 
 
-# Processing
-- Earth Engine is extremely powerful when it comes to processing power 
-- Options are (almost) limitless 
-- We can extract the values we are interested in, calculate a mean over our study time, and much more 
-- Saves us the trouble of processing these massive images in R 
 
 
 
 ---
 class:review
-
-# Processing Example 
-
-- Let's get the mean NDVI value at each of our study points
-
-
-
----
-
-# Example - Band math
 
 ## Image
 
@@ -386,6 +371,18 @@ or Expression
 ## Image Collection
 
 see full example for map function ndvi
+
+
+---
+# Processing -  sampling 
+
+
+
+
+---
+
+# Example - Band math
+
 
 ---
 
