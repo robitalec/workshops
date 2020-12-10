@@ -3,8 +3,6 @@
   <head>
     <title>An Introduction to Remote Sensing with Earth Engine and R</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Alec Robitaille" />
-    <meta name="author" content="Isabella C. Richmond" />
     <script src="ee-slides_files/header-attrs-2.5/header-attrs.js"></script>
     <link href="ee-slides_files/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
     <link href="ee-slides_files/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
@@ -15,8 +13,7 @@
 class: center, middle, inverse, title-slide
 
 # An Introduction to Remote Sensing with Earth Engine and R
-### Alec Robitaille
-### Isabella C. Richmond
+### <p>Alec Robitaille <br> Isabella C. Richmond <br> <br> Wildlife Evolutionary Ecology Lab <br> Memorial University <br> <br></p>
 ### December 10 2020 [updated: December 9 2020]
 
 ---
@@ -473,6 +470,48 @@ class:review
 ---
 # Exporting
 
+Most common method: export to your Google Drive
+
+
+```js
+// Make a collection of points.
+var features = ee.FeatureCollection([
+  ee.Feature(ee.Geometry.Point(30.41, 59.933), {name: 'a'}),
+  ee.Feature(ee.Geometry.Point(-73.96, 40.781), {name: 'b'}),
+  ee.Feature(ee.Geometry.Point(6.4806, 50.8012), {name: 'c'})
+]);
+
+// Export the FeatureCollection to a CSV file.
+Export.table.toDrive({
+  collection: features,
+  description:'vectorsToDriveExample',
+  fileFormat: 'CSV'
+});
+
+```
+
+
+&lt;script type="text/javascript"&gt;
+// Make a collection of points.
+var features = ee.FeatureCollection([
+  ee.Feature(ee.Geometry.Point(30.41, 59.933), {name: 'a'}),
+  ee.Feature(ee.Geometry.Point(-73.96, 40.781), {name: 'b'}),
+  ee.Feature(ee.Geometry.Point(6.4806, 50.8012), {name: 'c'})
+]);
+
+// Export the FeatureCollection to a CSV file.
+Export.table.toDrive({
+  collection: features,
+  description:'vectorsToDriveExample',
+  fileFormat: 'CSV'
+});
+
+&lt;/script&gt;
+
+
+.footnote[
+[Exporting Data](https://developers.google.com/earth-engine/guides/exporting)
+]
 
 
 ???

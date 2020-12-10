@@ -1,8 +1,14 @@
 ---
 title: "An Introduction to Remote Sensing with Earth Engine and R"
-author: 
-  - Alec Robitaille
-  - Isabella C. Richmond
+author: | 
+  Alec Robitaille
+  <br>
+  Isabella C. Richmond
+  <br> <br>
+  Wildlife Evolutionary Ecology Lab
+  <br>
+  Memorial University
+  <br> <br>
 date: "`r paste0('December 10 2020 [updated: ', paste(month.name[data.table::month(Sys.Date())], data.table::mday(Sys.Date()), data.table::year(Sys.Date())), ']')`"
 output: 
   xaringan::moon_reader:
