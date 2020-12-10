@@ -424,12 +424,6 @@ Earth Engine user group
 
 Github: [gee-community](https://github.com/gee-community/), specifically the [examples](https://github.com/gee-community/example-scripts)
 
-* [`rgee`](https://github.com/r-spatial/rgee)
-
-* [QGIS examples](https://github.com/giswqs/qgis-earthengine-examples)
-
-Many examples throughout are taken directly, or adapted slightly for this workshop, from the [Earth Engine documentation](https://developers.google.com/earth-engine) and sidebar examples. Thanks to the EE team for the incredible tool, and accompanying documentation and support. 
-
 
 ]
 
@@ -442,6 +436,15 @@ Many examples throughout are taken directly, or adapted slightly for this worksh
 
 [Objects, gt/lt](https://developers.google.com/earth-engine/guides/image_objects)
 
+[`rgee`](https://github.com/r-spatial/rgee)
+
+[QGIS examples](https://github.com/giswqs/qgis-earthengine-examples)
+
+
 ]
 
 
+.footnote[
+Many examples throughout are taken directly, or adapted slightly for this workshop, from the [Earth Engine documentation](https://developers.google.com/earth-engine) and sidebar examples. Thanks to the EE team for the incredible tool, and accompanying documentation and support. 
+
+]
