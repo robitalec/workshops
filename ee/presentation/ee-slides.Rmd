@@ -326,7 +326,7 @@ class:review
 
 Upload either a shapefile (and related `.dbf`, `.shx` and `.prj` files) or a zip file of these, or a CSV
 
-```{r}
+```{r, eval = FALSE}
 library(sf)
 dir.create('example-features')
 
@@ -355,7 +355,6 @@ var features = ee.FeatureCollection('users/robit.a/example-abc');
 - You don't need to manually choose a point or polygon within Google Earth Engine when filtering data, you can import your relevant features and use them  
 
 - E.g. Importing relocation points, study grid, study area boundaries, etc.
-
 
 
 ---
