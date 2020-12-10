@@ -101,6 +101,8 @@ print(sample.limit(10));
 
 
 // Map =========================================================================
+Map.centerObject(geometry)
+
 // Add the processed layers to the map below to visualize your data
 Map.addLayer(l8);
 Map.addLayer(l8.select('ndvi'));
