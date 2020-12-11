@@ -2,12 +2,12 @@
 
 Alec Robitaille and Isabella C. Richmond
 
-Date: November 26 2020
+Date: December 10 2020
 
+Wildlife Evolutionary Ecology Lab - Memorial University
 
-## TODO
-See PRs [7](https://gitlab.com/robit.a/workshops/-/merge_requests/7), [8](https://gitlab.com/robit.a/workshops/-/merge_requests/8), [9](https://gitlab.com/robit.a/workshops/-/merge_requests/9)
+---
 
-## Install
+[Slides](https://slides.robitalec.ca/ee.html)
 
-## Steps
+Resources listed here. Example scripts in the `EE` folder.
