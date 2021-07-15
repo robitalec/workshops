@@ -2,6 +2,9 @@
 
 Author: Alec Robitaille
 
+<!-- Metadata --> 
+<!-- Spatial R --> 
+
 December 10 2020 - An Introduction to Remote Sensing with Earth Engine: [Resources](https://github.com/robitalec/workshops/tree/master/ee), [Slides](https://slides.robitalec.ca/ee.html) [Co-delivered with Isabella C. Richmond]
 
 August 4 2020 -  Some Reproducibility: [Resources](https://github.com/robitalec/workshops/tree/master/some-reproducibility), [Binder](https://mybinder.org/v2/gl/robit.a%2Fsome-reproducibility-example/master?urlpath=rstudio)
