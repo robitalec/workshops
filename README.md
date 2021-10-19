@@ -2,6 +2,8 @@
 
 Author: Alec Robitaille
 
+
+<!-- Intro to WEEL guide, universe, github and gitlab repositories --> 
 <!-- Metadata --> 
 <!-- Spatial R --> 
 
