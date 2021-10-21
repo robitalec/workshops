@@ -12,27 +12,36 @@
 // Function to cloud mask from the pixel_qa band of Landsat 8 SR data.
 // From: Examples/Cloud Masking/Landsat8 Surface Reflectance
 function maskL8sr(image) {
-	// Bits 3 and 5 are cloud shadow and cloud, respectively.
-	var cloudShadowBitMask = 1 << 3;
-	var cloudsBitMask = 1 << 5;
+	// Bits 2, 4 and 5 are cirrus, cloud shadow and cloud, respectively.
+	var cloudShadowBitMask = 1 << 4;
+	var cloudsBitMask = 1 << 3;
+	var cirrusBitMask = 1 << 2;
 
 	// Get the pixel QA band.
-	var qa = image.select('pixel_qa');
+	var qa = image.select('QA_PIXEL');
 
 	// Both flags should be set to zero, indicating clear conditions.
 	var mask = qa.bitwiseAnd(cloudShadowBitMask).eq(0)
-	.and(qa.bitwiseAnd(cloudsBitMask).eq(0));
+	              .and(qa.bitwiseAnd(cloudsBitMask).eq(0))
+	              .and(qa.bitwiseAnd(cirrusBitMask).eq(0));
 
 	// Return the masked image, scaled to reflectance, without the QA bands.
-	return image.updateMask(mask).divide(10000)
-	.select("B[0-9]*")
+	return image.updateMask(mask)
 	.copyProperties(image, ["system:time_start"]);
+}
+
+// Applies scaling factors.
+function applyScaleFactors(image) {
+  var opticalBands = image.select('SR_B.').multiply(0.0000275).add(-0.2);
+  var thermalBands = image.select('ST_B.*').multiply(0.00341802).add(149.0);
+  return image.addBands(opticalBands, null, true)
+              .addBands(thermalBands, null, true);
 }
 
 
 // Function to calculate NDVI and add it as a band
 function calcNDVI(im) {
-	var ndvi = im.normalizedDifference(['B5','B4']).rename('ndvi');
+	var ndvi = im.normalizedDifference(['SR_B5','SR_B4']).rename('ndvi');
 	return im.addBands(ndvi);
 }
 
@@ -51,8 +60,6 @@ function sampleregions (im) {
 }
 
 // Geometry ====================================================================
-// Create a polygon that outlines your area of interest
-// Can also do this using the tools on the left hand side of the map pane
 var geometry = ee.Geometry.MultiPoint(
         [[-60.53, 46.55],
          [-60.52, 46.55],
@@ -65,7 +72,7 @@ var geometry = ee.Geometry.MultiPoint(
 // We can import using the image collection ID, as seen below
 // To find an Image Collection's ID, search for the Image Collection you want
 //   in the search bar, click on it, and look in the description
-var l8 = ee.ImageCollection("LANDSAT/LC08/C01/T1_SR");
+var l8 = ee.ImageCollection("LANDSAT/LC08/C02/T1_L2");
 
 
 // Filter ======================================================================
@@ -82,14 +89,15 @@ l8 = l8.filterDate('2018-01-01', '2020-01-01')
 
 
 // Process images ==============================================================
-// Mask clouds, add dates, and calculate NDVI
+// Mask clouds and calculate NDVI
 l8 = l8.map(maskL8sr)
+       .map(applyScaleFactors)
        .map(addDates)
        .map(calcNDVI);
 
 
 // Sample images ===============================================================
-// Sample images using our study area geometry
+// Sample images using our geometry
 var sample = l8.map(sampleregions)
                .flatten();
 
@@ -100,7 +108,6 @@ var sample = l8.map(sampleregions)
 //   and therefore, it can take some time.
 // Note 2: we use the limit function to show a subset of our results. (like head() in R)
 print(sample.limit(10));
-
 
 // Map =========================================================================
 Map.centerObject(geometry)
@@ -118,7 +125,6 @@ Map.addLayer(l8.select('ndvi'));
 
 
 // Chart =======================================================================
-// Visualize your data within Earth Engine
 var ndviTimeSeries = ui.Chart.feature.byFeature({
   features: sample,
   xProperty: 'doy',
@@ -130,7 +136,6 @@ ndviTimeSeries = ndviTimeSeries.setChartType('ScatterChart')
 print(ndviTimeSeries);
 
 // Export ======================================================================
-// Earth engine saves to your Google Drive
 Export.table.toDrive({
   collection: sample,
   description: 'sampled-ndvi',
