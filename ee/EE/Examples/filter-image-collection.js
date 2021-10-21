@@ -16,7 +16,7 @@ var polygon = ee.Geometry.Polygon({
 
 // Create a Landsat 7 composite for Spring of 2000, and filter by
 // the bounds of the FeatureCollection.
-var collection = ee.ImageCollection('LANDSAT/LE07/C01/T1')
+var collection = ee.ImageCollection('LANDSAT/LE07/C02/T1_L2')
     .filterDate('2000-04-01', '2000-07-01')
     .filterBounds(polygon);
 
@@ -24,6 +24,6 @@ var collection = ee.ImageCollection('LANDSAT/LE07/C01/T1')
 var median = collection.median();
 
 // Select the red, green and blue bands.
-var result = median.select('B3', 'B2', 'B1');
-Map.addLayer(result, {gain: [1.4, 1.4, 1.1]});
+var result = median.select('SR_B3', 'SR_B2', 'SR_B1');
+Map.addLayer(result);
 Map.setCenter(-110, 40, 5);
