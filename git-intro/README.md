@@ -7,20 +7,20 @@ Alec L. Robitaille
 ## Setup
 
 1. Install Git:
-* Windows https://gitforwindows.org/, details: https://happygitwithr.com/install-git.html#install-git-windows
-* Mac details: https://happygitwithr.com/install-git.html#macos
+	* Windows https://gitforwindows.org/, details: https://happygitwithr.com/install-git.html#install-git-windows
+	* Mac details: https://happygitwithr.com/install-git.html#macos
 
 1. Install a GUI:
-* GitHub Desktop: https://desktop.github.com/
-* (optionally) SmartGit: https://www.syntevo.com/smartgit/
+	* GitHub Desktop: https://desktop.github.com/
+	* (optionally) SmartGit: https://www.syntevo.com/smartgit/
 
 1. Install various R packages
-* usethis, devtools, data.table, ggplot2, rmarkdown
-* `install.packages(c("data.table", "usethis", "devtools", "ggplot2", "rmarkdown"))`
+	* usethis, devtools, data.table, ggplot2, rmarkdown
+	* `install.packages(c("data.table", "usethis", "devtools", "ggplot2", "rmarkdown"))`
 
 1. Say hello to Git: https://happygitwithr.com/hello-git.html
-* Note "user.name" is your full name - Alec Robitaille
-* and "user.email" is the email associated with your GitHub/GitLab account
+	* Note "user.name" is your full name - Alec L. Robitaille
+	* and "user.email" is the email associated with your GitHub/GitLab account
 
 
 ## Workshop
