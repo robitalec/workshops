@@ -1,16 +1,27 @@
 # Git Intro
+
 Alec L. Robitaille
 2021-10-27
 
 
 ## Setup
 
-1. Install Git
-	1. Install Git. See [Happy Git With R: Install Git](https://happygitwithr.com/install-git.html), the [Git website](https://git-scm.com/)
-1. Install Git GUI
-	1. [GitHub Desktop](https://desktop.github.com/)
-	1. [SmartGit](https://www.syntevo.com/smartgit/)
-1. Clone the [test repo](https://gitlab.com/WEEL_grp/test)
+1. Install Git:
+* Windows https://gitforwindows.org/, details: https://happygitwithr.com/install-git.html#install-git-windows
+* Mac details: https://happygitwithr.com/install-git.html#macos
+
+1. Install a GUI:
+* GitHub Desktop: https://desktop.github.com/
+* (optionally) SmartGit: https://www.syntevo.com/smartgit/
+
+1. Install various R packages
+* usethis, devtools, data.table, ggplot2, rmarkdown
+* `install.packages(c("data.table", "usethis", "devtools", "ggplot2", "rmarkdown"))`
+
+1. Say hello to Git: https://happygitwithr.com/hello-git.html
+* Note "user.name" is your full name - Alec Robitaille
+* and "user.email" is the email associated with your GitHub/GitLab account
+
 
 ## Workshop
 
@@ -31,6 +42,8 @@ Etherpad
 
 ## Thanks
 
-Jenny Bryan, et al.'s [Happy Git With R](https://happygitwithr.com/)
-Colin Gillespie, Robin Lovelace, et al.'s [Efficient R](https://csgillespie.github.io/efficientR)
+Developers of Git, R, RStudio, R packages
 
+Jenny Bryan, et al.'s [Happy Git With R](https://happygitwithr.com/)
+
+Colin Gillespie, Robin Lovelace, et al.'s [Efficient R](https://csgillespie.github.io/efficientR)
