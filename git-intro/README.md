@@ -15,8 +15,8 @@ Alec L. Robitaille
 	* (optionally) SmartGit: https://www.syntevo.com/smartgit/
 
 1. Install various R packages
-	* usethis, devtools, data.table, ggplot2, rmarkdown
-	* `install.packages(c("data.table", "usethis", "devtools", "ggplot2", "rmarkdown"))`
+	* usethis, devtools, data.table, ggplot2, rmarkdown, palmerpenguins
+	* `install.packages(c("data.table", "usethis", "devtools", "ggplot2", "rmarkdown", "palmerpenguins"))`
 
 1. Say hello to Git: https://happygitwithr.com/hello-git.html
 	* Note "user.name" is your full name - Alec L. Robitaille
