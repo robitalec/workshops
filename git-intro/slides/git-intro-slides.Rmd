@@ -111,19 +111,14 @@ make a commit. Quicker, simpler, but with less feedback.
 ---
 # How to Git: basics
 
-* Stage
 
-* Commit
-
-* (Fetch)
-
-* Push
-
-* Pull
-	+ (Rebase)
-	+ (Merge)
+![](https://support.nesi.org.nz/hc/article_attachments/360004194235/Git_Diagram.svg)
 
 
+
+.footnote[
+Other cheatsheets/summaries: [1](https://ndpsoftware.com/git-cheatsheet.html#loc=local_repo)
+]
 
 ---
 # How to Git: Solo
