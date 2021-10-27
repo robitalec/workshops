@@ -177,22 +177,32 @@ TODO: penguins, task, split code/merge?
 
 Use a `.gitignore` $^{[1]}$
 
-Related, avoid committing large files (anything >50mb)
+Do not commit large files (anything >50mb)
 
-Git can only *diff* some filetypes, eg. text files like `.R`, `.Rmd`, `.R`, `.csv`,
-so use the `github_document` output format while developing an RMarkdown
-document, later rendering a PDF or `docx` $^{[2]}$
+<hr>
+
+Git can only *diff* some filetypes, eg. text files like `.R`, `.Rmd`, `.md`, and `.csv`, 
+and images `.png`
+
+Use the `github_document` output format while developing an RMarkdown
+document, later rendering a PDF or `docx` $^{[2]}$ (or use `keep_md: true`)
 
 This can also be leveraged to look at how output figures $^{[3]}$, and tables $^{[4]}$ change
 
- 
+<hr>
+
+Dealing with disasters $^{[5, 6]}$
+
+
 
 .footnote[
 Read more:
 [1](https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files),
 [2](https://happygitwithr.com/workflows-browsability.html?q=gitignore#r-markdown),
 [3](https://github.com/robitalec/ScaleInMultilayerNetworks/commit/90327e42aa4d0f76d748f49c62b152a2935d605e?short_path=03e63b1#diff-03e63b14fd55e5556148f615b0f48ee1d9d04ee6e7e22219953d37c14043a4c5),
-[4](https://github.com/wildlifeevoeco/SnailPace/commit/cd05e369f925a53edd6079156994bd0c9eb7f746#diff-d212c5037536750b7de11f8638f2914dd504d5a1054de94bf39995cd10ee5d3b)
+[4](https://github.com/wildlifeevoeco/SnailPace/commit/cd05e369f925a53edd6079156994bd0c9eb7f746#diff-d212c5037536750b7de11f8638f2914dd504d5a1054de94bf39995cd10ee5d3b),
+[5](https://happygitwithr.com/burn.html),
+[6](https://happygitwithr.com/ideas-for-content.html#common-workflow-questions)
 ]
 
 ---
