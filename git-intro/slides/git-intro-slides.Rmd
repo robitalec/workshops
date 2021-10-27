@@ -96,10 +96,19 @@ An alternative is, right after you finally save your script after the solution,
 make a commit. Quicker, simpler, but with less feedback. 
 
 ---
-# Git: basics
+# How to Git: basics
 
+* Stage
 
+* Commit
 
+* (Fetch)
+
+* Push
+
+* Pull
+	+ (Rebase)
+	+ (Merge)
 
 
 ---
