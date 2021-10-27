@@ -122,9 +122,15 @@ Other cheatsheets/summaries: [1](https://ndpsoftware.com/git-cheatsheet.html#loc
 ]
 
 ---
-# How to Git: Solo
+class:review
 
-1. Make a repository
+# How to Git: solo
+
+
+.pull-left[
+Setup
+
+1. Make a repository: [GitLab](https://gitlab.com/projects/new), [GitHub](https://github.com/new)
 
 1. Add members
 
