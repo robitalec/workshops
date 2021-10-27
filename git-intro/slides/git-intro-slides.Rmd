@@ -59,6 +59,46 @@ class:important
 Q: How do you work?
 ]
 
+(Answer with your regular routine in the shared note)
+]
+
+
+--
+
+<hr>
+
+.center[
+.large[
+Let's add Git
+]
+]
+
+
+
+.center[
+
+![:scale 50%](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Git-logo.svg/1280px-Git-logo.svg.png)
+]
+
+???
+As detailed or brief as you'd like - but something along the lines of 
+eg. I switch between my browser + my RStudio when I'm trying to solve a 
+problem, and I keep hammering away until I get it. When I do, I save the script
+and take a break. 
+
+Where can we fit Git in?
+
+We might say - every 5 minutes, or every 30 minutes, open up Git and 
+see what you've changed. Are these useful changes? Did any of these work, 
+or do they represent useful steps along the way? Commit!
+
+An alternative is, right after you finally save your script after the solution, 
+make a commit. Quicker, simpler, but with less feedback. 
+
+---
+# Git: basics
+
+
 
 
 
