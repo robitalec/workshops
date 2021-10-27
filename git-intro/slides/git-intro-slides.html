@@ -14,7 +14,7 @@ class: center, middle, inverse, title-slide
 
 # Introduction to Git
 ### <p>Alec L. Robitaille <br> <br> Wildlife Evolutionary Ecology Lab <br> Memorial University <br> <br></p>
-### 2021-10-27 [updated: 2021-10-26 ]
+### 2021-10-27 [updated: 2021-10-27 ]
 
 ---
 
@@ -26,7 +26,7 @@ class: center, middle, inverse, title-slide
 
 Tracks history
 * explicitly save versions of files, without resorting to `my_file_2015-05-20.docx` or `FINAL_final_file_12.R`
-* full backup of who changed what when, and (with a *Good* Commit Message [1, 2]) why
+* full backup of who changed what when, and (with a *Good* Commit Message `\(^{[1, 2]}\)`) why
 
 Diverse uses
 * small projects, big projects, papers, books, websites, software, ...
@@ -37,10 +37,22 @@ Broaden collaboration and contributions
 Finally, **Git helps you code...**
 
 .footnote[
-
+Read more: 
 [1](https://chris.beams.io/posts/git-commit),
 [2](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
 ]
+
+???
+Git helps you code:
+
+turns an otherwise sometimes undirected, chaotic workflow into
+a feedback cycle
+
+change something, see what change, save you like/want 
+
+is your function working all of a sudden? is your plot looking right?
+
+- check what changed to see why
 
 
 
@@ -93,19 +105,14 @@ make a commit. Quicker, simpler, but with less feedback.
 ---
 # How to Git: basics
 
-* Stage
 
-* Commit
-
-* (Fetch)
-
-* Push
-
-* Pull
-	+ (Rebase)
-	+ (Merge)
+![](https://support.nesi.org.nz/hc/article_attachments/360004194235/Git_Diagram.svg)
 
 
+
+.footnote[
+Other cheatsheets/summaries: [1](https://ndpsoftware.com/git-cheatsheet.html#loc=local_repo)
+]
 
 ---
 # How to Git: Solo
@@ -134,7 +141,19 @@ TODO: penguins, task, split code/merge?
 ---
 # Git Tips
 
+Pull before you push `\(^{[1]}\)`
 
+&lt;50-100mb files only, generally no large files 
+
+Git can only *diff* some filetypes, eg. text files like `.R`, `.Rmd`, `.R`, `.csv`,
+so use the `github_document` output format while developing an RMarkdown
+document, later rendering a PDF or `docx`
+
+
+.footnote[
+Read more: 
+[1](https://happygitwithr.com/new-github-first.html#push-your-local-changes-to-github)
+]
 
 ---
 # Later Git

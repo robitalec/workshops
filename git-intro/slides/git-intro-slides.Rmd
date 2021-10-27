@@ -32,7 +32,7 @@ knitr::opts_chunk$set(echo = TRUE,
 
 Tracks history
 * explicitly save versions of files, without resorting to `my_file_2015-05-20.docx` or `FINAL_final_file_12.R`
-* full backup of who changed what when, and (with a *Good* Commit Message [1, 2]) why
+* full backup of who changed what when, and (with a *Good* Commit Message $^{[1, 2]}$) why
 
 Diverse uses
 * small projects, big projects, papers, books, websites, software, ...
@@ -43,7 +43,7 @@ Broaden collaboration and contributions
 Finally, **Git helps you code...**
 
 .footnote[
-
+Read more: 
 [1](https://chris.beams.io/posts/git-commit),
 [2](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
 ]
