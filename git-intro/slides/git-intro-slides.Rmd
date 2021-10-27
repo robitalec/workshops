@@ -130,13 +130,24 @@ Other cheatsheets/summaries: [1](https://ndpsoftware.com/git-cheatsheet.html#loc
 
 1. Clone to your computer
 
-1. Fill the README
 
-1. Stage, commit, push
+Daily
+1. Locally edit (eg. the README)
 
-1. Check online
+1. Commit changes
 
+Occasionally 
 
+1. Push (not necessary after every commit)
+
+1. Check your repository online
+]
+
+.pull-right[
+![](images/invite_members_gl.png)
+
+![](images/clone_gh_desktop.png)
+]
 
 
 ---
