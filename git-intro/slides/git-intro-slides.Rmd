@@ -147,7 +147,19 @@ TODO: penguins, task, split code/merge?
 ---
 # Git Tips
 
+Pull before you push $^{[1]}$
 
+<50-100mb files only, generally no large files 
+
+Git can only *diff* some filetypes, eg. text files like `.R`, `.Rmd`, `.R`, `.csv`,
+so use the `github_document` output format while developing an RMarkdown
+document, later rendering a PDF or `docx`
+
+
+.footnote[
+Read more: 
+[1](https://happygitwithr.com/new-github-first.html#push-your-local-changes-to-github)
+]
 
 ---
 # Later Git
