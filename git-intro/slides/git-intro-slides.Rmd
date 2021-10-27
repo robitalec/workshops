@@ -257,6 +257,7 @@ Read, there are tons of great resources
 
 * [Turing Way: VCS](https://the-turing-way.netlify.app/reproducible-research/vcs)
 
----
-# Thanks
-To all developers of Git, R, RStudio, R packages, Git GUIs, ... 
+.footnote[
+Thanks to all developers of Git, R, RStudio, R packages, Git GUIs, ... 
+]
+
