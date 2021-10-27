@@ -42,7 +42,7 @@ Etherpad
 
 * [Git section](https://csgillespie.github.io/efficientR/collaboration.html#version-control) in Efficient R
 
-* [Git Best Praactices](https://sethrobertson.github.io/GitBestPractices/)
+* [Git Best Practices](https://sethrobertson.github.io/GitBestPractices/)
 
 ## Thanks
 
