@@ -117,8 +117,10 @@ make a commit. Quicker, simpler, but with less feedback.
 
 
 .footnote[
-Other cheatsheets/summaries: [1](https://ndpsoftware.com/git-cheatsheet.html#loc=local_repo),
+More cheatsheets and summaries: [1](https://ndpsoftware.com/git-cheatsheet.html#loc=local_repo),
 [2](https://training.github.com/downloads/github-git-cheat-sheet/)
+
+Image from [3](https://support.nesi.org.nz/hc/en-gb/articles/360001508515-Git-Reference-Sheet)
 ]
 
 ---
@@ -159,18 +161,45 @@ Occasionally
 ---
 # How to Git: teams
 
-**Use branches to isolate tasks and avoid conflicts**
+**Use branches to isolate tasks and avoid conflicts**  $^{[1, 2, 3]}$
 
-https://happygitwithr.com/common-remote-setups.html
+Then merge your separate branches into the main branch, when it's ready
+
+Result: combine everyone's work together into a unified result
+
+![](https://the-turing-way.netlify.app/_images/two-branches.png)
+
+
+.footnote[
+Read more: [1](https://happygitwithr.com/common-remote-setups.html),
+[2](https://happygitwithr.com/git-branches.html),
+[3](https://the-turing-way.netlify.app/reproducible-research/vcs/vcs-workflow.html)
+
+Image from [3](https://the-turing-way.netlify.app/reproducible-research/vcs/vcs-workflow.html)
+]
 
 ---
 class:review
 
 # How to Git: teams
 
+1. Clone the git-intro-penguins repository
+1. Pick a feature to add
+1. Make a branch for that feature
+1. Work on that feature
+	* Write a function with eg. `plot_flipper_by_species`, `calc_mean_flipper_length` naming scheme
+	* Save it in the R folder with the filename matching the function name
+1. Commit as you go
+1. Push 
 
-TODO: penguins, task, split code/merge?
+.pull-right[
+![](https://allisonhorst.github.io/palmerpenguins/reference/figures/logo.png)
+]
 
+
+.footnote[
+More penguin info [here](https://allisonhorst.github.io/palmerpenguins/)
+]
 
 ---
 # Git Tips
@@ -226,6 +255,7 @@ Read, there are tons of great resources
 
 * [Git Best Practices](https://sethrobertson.github.io/GitBestPractices/)
 
+* [Turing Way: VCS](https://the-turing-way.netlify.app/reproducible-research/vcs)
 
 ---
 # Thanks
