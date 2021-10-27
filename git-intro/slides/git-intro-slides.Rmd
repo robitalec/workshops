@@ -157,7 +157,17 @@ Occasionally
 
 
 ---
-# How to Git: Teams
+# How to Git: teams
+
+**Use branches to isolate tasks and avoid conflicts**
+
+https://happygitwithr.com/common-remote-setups.html
+
+---
+class:review
+
+# How to Git: teams
+
 
 TODO: penguins, task, split code/merge?
 
