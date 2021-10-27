@@ -48,6 +48,18 @@ Finally, **Git helps you code...**
 [2](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
 ]
 
+???
+Git helps you code:
+
+turns an otherwise sometimes undirected, chaotic workflow into
+a feedback cycle
+
+change something, see what change, save you like/want 
+
+is your function working all of a sudden? is your plot looking right?
+
+- check what changed to see why
+
 
 
 ---
