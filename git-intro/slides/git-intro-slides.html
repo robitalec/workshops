@@ -111,7 +111,8 @@ make a commit. Quicker, simpler, but with less feedback.
 
 
 .footnote[
-Other cheatsheets/summaries: [1](https://ndpsoftware.com/git-cheatsheet.html#loc=local_repo)
+Other cheatsheets/summaries: [1](https://ndpsoftware.com/git-cheatsheet.html#loc=local_repo),
+[2](https://training.github.com/downloads/github-git-cheat-sheet/)
 ]
 
 ---
@@ -141,18 +142,24 @@ TODO: penguins, task, split code/merge?
 ---
 # Git Tips
 
-Pull before you push `\(^{[1]}\)`
+Use a `.gitignore` `\(^{[1]}\)`
 
-&lt;50-100mb files only, generally no large files 
+Related, avoid committing large files (anything &gt;50mb)
 
 Git can only *diff* some filetypes, eg. text files like `.R`, `.Rmd`, `.R`, `.csv`,
 so use the `github_document` output format while developing an RMarkdown
-document, later rendering a PDF or `docx`
+document, later rendering a PDF or `docx` `\(^{[2]}\)`
 
+This can also be leveraged to look at how output figures `\(^{[3]}\)`, and tables `\(^{[4]}\)` change
+
+ 
 
 .footnote[
-Read more: 
-[1](https://happygitwithr.com/new-github-first.html#push-your-local-changes-to-github)
+Read more:
+[1](https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files),
+[2](https://happygitwithr.com/workflows-browsability.html?q=gitignore#r-markdown),
+[3](https://github.com/robitalec/ScaleInMultilayerNetworks/commit/90327e42aa4d0f76d748f49c62b152a2935d605e?short_path=03e63b1#diff-03e63b14fd55e5556148f615b0f48ee1d9d04ee6e7e22219953d37c14043a4c5),
+[4](https://github.com/wildlifeevoeco/SnailPace/commit/cd05e369f925a53edd6079156994bd0c9eb7f746#diff-d212c5037536750b7de11f8638f2914dd504d5a1054de94bf39995cd10ee5d3b)
 ]
 
 ---
