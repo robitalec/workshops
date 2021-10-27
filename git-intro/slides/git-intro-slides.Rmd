@@ -55,6 +55,7 @@ class:important
 
 # Integrating Git into your workflow
 
+.center[
 .large[
 Q: How do you work?
 ]
@@ -112,6 +113,40 @@ make a commit. Quicker, simpler, but with less feedback.
 
 
 ---
-# Later
+# How to Git: Solo
 
-[Set up SSH](https://happygitwithr.com/ssh-keys.html)
+
+---
+# How to Git: Teams
+
+
+---
+# Git Tips
+
+
+
+---
+# Later Git
+
+Practice! Use Git with your own projects, for classes, for *fun*
+
+Set up SSH: instructions from [Happy Git With R](https://happygitwithr.com/ssh-keys.html), and [Software Carpentry](https://swcarpentry.github.io/git-novice/07-github/index.html#https-vs-ssh)
+
+Read, there are tons of great resources
+
+* [Git documentation](https://git-scm.com/doc)
+
+* [Pro Git](https://git-scm.com/book/en/v2), full free online book
+
+* [Happy Git With R](https://happygitwithr.com/)
+
+* [Software Carpentry: Version Control With Git](https://swcarpentry.github.io/git-novice/)
+
+* [Git section](https://csgillespie.github.io/efficientR/collaboration.html#version-control) in Efficient R
+
+* [Git Best Practices](https://sethrobertson.github.io/GitBestPractices/)
+
+
+---
+# Thanks
+To all developers of Git, R, RStudio, R packages, Git GUIs, ... 
