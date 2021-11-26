@@ -17,37 +17,11 @@ output:
 ---
 
 
-<!-- ## TODO: 
-* ADD merge, melt, dcast, shift 
-* highlight how if your for loop is simply looking at the next row, just shift it 
-* invite Anne... other labs  
-
-reiterate, if you are learning R for the first time, why not learn  
-most flexible/efficient packages? 
-if it wasn't for data.table i would abandon R 
-
-compare next/previous row
-     eg shift with data.table
-     
-
-
-## Why learn something new? 
-i never learned for loops in R.
-     i barely know how to write them
-     -->
-
 ```{r, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, eval = TRUE,
                       fig.align='center',
                       message = FALSE, warning = FALSE)
 
-# library(kableExtra)
-# library(knitr)
-# options(knitr.table.format = 'html') 
-# k <- function(data, ...) {
-#    knitr::kable(data, digits = 3, booktabs = FALSE, ...) %>% kable_styling(c('striped', 'responsive'), full_width = TRUE, font_size = 16)
-# }
-# library(printr)
 ```
 
 ```{r, echo = FALSE, message = FALSE}

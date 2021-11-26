@@ -4,8 +4,6 @@ author: "Alec L. Robitaille, Quinn M.R. Webber and Eric Vander Wal"
 date: "2019-02-07"
 output:
   xaringan::moon_reader:
-    lib_dir: libs
-    self_contained: true #true to share
     nature:
       beforeInit: "macros.js"
       highlightStyle: github

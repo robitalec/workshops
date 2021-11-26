@@ -51,7 +51,7 @@ setDT(diamonds)
 * flexible, efficient
 * **consistent** syntax
 
-![:scale 80%](../images/ggplot2-tutorial-slides.021.png)
+![:scale 80%](images/ggplot2-tutorial-slides.021.png)
 
 
 ## Example data
@@ -62,7 +62,7 @@ knitr::kable(diamonds[1:5])
 ---
 # Expected data structure
 
-![](../images/tidy.png)
+![](images/tidy.png)
 
 ???
 really important to think about data like this
