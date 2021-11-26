@@ -8,7 +8,12 @@ output: github_document
 ```{r, echo = FALSE}
 library(data.table)
 DT <- fread('workshops.csv')
+setnames(DT, 'V1', ' ')
 setorder(DT, -Date)
-knitr::kable(DT[, .SD, .SDcols =-c('Slides', 'Resources')])
+
+DT[, Resources := paste0('[', basename(Resources), ']', '(', Resources, ')')]
+DT[, Slides := paste0('[', basename(Slides), ']', '(', Slides, ')')]
+
+knitr::kable(DT)
 ```
 

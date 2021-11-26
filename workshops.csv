@@ -1,4 +1,4 @@
-" " ,Date,Title,Audience,Location,Slides,Resources
+  ,Date,Title,Audience,Location,Slides,Resources
 1,2017-02-07,Version control with Git,WEEL,"Memorial University, St. John’s, NL",,
 2,2017-11-02,Introduction to ggplot2,WEEL,"Memorial University, St. John’s, NL",https://slides.robitalec.ca/intro-ggplot.html,https://github.com/robitalec/workshops/tree/master/2017-11-02-intro-ggplot
 3,2017-11-16,Introduction to data.table,WEEL,"Memorial University, St. John’s, NL",https://slides.robitalec.ca/intro-data-table.html,https://github.com/robitalec/workshops/tree/master/2017-11-16-intro-data-table
