@@ -1,0 +1,85 @@
+---
+title: "Template"
+author: | 
+  Alec Robitaille
+  <br> <br>
+  Wildlife Evolutionary Ecology Lab
+  <br>
+  Memorial University
+  <br> <br>
+date: "1970-01-01"
+output: 
+  xaringan::moon_reader:
+    nature:
+      beforeInit: "macros.js"
+      highlightStyle: zenburn
+      highlightLines: true
+      ratio: 16:9
+      slideNumberFormat: "%current%"
+    css: xaringan-themer.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      eval = TRUE,
+											out.width = '40%',
+											out.height = '30%',
+											fig.align = 'center',
+											dpi = 320)
+
+library(xaringanthemer)
+library(ggplot2)
+library(colorspace)
+
+code_bg <- '#3F3F3F'
+dark <- darken_color(code_bg, 0.2)
+contrast <- '#76a5af'
+header_color <- desaturate(contrast, 0.5)
+text_color <- '#DCDCDC'
+plot_light <- lighten_color(dark, 0.4)
+
+style_mono_dark(
+	base_color = contrast,
+	white_color = text_color,
+	black_color = dark,
+	header_color = header_color,
+	text_color = text_color,
+	text_font_size = '2.25rem',
+	header_h2_font_size = '1.5rem',
+	header_font_google = google_font('Open Sans', '300'),
+	text_font_google = google_font('Open Sans', '400'),
+	header_font_weight = 100
+)
+
+theme_set(
+	theme_dark(base_size = 24) + 
+		theme(plot.background = element_rect(fill = dark, color = dark),
+					panel.background = element_rect(fill = dark, color = plot_light),
+					panel.grid.major = element_line(color = plot_light),
+					axis.text = element_text(color = text_color),
+					axis.title = element_text(color = text_color))
+)
+```
+
+
+## Template page one
+
+
+Lorem ipsum dolor sit amet
+
+Praesent bibendum ipsum sed
+
+In laoreet commodo nisl vitae
+
+
+
+
+---
+## Template page two
+
+```{r}
+qplot(x, y, data = data.frame(x = seq.int(10), y = seq.int(10))) + 
+	geom_line()
+```
+
+

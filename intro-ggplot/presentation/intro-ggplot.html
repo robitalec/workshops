@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Introduction to ggplot2</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Alec Robitaille" />
+    <script src="intro-ggplot_files/header-attrs-2.1/header-attrs.js"></script>
+    <link href="intro-ggplot_files/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
+    <link href="intro-ggplot_files/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="extra.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Introduction to ggplot2
+### Alec Robitaille
+### November 2, 2017 [updated: May 10 2020]
+
+---
+
+
+
+
+
+
+
+
+&lt;!-- https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf --&gt;
+
+&lt;!-- TODO:
+      DURING:
+        reiterate: if you are learning R for the first time why not learn the most flexible/efficient packages?
+        make it interactive
+        quiz the group
+        see if we can build interesting plots together
+      
+      SOURCES/USEFUL:
+        http://www.cookbook-r.com/Graphs/
+        mention the ggplot2 book, source code is open so i just built it... 
+        careful with books, they can get out of date. stackoverflow is big cheese
+    --&gt;
+
+
+# Why ggplot2?
+* flexible, efficient
+* **consistent** syntax
+
+![:scale 80%](../images/ggplot2-tutorial-slides.021.png)
+
+
+## Example data
+
+ carat  cut       color   clarity    depth   table   price      x      y      z
+------  --------  ------  --------  ------  ------  ------  -----  -----  -----
+  0.23  Ideal     E       SI2         61.5      55     326   3.95   3.98   2.43
+  0.21  Premium   E       SI1         59.8      61     326   3.89   3.84   2.31
+  0.23  Good      E       VS1         56.9      65     327   4.05   4.07   2.31
+  0.29  Premium   I       VS2         62.4      58     334   4.20   4.23   2.63
+  0.31  Good      J       SI2         63.3      58     335   4.34   4.35   2.75
+
+---
+# Expected data structure
+
+![](../images/tidy.png)
+
+???
+really important to think about data like this
+
+---
+# Things to watch out for:
+
+* columns with &gt;1 variable
+
+```
+##    cut_color price
+##       &lt;char&gt; &lt;int&gt;
+## 1:   Ideal_E   326
+## 2: Premium_E   326
+## 3:    Good_E   327
+## 4: Premium_I   334
+## 5:    Good_J   335
+```
+
+
+* rows with multiple measures of the same individual/group
+
+```
+##    price  Fair  Good Very Good Premium Ideal
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;     &lt;int&gt;   &lt;int&gt; &lt;int&gt;
+## 1:   326     0     0         0       1     1
+## 2:   327     0     1         0       0     0
+## 3:   334     0     0         0       1     0
+## 4:   335     0     1         0       0     0
+## 5:   336     0     0         2       0     0
+```
+
+
+---
+# The solution: data.table melt() and dcast()
+
+
+```
+##   Price Fair Good Very.Good Premium Ideal
+## 1 11448    0    0         1       0     1
+## 2  3808    0    1         1       0     0
+## 3  8572    0    0         0       0     1
+## 4  7716    0    0         0       0     1
+## 5  8198    0    0         0       0     1
+```
+
+
+```r
+melt(DT, measure.vars = colnames(DT)[-1], 
+     variable.name = 'Cut',
+     value.name = 'Count')
+```
+
+
+```
+##     Price       Cut Count
+##    &lt;char&gt;    &lt;fctr&gt; &lt;int&gt;
+## 1:   3250     Ideal     6
+## 2:   3578   Premium     6
+## 3:    412     Ideal    29
+## 4:   1503     Ideal     6
+## 5:   1705 Very Good     6
+```
+
+---
+# ggplot2 syntax
+
+
+```r
+ggplot(DT) + 
+  geom_point(aes(x, y))
+```
+
+* `ggplot()`
+* `geom_*()`
+* `aes()`
+
+---
+# ggplot2 syntax: ggplot()
+
+Usually called with...
+
+1. `ggplot()`
+1. `ggplot(df)`
+1. `ggplot(df, aes(x, y, ..))`
+
+???
+
+1. for empty
+2. to set the data source
+3. to set data source and consistent aes
+        most restrictive, but can be changed below
+        in geoms regardless still
+
+---
+# ggplot2 syntax: geom_*
+Type of layer added, for example:
+
+
+[ggplot2 graph gallery](http://www.r-graph-gallery.com/portfolio/ggplot2-package/)
+
+
+---
+# ggplot2 syntax: aes
+
+**The rule is: if there is a data link, set it in the `aes`. Otherwise, it is set outside of the `aes`.**
+
+Links the data to aesthetic properties.
+
+* ID -&gt; color
+* Treatment -&gt; linetype
+* value -&gt; point size
+
+(it also matches base R arguments to ggplot2 arguments 
+
+eg: pch to shape, cex to size)
+
+Many properties: 
+
+* size, shape, type
+* fill, color, alpha
+* linetype
+???
+&lt;!-- THE RULE TO THINK ABOUT IS: --&gt;
+&lt;!--   am i using the data to set an aesthetic  --&gt;
+&lt;!--   or is it a global setting --&gt;
+
+&lt;!-- inside aes we can call column names without quoting --&gt;
+&lt;!-- non standard evaluation  --&gt;
+
+---
+class: review
+
+# Exercise: basic plotting
+
+1. Open: `R/intro-ggplot-worksheet.R` 
+2. Complete section - Basic ggplot2
+
+---
+# Legend
+
+Legends are controlled by the function `guides()`
+
+To remove the legend
+
+```r
+ggplot(diamonds) +
+  geom_point(aes(cut, price, color = price)) + 
+  guides(color = FALSE)
+```
+
+To make finer adjustments to the legend, use:
+
+* `guide_legend` for discrete
+* `guide_colorbar` for continuous
+
+---
+# Axis Labels
+
+Axis labels are controlled by the function `labs()`
+
+
+```r
+ggplot(diamonds) + 
+  geom_point(aes(cut, carat, color = price)) + 
+  labs(x = 'Cut', y = 'Carat', color = 'Price')
+```
+
+---
+# Use of factor variables
+
+```r
+ggplot(diamonds) + 
+  geom_point(aes(cut, carat, 
+                 color = factor(cut, 
+                                labels = c('1', '2', '3', '4', '5')))) +
+  labs(x = 'Cut', y = 'Carat', color = 'Cut')
+```
+
+&lt;img src="intro-ggplot_files/figure-html/unnamed-chunk-11-1.png" width="550px" height="400px" style="display: block; margin: auto;" /&gt;
+
+---
+# Facetting
+
+
+```r
+ggplot(diamonds) + 
+  geom_point(aes(carat, price)) + 
+  facet_wrap(~cut)
+```
+
+&lt;img src="intro-ggplot_files/figure-html/unnamed-chunk-12-1.png" width="550px" height="400px" style="display: block; margin: auto;" /&gt;
+
+
+---
+# Combining plots
+
+**UPDATE**: The one and only...  [`patchwork`](https://patchwork.data-imaginist.com/)
+
+---
+# Spatial Plotting
+1. Open `intro-ggplot-worksheet.R`
+1. Section - Spatial ggplot2
+
+
+Considerations:
+
+* ensure your data is consistently projected/unprojected
+* `broom::tidy()` (or `fortify()`) SpatialPolygons
+
+**UPDATE**: use the `sf` package and `geom_sf`
+
+---
+# Iterative plotting
+Need to make a plot more than once? 
+
+**Don't Repeat Yourself...** Write a function!
+
+
+```r
+PlotXY = function(in.dt, group, xcol, ycol){
+    g &lt;- ggplot(in.dt) +
+      geom_point(aes(get(xcol), get(ycol))) +
+      labs(title = as.character(group))
+    print(g) 
+  return(1)
+}
+
+DT[, PlotXY(.SD, .BY,
+            'EASTING', 'NORTHING'),
+   by = HERD]
+```
+
+
+---
+class: clear
+
+```r
+HistoWithVline &lt;- function(in.dt, metric){
+  ggplot(in.dt[observed == 0]) +  
+  geom_histogram(aes(get(metric))) +  
+  geom_vline(aes(xintercept = get(metric), color = 'red'), 
+             data = in.dt[observed == 1]) + 
+  guides(color = FALSE) + labs(x = metric)
+}
+
+ByIDHisto &lt;- function(in.dt, id){ 
+  g1 &lt;- HistoWithVline(in.dt, 'centrality_soc')
+  g2 &lt;- HistoWithVline(in.dt, 'strength_soc')
+  g3 &lt;- HistoWithVline(in.dt, 'degree_soc')
+  grid.arrange(g1, g2, g3,  
+               top = textGrob(as.character(id), just = "top")) 
+  return(1) 
+} 
+pdf('graphics/net_metrics_by_ID.pdf') 
+all.dyn.net[, ByIDHisto(.SD, .BY), by = ID] 
+dev.off() 
+```
+
+---
+# Multipanel plotting
+**UPDATE**: use `patchwork`
+
+
+function = `gridExtra::grid.arrange()`
+
+
+
+```r
+lsPlots &lt;- lapply(seq_along(lsDTs), FUN = function(i){
+  ID &lt;- names(lsDTs)[i]
+  
+  g &lt;- ggplot(lsDTs[[i]]) +
+    geom_path(aes(EASTING, NORTHING)) + 
+    geom_text(aes(max(EASTING), max(NORTHING)), 
+                      label = ID, color = 'forestgreen') + 
+    theme(axis.text = element_blank()) + 
+    labs(x = NULL, y = NULL)
+})
+
+do.call(grid.arrange, lsPlots)
+# or
+# grid.arrange(grobs = lsPlots)
+```
+
+---
+# Things to explore on your own
+* changing the theme (`theme()`)
+* `scale_color_*()` (and similar functions) for changing color ramps
+* `rasterVis::gmap()` for plotting rasters
+
+---
+# Resources and references
+
+**UPDATE**: [the ggplot book](https://ggplot2-book.org/)
+
+https://github.com/jennybc/ggplot2-tutorial/blob/master/ggplot2-tutorial-slides/
+
+http://vita.had.co.nz/papers/tidy-data.pdf
+
+http://www.r-graph-gallery.com/portfolio/ggplot2-package/
+
+https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf 
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"slideNumberFormat": "<div class='progress-bar-container'>   <div class='progress-bar' style='width: calc(%current% / %total% * 100%);'>   </div> </div>` "
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

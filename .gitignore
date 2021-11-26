@@ -58,15 +58,6 @@ Thumbs.db
 
 \.snakemake/
 tables-in-rmd/examples/.~lock.example-docx1.docx#
-spatial-r/input/
-spatial-r/inst/tutorials/read-write-spatial/read-write-spatial-data.html
-spatial-r/inst/tutorials/read-write-spatial/read-write-spatial-data_data/
-spatial-r/inst/tutorials/read-write-spatial/read-write-spatial-data_files/
-spatial-r/inst/tutorials/read-write-spatial/output/
-spatial-r/inst/tutorials/intro-collar-data/intro-collar-data.html
-spatial-r/inst/tutorials/spatial-operations/spatial-operations.html
-spatial-r/output/
-spatial-r/inst/tutorials/visualizing-spatial-data/visualizing-spatial-data.html
-spatial-r/inst/tutorials/visualizing-spatial-data/visualizing-spatial-data_data/
-spatial-r/inst/tutorials/visualizing-spatial-data/visualizing-spatial-data_files/
-spatial-r/inst/tutorials/intro-collar-data/input/
+
+some-reproducibility/function-based-example/.drake/
+some-reproducibility/script-based-example/.drake/
