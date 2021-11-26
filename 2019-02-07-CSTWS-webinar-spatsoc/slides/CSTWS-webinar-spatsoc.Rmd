@@ -1,7 +1,7 @@
 ---
 title: "Implementing proximity based social network analysis using spatsoc"
 author: "Alec L. Robitaille, Quinn M.R. Webber and Eric Vander Wal"
-date: "2019/02/07 (updated: `r Sys.Date()`)"
+date: "2019-02-07"
 output:
   xaringan::moon_reader:
     lib_dir: libs

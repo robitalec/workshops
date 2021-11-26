@@ -1,6 +1,6 @@
 # Basic R Markdown
 Author: Alec Robitaille
-Presentation date: October 21 2019
+Presentation date: 2019-10-21
 
 
 

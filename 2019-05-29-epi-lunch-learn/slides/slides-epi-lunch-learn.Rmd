@@ -2,7 +2,7 @@
 title: Data + R
 subtitle: Epi Lunch & Learn
 author: Alec Robitaille
-date: "`r paste0('May 29 2019 [updated: ', paste(month.name[data.table::month(Sys.Date())], data.table::mday(Sys.Date()), data.table::year(Sys.Date())), ']')`"
+date: "2019-05-29"
 output: 
   xaringan::moon_reader:
     nature:

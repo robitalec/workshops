@@ -3,7 +3,7 @@ output: github_document
 ---
 
 # Personal R Packages
-A workshop delivered by Alec Robitaille to the Wildlife Evolutionary Ecology Lab at Memorial University on October 25 2018.
+A workshop delivered by Alec Robitaille to the Wildlife Evolutionary Ecology Lab at Memorial University on 2018-10-25.
 
 ```{bash}
 tree

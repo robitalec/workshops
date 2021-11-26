@@ -1,5 +1,10 @@
 # Some Reproducibility
 
+Alec L. Robitaille
+
+2020-08-04
+
+
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gl/robit.a%2Fsome-reproducibility-example/master?urlpath=rstudio)
 
 Workshop focusing on some parts of reproducible research: capturing the computational environment

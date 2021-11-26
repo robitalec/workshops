@@ -1,6 +1,6 @@
 # Introduction to ggplot2
 
-A workshop written by Alec Robitaille and given on November 2 2017 during lab meeting. 
+A workshop written by Alec Robitaille and given on 2017-11-02 during lab meeting. 
 
 The presentation is in `/presentation/` as an HTML file. 
 

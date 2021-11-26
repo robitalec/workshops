@@ -7,7 +7,7 @@ author: |
   <br>
   Memorial University
   <br> <br>
-date: "`r paste0('2021-10-27 [updated: ', paste(Sys.Date(), ']'))`"
+date: "2021-10-27"
 output: 
   xaringan::moon_reader:
     nature:

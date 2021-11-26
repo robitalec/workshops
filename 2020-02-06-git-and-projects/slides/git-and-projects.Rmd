@@ -1,7 +1,7 @@
 ---
 title: "Version Control & Project Management"
 author: Alec Robitaille 
-date: "`r paste0('February 6 2020 [updated: ', paste(month.name[data.table::month(Sys.Date())], data.table::mday(Sys.Date()), data.table::year(Sys.Date())), ']')`"
+date: "2020-02-06"
 output: 
   xaringan::moon_reader:
     nature:

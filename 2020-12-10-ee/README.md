@@ -2,7 +2,7 @@
 
 Alec Robitaille and Isabella C. Richmond
 
-Date: December 10 2020
+Date: 2020-12-10
 
 Wildlife Evolutionary Ecology Lab - Memorial University
 

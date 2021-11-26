@@ -9,7 +9,7 @@ author: |
   <br>
   Memorial University
   <br> <br>
-date: "`r paste0('December 10 2020 [updated: ', paste(month.name[data.table::month(Sys.Date())], data.table::mday(Sys.Date()), data.table::year(Sys.Date())), ']')`"
+date: "2020-12-10"
 output: 
   xaringan::moon_reader:
     nature:
