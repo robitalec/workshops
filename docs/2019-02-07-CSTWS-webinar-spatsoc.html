@@ -12,7 +12,7 @@
     <script src="2019-02-07-CSTWS-webinar-spatsoc_files/viz/viz.js"></script>
     <link href="2019-02-07-CSTWS-webinar-spatsoc_files/DiagrammeR-styles/styles.css" rel="stylesheet" />
     <script src="2019-02-07-CSTWS-webinar-spatsoc_files/grViz-binding/grViz.js"></script>
-    <link rel="stylesheet" href="extra.css" type="text/css" />
+    <link rel="stylesheet" href="2019-02-07-CSTWS-webinar-spatsoc.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
@@ -124,8 +124,8 @@ spatsoc used to generate proximity based social networks and compared across sea
 # Package basics
 
 .pull-left[
-<div id="htmlwidget-8c09d7da13b96b43d3fc" style="width:504px;height:504px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-8c09d7da13b96b43d3fc">{"x":{"diagram":"digraph {\n\tgraph [rankdir=TB, compound=TRUE, fontname = \"Helvetica\", fontsize = 20, bgcolor = \"#FAFAFA\"]\n  node [fontname = \"Helvetica\", fontsize = 22];\n\tscript -> function -> package \n  script [label = <Scripts<BR/><FONT POINT-SIZE=\"18\">(useful)<\/FONT>>] \n  function [label = <Functions<BR /><FONT POINT-SIZE=\"18\">(reusable)<\/FONT>>] \t\n\tpackage [label = <Packages<BR /><FONT POINT-SIZE=\"18\">(shareable)<\/FONT>>] \n\t}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-95ea5ec5b1853010b1a4" style="width:504px;height:504px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-95ea5ec5b1853010b1a4">{"x":{"diagram":"digraph {\n\tgraph [rankdir=TB, compound=TRUE, fontname = \"Helvetica\", fontsize = 20, bgcolor = \"#FAFAFA\"]\n  node [fontname = \"Helvetica\", fontsize = 22];\n\tscript -> function -> package \n  script [label = <Scripts<BR/><FONT POINT-SIZE=\"18\">(useful)<\/FONT>>] \n  function [label = <Functions<BR /><FONT POINT-SIZE=\"18\">(reusable)<\/FONT>>] \t\n\tpackage [label = <Packages<BR /><FONT POINT-SIZE=\"18\">(shareable)<\/FONT>>] \n\t}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ]
 
 .sidebar[
@@ -146,8 +146,8 @@ Package checklist:
 # Workflow
 
 
-<div id="htmlwidget-c96417405b101227a450" style="width:800px;height:504px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-c96417405b101227a450">{"x":{"diagram":"\n\tdigraph spatsoc_functions  {\n\tgraph [rankdir=TB, compound=TRUE, fontname = \"Helvetica\", bgcolor = \"#FAFAFA\"]\n  node [fontname = \"Helvetica\"];\n\n\t# functions\n#\tfunction [shape = \"rectangle\"]\n\tspgrp [label = \"spatial grouping\", shape = \"rectangle\"]\n\ttgrp [label = \"temporal grouping\", shape = \"rectangle\"]\n\trand [label = \"randomizations\", shape = \"rectangle\"]\n\n\t# input\n#\tdata [shape = \"diamond\"]\n\tinput [label = \"telemetry data\", shape = \"diamond\"]\n\n\t# output\n#\toutput [shape = \"ellipse\"]\n\tobs [label = \"observed network\", shape = \"ellipse\"]\n\trdm [label = \"randomized networks\", shape = \"ellipse\"]\n\n\n#\tsubgraph cluster_workflow {\n#  label= \"Workflow\" labeljust=\"l\";\n\t{rank=same; rdm; obs}\n\n\tinput -> tgrp -> spgrp -> obs\n\tspgrp -> rand -> rdm\n\t#}\n\n#\tsubgraph cluster_legend {\n# label= \"Legend\" labeljust=\"l\";\n#\tdata -> function -> output\n#\t}\n\t}\n\t","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-96ebef884d43402a04a9" style="width:800px;height:504px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-96ebef884d43402a04a9">{"x":{"diagram":"\n\tdigraph spatsoc_functions  {\n\tgraph [rankdir=TB, compound=TRUE, fontname = \"Helvetica\", bgcolor = \"#FAFAFA\"]\n  node [fontname = \"Helvetica\"];\n\n\t# functions\n#\tfunction [shape = \"rectangle\"]\n\tspgrp [label = \"spatial grouping\", shape = \"rectangle\"]\n\ttgrp [label = \"temporal grouping\", shape = \"rectangle\"]\n\trand [label = \"randomizations\", shape = \"rectangle\"]\n\n\t# input\n#\tdata [shape = \"diamond\"]\n\tinput [label = \"telemetry data\", shape = \"diamond\"]\n\n\t# output\n#\toutput [shape = \"ellipse\"]\n\tobs [label = \"observed network\", shape = \"ellipse\"]\n\trdm [label = \"randomized networks\", shape = \"ellipse\"]\n\n\n#\tsubgraph cluster_workflow {\n#  label= \"Workflow\" labeljust=\"l\";\n\t{rank=same; rdm; obs}\n\n\tinput -> tgrp -> spgrp -> obs\n\tspgrp -> rand -> rdm\n\t#}\n\n#\tsubgraph cluster_legend {\n# label= \"Legend\" labeljust=\"l\";\n#\tdata -> function -> output\n#\t}\n\t}\n\t","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 
 
 
@@ -182,8 +182,8 @@ group_times(DT, datetime = c('idate', 'itime'), threshold = '5 minutes')
 
 
 .fixed-pos-r[
-<div id="htmlwidget-9b271207be4eaabe8438" style="width:425px;height:504px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-9b271207be4eaabe8438">{"x":{"diagram":"\n\tdigraph spatsoc_functions  {\n\tgraph [rankdir=TB, compound=TRUE, fontname = \"Helvetica\", bgcolor = \"#FAFAFA\"]\n  node [fontname = \"Helvetica\"];\n\n\t# functions\n#\tfunction [shape = \"rectangle\"]\n\tspgrp [label = \"spatial grouping\", shape = \"rectangle\"]\n\ttgrp [label = \"temporal grouping\", shape = \"rectangle\", color=\"red\"]\n\trand [label = \"randomizations\", shape = \"rectangle\"]\n\n\t# input\n#\tdata [shape = \"diamond\"]\n\tinput [label = \"telemetry data\", shape = \"diamond\"]\n\n\t# output\n#\toutput [shape = \"ellipse\"]\n\tobs [label = \"observed network\", shape = \"ellipse\"]\n\trdm [label = \"randomized networks\", shape = \"ellipse\"]\n\n\n#\tsubgraph cluster_workflow {\n#  label= \"Workflow\" labeljust=\"l\";\n\t{rank=same; rdm; obs}\n\n\tinput -> tgrp -> spgrp -> obs\n\tspgrp -> rand -> rdm\n\t#}\n\n#\tsubgraph cluster_legend {\n# label= \"Legend\" labeljust=\"l\";\n#\tdata -> function -> output\n#\t}\n\t}\n\t","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-1ddad42428ebf81e3a09" style="width:425px;height:504px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1ddad42428ebf81e3a09">{"x":{"diagram":"\n\tdigraph spatsoc_functions  {\n\tgraph [rankdir=TB, compound=TRUE, fontname = \"Helvetica\", bgcolor = \"#FAFAFA\"]\n  node [fontname = \"Helvetica\"];\n\n\t# functions\n#\tfunction [shape = \"rectangle\"]\n\tspgrp [label = \"spatial grouping\", shape = \"rectangle\"]\n\ttgrp [label = \"temporal grouping\", shape = \"rectangle\", color=\"red\"]\n\trand [label = \"randomizations\", shape = \"rectangle\"]\n\n\t# input\n#\tdata [shape = \"diamond\"]\n\tinput [label = \"telemetry data\", shape = \"diamond\"]\n\n\t# output\n#\toutput [shape = \"ellipse\"]\n\tobs [label = \"observed network\", shape = \"ellipse\"]\n\trdm [label = \"randomized networks\", shape = \"ellipse\"]\n\n\n#\tsubgraph cluster_workflow {\n#  label= \"Workflow\" labeljust=\"l\";\n\t{rank=same; rdm; obs}\n\n\tinput -> tgrp -> spgrp -> obs\n\tspgrp -> rand -> rdm\n\t#}\n\n#\tsubgraph cluster_legend {\n# label= \"Legend\" labeljust=\"l\";\n#\tdata -> function -> output\n#\t}\n\t}\n\t","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ]
 
 ---
@@ -201,8 +201,8 @@ group_times(DT, datetime = c('idate', 'itime'), threshold = '5 minutes')
 ]
 
 .fixed-pos-r[
-<div id="htmlwidget-ae0f85960b2c2619931a" style="width:425px;height:504px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-ae0f85960b2c2619931a">{"x":{"diagram":"\n\tdigraph spatsoc_functions  {\n\tgraph [rankdir=TB, compound=TRUE, fontname = \"Helvetica\", bgcolor = \"#FAFAFA\"]\n  node [fontname = \"Helvetica\"];\n\n\t# functions\n\tspgrp [label = \"spatial grouping\", shape = \"rectangle\", color=\"red\"]\n\ttgrp [label = \"temporal grouping\", shape = \"rectangle\"]\n\trand [label = \"randomizations\", shape = \"rectangle\"]\n\n\t# input\n\tinput [label = \"telemetry data\", shape = \"diamond\"]\n\n\t# output\n\tobs [label = \"observed network\", shape = \"ellipse\"]\n\trdm [label = \"randomized networks\", shape = \"ellipse\"]\n\n\n\t{rank=same; rdm; obs}\n\n\tinput -> tgrp -> spgrp -> obs\n\tspgrp -> rand -> rdm\n\t}\n\t","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-abdeb135a3aac15771b5" style="width:425px;height:504px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-abdeb135a3aac15771b5">{"x":{"diagram":"\n\tdigraph spatsoc_functions  {\n\tgraph [rankdir=TB, compound=TRUE, fontname = \"Helvetica\", bgcolor = \"#FAFAFA\"]\n  node [fontname = \"Helvetica\"];\n\n\t# functions\n\tspgrp [label = \"spatial grouping\", shape = \"rectangle\", color=\"red\"]\n\ttgrp [label = \"temporal grouping\", shape = \"rectangle\"]\n\trand [label = \"randomizations\", shape = \"rectangle\"]\n\n\t# input\n\tinput [label = \"telemetry data\", shape = \"diamond\"]\n\n\t# output\n\tobs [label = \"observed network\", shape = \"ellipse\"]\n\trdm [label = \"randomized networks\", shape = \"ellipse\"]\n\n\n\t{rank=same; rdm; obs}\n\n\tinput -> tgrp -> spgrp -> obs\n\tspgrp -> rand -> rdm\n\t}\n\t","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ]
 
 
@@ -219,8 +219,8 @@ group_pts(DT, threshold = 5, id = 'ID',
 ]
 
 .fixed-pos-r[
-<div id="htmlwidget-9acc146bade5f3a677ed" style="width:425px;height:504px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-9acc146bade5f3a677ed">{"x":{"diagram":"\n\tdigraph spatsoc_functions  {\n\tgraph [rankdir=TB, compound=TRUE, fontname = \"Helvetica\", bgcolor = \"#FAFAFA\"]\n  node [fontname = \"Helvetica\"];\n\n\t# functions\n\tspgrp [label = \"spatial grouping\", shape = \"rectangle\", color=\"red\"]\n\ttgrp [label = \"temporal grouping\", shape = \"rectangle\"]\n\trand [label = \"randomizations\", shape = \"rectangle\"]\n\n\t# input\n\tinput [label = \"telemetry data\", shape = \"diamond\"]\n\n\t# output\n\tobs [label = \"observed network\", shape = \"ellipse\"]\n\trdm [label = \"randomized networks\", shape = \"ellipse\"]\n\n\n\t{rank=same; rdm; obs}\n\n\tinput -> tgrp -> spgrp -> obs\n\tspgrp -> rand -> rdm\n\t}\n\t","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-d60dcf8a46508a53a9ee" style="width:425px;height:504px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d60dcf8a46508a53a9ee">{"x":{"diagram":"\n\tdigraph spatsoc_functions  {\n\tgraph [rankdir=TB, compound=TRUE, fontname = \"Helvetica\", bgcolor = \"#FAFAFA\"]\n  node [fontname = \"Helvetica\"];\n\n\t# functions\n\tspgrp [label = \"spatial grouping\", shape = \"rectangle\", color=\"red\"]\n\ttgrp [label = \"temporal grouping\", shape = \"rectangle\"]\n\trand [label = \"randomizations\", shape = \"rectangle\"]\n\n\t# input\n\tinput [label = \"telemetry data\", shape = \"diamond\"]\n\n\t# output\n\tobs [label = \"observed network\", shape = \"ellipse\"]\n\trdm [label = \"randomized networks\", shape = \"ellipse\"]\n\n\n\t{rank=same; rdm; obs}\n\n\tinput -> tgrp -> spgrp -> obs\n\tspgrp -> rand -> rdm\n\t}\n\t","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ]
 
 
@@ -241,8 +241,8 @@ group_lines(DT, threshold = 50, projection = utm,
 
 
 .fixed-pos-r[
-<div id="htmlwidget-5eee5e8187b07153a69d" style="width:425px;height:504px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5eee5e8187b07153a69d">{"x":{"diagram":"\n\tdigraph spatsoc_functions  {\n\tgraph [rankdir=TB, compound=TRUE, fontname = \"Helvetica\", bgcolor = \"#FAFAFA\"]\n  node [fontname = \"Helvetica\"];\n\n\t# functions\n\tspgrp [label = \"spatial grouping\", shape = \"rectangle\", color=\"red\"]\n\ttgrp [label = \"temporal grouping\", shape = \"rectangle\"]\n\trand [label = \"randomizations\", shape = \"rectangle\"]\n\n\t# input\n\tinput [label = \"telemetry data\", shape = \"diamond\"]\n\n\t# output\n\tobs [label = \"observed network\", shape = \"ellipse\"]\n\trdm [label = \"randomized networks\", shape = \"ellipse\"]\n\n\n\t{rank=same; rdm; obs}\n\n\tinput -> tgrp -> spgrp -> obs\n\tspgrp -> rand -> rdm\n\t}\n\t","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-f941f8dd4c9d36e7d619" style="width:425px;height:504px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f941f8dd4c9d36e7d619">{"x":{"diagram":"\n\tdigraph spatsoc_functions  {\n\tgraph [rankdir=TB, compound=TRUE, fontname = \"Helvetica\", bgcolor = \"#FAFAFA\"]\n  node [fontname = \"Helvetica\"];\n\n\t# functions\n\tspgrp [label = \"spatial grouping\", shape = \"rectangle\", color=\"red\"]\n\ttgrp [label = \"temporal grouping\", shape = \"rectangle\"]\n\trand [label = \"randomizations\", shape = \"rectangle\"]\n\n\t# input\n\tinput [label = \"telemetry data\", shape = \"diamond\"]\n\n\t# output\n\tobs [label = \"observed network\", shape = \"ellipse\"]\n\trdm [label = \"randomized networks\", shape = \"ellipse\"]\n\n\n\t{rank=same; rdm; obs}\n\n\tinput -> tgrp -> spgrp -> obs\n\tspgrp -> rand -> rdm\n\t}\n\t","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ]
 
 ---
@@ -262,8 +262,8 @@ group_polys(DT, area = FALSE, 'mcp', list(percent = 95),
 
 
 .fixed-pos-r[
-<div id="htmlwidget-890e9f6ea0e8bc3ff29f" style="width:425px;height:504px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-890e9f6ea0e8bc3ff29f">{"x":{"diagram":"\n\tdigraph spatsoc_functions  {\n\tgraph [rankdir=TB, compound=TRUE, fontname = \"Helvetica\", bgcolor = \"#FAFAFA\"]\n  node [fontname = \"Helvetica\"];\n\n\t# functions\n\tspgrp [label = \"spatial grouping\", shape = \"rectangle\", color=\"red\"]\n\ttgrp [label = \"temporal grouping\", shape = \"rectangle\"]\n\trand [label = \"randomizations\", shape = \"rectangle\"]\n\n\t# input\n\tinput [label = \"telemetry data\", shape = \"diamond\"]\n\n\t# output\n\tobs [label = \"observed network\", shape = \"ellipse\"]\n\trdm [label = \"randomized networks\", shape = \"ellipse\"]\n\n\n\t{rank=same; rdm; obs}\n\n\tinput -> tgrp -> spgrp -> obs\n\tspgrp -> rand -> rdm\n\t}\n\t","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-263a2446efc82292e080" style="width:425px;height:504px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-263a2446efc82292e080">{"x":{"diagram":"\n\tdigraph spatsoc_functions  {\n\tgraph [rankdir=TB, compound=TRUE, fontname = \"Helvetica\", bgcolor = \"#FAFAFA\"]\n  node [fontname = \"Helvetica\"];\n\n\t# functions\n\tspgrp [label = \"spatial grouping\", shape = \"rectangle\", color=\"red\"]\n\ttgrp [label = \"temporal grouping\", shape = \"rectangle\"]\n\trand [label = \"randomizations\", shape = \"rectangle\"]\n\n\t# input\n\tinput [label = \"telemetry data\", shape = \"diamond\"]\n\n\t# output\n\tobs [label = \"observed network\", shape = \"ellipse\"]\n\trdm [label = \"randomized networks\", shape = \"ellipse\"]\n\n\n\t{rank=same; rdm; obs}\n\n\tinput -> tgrp -> spgrp -> obs\n\tspgrp -> rand -> rdm\n\t}\n\t","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ]
 
 
@@ -339,8 +339,8 @@ get_gbi(DT = DT, group = 'group', id = 'ID')
 
 
 .fixed-pos-r[
-<div id="htmlwidget-ddc4293f79e90e91fb56" style="width:425px;height:504px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-ddc4293f79e90e91fb56">{"x":{"diagram":"\n\tdigraph spatsoc_functions  {\n\tgraph [rankdir=TB, compound=TRUE, fontname = \"Helvetica\", bgcolor = \"#FAFAFA\"]\n  node [fontname = \"Helvetica\"];\n\n\t# functions\n\tspgrp [label = \"spatial grouping\", shape = \"rectangle\"]\n\ttgrp [label = \"temporal grouping\", shape = \"rectangle\"]\n\trand [label = \"randomizations\", shape = \"rectangle\", color=\"red\"]\n\n\t# input\n\tinput [label = \"telemetry data\", shape = \"diamond\"]\n\n\t# output\n\tobs [label = \"observed network\", shape = \"ellipse\"]\n\trdm [label = \"randomized networks\", shape = \"ellipse\"]\n\n\n\t{rank=same; rdm; obs}\n\n\tinput -> tgrp -> spgrp\n\tspgrp -> obs [color=\"red\"]\n\tspgrp -> rand\n\trand -> rdm\t[color=\"red\"]\n\t}\n\t","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-5d13f5217daa2a76b60c" style="width:425px;height:504px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5d13f5217daa2a76b60c">{"x":{"diagram":"\n\tdigraph spatsoc_functions  {\n\tgraph [rankdir=TB, compound=TRUE, fontname = \"Helvetica\", bgcolor = \"#FAFAFA\"]\n  node [fontname = \"Helvetica\"];\n\n\t# functions\n\tspgrp [label = \"spatial grouping\", shape = \"rectangle\"]\n\ttgrp [label = \"temporal grouping\", shape = \"rectangle\"]\n\trand [label = \"randomizations\", shape = \"rectangle\", color=\"red\"]\n\n\t# input\n\tinput [label = \"telemetry data\", shape = \"diamond\"]\n\n\t# output\n\tobs [label = \"observed network\", shape = \"ellipse\"]\n\trdm [label = \"randomized networks\", shape = \"ellipse\"]\n\n\n\t{rank=same; rdm; obs}\n\n\tinput -> tgrp -> spgrp\n\tspgrp -> obs [color=\"red\"]\n\tspgrp -> rand\n\trand -> rdm\t[color=\"red\"]\n\t}\n\t","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ]
 
 
@@ -475,7 +475,7 @@ This presentation was built using [Yihui Xie's xaringan package](https://github.
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
-<script src="macros.js"></script>
+<script src="2019-02-07-CSTWS-webinar-spatsoc.js"></script>
 <script>var slideshow = remark.create({
 "highlightStyle": "github",
 "highlightLines": true,
