@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Personal R Packages</title>
+    <meta charset="utf-8" />
+    <meta name="date" content="2018-10-25" />
+    <script src="2018-10-25-r-packages_files/header-attrs-2.11.3/header-attrs.js"></script>
+    <link href="2018-10-25-r-packages_files/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
+    <link href="2018-10-25-r-packages_files/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="extra.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Personal R Packages
+### <div class="line-block">Alec Robitaille</div>
+### 2018-10-25
+
+---
+
+  
+
+
+
+# Tools to simplify package development
+
+.pull-left[
+[R Packages by Hadley Wickham](http://r-pkgs.had.co.nz/)
+
+![:scale 60%](https://d33wubrfki0l68.cloudfront.net/19c4a5cab01d9bcb1d2edeb63ce5ba0f21870e33/68feb/images/cover.png)
+]
+
+.pull-right[
+
+![:scale 20%](https://devtools.r-lib.org/reference/figures/logo.svg)
+
+
+![:scale 20%](https://raw.githubusercontent.com/klutometis/roxygen/master/man/figures/logo.png)
+
+![:scale 20%](https://raw.githubusercontent.com/r-lib/testthat/master/man/figures/logo.png)
+
+![:scale 20%](https://raw.githubusercontent.com/r-lib/usethis/master/man/figures/logo.png)
+
+.footnote[
+[`devtools`](https://github.com/r-lib/devtools) 
+[`roxygen2`](https://github.com/klutometis/roxygen)
+[`testthat`](https://github.com/r-lib/testthat/)
+[`usethis`](https://github.com/r-lib/usethis)
+]
+]
+???
+
+Advanced R is the go-to book
+
+devtools builds package skeletons, installs from git, runs checks, tests etc.
+
+roxygen2 helps parse within-function documentation
+
+
+---
+
+# Package skeleton
+
+
+```r
+usethis::create_package("Local-git/toast")
+```
+
+
+```
+## [01;34m../toast[00m
+## ├── [01;34mtests[00m
+## ├── DESCRIPTION
+## ├── .gitignore
+## ├── .Rbuildignore
+## └── toast.Rproj
+## 
+## 1 directory, 4 files
+```
+
+???
+COMMIT
+
+OPEN THE RPROJECT
+---
+# DESCRIPTION
+Details about package authorship, use, dependencies, license, ...
+
+![:scale 150%](images/DESCRIPTION.png)
+
+
+![:scale 150%](images/toast_DESCRIPTION.png)
+
+???
+
+COMMIT
+
+---
+
+# Package states
+.center[
+![:scale 70%](http://r-pkgs.had.co.nz/diagrams/package-files.png)
+
+]
+???
+don't look at this (hahaha)
+
+
+---
+# Package install
+.center[
+![:scale 150%](http://r-pkgs.had.co.nz/diagrams/installation.png)
+
+]
+
+???
+don't look at this (haha)
+
+the interest here is how your packages are transfered from CRAN/github to installed packages
+always through R CMD install
+
+
+---
+class: important 
+
+# A recipe for building a package
+
+1. `usethis::create_package("Local-git/toast")`
+1. Update `DESCRIPTION`
+1. Write functions (`R/`)
+1. Update `NAMESPACE`
+	- Importing external packages with `usethis::use_package('pkg')`
+1. Document functions (`man/`) 
+	- Using `roxygen2` comments in `R/` files with `devtools::document` (or `ctrl+shift+d`)
+1. Test functions
+	- Writing unit tests run by `testthat` with `devtools::test()` (or `ctrl+shift+t`)
+1. Share, collaborate, reuse, improve. 
+
+.pull-left[
+
+**Commit often. Rebuild often. **
+
+hint: change [this](http://r-pkgs.had.co.nz/man.html#man-workflow-2) setting and use `ctrl+shift+b` to document and rebuild with one shortcut. 
+]
+.pull-right[
+![:scale 65%](http://r-pkgs.had.co.nz/screenshots/build-reload-opts-2.png)
+]
+
+???
+Between each of these steps, COMMIT
+
+Between most of these steps, BUILD and test 
+
+
+---
+# Function
+
+
+Save the following code chunk in `R/dir_importer.R`.
+
+
+```r
+#' @export
+dir_importer &lt;- function(paths, named = FALSE) {
+	if (named) {
+		lapply(seq_along(paths), function(x) {
+			fread(paths[x])[, nm := names(paths)[x]]
+		}) %&gt;% rbindlist()
+	} else {
+		lapply(paths, fread) %&gt;% rbindlist()
+	}
+}
+```
+
+Rebuild the package and documentation (`ctrl+shift+b`). Test it in another script. 
+
+
+```r
+library(toast)
+paths &lt;- dir('tests/testdata', '*.csv', full.names = TRUE)
+names(paths) &lt;- dir('tests/testdata', '*.csv')
+DT &lt;- dir_importer(paths, named = TRUE)
+```
+
+???
+1. Copy the chunk into `R/dir_importer.R`
+1. COMMIT
+1. try it out with `ctrl+shift+b` and `toast::dir_importer`
+
+---
+# NAMESPACE
+
+Our new function did not work...  
+because we are missing external packages in our NAMESPACE and DESCRIPTION files. 
+
+.pull-left[
+1&amp;#46; Import all external functions (from other packages). `\(^1\)`
+
+`data.table::fread` instead of `fread`
+
+or
+
+`#' @importFrom data.table fread`
+]
+
+.pull-right[
+2&amp;#46; Add packages to Imports `\(^{2, 3}\)` (*or Depends* `\(^4\)`) in the DESCRIPTION. 
+
+```r
+# usethis::usepackage
+use_package('magrittr', 'Imports')
+use_package('data.table', 'Depends') #4
+```
+
+
+&gt; (use `ctrl+shift+b` to document and rebuild.)
+
+]
+.footnote[
+[1] [SO: importFrom vs ::](https://stackoverflow.com/questions/24651101/how-should-i-reference-functions-in-imported-packages?noredirect=1&amp;lq=1)
+
+[2] [SO: Using magrittr's pipe in a package](https://stackoverflow.com/questions/27947344/r-use-magrittr-pipe-operator-in-self-written-package/27979637#27979637)
+
+[3] [SO: Using data.table in a package](https://stackoverflow.com/questions/10527072/using-data-table-package-inside-my-own-package)
+
+[4] [SO: Depends vs Imports](https://stackoverflow.com/questions/8637993/better-explanation-of-when-to-use-imports-depends)
+]
+
+???
+
+http://r-pkgs.had.co.nz/screenshots/build-reload-opts-2.png
+this method
+
+---
+
+# README.md
+
+A README is crucial for any package, repository, project. It is the overview, brief usage guide and context for users (including your [future self](https://www.npr.org/programs/invisibilia/533660783/future-self)).
+
+### Overview
+The `toast` package is a collection of Alec's personal functions, for everyday bread. 
+
+### Installation
+
+```r
+devtools::install_git('https://gitlab.com/robit.a/toast.git')
+```
+
+### Usage
+
+```r
+library(toast); library(data.table) #always
+
+paths &lt;- dir('tests/testdata', '*.csv', full.names = TRUE)
+names(paths) &lt;- dir('tests/testdata', '*.csv')
+DT &lt;- dir_importer(paths, named = TRUE)
+
+if (DT[, unique(nm)] == length(paths)) print('toasted')
+```
+
+---
+
+# LICENSE
+
+[Choose a license](https://choosealicense.com/) or talk to your lawyer. 
+
+![](images/choose-a-license.png)
+
+For example:
+
+`usethis::use_gpl3_license('Alec Robitaille')`
+
+???
+
+Lacking a license, full copyright. 
+
+
+---
+
+
+# Documentation
+
+
+```r
+#' dir importer
+#' Provided a named list or list of files (produced with \code{dir}),
+#' returns a combined \code{data.table} of all files.
+#' If the list is named, these names are added as a column to the \code{data.table}.
+#'
+#' @return All files imported and combined into a single \code{data.table}.
+#'
+#' @param paths the named list or unnamed list representing the paths to CSV files
+#' @param named boolean indicating if list is named or not.
+#' if named, names from the list will be used to differentiate imported files.
+#'
+#' @export
+#' @importFrom magrittr %&gt;%
+#' @examples
+#' paths &lt;- dir('tests/testdata', '*.csv', full.names = TRUE)
+#' names(paths) &lt;- dir('tests/testdata', '*.csv')
+#' dir_importer(paths, named = TRUE)
+dir_importer &lt;- function(paths, named = FALSE) {
+...
+}
+```
+
+---
+# Documentation
+
+`@export`: export the function, **making it available to the user**
+
+
+`@param`: document arguments
+
+* `@param paths the named list or unamed list...`
+
+`@return`: description of function's output
+
+* `@return All files imported and combined into a single \code{data.table}.`
+
+`@examples`: examples of function's usage
+
+* `#' @examples`  
+`#' paths &lt;- dir('tests/testdata', '*.csv', full.names = TRUE)`  
+`#' names(paths) &lt;- dir('tests/testdata', '*.csv')`  
+`#' dir_importer(paths, named = TRUE)`
+
+
+
+More [here](http://r-pkgs.had.co.nz/man.html#roxygen-comments).
+
+
+---
+
+# Testing
+
+
+1. `usethis::use_testthat()`
+2. Create a test file 
+3. Expectations are grouped into tests. 
+
+`dir_importer` expects that `named` is a boolean. We can enforce this, with an added check in the function:
+
+`R/dir_importer.R`, at the beginning of the function. 
+
+```r
+if(!is.logical(named)) stop('you are not logical')
+```
+
+The test script: `tests/testthat/test_dir.R`
+
+```r
+library(toast)
+context('testing dir_importer')
+paths &lt;- dir('tests/testdata', '*.csv', full.names = TRUE)
+
+test_that('named is a boolean', {
+  expect_error(dir_importer(paths, named = 10),
+               'you are not logical')
+})
+```
+
+---
+# Testing
+`tests/testthat/test_dir.R`
+
+
+```r
+# Load the package
+library(toast)
+
+# Provide the context
+context('testing dir_importer')
+
+# Create your data to test on
+paths &lt;- dir('tests/testdata', '*.csv', full.names = TRUE)
+
+# Testing that the named parameter has to be a boolean
+test_that('named is a boolean', {
+	# the 'you are not logical' error is expected if a numeric is provided
+  expect_error(dir_importer(paths, named = 10),
+               'you are not logical')
+	
+	# the 'you are not logical' error is expected if a character is provided
+  expect_error(dir_importer(paths, named = 'potato'),
+               'you are not logical')
+})
+```
+
+---
+# Next steps
+
+
+* profile your functions
+
+* push your code
+
+* check your `goodpractice::gp()`
+
+* collaborate
+
+* share
+
+* CRAN
+
+* check your code coverage `covr`
+
+* eat cabbage
+
+
+---
+
+# References
+
+## Books
+[R Packages by Hadley Wickham](http://r-pkgs.had.co.nz/)
+
+
+## Packages
+[`devtools`](https://github.com/r-lib/devtools) 
+[`roxygen2`](https://github.com/klutometis/roxygen)
+[`testthat`](https://github.com/r-lib/testthat/)
+[`usethis`](https://github.com/r-lib/usethis)
+
+
+## StackOverflow
+[SO: importFrom vs ::](https://stackoverflow.com/questions/24651101/how-should-i-reference-functions-in-imported-packages?noredirect=1&amp;lq=1)
+
+[SO: Using magrittr's pipe in a package](https://stackoverflow.com/questions/27947344/r-use-magrittr-pipe-operator-in-self-written-package/27979637#27979637)
+
+[SO: Using data.table in a package](https://stackoverflow.com/questions/10527072/using-data-table-package-inside-my-own-package)
+
+[SO: Depends vs Imports](https://stackoverflow.com/questions/8637993/better-explanation-of-when-to-use-imports-depends)
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
