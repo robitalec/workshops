@@ -1,7 +1,7 @@
 ---
 title: "Visualizing spatial data"
 author: Alec Robitaille
-date: 'May 4 2020 (updated: `r format(Sys.Date(), "%B %d %Y")`)'
+date: '2020-05-04'
 output:
   learnr::tutorial:
     progressive: true
