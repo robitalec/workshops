@@ -55,5 +55,19 @@ c(
 		copy_extras,
 		file.copy(extra, 'docs', overwrite = TRUE),
 		pattern = map(extra)
+	),
+	tar_target(
+		workshops_csv,
+		'workshops.csv',
+		format = 'file'
+	),
+	tar_target(
+		readme,
+		'README.Rmd',
+		format = 'file'
+	),
+	tar_target(
+		render_index,
+		{workshops_csv; rmarkdown::render(readme, output_format = 'html_document', output_file = 'docs/index.html')}
 	)
 )
