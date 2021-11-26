@@ -3,6 +3,8 @@ Introduction to spatial R
 Alec L. Robitaille
 2020-05-04
 
+Note: these materials are sort of unfinished
+
 ## Setup
 
 **Setup before the workshop - just message me directly if you’re having

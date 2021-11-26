@@ -5,7 +5,7 @@ date: 2020-05-04
 output: github_document
 ---
 
-
+Note: these materials are sort of unfinished. 
 
 
 ## Setup
