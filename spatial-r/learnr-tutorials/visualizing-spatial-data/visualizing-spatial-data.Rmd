@@ -1,0 +1,251 @@
+---
+title: "Visualizing spatial data"
+author: Alec Robitaille
+date: '2020-05-04'
+output:
+  learnr::tutorial:
+    progressive: true
+    allow_skip: false
+runtime: shiny_prerendered
+description: Visualizing spatial data with sf, data.table, ggplot and mapview
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = TRUE,
+											highlight = TRUE,
+											eval = TRUE)
+
+tutorial_options(exercise.eval = FALSE)
+
+
+library(mapview)
+library(data.table)
+library(sf)
+library(ggplot2)
+
+## Load breweries data from mapview
+data(breweries)
+
+## Convert to data.table for example
+# Grab the coordinates from the sf object and cast the matrix as a data.table
+xy <- data.table(st_coordinates(breweries))
+
+# Cast the sf object as a data.table
+dtbrew <- data.table(breweries)
+
+# Soft code coordinate column names (for later)
+coordcols <- c('X', 'Y')
+
+# Add the xy to the data.table
+dtbrew[, (coordcols) := xy]
+```
+
+
+## Packages
+
+```{r packages}
+library(mapview)
+library(data.table)
+library(sf)
+library(ggplot2)
+```
+
+## Data
+```{r data, exercise = TRUE}
+## Load breweries data from mapview
+data(breweries)
+
+## Convert to data.table for example
+# Grab the coordinates from the sf object and cast the matrix as a data.table
+xy <- data.table(st_coordinates(breweries))
+
+# Cast the sf object as a data.table
+dtbrew <- data.table(breweries)
+
+# Soft code coordinate column names (for later)
+coordcols <- c('X', 'Y')
+
+# Add the xy to the data.table
+dtbrew[, (coordcols) := xy]
+```
+
+
+## Plotting: sf 
+
+```{r plot1, exercise = TRUE}
+plot(breweries)
+```
+
+
+Why so many subplots?
+
+```{r plot2, exercise = TRUE}
+## Set it universally as a default
+options(sf_max.plot = 1)
+
+# Or individually for each plot
+# eg. 1
+plot(breweries, max.plot = 1)
+
+# eg. 4
+plot(breweries, max.plot = 4)
+
+
+## Or specify directly the column name to plot
+plot(breweries['brewery'])
+```
+
+
+## Plotting: sf + ggplot
+Use `geom_sf`! 
+ 
+```{r, eval = FALSE}
+ggplot(breweries) + 
+	geom_sf()
+```
+
+
+Explore the breweries data and modify the aesthetics. 
+
+```{r plot3, exercise = TRUE}
+
+
+```
+
+```{r plot3-solution}
+ggplot(breweries, aes(color = brewery)) + 
+	geom_sf()
+```
+
+
+
+## Plotting: data.table + ggplot
+
+<!-- data.tables can be plotted using ggplot with regular geoms.  -->
+
+Plot the data.table version of the breweries data.
+
+```{r plot4, exercise = TRUE}
+# Recall the data.table object is: 
+dtbrew
+```
+
+```{r plot4-solution}
+ggplot(dtbrew, aes(X, Y)) +
+	geom_point()
+```
+
+
+
+## Interactive plotting: sf + mapview
+[`mapview`](https://r-spatial.github.io/mapview/index.html) uses `leaflet` to generate interactive plots in R. The emphasis is on quick, exploratory plots and not publication figures. 
+
+It supports plotting objects of class:
+
+* sf
+* data.frame / data.table
+* raster
+* stars
+* sp
+* satellite
+
+
+Use the `mapview` function to plot the sf object. 
+```{r map1, exercise = TRUE}
+
+```
+
+```{r map1-solution}
+mapview(breweries)
+```
+
+## Interactive plotting: data.table + mapview
+
+### 
+`mapview` can also plot data.frames and data.tables. 
+
+```{r map2, exercise = TRUE}
+mapview(dtbrew)
+```
+
+###
+Ok... we'll need to set some arguments.
+
+* `xcol`
+* `ycol`
+
+```{r map3, exercise = TRUE}
+
+```
+
+```{r map3-solution}
+mapview(dtbrew, xcol = 'X', ycol = 'Y')
+```
+
+### 
+Close! But where did our basemap go?
+
+We need to set the `crs`. Since our data comes from an `sf` object, we can use it's CRS information. 
+
+```{r map4, exercise = TRUE}
+st_crs(breweries)
+```
+
+```{r map4-solution}
+mapview(dtbrew,
+				xcol = 'X',
+				ycol = 'Y',
+				crs = st_crs(breweries))
+```
+
+
+###
+Lastly... what about colors? 
+
+Color the points by the brewery name using the `zcol` argument. 
+
+```{r map5, exercise = TRUE}
+
+```
+
+```{r map5-solution}
+mapview(
+	dtbrew,
+	xcol = 'X',
+	ycol = 'Y',
+	crs = st_crs(breweries),
+	zcol = 'brewery'
+)
+```
+
+
+###
+On your own time, check customizing [popups](https://r-spatial.github.io/mapview/articles/articles/mapview_04-popups.html)
+
+
+```{r, eval = TRUE}
+mapview(
+	dtbrew,
+	xcol = 'X',
+	ycol = 'Y',
+	zcol = 'brewery',
+	crs = st_crs(breweries)
+)
+```
+
+
+```{r map6, exercise = TRUE}
+mapview(
+	dtbrew,
+	xcol = 'X',
+	ycol = 'Y',
+	crs = st_crs(breweries),
+	zcol = 'brewery'
+)
+```
+
+
+##
+Note: `mapview` is getting faster all the time but it is still going to be limited when you making interactive plots of large datasets or large rasters. 
+

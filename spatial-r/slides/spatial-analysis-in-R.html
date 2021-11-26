@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Spatial analysis in R</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Alec Robitaille" />
+    <meta name="date" content="2020-05-04" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="extra.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Spatial analysis in R
+### Alec Robitaille
+### Wildlife Evolutionary Ecology Lab
+### 2020-05-04
+
+---
+
+
+class: clear, middle, review
+
+
+
+.center[
+.large[
+First, a discussion: why use R for spatial analysis?
+]
+]
+
+
+???
+Walk away from long running tasks
+History of commands, steps
+Automated complex workflows
+Use Git
+
+---
+# Spatial R ecosystem
+
+![](https://keen-swartz-3146c4.netlify.app/images/sf_deps.png)
+
+CRAN Task Views:  [Spatial](https://cran.r-project.org/web/views/Spatial.html) and  [SpatioTemporal](https://cran.r-project.org/web/views/SpatioTemporal.html). [History of R spatial](https://bookdown.org/robinlovelace/geocompr/intro.html#the-history-of-r-spatial)
+
+
+???
+Note: we are going to emphasize the `sf` package here since it is the *way forward*
+
+
+---
+# Vector file formats: Shapefile
+
+.pull-left[
+
+\+ widely used and supported
+
+\- multifile format
+
+\- limit to 10 character attribute names, automatic
+
+\- maximum file size of 2-4GB
+
+\- limited to single geometry types
+]
+
+
+
+.pull-right[
+
+```
+input/
+├── breweries.dbf
+├── breweries.prj
+├── breweries.shp
+└── breweries.shx
+```
+
+]
+
+
+
+
+---
+# Vector file formats: GeoJSON
+
+
+
+```json
+{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [125.6, 10.1]
+  },
+  "properties": {
+    "name": "Dinagat Islands"
+  }
+}
+```
+
+
+---
+# Vector file formats: GeoPackage
+
+\+ single file
+
+\+ stores vectors and rasters
+
+\+ widely supported
+
+\+ uses a SQLite backend
+
+\- non-streaming format
+
+
+
+---
+# Encoding vectors: Simple features
+
+.center[
+![](https://bookdown.org/robinlovelace/geocompr/figures/sf-classes.png)
+]
+
+
+
+---
+# Raster data
+https://bookdown.org/robinlovelace/geocompr/spatial-class.html#raster-data
+
+
+
+
+---
+# Resources
+
+(This is not a comprehensive list)
+
+## Packages
+* [`sf`](https://github.com/r-spatial/sf)
+* [`raster`](https://rspatial.org/raster/pkg/index.html)
+* [`mapview`](https://r-spatial.github.io/mapview/index.html)
+
+## Books / Websites
+
+### Spatial
+* [Geocomputation with R - Robin Lovelace, Jakub Nowosad, Jannes Muenchow ](https://bookdown.org/robinlovelace/geocompr)
+
+* [Spatial Data Science - Edzer Pebesma, Roger Bivand](https://keen-swartz-3146c4.netlify.app/)
+
+* [Spatial Data Science with R](https://rspatial.org/)
+
+* A good basic overview: [mapschool.io](https://mapschool.io/)
+
+### General
+* [Efficient R programming](https://csgillespie.github.io/efficientR/)
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"slideNumberFormat": "<div class=\"progress-bar-container\">\n  <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">\n  </div>\n</div>`\n"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

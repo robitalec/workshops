@@ -1,0 +1,156 @@
+---
+title: 'Spatial analysis in R'
+author: 'Alec Robitaille'
+institute: 'Wildlife Evolutionary Ecology Lab'
+date: '2020-05-04'
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      beforeInit: "macros.js"
+      highlightLines: true
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>`
+    css: [metropolis, metropolis-fonts, "extra.css"]
+---
+
+class: clear, middle, review
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+
+.center[
+.large[
+First, a discussion: why use R for spatial analysis?
+]
+]
+
+
+???
+Walk away from long running tasks
+History of commands, steps
+Automated complex workflows
+Use Git
+
+---
+# Spatial R ecosystem
+
+![](https://keen-swartz-3146c4.netlify.app/images/sf_deps.png)
+
+CRAN Task Views:  [Spatial](https://cran.r-project.org/web/views/Spatial.html) and  [SpatioTemporal](https://cran.r-project.org/web/views/SpatioTemporal.html). [History of R spatial](https://bookdown.org/robinlovelace/geocompr/intro.html#the-history-of-r-spatial)
+
+
+???
+Note: we are going to emphasize the `sf` package here since it is the *way forward*
+
+
+---
+# Vector file formats: Shapefile
+
+.pull-left[
+
+\+ widely used and supported
+
+\- multifile format
+
+\- limit to 10 character attribute names, automatic
+
+\- maximum file size of 2-4GB
+
+\- limited to single geometry types
+]
+
+
+
+.pull-right[
+
+```
+input/
+├── breweries.dbf
+├── breweries.prj
+├── breweries.shp
+└── breweries.shx
+```
+
+]
+
+
+
+
+---
+# Vector file formats: GeoJSON
+
+
+```{json}
+{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [125.6, 10.1]
+  },
+  "properties": {
+    "name": "Dinagat Islands"
+  }
+}
+```
+
+
+---
+# Vector file formats: GeoPackage
+
+\+ single file
+
+\+ stores vectors and rasters
+
+\+ widely supported
+
+\+ uses a SQLite backend
+
+\- non-streaming format
+
+
+
+---
+# Encoding vectors: Simple features
+
+.center[
+![](https://bookdown.org/robinlovelace/geocompr/figures/sf-classes.png)
+]
+
+
+
+---
+# Raster data
+https://bookdown.org/robinlovelace/geocompr/spatial-class.html#raster-data
+
+
+
+
+---
+# Resources
+
+(This is not a comprehensive list)
+
+## Packages
+* [`sf`](https://github.com/r-spatial/sf)
+* [`raster`](https://rspatial.org/raster/pkg/index.html)
+* [`mapview`](https://r-spatial.github.io/mapview/index.html)
+
+## Books / Websites
+
+### Spatial
+* [Geocomputation with R - Robin Lovelace, Jakub Nowosad, Jannes Muenchow ](https://bookdown.org/robinlovelace/geocompr)
+
+* [Spatial Data Science - Edzer Pebesma, Roger Bivand](https://keen-swartz-3146c4.netlify.app/)
+
+* [Spatial Data Science with R](https://rspatial.org/)
+
+* A good basic overview: [mapschool.io](https://mapschool.io/)
+
+### General
+* [Efficient R programming](https://csgillespie.github.io/efficientR/)

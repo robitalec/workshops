@@ -1,0 +1,19 @@
+File type,    
+Shapefile,ESRI properiatry format 
+,+ widely used and supported
+,- multifile format
+,"- limit to 10 character attribute names, automatic renaming/shortening"
+,- maximum file size of 2-4GB
+,- limited to single geometry types
+GeoPackage,"Open, portable, standards-based"
+,+ single file
+,+ stores vectors and rasters
+,+ widely supported (in `sf` for example)
+,+ uses a SQLite backend
+,- not useable for streaming data
+GeoJSON,JSON based
+,+ good for streaming data
+,- not all geometries supported 
+KML,XML based
+, + popular since it's used in Google Earth
+, - only supports WGS-84

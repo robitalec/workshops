@@ -58,5 +58,6 @@ Thumbs.db
 
 \.snakemake/
 tables-in-rmd/examples/.~lock.example-docx1.docx#
+
 some-reproducibility/function-based-example/.drake/
 some-reproducibility/script-based-example/.drake/

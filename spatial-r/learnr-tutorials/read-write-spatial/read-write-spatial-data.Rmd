@@ -1,0 +1,202 @@
+---
+title: "Reading and writing spatial data in R"
+author: Alec Robitaille
+date: '2020-05-04'
+output:
+  learnr::tutorial:
+    allow_skip: false
+runtime: shiny_prerendered
+description: >
+  This tutorial demonstrates reading and writing spatial data in R, and has a basic comparison of different spatial file formats. 
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = TRUE, 
+                      highlight = TRUE,
+											eval = FALSE)
+
+tutorial_options(exercise.eval = FALSE)
+```
+
+
+## Packages
+
+```{r packages, eval = TRUE}
+library(sf)
+library(mapview)
+library(data.table)
+```
+
+## Example data
+
+```{r data, eval = TRUE}
+# Load breweries data from mapview
+data(breweries)
+
+# Have a look!
+plot(breweries, max.plot = 1)
+```
+
+```{r map, eval = TRUE}
+# Or interactive:
+mapview(breweries)
+
+```
+
+
+## Vector file formats
+
+```{r, echo = FALSE, eval = TRUE}
+knitr::kable(fread('../../extdata/data-formats.csv', header = TRUE, col.names = c('File format', '')))
+```
+
+
+
+### Are these available in R?
+
+```{r drivers, exercise = TRUE, exercise.eval = FALSE}
+# In the sf package, the function st_drivers() gives us all available file formats
+drivers <- st_drivers()
+
+# Explore the drivers to find a couple of the above file formats
+# If we convert to a data.table we can filter easily
+data.table(drivers)[name == 'GPKG']
+```
+
+
+## Writing vector data
+
+Since we have the `breweries` data loaded, let's write it out using `sf::st_write`. 
+
+```{r write, echo = TRUE, eval = FALSE}
+# Write to a GeoPackage
+st_write(breweries, 'output/breweries.gpkg')
+```
+
+Some arguments from the `st_write` function:
+
+* 'obj': the sf or sfc object
+* 'dsn': data source name.
+* 'layer': layer name. if layer is missing, the basename is used (eg. "breweries" above).
+* 'driver': guesses from the dsn, or passed explicitly here.
+* 'overwrite': default FALSE. set it to TRUE when are going to be updating the file (be careful!). 
+
+The arguments 'dsn' and 'layer' depend on which drive/file format is used. This can be a bit confusing at times - usually we can just provide the full path with the filename and it should work! 
+
+### Quiz!
+
+Write out the breweries to a GeoPKG, Shapefile, and GeoJSON. Check your solution by hitting "Run" or look at the solution. 
+
+
+```{r writequiz, exercise = TRUE, exercise.eval = TRUE}
+# Create an output folder
+dir.create('output')
+
+# Write to a GeoPackage
+
+
+# Write to a Shapefile
+
+
+# Write to a GeoJSON
+
+
+# Check for yourself!
+dir('output/', full.names = TRUE)
+```
+
+
+```{r writequiz-solution}
+# Create an output folder
+dir.create('output')
+
+# Write to a GeoPackage
+st_write(breweries, 'output/breweries.gpkg')
+
+# Write to a Shapefile
+st_write(breweries, 'output/breweries.shp')
+
+# Write to a GeoJSON
+st_write(breweries, 'output/breweries.GeoJSON')
+
+# Check for yourself!
+dir('output/', full.names = TRUE)
+```
+
+
+#### Note: a warning was generated when writing to shapefile
+
+```
+Warning in abbreviate_shapefile_names(obj): Field names abbreviated
+for ESRI Shapefile driver
+```
+
+One disadvantage to using shapefiles is they limit attribute names to 10 characters. 
+
+Let's see what happened:
+
+```{r limnames, eval = TRUE, echo = TRUE}
+colnames(breweries)
+colnames(st_read('output/breweries.shp', quiet = TRUE))
+```
+
+
+Thankfully we were warned... Otherwise we might be confused by "nmbr_f_" and "nmbr_s_" in our output. 
+
+
+## Reading vector data
+
+Practice reading in the outputs we just generated. 
+
+
+```{r read, exercise = TRUE, exercise.eval = FALSE}
+# Check available data in the output folder
+dir('output/', full.names = TRUE)
+
+# Read the GeoPackage
+
+# Read the Shapefile
+
+# Read the GeoJSON
+
+```
+
+
+```{r read-solution}
+# Check available data in the output folder
+dir('output/', full.names = TRUE)
+
+# Read the GeoPackage
+brewgpkg <- st_read('output/breweries.gpkg')
+
+# Read the Shapefile
+brewshp <- st_read('output/breweries.shp')
+
+# Read the GeoJSON
+brewjson <- st_read('output/breweries.GeoJSON')
+```
+
+
+
+With one of the inputs we just read in, explore the object!
+
+```{r explore, exercise = TRUE, exercise.eval = FALSE}
+# Print it
+
+
+# Plot it
+
+
+# Mapview it
+
+
+# Summarize it
+
+```
+
+Note, there are other functions in other packages for reading spatial data:
+
+* `rgdal::readOGR` and `rgdal::readGDAL`
+* `raster::shapefile`
+* ...
