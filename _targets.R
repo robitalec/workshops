@@ -21,11 +21,17 @@ c(
 		find_rmds(dirs)
 	),
 	tar_target(
+		rmd,
+		rmds,
+		pattern = map(rmds),
+		format = 'file'
+	),
+	tar_target(
 		render,
 		rmarkdown::render(
-			rmds,
+			rmd,
 			output_dir = 'docs'
 		),
-		pattern = map(rmds)
+		pattern = map(rmd)
 	)
 )
