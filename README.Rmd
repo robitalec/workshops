@@ -1,0 +1,14 @@
+---
+title: Workshops
+author: Alec L. Robitaille
+date: "`r Sys.Date()`"
+output: github_document
+---
+
+```{r, echo = FALSE}
+library(data.table)
+DT <- fread('workshops.csv')
+setorder(DT, -Date)
+knitr::kable(DT[, .SD, .SDcols =-c('Slides', 'Resources')])
+```
+

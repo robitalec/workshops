@@ -1,30 +1,22 @@
-# workshops
+Workshops
+================
+Alec L. Robitaille
+2021-11-26
 
-Author: Alec Robitaille
-
-
-<!-- Intro to WEEL guide, universe, github and gitlab repositories --> 
-<!-- Metadata --> 
-<!-- Spatial R --> 
-
-October 27 2021 - Introduction to Git: [Slides](https://slides.robitalec.ca/git-intro-slides), [Penguins](https://gitlab.com/WEEL_grp/2021-10-27-git-intro-penguins)
-
-December 10 2020 - An Introduction to Remote Sensing with Earth Engine: [Resources](https://github.com/robitalec/workshops/tree/master/ee), [Slides](https://slides.robitalec.ca/ee.html) [Co-delivered with Isabella C. Richmond]
-
-August 4 2020 -  Some Reproducibility: [Resources](https://github.com/robitalec/workshops/tree/master/some-reproducibility), [Binder](https://mybinder.org/v2/gl/robit.a%2Fsome-reproducibility-example/master?urlpath=rstudio)
-
-February 6 2020 -  Git and Projects: [Slides](https://slides.robitalec.ca/git-and-projects.html),  [Resources](https://github.com/robitalec/workshops/tree/master/git-and-projects)
-
-October 21 2019 - Basic R Markdown: [Slides](https://slides.robitalec.ca/basic-rmd.html),  [Resources](https://github.com/robitalec/workshops/tree/master/basic-rmd)
-
-May 29 2019 - Epi Lunch and Learn: [Slides](https://slides.robitalec.ca/epi-lunch-learn.html)
-
-February 7 2019 - CSTWS Webinar - Implementing proximity based social network analysis using spatsoc: [Slides](https://slides.robitalec.ca/CSTWS-webinar-spatsoc.html)
-
-October 25 2018 - Developing R Packages: [Slides](https://slides.robitalec.ca/r-packages.html), [Resources](https://github.com/robitalec/workshops/tree/master/r-packages)
-
-October 25 2018 - Functions in R: [Slides](https://slides.robitalec.ca/functions-in-r.html), [Resources](https://github.com/robitalec/workshops/tree/master/functions-in-r)
-
-November 16 2017 - Introduction to data.table: [Slides](https://slides.robitalec.ca/intro-data-table.html), [Resources](https://github.com/robitalec/workshops/tree/master/intro-data-table)
-
-November 2 2017 - Introduction to ggplot2: [Slides](https://slides.robitalec.ca/intro-ggplot.html), [Resources](https://github.com/robitalec/workshops/tree/master/intro-ggplot)
+|     | Date       | Title                                                              | Audience                                      | Location                            |
+|----:|:-----------|:-------------------------------------------------------------------|:----------------------------------------------|:------------------------------------|
+|  15 | 2021-10-27 | Introduction to Git                                                | WEEL                                          | Memorial University, St. John’s, NL |
+|  14 | 2021-09-29 | WEEL guide and universe                                            | WEEL                                          | Memorial University, St. John’s, NL |
+|  13 | 2021-06-03 | Metadata                                                           | WEEL                                          | Memorial University, St. John’s, NL |
+|  12 | 2020-12-10 | An Introduction to Remote Sensing with Earth Engine                | WEEL                                          | Memorial University, St. John’s, NL |
+|  11 | 2020-08-04 | Some Reproducibility                                               | WEEL                                          | Memorial University, St. John’s, NL |
+|  10 | 2020-05-04 | Introduction to spatial R                                          | WEEL                                          | Memorial University, St. John’s, NL |
+|   9 | 2020-02-06 | Git and Projects                                                   | WEEL                                          | Memorial University, St. John’s, NL |
+|   8 | 2019-10-21 | Basic R Markdown                                                   | WEEL                                          | Memorial University, St. John’s, NL |
+|   7 | 2019-05-29 | Epidemiology lunch and learn: best practices with data and R       | Office of the Chief Medical Officer of Health | Whitehorse, Yukon                   |
+|   6 | 2019-02-07 | Implementing proximity based social network analysis using spatsoc | Canadian Section of the Wildlife Society      | Webinar                             |
+|   4 | 2018-10-25 | Functions in R                                                     | WEEL                                          | Memorial University, St. John’s, NL |
+|   5 | 2018-10-25 | Developing R Packages                                              | WEEL                                          | Memorial University, St. John’s, NL |
+|   3 | 2017-11-16 | Introduction to data.table                                         | WEEL                                          | Memorial University, St. John’s, NL |
+|   2 | 2017-11-02 | Introduction to ggplot2                                            | WEEL                                          | Memorial University, St. John’s, NL |
+|   1 | 2017-02-07 | Version control with Git                                           | WEEL                                          | Memorial University, St. John’s, NL |
