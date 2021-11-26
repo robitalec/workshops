@@ -12,14 +12,14 @@ output:
   xaringan::moon_reader:
     nature:
       highlightStyle: github
-      beforeInit: "macros-git-intro.js"
+      beforeInit: "2021-10-27-git-intro.js"
       highlightLines: true
       slideNumberFormat: |
         <div class="progress-bar-container">
           <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
           </div>
         </div>`
-    css: [metropolis, metropolis-fonts, "extras-git-intro.css"]
+    css: [metropolis, metropolis-fonts, "2021-10-27-git-intro.css"]
 ---
 
 ```{r setup, include=FALSE}

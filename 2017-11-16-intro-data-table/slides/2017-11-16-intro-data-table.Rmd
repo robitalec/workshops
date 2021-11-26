@@ -6,14 +6,14 @@ output:
   xaringan::moon_reader:
     nature:
       highlightStyle: github
-      beforeInit: 'macros.js'
+      beforeInit: '2017-11-16-intro-data-table.js'
       highlightLines: true
       slideNumberFormat: |
         <div class='progress-bar-container'>
           <div class='progress-bar' style='width: calc(%current% / %total% * 100%);'>
           </div>
         </div>`
-    css: [metropolis, metropolis-fonts, 'extra.css']
+    css: [metropolis, metropolis-fonts, '2017-11-16-intro-data-table.css']
 ---
 
 

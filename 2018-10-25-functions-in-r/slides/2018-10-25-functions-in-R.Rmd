@@ -6,8 +6,8 @@ output:
   xaringan::moon_reader:
     nature:
       highlightStyle: github
-      beforeInit: "macros.js"
-    css: [metropolis, metropolis-fonts, "extra.css"]
+      beforeInit: "2018-10-25-functions-in-r.js"
+    css: [metropolis, metropolis-fonts, "2018-10-25-functions-in-r.css"]
 ---
   
 ```{r setup, include=FALSE}

@@ -5,11 +5,11 @@ date: "2019-02-07"
 output:
   xaringan::moon_reader:
     nature:
-      beforeInit: "macros.js"
+      beforeInit: "2019-02-07-CSTWS-webinar-spatsoc.js"
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
-    css: [metropolis, metropolis-fonts, "extra.css"]
+    css: [metropolis, metropolis-fonts, "2019-02-07-CSTWS-webinar-spatsoc.css"]
 ---
 
 ```{r setup, include=FALSE}

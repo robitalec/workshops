@@ -7,8 +7,8 @@ output:
   xaringan::moon_reader:
     nature:
       highlightStyle: github
-      beforeInit: "macros.js"
-    css: [metropolis, metropolis-fonts, "extra.css"]
+      beforeInit: "2019-05-29-epi-lunch-learn.js"
+    css: [metropolis, metropolis-fonts, "2019-05-29-epi-lunch-learn.css"]
 ---
 
 

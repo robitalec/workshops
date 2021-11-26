@@ -14,14 +14,14 @@ output:
   xaringan::moon_reader:
     nature:
       highlightStyle: github
-      beforeInit: "macros-ee.js"
+      beforeInit: "2020-12-10-ee.js"
       highlightLines: true
       slideNumberFormat: |
         <div class="progress-bar-container">
           <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
           </div>
         </div>`
-    css: [metropolis, metropolis-fonts, "extras-ee.css"]
+    css: [metropolis, metropolis-fonts, "2020-12-10-ee.css"]
 ---
   
 ```{r setup, include=FALSE}
