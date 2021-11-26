@@ -38,8 +38,6 @@ Automated complex workflows
 Use Git
 
 ---
-class: review
-
 # Spatial R ecosystem
 
 ![](https://keen-swartz-3146c4.netlify.app/images/sf_deps.png)
@@ -54,6 +52,8 @@ Note: we are going to emphasize the `sf` package here since it is the *way forwa
 ---
 # Vector file formats: Shapefile
 
+.pull-left[
+
 \+ widely used and supported
 
 \- multifile format
@@ -63,8 +63,12 @@ Note: we are going to emphasize the `sf` package here since it is the *way forwa
 \- maximum file size of 2-4GB
 
 \- limited to single geometry types
+]
 
-.pull-left[
+
+
+.pull-right[
+
 ```
 input/
 ├── breweries.dbf
@@ -72,10 +76,7 @@ input/
 ├── breweries.shp
 └── breweries.shx
 ```
-]
 
-.pull-right[
-![:scale 20%](https://www.mapdiva.com/wp-content/uploads/2017/07/what-are-shapefiles-.png)
 ]
 
 
@@ -111,8 +112,7 @@ input/
 \+ uses a SQLite backend
 
 \- non-streaming format
-	
-	
+
 
 
 ---
@@ -128,16 +128,13 @@ input/
 # Raster data
 https://bookdown.org/robinlovelace/geocompr/spatial-class.html#raster-data
 
----
-# Encoding rasters
-
 
 
 
 ---
 # Resources
 
-**This is not a comprehensive list**
+(This is not a comprehensive list)
 
 ## Packages
 * [`sf`](https://github.com/r-spatial/sf)

@@ -4,6 +4,7 @@
     <title>Spatial analysis in R</title>
     <meta charset="utf-8" />
     <meta name="author" content="Alec Robitaille" />
+    <meta name="date" content="2020-05-04" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
@@ -16,7 +17,7 @@ class: center, middle, inverse, title-slide
 # Spatial analysis in R
 ### Alec Robitaille
 ### Wildlife Evolutionary Ecology Lab
-### May 4 2020 (updated: May 04 2020)
+### 2020-05-04
 
 ---
 
@@ -39,8 +40,6 @@ Automated complex workflows
 Use Git
 
 ---
-class: review
-
 # Spatial R ecosystem
 
 ![](https://keen-swartz-3146c4.netlify.app/images/sf_deps.png)
@@ -53,18 +52,9 @@ Note: we are going to emphasize the `sf` package here since it is the *way forwa
 
 
 ---
-# Types of spatial data
-
-&lt;!-- TODO: incremental slides, with quiz.. match raster/vector to types of data --&gt;
-
---
-Raster
-
---
-Vector
-
----
 # Vector file formats: Shapefile
+
+.pull-left[
 
 \+ widely used and supported
 
@@ -75,8 +65,12 @@ Vector
 \- maximum file size of 2-4GB
 
 \- limited to single geometry types
+]
 
-.pull-left[
+
+
+.pull-right[
+
 ```
 input/
 ├── breweries.dbf
@@ -84,10 +78,7 @@ input/
 ├── breweries.shp
 └── breweries.shx
 ```
-]
 
-.pull-right[
-![:scale 20%](https://www.mapdiva.com/wp-content/uploads/2017/07/what-are-shapefiles-.png)
 ]
 
 
@@ -124,8 +115,7 @@ input/
 \+ uses a SQLite backend
 
 \- non-streaming format
-	
-	
+
 
 
 ---
@@ -141,16 +131,13 @@ input/
 # Raster data
 https://bookdown.org/robinlovelace/geocompr/spatial-class.html#raster-data
 
----
-# Encoding rasters
-
 
 
 
 ---
 # Resources
 
-**This is not a comprehensive list**
+(This is not a comprehensive list)
 
 ## Packages
 * [`sf`](https://github.com/r-spatial/sf)
@@ -177,7 +164,7 @@ https://bookdown.org/robinlovelace/geocompr/spatial-class.html#raster-data
 <script>var slideshow = remark.create({
 "highlightStyle": "github",
 "highlightLines": true,
-"slideNumberFormat": "<div class=\"progress-bar-container\">   <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">   </div> </div>` "
+"slideNumberFormat": "<div class=\"progress-bar-container\">\n  <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">\n  </div>\n</div>`\n"
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
@@ -218,6 +205,32 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
 // adds .remark-code-has-line-highlighted class to <pre> parent elements
 // of code chunks containing highlighted lines with class .remark-code-line-highlighted
 (function(d) {
@@ -235,17 +248,6 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   }
   preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
 })(document);</script>
-
-<script>
-(function() {
-  var links = document.getElementsByTagName('a');
-  for (var i = 0; i < links.length; i++) {
-    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
-      links[i].target = '_blank';
-    }
-  }
-})();
-</script>
 
 <script>
 slideshow._releaseMath = function(el) {
