@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>An Introduction to Remote Sensing with Earth Engine and R</title>
+    <meta charset="utf-8" />
+    <meta name="date" content="2020-12-10" />
+    <script src="2020-12-10-ee_files/header-attrs/header-attrs.js"></script>
+    <link href="2020-12-10-ee_files/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="2020-12-10-ee_files/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="extras-ee.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# An Introduction to Remote Sensing with Earth Engine and R
+### <p>Alec Robitaille <br> Isabella C. Richmond <br> <br> Wildlife Evolutionary Ecology Lab <br> Memorial University <br> <br></p>
+### 2020-12-10
+
+---
+
+  
+
+
+
+# What is Earth Engine?
+
+- A processing platform that allows you to run algorithms on georeferenced imagery and vectors on Google's servers 
+
+- Contains a **massive** catalog of geospatial data 
+
+- Accessible through the online Code Editor, and a Javascript and Python libraries 
+
+
+.pull-right[
+![:scale 55%](https://developers.google.com/earth-engine/images/EE_new_logo_480.png)
+]
+
+
+.footnote[
+[1]: [Google Developers: Get Started with Earth Engine ](https://developers.google.com/earth-engine/guides/getstarted)
+]
+
+???
+
+The code editor allows you to find relevant imagery, process it, share your code, and save your code and processed imagery to your Google Drive
+
+---
+
+# Data types
+
+## Image
+- `ee.Image`
+- An image composed of one or many bands
+- Properties: name, data type, scale, mask and projection
+- E.g.: a single Landsat scene, a single land cover raster
+
+
+```js
+var l7scene = ee.Image('LANDSAT/LE07/C01/T1_RT/LE07_001004_20000610');
+```
+
+
+&lt;script type="text/javascript"&gt;
+var l7scene = ee.Image('LANDSAT/LE07/C01/T1_RT/LE07_001004_20000610');
+&lt;/script&gt;
+
+--
+
+## Image Collection
+- `ee.Image.Collection`
+- A stack or sequence of images
+- E.g. *All* the Landsat 7 imagery 
+]
+
+
+```js
+var l7 = ee.ImageCollection('LANDSAT/LE07/C01/T1_RT');
+```
+
+
+&lt;script type="text/javascript"&gt;
+var l7 = ee.ImageCollection('LANDSAT/LE07/C01/T1_RT');
+&lt;/script&gt;
+
+???
+Differences between R and EE:
+
+Image in EE = `ee.Image`
+Image in R = mainly `raster`
+
+---
+# Data types
+
+## Feature
+- `ee.Feature`
+- A feature composed of a Geometry object and properties
+- `Features` can be created in Earth Engine or uploaded
+- E.g. points, lines and polygons, a study area polygon
+
+
+
+```js
+// Create an ee.Geometry.
+var polygon = ee.Geometry.Polygon([
+  [[-35, -10], [35, -10], [35, 10], [-35, 10], [-35, -10]]
+]);
+
+// Create a Feature from the Geometry.
+var polyFeature = ee.Feature(polygon, {foo: 42, bar: 'tart'});
+```
+
+
+&lt;script type="text/javascript"&gt;
+// Create an ee.Geometry.
+var polygon = ee.Geometry.Polygon([
+  [[-35, -10], [35, -10], [35, 10], [-35, 10], [-35, -10]]
+]);
+
+// Create a Feature from the Geometry.
+var polyFeature = ee.Feature(polygon, {foo: 42, bar: 'tart'});
+&lt;/script&gt;
+
+---
+
+# Data types
+
+## Feature Collection
+- `ee.FeatureCollection`
+- Groups of related `Features`
+- Do not need to have the same geometries or properties to be in a Feature Collection
+- E.g. Relocation points for all animals in a study
+
+
+```js
+var fc = ee.FeatureCollection('TIGER/2016/Roads');
+```
+
+
+&lt;script type="text/javascript"&gt;
+var fc = ee.FeatureCollection('TIGER/2016/Roads');
+&lt;/script&gt;
+
+???
+Properties = dictionary
+
+
+Differences between R and EE:
+
+`ee.Feature` ~~ `sf::st_geometry()`
+`ee.FeatureCollection` ~~ `sf`, `sfc`
+
+
+---
+# Data types
+
+.pull-left[
+
+
+### String
+
+
+```js
+// Use single (or double) quotes 
+//  to make a string.
+var potato = 'yukon gold';
+// Use parentheses to pass 
+//  arguments to functions.
+print(potato);
+```
+
+
+&lt;script type="text/javascript"&gt;
+// Use single (or double) quotes 
+//  to make a string.
+var potato = 'yukon gold';
+// Use parentheses to pass 
+//  arguments to functions.
+print(potato);
+&lt;/script&gt;
+
+### Numbers
+
+```js
+// Store a number in a variable.
+var number = 17;
+print(number);
+```
+
+
+&lt;script type="text/javascript"&gt;
+// Store a number in a variable.
+var number = 17;
+print(number);
+&lt;/script&gt;
+
+]
+
+.pull-right[
+
+
+
+### Dictionary
+
+
+```js
+// Use curly brackets {} to make a 
+//  dictionary of key:value pairs.
+var object = {
+  foo: 'bar',
+  baz: 13,
+  stuff: ['kilo', 'lima', 'mike']
+};
+
+print('Print stuff:', object['stuff']);
+```
+
+
+&lt;script type="text/javascript"&gt;
+// Use curly brackets {} to make a 
+//  dictionary of key:value pairs.
+var object = {
+  foo: 'bar',
+  baz: 13,
+  stuff: ['kilo', 'lima', 'mike']
+};
+
+print('Print stuff:', object['stuff']);
+&lt;/script&gt;
+
+### List
+
+
+```js
+// Use square brackets [] to 
+//  make a list.
+var listOfNumbers = [0, 1, 1, 2, 3, 5];
+```
+
+
+&lt;script type="text/javascript"&gt;
+// Use square brackets [] to 
+//  make a list.
+var listOfNumbers = [0, 1, 1, 2, 3, 5];
+&lt;/script&gt;
+
+
+]
+
+
+.footnote[
+[1]: [Basic JavaScript data types](https://developers.google.com/earth-engine/tutorials/tutorial_js_01
+)
+]
+
+
+???
+Dictionary: key value
+Lists []
+Array
+
+
+---
+# Data types -  comparing R and EE
+
+
+.pull-left[
+## Earth Engine
+
+### Images
+* `ee.Image`
+* `ee.ImageCollection`
+
+### Features
+* `ee.Feature`
+* `ee.FeatureCollection`
+
+]
+
+.pull-left[
+## R
+
+### Rasters
+* `raster`
+* `raster` stack, `stars`, ...
+
+### Vectors
+* `sf::st_geometry`
+* `sf`, `sfc`
+]
+
+
+---
+background-image: url(https://developers.google.com/earth-engine/images/Code_editor.png)
+background-position: center
+background-size: contain
+
+# Earth Engine code editor
+
+
+
+???
+[EE Playground](https://developers.google.com/earth-engine/guides/playground)
+
+
+Code editor also called the EE Playground
+
+---
+# Sources of data
+
+
+1. Imagery
+  - Landsat
+  - Sentinel 
+  - MODIS 
+  - Derived imagery (e.g. NDVI)
+  
+2. Geophysical
+  - Elevation, terrain
+  - Land cover
+  - Cropland
+ 
+3. Climate
+  - Surface temperature
+  - Atmosphere
+  - Weather
+
+
+---
+class: review
+
+# Example - sources of data 
+
+## Image
+- Script: [Examples/Image/From Name](https://code.earthengine.google.com/856e0c5d65858be858aabada28a5d5da)
+
+## Image Collection
+- Script: [Exploring image collections](https://code.earthengine.google.com/1a5ee71d43b85ac287afe0285126f804)
+- Use the Search bar to see all the Image Collections that are available
+- Use the asset id to load the image collection and add them to the map
+
+
+---
+# Filtering data
+
+- Unlike R, Earth Engine optimizes the *final* call using deferred execution. In short, this means that operations like "clip" are usually unnecessary. 
+
+- Instead, we filter our data:
+   - spatial filter e.g. within bounds
+   - temporal filter e.g. within dates
+   - attribute filter e.g. type equals "cheese"
+
+
+
+
+```js
+var point = ee.Geometry.Point(-122.262, 37.8719);
+
+var start = ee.Date('2014-06-01');
+var finish = ee.Date('2014-10-01');
+
+var filteredCollection = ee.ImageCollection('LANDSAT/LC08/C01/T1')
+  .filterBounds(point)
+  .filterDate(start, finish);
+```
+
+
+&lt;script type="text/javascript"&gt;
+var point = ee.Geometry.Point(-122.262, 37.8719);
+
+var start = ee.Date('2014-06-01');
+var finish = ee.Date('2014-10-01');
+
+var filteredCollection = ee.ImageCollection('LANDSAT/LC08/C01/T1')
+  .filterBounds(point)
+  .filterDate(start, finish);
+&lt;/script&gt;
+
+.footnote[
+[Get Started: Filtering](https://developers.google.com/earth-engine/guides/getstarted#filtering-and-sorting)
+
+[Deferred execution](https://developers.google.com/earth-engine/guides/deferred_execution)
+]
+
+---
+class:review
+
+# Example - filtering data
+
+## Image Collection
+- Script: [Examples/Image Collection/Filtered Composite Name](https://code.earthengine.google.com/6341485b408675e989a40ad039753f4d)
+
+## Feature Collection
+- Script: [Filtering attributes in feature collections](https://code.earthengine.google.com/6dbb2653b3d988049ff6ad115bc9b8e3)
+
+
+---
+
+# Importing features 
+
+Either a Shapefile (and related `.dbf`, `.shx` and `.prj` files) or a zip file of these, or a CSV
+
+In R, take an example sf object and zip it
+
+
+```r
+library(sf)
+dir.create('example-features')
+
+df &lt;- data.frame(id = LETTERS[1:3],
+                 lon = c(-137.03, -136.94, -137.10),
+                 lat = c(60.46, 60.50, 60.52))
+points &lt;- st_as_sf(df, coords = c('lon', 'lat'))
+
+st_write(points, 'example-features/ex-abc.shp')
+
+zip('example-abc.zip', 'example-features')
+```
+
+Upload the asset, then load the asset in your Earth Engine scripts
+
+
+```js
+var features = ee.FeatureCollection('users/robit.a/example-abc');
+```
+
+
+&lt;script type="text/javascript"&gt;
+var features = ee.FeatureCollection('users/robit.a/example-abc');
+&lt;/script&gt;
+
+.footnote[
+[Importing features](https://developers.google.com/earth-engine/guides/importing)
+]
+
+
+???
+- You don't need to manually choose a point or polygon within Google Earth Engine when filtering data, you can import your relevant features and use them  
+
+- E.g. Importing relocation points, study grid, study area boundaries, etc.
+
+
+---
+class:review
+# Example - band math
+
+## Image
+
+* Script: [Examples/Image/Normalized Difference](https://code.earthengine.google.com/afcb9f29454529683d855696f5a9d681)
+
+
+## Image Collection
+
+* Script: [Full example](https://code.earthengine.google.com/940ada34c9099e1df33259df21b3c649)
+
+
+---
+class:review
+
+# Example - sampling
+
+## Image
+* Script: [Examples/Image/Reduce Region](https://code.earthengine.google.com/3eddec46a224a2491d070057ab73419f)
+
+## Image Collection
+
+* Script: [Full example](https://code.earthengine.google.com/940ada34c9099e1df33259df21b3c649)
+
+
+---
+# Exporting
+
+Most common method: export to your Google Drive
+
+
+```js
+// Make a collection of points.
+var features = ee.FeatureCollection([
+  ee.Feature(ee.Geometry.Point(30.41, 59.933), {name: 'a'}),
+  ee.Feature(ee.Geometry.Point(-73.96, 40.781), {name: 'b'}),
+  ee.Feature(ee.Geometry.Point(6.4806, 50.8012), {name: 'c'})
+]);
+
+// Export the FeatureCollection to a CSV file.
+Export.table.toDrive({
+  collection: features,
+  description:'vectorsToDriveExample',
+  fileFormat: 'CSV'
+});
+
+```
+
+
+&lt;script type="text/javascript"&gt;
+// Make a collection of points.
+var features = ee.FeatureCollection([
+  ee.Feature(ee.Geometry.Point(30.41, 59.933), {name: 'a'}),
+  ee.Feature(ee.Geometry.Point(-73.96, 40.781), {name: 'b'}),
+  ee.Feature(ee.Geometry.Point(6.4806, 50.8012), {name: 'c'})
+]);
+
+// Export the FeatureCollection to a CSV file.
+Export.table.toDrive({
+  collection: features,
+  description:'vectorsToDriveExample',
+  fileFormat: 'CSV'
+});
+
+&lt;/script&gt;
+
+
+.footnote[
+[Exporting Data](https://developers.google.com/earth-engine/guides/exporting)
+]
+
+
+???
+
+Earth Engine exports your work to your Google Drive account (or to an asset or to a Cloud Storage account)
+
+
+Note: MUN students have unlimited storage in their Google Drive and their email does not expire (as of right now)
+
+
+---
+# Resources
+
+.left-column[
+[Earth Engine Documentation](https://developers.google.com/earth-engine/guides)
+
+Earth Engine user group
+
+Github: [gee-community](https://github.com/gee-community/), specifically the [examples](https://github.com/gee-community/example-scripts)
+
+
+]
+
+.right-column[
+[Javascript + Earth Engine](https://developers.google.com/earth-engine/tutorials/tutorial_js_01)
+
+[Script modules](https://developers.google.com/earth-engine/guides/playground#script-modules)
+
+[Charts](https://developers.google.com/earth-engine/guides/charts)
+
+[Objects, gt/lt](https://developers.google.com/earth-engine/guides/image_objects)
+
+[`rgee`](https://github.com/r-spatial/rgee)
+
+[QGIS examples](https://github.com/giswqs/qgis-earthengine-examples)
+
+
+]
+
+
+.footnote[
+Many examples throughout are taken directly, or adapted slightly for this workshop, from the [Earth Engine documentation](https://developers.google.com/earth-engine) and sidebar examples. Thanks to the EE team for the incredible tool, and accompanying documentation and support. 
+
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros-ee.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"slideNumberFormat": "<div class=\"progress-bar-container\">\n  <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">\n  </div>\n</div>`\n"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
