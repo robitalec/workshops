@@ -31,7 +31,7 @@ source('template.R')
 ```
 
 
-## Template page one
+## Example text
 
 
 Lorem ipsum dolor sit amet
@@ -44,11 +44,45 @@ In laoreet commodo nisl vitae
 
 
 ---
-## Template page two
+## Example plot
 
 ```{r}
 qplot(x, y, data = data.frame(x = seq.int(10), y = seq.int(10))) + 
 	geom_line()
 ```
+
+
+---
+## Example bullets
+
+* Ut risus arcu
+* Morbi interdum mauris
+* Sed porta mauris
+
+
+---
+## Example incremental bullets
+
+-Nullam lobortis sapien
+
+---
+## Example incremental bullets
+
+.fade[
+-Nullam lobortis sapien
+]
+
+-Lorem ipsum dolor
+
+---
+## Example incremental bullets
+
+.fade[
+-Nullam lobortis sapien
+
+-Lorem ipsum dolor
+]
+
+-In elit mi
 
 
