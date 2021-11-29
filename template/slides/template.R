@@ -19,7 +19,8 @@ style_mono_dark(
 	header_h2_font_size = '1.5rem',
 	header_font_google = google_font('Open Sans', '300'),
 	text_font_google = google_font('Open Sans', '400'),
-	header_font_weight = 100
+	header_font_weight = 100,
+	extra_css = list(".fade" = list("color" = darken_color(text_color, 0.5)))
 )
 
 theme_set(
