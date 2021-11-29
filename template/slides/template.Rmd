@@ -11,12 +11,12 @@ date: "1970-01-01"
 output: 
   xaringan::moon_reader:
     nature:
-      beforeInit: "macros.js"
+      beforeInit: "template.js"
       highlightStyle: zenburn
       highlightLines: true
       ratio: 16:9
-      slideNumberFormat: "%current%"
-    css: xaringan-themer.css
+      slideNumberFormat: "  "
+    css: [xaringan-themer.css, template.css]
 ---
 
 ```{r setup, include=FALSE}
