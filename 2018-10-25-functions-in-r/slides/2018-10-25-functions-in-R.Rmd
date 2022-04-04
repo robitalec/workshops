@@ -142,8 +142,6 @@ apply functions are a good example of higher level
 .pull-left[
 * clear, more concise ([do one thing well](https://en.wikipedia.org/wiki/Unix_philosophy#Do_One_Thing_and_Do_It_Well))
 
-![scale 40%](https://upload.wikimedia.org/wikipedia/commons/4/46/Ken_Thompson_and_Dennis_Ritchie.jpg)
-
 * easier to maintain (update only in one place)
 
 |                   |                          |
@@ -176,7 +174,7 @@ not a steve jobs quote
 
 UNIX theory
 Doug McIlroy
-Ken Thompson and Dennis Ritchie (these guys made C and Unix)
+Ken Thompson and Dennis Ritchie
 
 
 ---
@@ -577,9 +575,8 @@ Stack Overflow:
 * [How to organize large R programs?](https://stackoverflow.com/questions/1266279/how-to-organize-large-r-programs)
 * [Matt Dowle's programmatic ways to select variables](https://stackoverflow.com/questions/12391950/select-assign-to-data-table-when-variable-names-are-stored-in-a-character-vect)
 * [Specific column name ggplot2](https://stackoverflow.com/questions/22309285/how-to-use-a-variable-to-specify-column-name-in-ggplot)
-* [Using substitute instead of get](https://stackoverflow.com/questions/45982595/r-using-get-and-data-table-within-a-user-defined-function
+* [Using substitute instead of get](https://stackoverflow.com/questions/45982595/r-using-get-and-data-table-within-a-user-defined-function)
 * [SO: Michael Chirico's discussion of .SD and .SDcols](https://stackoverflow.com/a/47406952/3481674)  
-)
 
 ]
 
