@@ -294,7 +294,6 @@ class: review
 
 1. Pick one example R Markdown document
   * [cboettig/noise-phenomena](https://github.com/cboettig/noise-phenomena/blob/master/paper/paper.Rmd)
-  *
 1. Identify the YAML
   * What output format is it? 
   * Who is the author?
@@ -440,12 +439,3 @@ shortcuts! `ctrl/cmd + shift + k`
 
 [Yihui Xie's Customizing & Extending R Markdown](https://slides.yihui.name/2017-rstudio-conf-ext-rmd-Yihui-Xie.html#1)
 ]
-
-.footnote[
-[R Markdown Gallery](https://rmarkdown.rstudio.com/gallery.html)
-
-]
-
-
-
-<!-- https://rmarkdown.rstudio.com/articles_docx.html -->
