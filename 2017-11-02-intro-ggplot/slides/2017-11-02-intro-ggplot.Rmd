@@ -208,9 +208,11 @@ ggplot(diamonds) +
   labs(x = 'Cut', y = 'Carat', color = 'Price')
 ```
 
+![](images/axis_labels.png)
+
 ---
 # Use of factor variables
-```{r, eval = TRUE, echo=TRUE, out.height = '400px', out.width = '550px'}
+```{r, eval = FALSE, echo=TRUE, out.height = '400px', out.width = '550px'}
 ggplot(diamonds) + 
   geom_point(aes(cut, carat, 
                  color = factor(cut, 
@@ -218,14 +220,20 @@ ggplot(diamonds) +
   labs(x = 'Cut', y = 'Carat', color = 'Cut')
 ```
 
+
+![](images/factors.png)
+
 ---
 # Facetting
 
-```{r, eval = TRUE, echo = TRUE, out.height = '400px', out.width = '550px'}
+```{r, eval = FALSE, echo = TRUE, out.height = '400px', out.width = '550px'}
 ggplot(diamonds) + 
   geom_point(aes(carat, price)) + 
   facet_wrap(~cut)
 ```
+
+
+![](images/facetting.png)
 
 
 ---

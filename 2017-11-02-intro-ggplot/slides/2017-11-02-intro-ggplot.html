@@ -8,7 +8,7 @@
     <script src="2017-11-02-intro-ggplot_files/header-attrs-2.11.3/header-attrs.js"></script>
     <link href="2017-11-02-intro-ggplot_files/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
     <link href="2017-11-02-intro-ggplot_files/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
-    <link rel="stylesheet" href="extra.css" type="text/css" />
+    <link rel="stylesheet" href="2017-11-02-intro-ggplot.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
@@ -87,6 +87,7 @@ really important to think about data like this
 * rows with multiple measures of the same individual/group
 
 ```
+## Key: &lt;price&gt;
 ##    price  Fair  Good Very Good Premium Ideal
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt;     &lt;int&gt;   &lt;int&gt; &lt;int&gt;
 ## 1:   326     0     0         0       1     1
@@ -103,11 +104,11 @@ really important to think about data like this
 
 ```
 ##   Price Fair Good Very.Good Premium Ideal
-## 1  7026    0    0         0       0     1
-## 2  8345    0    0         1       1     1
-## 3  2781    0    0         1       1     0
-## 4  8347    0    0         0       0     1
-## 5   683    1    0         1       0     3
+## 1  4771    0    0         2       0     0
+## 2  9041    0    0         0       1     1
+## 3  3642    0    0         0       0     1
+## 4  6615    0    0         0       0     1
+## 5  6205    0    1         1       1     1
 ```
 
 
@@ -119,13 +120,13 @@ melt(DT, measure.vars = colnames(DT)[-1],
 
 
 ```
-##     Price       Cut Count
-##    &lt;char&gt;    &lt;fctr&gt; &lt;int&gt;
-## 1:     71     Ideal     7
-## 2:   1167 Very Good     7
-## 3:   4236   Premium     8
-## 4:    324     Ideal     9
-## 5:    625     Ideal    22
+##     Price     Cut Count
+##    &lt;char&gt;  &lt;fctr&gt; &lt;int&gt;
+## 1:    251   Ideal     6
+## 2:    708 Premium     8
+## 3:   2288 Premium     6
+## 4:    224   Ideal    12
+## 5:    322 Premium    39
 ```
 
 ---
@@ -232,6 +233,8 @@ ggplot(diamonds) +
   labs(x = 'Cut', y = 'Carat', color = 'Price')
 ```
 
+![](images/axis_labels.png)
+
 ---
 # Use of factor variables
 
@@ -243,7 +246,8 @@ ggplot(diamonds) +
   labs(x = 'Cut', y = 'Carat', color = 'Cut')
 ```
 
-&lt;img src="2017-11-02-intro-ggplot_files/figure-html/unnamed-chunk-11-1.png" width="550px" height="400px" style="display: block; margin: auto;" /&gt;
+
+![](images/factors.png)
 
 ---
 # Facetting
@@ -255,7 +259,8 @@ ggplot(diamonds) +
   facet_wrap(~cut)
 ```
 
-&lt;img src="2017-11-02-intro-ggplot_files/figure-html/unnamed-chunk-12-1.png" width="550px" height="400px" style="display: block; margin: auto;" /&gt;
+
+![](images/facetting.png)
 
 
 ---
@@ -373,7 +378,7 @@ https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
-<script src="macros.js"></script>
+<script src="2017-11-02-intro-ggplot.js"></script>
 <script>var slideshow = remark.create({
 "highlightStyle": "github",
 "highlightLines": true,
