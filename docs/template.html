@@ -4,15 +4,17 @@
     <title>Template</title>
     <meta charset="utf-8" />
     <meta name="date" content="1970-01-01" />
-    <script src="template_files/header-attrs/header-attrs.js"></script>
+    <script src="template_files/header-attrs-2.11.3/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="template.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
 # Template
-### <p>Alec Robitaille <br> <br> Wildlife Evolutionary Ecology Lab <br> Memorial University <br> <br></p>
+### <p>Alec Robitaille <br> <br> Wildlife Evolutionary Ecology Lab <br>
+Memorial University <br> <br></p>
 ### 1970-01-01
 
 ---
@@ -21,7 +23,7 @@ class: center, middle, inverse, title-slide
 
 
 
-## Template page one
+## Example text
 
 
 Lorem ipsum dolor sit amet
@@ -34,7 +36,7 @@ In laoreet commodo nisl vitae
 
 
 ---
-## Template page two
+## Example plot
 
 
 ```r
@@ -45,15 +47,49 @@ qplot(x, y, data = data.frame(x = seq.int(10), y = seq.int(10))) +
 &lt;img src="/home/alecr/Documents/Local-git/workshops/docs/template_files/figure-html/unnamed-chunk-1-1.png" width="40%" height="30%" style="display: block; margin: auto;" /&gt;
 
 
+---
+## Example bullets
+
+* Ut risus arcu
+* Morbi interdum mauris
+* Sed porta mauris
+
+
+---
+## Example incremental bullets
+
+-Nullam lobortis sapien
+
+---
+## Example incremental bullets
+
+.fade[
+-Nullam lobortis sapien
+]
+
+-Lorem ipsum dolor
+
+---
+## Example incremental bullets
+
+.fade[
+-Nullam lobortis sapien
+
+-Lorem ipsum dolor
+]
+
+-In elit mi
+
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
-<script src="macros.js"></script>
+<script src="template.js"></script>
 <script>var slideshow = remark.create({
 "highlightStyle": "zenburn",
 "highlightLines": true,
 "ratio": "16:9",
-"slideNumberFormat": "%current%"
+"slideNumberFormat": "  "
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));

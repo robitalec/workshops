@@ -290,3 +290,9 @@ table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {
   background-color: var(--black);
 }
 
+
+
+/* Extra CSS */
+.fade {
+  color: #6E6E6E;
+}
