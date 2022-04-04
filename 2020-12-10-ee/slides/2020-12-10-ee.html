@@ -3,18 +3,20 @@
   <head>
     <title>An Introduction to Remote Sensing with Earth Engine and R</title>
     <meta charset="utf-8" />
+    <meta name="author" content="Alec Robitaille, Isabella C. Richmond" />
     <meta name="date" content="2020-12-10" />
     <script src="2020-12-10-ee_files/header-attrs-2.11.3/header-attrs.js"></script>
     <link href="2020-12-10-ee_files/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
     <link href="2020-12-10-ee_files/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
-    <link rel="stylesheet" href="extras-ee.css" type="text/css" />
+    <link rel="stylesheet" href="2020-12-10-ee.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
 # An Introduction to Remote Sensing with Earth Engine and R
-### <p>Alec Robitaille <br> Isabella C. Richmond <br> <br> Wildlife Evolutionary Ecology Lab <br> Memorial University <br> <br></p>
+### Alec Robitaille, Isabella C. Richmond
+### Wildlife Evolutionary Ecology Lab - Memorial University
 ### 2020-12-10
 
 ---
@@ -33,7 +35,7 @@ class: center, middle, inverse, title-slide
 
 
 .pull-right[
-![:scale 55%](https://developers.google.com/earth-engine/images/EE_new_logo_480.png)
+![:scale 55%](images/ee_logo.png)
 ]
 
 
@@ -107,7 +109,7 @@ var polygon = ee.Geometry.Polygon([
 ]);
 
 // Create a Feature from the Geometry.
-var polyFeature = ee.Feature(polygon, {foo: 42, bar: 'tart'});
+var polyFeature = ee.Feature(polygon, {foo: 42, bar: 'apple'});
 ```
 
 
@@ -118,7 +120,7 @@ var polygon = ee.Geometry.Polygon([
 ]);
 
 // Create a Feature from the Geometry.
-var polyFeature = ee.Feature(polygon, {foo: 42, bar: 'tart'});
+var polyFeature = ee.Feature(polygon, {foo: 42, bar: 'apple'});
 &lt;/script&gt;
 
 ---
@@ -559,7 +561,7 @@ Many examples throughout are taken directly, or adapted slightly for this worksh
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
-<script src="macros-ee.js"></script>
+<script src="2020-12-10-ee.js"></script>
 <script>var slideshow = remark.create({
 "highlightStyle": "github",
 "highlightLines": true,

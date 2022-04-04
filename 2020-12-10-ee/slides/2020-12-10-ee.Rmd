@@ -1,14 +1,7 @@
 ---
 title: "An Introduction to Remote Sensing with Earth Engine and R"
-author: | 
-  Alec Robitaille
-  <br>
-  Isabella C. Richmond
-  <br> <br>
-  Wildlife Evolutionary Ecology Lab
-  <br>
-  Memorial University
-  <br> <br>
+author: Alec Robitaille, Isabella C. Richmond
+institute: Wildlife Evolutionary Ecology Lab - Memorial University
 date: "2020-12-10"
 output: 
   xaringan::moon_reader:
@@ -40,7 +33,7 @@ knitr::opts_chunk$set(echo = TRUE,
 
 
 .pull-right[
-![:scale 55%](https://developers.google.com/earth-engine/images/EE_new_logo_480.png)
+![:scale 55%](images/ee_logo.png)
 ]
 
 
@@ -101,7 +94,7 @@ var polygon = ee.Geometry.Polygon([
 ]);
 
 // Create a Feature from the Geometry.
-var polyFeature = ee.Feature(polygon, {foo: 42, bar: 'tart'});
+var polyFeature = ee.Feature(polygon, {foo: 42, bar: 'apple'});
 ```
 
 ---
