@@ -1,7 +1,6 @@
 ---
 title: "Personal R Packages"
-author: | 
-  | Alec Robitaille
+author: Alec Robitaille
 date: 2018-10-25
 output: 
   xaringan::moon_reader:
