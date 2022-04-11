@@ -89,3 +89,35 @@ library(distanceto)
 library(glmmTMB)
 ```
 
+
+
+---
+# Make
+
+`tar_make()`
+
+
+.footnote[
+
+Shortcuts! Background jobs! `Rscript`!
+
+]
+
+
+
+---
+# Read
+
+
+
+---
+# Extras: renv
+
+`renv` paired with `targets`:
+
+Package management
+
+and 
+
+Reproducible workflow
+
