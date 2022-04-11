@@ -35,3 +35,57 @@ knitr::opts_chunk$set(echo = TRUE,
 
 
 
+---
+# Ingredients
+
+- Functions
+
+- Targets
+
+- Packages
+
+
+---
+# Ingredients: Functions
+
+
+https://books.ropensci.org/targets/functions.html
+
+
+
+---
+# Ingredients: Targets
+
+
+
+---
+# Ingredients: Packages
+
+`R/packages.R`
+
+```
+# Packages ----------------------------------------------------------------
+library(targets)
+library(tarchetypes)
+library(qs)
+library(visNetwork)
+
+library(renv)
+library(conflicted)
+
+library(data.table)
+
+library(amt)
+library(sf)
+library(raster)
+
+library(parsedate)
+
+library(ggplot2)
+library(ggthemes)
+
+library(distanceto)
+
+library(glmmTMB)
+```
+
