@@ -121,3 +121,16 @@ and
 
 Reproducible workflow
 
+
+---
+# Resources
+
+
+`targets`
+
+* [targets User Manual](https://books.ropensci.org/targets/)
+* [targets documentation](https://docs.ropensci.org/targets/)
+
+`renv`
+
+* [renv documentation](https://rstudio.github.io/renv/)
