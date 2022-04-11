@@ -1,0 +1,29 @@
+---
+title: "Introduction to targets and the targets-iSSA workflow"
+author: Alec L. Robitaille
+institute:  Wildlife Evolutionary Ecology Lab - Memorial University
+date: "2022-04-12"
+output: 
+  xaringan::moon_reader:
+    nature:
+      highlightStyle: github
+      beforeInit: "2022-04-12-targets-issa.js"
+      highlightLines: true
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>`
+    css: [metropolis, metropolis-fonts, "2022-04-12-targets-issa.css"]
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      eval = TRUE)
+```
+
+
+# Why target
+
+
+# Resources
