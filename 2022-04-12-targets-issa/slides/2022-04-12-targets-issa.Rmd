@@ -23,7 +23,15 @@ knitr::opts_chunk$set(echo = TRUE,
 ```
 
 
-# Why target
+# Why targets?
+
+- Reproducible
+
+- Digestible
+
+- Time savings
+
+- Evidence
 
 
-# Resources
+
