@@ -12,7 +12,7 @@ output:
         <div class='progress-bar-container'>
           <div class='progress-bar' style='width: calc(%current% / %total% * 100%);'>
           </div>
-        </div>`
+        </div>
     css: [metropolis, metropolis-fonts, '2017-11-02-intro-ggplot.css']
 ---
 
