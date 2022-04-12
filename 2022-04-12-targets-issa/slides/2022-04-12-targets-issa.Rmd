@@ -77,7 +77,6 @@ Introducing `targets` and the `targets-issa` workflow.
 - Evidence
 
 
-
 ---
 # Ingredients
 
@@ -192,7 +191,7 @@ library(glmmTMB)
 
 
 ---
-# Make
+# Tools: make
 
 `tar_make()`
 
@@ -206,20 +205,25 @@ Shortcuts! Background jobs! `Rscript`!
 
 
 ---
-# Read
+# Tools: read/load
+
+`tar_read()`
+
+`tar_load()`
+
 
 
 
 ---
 # Extras: renv
 
-`renv` paired with `targets`:
+`renv` paired with `targets` = 
 
-Package management
+package management
 
-and 
+and
 
-Reproducible workflow
+reproducible workflow
 
 
 ---
