@@ -18,12 +18,54 @@ output:
     css: [metropolis, metropolis-fonts, "2022-04-12-targets-issa.css"]
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE,
-                      eval = TRUE)
-```
+
+# Context
+
+Introducing `targets` and the `targets-issa` workflow. 
 
 
+- https://github.com/robitalec/targets-issa
+- https://issa-guild.github.io/book/
+
+---
+# What's in a workflow?
+
+--
+
+- Data
+
+--
+
+- Variables
+
+--
+
+- Prepare data
+
+--
+
+- Analyse data (extract layers, measure steps, turn angles)
+
+--
+
+- Model
+
+--
+
+- Plots, predictions, ...
+
+
+---
+# The targets-iSSA workflow
+
+.center[
+![:scale 47%](images/viz.png)
+]
+
+
+
+
+---
 # Why targets?
 
 - Reproducible
