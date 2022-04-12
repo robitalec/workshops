@@ -140,6 +140,33 @@ plot_mpg_cyl(DT_gear_5)
 # Ingredients: Targets
 
 
+.pull-left[
+```{r, eval = FALSE}
+tar_target(
+	name,
+	command
+)
+```
+]
+
+.pull-right[
+```{r, eval = FALSE}
+tar_target(
+	plot_cars,
+	plot_mpg_cyl(mtcars)
+)
+```
+]
+
+
+Other arguments
+
+- `pattern = map(branch)`
+- `format = 'file'`
+- `cue = tar_cue('always')`
+
+
+
 
 ---
 # Ingredients: Packages
