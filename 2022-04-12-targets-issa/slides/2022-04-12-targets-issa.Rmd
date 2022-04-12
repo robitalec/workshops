@@ -1,5 +1,6 @@
 ---
-title: "Introduction to targets and the targets-iSSA workflow"
+title: Introduction to targets
+subtitle: and the `targets-issa` workflow
 author: Alec L. Robitaille
 institute:  Wildlife Evolutionary Ecology Lab - Memorial University
 date: "2022-04-12"
