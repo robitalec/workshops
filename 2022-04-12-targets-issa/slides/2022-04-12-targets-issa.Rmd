@@ -92,8 +92,48 @@ Introducing `targets` and the `targets-issa` workflow.
 # Ingredients: Functions
 
 
-https://books.ropensci.org/targets/functions.html
+.pull-left[
+```{r, eval = FALSE}
+library(ggplot2)
+library(data.table)
 
+DT <- data.table(mtcars)
+
+DT_gear_4 <- DT[gear == 4]
+DT_gear_5 <- DT[gear == 5]
+
+# ...
+
+ggplot(DT_gear_4) + 
+	geom_point(aes(mpg, cyl)) +
+	theme(base_size)
+
+ggplot(DT_gear_4) + 
+	geom_point(aes(mpg, cyl)) +
+	theme(base_size)
+
+```
+]
+
+.pull-right[
+```{r, eval = FALSE}
+plot_mpg_cyl <- function(DT) {
+	ggplot(DT) + 
+	geom_point(aes(mpg, cyl)) +
+	theme(base_size)
+}
+```
+
+```{r, eval = FALSE}
+plot_mpg_cyl(DT_gear_4)
+plot_mpg_cyl(DT_gear_5)
+```
+
+.footnote[
+[Targets manual: functions](https://books.ropensci.org/targets/functions.html)
+]
+
+]
 
 
 ---
