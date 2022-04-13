@@ -1,66 +1,156 @@
 ---
 title: Introduction to targets
-subtitle: and the `targets-issa` workflow
+subtitle: and the targets-iSSA workflow
 author: Alec L. Robitaille
-institute:  Wildlife Evolutionary Ecology Lab - Memorial University
+institute:  Wildlife Evolutionary Ecology Lab <br> Memorial University
 date: "2022-04-12"
 output: 
   xaringan::moon_reader:
     nature:
-      highlightStyle: github
       beforeInit: "2022-04-12-targets-issa.js"
-      highlightLines: true
+      highlightStyle: agate
       slideNumberFormat: |
         <div class="progress-bar-container">
           <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
           </div>
         </div>
-    css: [metropolis, metropolis-fonts, "2022-04-12-targets-issa.css"]
+    css: ["xaringan-themer.css"]
 ---
 
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+base_color <- "#5d8fa4"
+lighter_base <- lighten_color(base_color, 0.35)
 
-# Context
+regular <- "1rem"
+small <- "0.75rem"
+h1 <- "2.25rem"
+h2 <- "2rem"
+h3 <- "1.3rem"
 
-Introducing `targets` and the `targets-issa` workflow. 
+code_color <- darken_color(base_color, 0.7)
+
+style_mono_dark(
+  base_color = base_color,
+  link_color = lighter_base,
+  code_inline_color = lighter_base,
+	left_column_selected_color = apply_alpha(base_color, 0.7),
+  code_inline_background_color = code_color,
+
+  text_font_size = "1.5rem",
+  header_h3_font_size = "0.75rem",
+  extra_css = list(
+		".remark-slide-content h4" = list("font-size" = regular, "color" = "var(--link-color)"),
+		".left-column" = list("width" = "20%", 'font-size' = regular,
+													"height" = '95%'
+													# 'border-right' = '0.1px solid var(--link-color)'
+													),
+		".hljs-agate .hljs" = list("background" = code_color, "color" = lighter_base),
+		".panelset" = list("font-size" = regular),
+		".medium" = list("font-size" = regular),
+		".small" = list("font-size" = small),
+		".footnote" = list("font-size" = small,  "left" = '75%'),
+		".title-slide h1" = list("font-size" = h1),
+		".title-slide h2" = list("font-size" = h2),
+		".title-slide h3" = list("font-size" = h3)
+	),
+  header_font_google = google_font("Roboto Slab", "200"),
+  text_font_google = google_font("Roboto Slab", "300"),
+  code_font_google   = google_font("Fira Mono")
+)
+xaringanExtra::use_panelset()
+```
 
 
-- https://github.com/robitalec/targets-issa
-- https://issa-guild.github.io/book/
 
-Setup:
 
-- https://issa-guild.github.io/book/setup.html
+.left-column[
+<br><br><br><br><br><br>
+### **Context**
+### Workflow
+### Ingredients
+### Tools
+### Extras
+### Resources
+]
+---
+
+.left-column[
+<br><br><br><br><br><br>
+### **Context**
+### Workflow
+### Ingredients
+### Tools
+### Extras
+### Resources
+]
+
+
+#### Introducing targets and the targets-issa workflow
+
+<br>
+
+[ robitalec/targets-iSSA](https://github.com/robitalec/targets-issa)
+
+[ How-To iSSA](https://issa-guild.github.io/book)
+
+.footnote[
+
+[Setup (targets-iSSA)](https://issa-guild.github.io/book/setup.html)
+]
 
 ---
-# What's in a workflow?
+
+.left-column[
+<br><br><br><br><br><br>
+### Context
+### **Workflow**
+### Ingredients
+### Tools
+### Extras
+### Resources
+]
+
+#### What's in a workflow?
 
 --
 
-- Data
+Data
 
 --
 
-- Variables
+Variables
 
 --
 
-- Prepare data
+Prepare data
 
 --
 
-- Analyse data (extract layers, measure steps, turn angles)
+Analyse data (extract, steps, turn angles)
 
 --
 
-- Model
+Model
 
 --
 
-- Plots, predictions, ...
+Plots, predictions, ...
 
 
 ---
-# The targets-iSSA workflow
+
+.left-column[
+<br><br><br><br><br><br>
+### Context
+### **Workflow**
+### Ingredients
+### Tools
+### Extras
+### Resources
+]
+
+#### The targets-iSSA workflow
 
 .center[
 ![:scale 47%](images/viz.png)
@@ -70,32 +160,66 @@ Setup:
 
 
 ---
-# Why targets?
+.left-column[
+<br><br><br><br><br><br>
+### Context
+### Workflow
+### **Ingredients**
+### Tools
+### Extras
+### Resources
+]
 
-- Reproducible
+#### Why targets?
 
-- Digestible
+Reproducible
 
-- Time savings
+Digestible
 
-- Evidence
+Time savings
+
+Evidence
 
 
 ---
-# Ingredients
 
-- Functions
+.left-column[
+<br><br><br><br><br><br>
+### Context
+### Workflow
+### **Ingredients**
+### Tools
+### Extras
+### Resources
+]
 
-- Targets
+#### Ingredients
 
-- Packages
+Functions
+
+Targets
+
+Packages
 
 
 ---
-# Ingredients: Functions
+
+.left-column[
+<br><br><br><br><br><br>
+### Context
+### Workflow
+### **Ingredients**
+### Tools
+### Extras
+### Resources
+]
+
+#### Ingredients: Functions
 
 
-.pull-left[
+.panelset[
+.panel[.panel-name[Script]
+
 ```{r, eval = FALSE}
 library(ggplot2)
 library(data.table)
@@ -104,8 +228,6 @@ DT <- data.table(mtcars)
 
 DT_gear_4 <- DT[gear == 4]
 DT_gear_5 <- DT[gear == 5]
-
-# ...
 
 ggplot(DT_gear_4) + 
 	geom_point(aes(mpg, cyl)) +
@@ -118,7 +240,8 @@ ggplot(DT_gear_4) +
 ```
 ]
 
-.pull-right[
+.panel[.panel-name[Function]
+
 ```{r, eval = FALSE}
 plot_mpg_cyl <- function(DT) {
 	ggplot(DT) + 
@@ -131,52 +254,77 @@ plot_mpg_cyl <- function(DT) {
 plot_mpg_cyl(DT_gear_4)
 plot_mpg_cyl(DT_gear_5)
 ```
-
-.footnote[
-[Targets manual: functions](https://books.ropensci.org/targets/functions.html)
+]
 ]
 
+
+
+
+.footnote[
+[Targets manual: Functions](https://books.ropensci.org/targets/functions.html)
 ]
 
 
 ---
-# Ingredients: Targets
+.left-column[
+<br><br><br><br><br><br>
+### Context
+### Workflow
+### **Ingredients**
+### Tools
+### Extras
+### Resources
+]
 
 
-.pull-left[
+#### Ingredients: Targets
+
+
 ```{r, eval = FALSE}
 tar_target(
 	name,
 	command
 )
 ```
-]
 
-.pull-right[
 ```{r, eval = FALSE}
 tar_target(
 	plot_cars,
 	plot_mpg_cyl(mtcars)
 )
 ```
+
+
+.small[
+Other arguments:
+
+-`pattern = map(branch)`
+
+-`format = 'file'`
+
+-`cue = tar_cue('always')`
+
 ]
-
-
-Other arguments
-
-- `pattern = map(branch)`
-- `format = 'file'`
-- `cue = tar_cue('always')`
 
 
 
 
 ---
-# Ingredients: Packages
+.left-column[
+<br><br><br><br><br><br>
+### Context
+### Workflow
+### **Ingredients**
+### Tools
+### Extras
+### Resources
+]
+
+#### Ingredients: Packages
 
 `R/packages.R`
 
-```
+```{r, eval = FALSE}
 library(targets)
 
 library(renv)
@@ -195,21 +343,45 @@ library(glmmTMB)
 
 
 ---
-# Tools: make
+.left-column[
+<br><br><br><br><br><br>
+### Context
+### Workflow
+### Ingredients
+### **Tools**
+### Extras
+### Resources
+]
+
+#### Tools: make
 
 `tar_make()`
 
 
 .footnote[
 
-Shortcuts! Background jobs! `Rscript`!
+Shortcuts! 
+
+Background jobs! 
+
+`Rscript`!
 
 ]
 
 
 
 ---
-# Tools: read/load
+.left-column[
+<br><br><br><br><br><br>
+### Context
+### Workflow
+### Ingredients
+### **Tools**
+### Extras
+### Resources
+]
+
+#### Tools: read/load
 
 `tar_read()`
 
@@ -219,26 +391,41 @@ Shortcuts! Background jobs! `Rscript`!
 
 
 ---
-# Extras: renv
+.left-column[
+<br><br><br><br><br><br>
+### Context
+### Workflow
+### Ingredients
+### Tools
+### **Extras**
+### Resources
+]
 
-`renv` paired with `targets` = 
+#### Extras: renv
 
-package management
+Pair `targets` for reproducible workflows
 
-and
+with `renv` for package management
 
-reproducible workflow
 
 
 ---
-# Resources
+.left-column[
+<br><br><br><br><br><br>
+### Context
+### Workflow
+### Ingredients
+### Tools
+### Extras
+### **Resources**
+]
+
+#### Resources
 
 
-`targets`
 
-* [targets User Manual](https://books.ropensci.org/targets/)
-* [targets documentation](https://docs.ropensci.org/targets/)
+[targets User Manual](https://books.ropensci.org/targets/)
 
-`renv`
+[targets documentation](https://docs.ropensci.org/targets/)
 
-* [renv documentation](https://rstudio.github.io/renv/)
+[renv documentation](https://rstudio.github.io/renv/)
