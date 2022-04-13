@@ -21,6 +21,7 @@ output:
 library(xaringanthemer)
 base_color <- "#5d8fa4"
 lighter_base <- lighten_color(base_color, 0.35)
+h4_color <- darken_color(lighter_base, 0.2)
 
 regular <- "1rem"
 small <- "0.75rem"
@@ -41,7 +42,7 @@ style_mono_dark(
   text_font_size = "1.5rem",
   header_h3_font_size = "0.75rem",
   extra_css = list(
-		".remark-slide-content h4" = list("font-size" = regular, "color" = "var(--link-color)"),
+		".remark-slide-content h4" = list("font-size" = regular, "color" = h4_color),
 		".left-column" = list("width" = "20%", 'font-size' = regular,
 													"height" = '95%'
 													# 'border-right' = '0.1px solid var(--link-color)'
