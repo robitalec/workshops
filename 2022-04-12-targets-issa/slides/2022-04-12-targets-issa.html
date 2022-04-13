@@ -6,66 +6,115 @@
     <meta name="author" content="Alec L. Robitaille" />
     <meta name="date" content="2022-04-12" />
     <script src="2022-04-12-targets-issa_files/header-attrs-2.11.3/header-attrs.js"></script>
-    <link href="2022-04-12-targets-issa_files/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
-    <link href="2022-04-12-targets-issa_files/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
-    <link rel="stylesheet" href="2022-04-12-targets-issa.css" type="text/css" />
+    <link href="2022-04-12-targets-issa_files/panelset-0.2.6/panelset.css" rel="stylesheet" />
+    <script src="2022-04-12-targets-issa_files/panelset-0.2.6/panelset.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
 # Introduction to targets
-## and the <code>targets-issa</code> workflow
+## and the targets-iSSA workflow
 ### Alec L. Robitaille
-### Wildlife Evolutionary Ecology Lab - Memorial University
+### Wildlife Evolutionary Ecology Lab <br> Memorial University
 ### 2022-04-12
 
 ---
 
 
 
-# Context
-
-Introducing `targets` and the `targets-issa` workflow. 
 
 
-- https://github.com/robitalec/targets-issa
-- https://issa-guild.github.io/book/
 
-Setup:
 
-- https://issa-guild.github.io/book/setup.html
+.left-column[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+### **Context**
+### Workflow
+### Ingredients
+### Tools
+### Extras
+### Resources
+]
+---
+
+.left-column[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+### **Context**
+### Workflow
+### Ingredients
+### Tools
+### Extras
+### Resources
+]
+
+
+#### Introducing targets and the targets-issa workflow
+
+&lt;br&gt;
+
+[ robitalec/targets-iSSA](https://github.com/robitalec/targets-issa)
+
+[ How-To iSSA](https://issa-guild.github.io/book)
+
+.footnote[
+
+[Setup (targets-iSSA)](https://issa-guild.github.io/book/setup.html)
+]
 
 ---
-# What's in a workflow?
+
+.left-column[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+### Context
+### **Workflow**
+### Ingredients
+### Tools
+### Extras
+### Resources
+]
+
+#### What's in a workflow?
 
 --
 
-- Data
+Data
 
 --
 
-- Variables
+Variables
 
 --
 
-- Prepare data
+Prepare data
 
 --
 
-- Analyse data (extract layers, measure steps, turn angles)
+Analyse data (extract, steps, turn angles)
 
 --
 
-- Model
+Model
 
 --
 
-- Plots, predictions, ...
+Plots, predictions, ...
 
 
 ---
-# The targets-iSSA workflow
+
+.left-column[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+### Context
+### **Workflow**
+### Ingredients
+### Tools
+### Extras
+### Resources
+]
+
+#### The targets-iSSA workflow
 
 .center[
 ![:scale 47%](images/viz.png)
@@ -75,32 +124,66 @@ Setup:
 
 
 ---
-# Why targets?
+.left-column[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+### Context
+### Workflow
+### **Ingredients**
+### Tools
+### Extras
+### Resources
+]
 
-- Reproducible
+#### Why targets?
 
-- Digestible
+Reproducible
 
-- Time savings
+Digestible
 
-- Evidence
+Time savings
+
+Evidence
 
 
 ---
-# Ingredients
 
-- Functions
+.left-column[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+### Context
+### Workflow
+### **Ingredients**
+### Tools
+### Extras
+### Resources
+]
 
-- Targets
+#### Ingredients
 
-- Packages
+Functions
+
+Targets
+
+Packages
 
 
 ---
-# Ingredients: Functions
+
+.left-column[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+### Context
+### Workflow
+### **Ingredients**
+### Tools
+### Extras
+### Resources
+]
+
+#### Ingredients: Functions
 
 
-.pull-left[
+.panelset[
+.panel[.panel-name[Script]
+
 
 ```r
 library(ggplot2)
@@ -110,8 +193,6 @@ DT &lt;- data.table(mtcars)
 
 DT_gear_4 &lt;- DT[gear == 4]
 DT_gear_5 &lt;- DT[gear == 5]
-
-# ...
 
 ggplot(DT_gear_4) + 
 	geom_point(aes(mpg, cyl)) +
@@ -123,7 +204,8 @@ ggplot(DT_gear_4) +
 ```
 ]
 
-.pull-right[
+.panel[.panel-name[Function]
+
 
 ```r
 plot_mpg_cyl &lt;- function(DT) {
@@ -138,19 +220,32 @@ plot_mpg_cyl &lt;- function(DT) {
 plot_mpg_cyl(DT_gear_4)
 plot_mpg_cyl(DT_gear_5)
 ```
-
-.footnote[
-[Targets manual: functions](https://books.ropensci.org/targets/functions.html)
+]
 ]
 
+
+
+
+.footnote[
+[Targets manual: Functions](https://books.ropensci.org/targets/functions.html)
 ]
 
 
 ---
-# Ingredients: Targets
+.left-column[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+### Context
+### Workflow
+### **Ingredients**
+### Tools
+### Extras
+### Resources
+]
 
 
-.pull-left[
+#### Ingredients: Targets
+
+
 
 ```r
 tar_target(
@@ -158,9 +253,7 @@ tar_target(
 	command
 )
 ```
-]
 
-.pull-right[
 
 ```r
 tar_target(
@@ -168,24 +261,39 @@ tar_target(
 	plot_mpg_cyl(mtcars)
 )
 ```
+
+
+.small[
+Other arguments:
+
+-`pattern = map(branch)`
+
+-`format = 'file'`
+
+-`cue = tar_cue('always')`
+
 ]
-
-
-Other arguments
-
-- `pattern = map(branch)`
-- `format = 'file'`
-- `cue = tar_cue('always')`
 
 
 
 
 ---
-# Ingredients: Packages
+.left-column[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+### Context
+### Workflow
+### **Ingredients**
+### Tools
+### Extras
+### Resources
+]
+
+#### Ingredients: Packages
 
 `R/packages.R`
 
-```
+
+```r
 library(targets)
 
 library(renv)
@@ -204,21 +312,45 @@ library(glmmTMB)
 
 
 ---
-# Tools: make
+.left-column[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+### Context
+### Workflow
+### Ingredients
+### **Tools**
+### Extras
+### Resources
+]
+
+#### Tools: make
 
 `tar_make()`
 
 
 .footnote[
 
-Shortcuts! Background jobs! `Rscript`!
+Shortcuts! 
+
+Background jobs! 
+
+`Rscript`!
 
 ]
 
 
 
 ---
-# Tools: read/load
+.left-column[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+### Context
+### Workflow
+### Ingredients
+### **Tools**
+### Extras
+### Resources
+]
+
+#### Tools: read/load
 
 `tar_read()`
 
@@ -228,36 +360,50 @@ Shortcuts! Background jobs! `Rscript`!
 
 
 ---
-# Extras: renv
+.left-column[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+### Context
+### Workflow
+### Ingredients
+### Tools
+### **Extras**
+### Resources
+]
 
-`renv` paired with `targets` = 
+#### Extras: renv
 
-package management
+Pair `targets` for reproducible workflows
 
-and
+with `renv` for package management
 
-reproducible workflow
 
 
 ---
-# Resources
+.left-column[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+### Context
+### Workflow
+### Ingredients
+### Tools
+### Extras
+### **Resources**
+]
+
+#### Resources
 
 
-`targets`
 
-* [targets User Manual](https://books.ropensci.org/targets/)
-* [targets documentation](https://docs.ropensci.org/targets/)
+[targets User Manual](https://books.ropensci.org/targets/)
 
-`renv`
+[targets documentation](https://docs.ropensci.org/targets/)
 
-* [renv documentation](https://rstudio.github.io/renv/)
+[renv documentation](https://rstudio.github.io/renv/)
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script src="2022-04-12-targets-issa.js"></script>
 <script>var slideshow = remark.create({
-"highlightStyle": "github",
-"highlightLines": true,
+"highlightStyle": "agate",
 "slideNumberFormat": "<div class=\"progress-bar-container\">\n  <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">\n  </div>\n</div>\n"
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
@@ -324,24 +470,7 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
       links[i].target = '_blank';
     }
   }
-})();
-// adds .remark-code-has-line-highlighted class to <pre> parent elements
-// of code chunks containing highlighted lines with class .remark-code-line-highlighted
-(function(d) {
-  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
-  const preParents = [];
-  const findPreParent = function(line, p = 0) {
-    if (p > 1) return null; // traverse up no further than grandparent
-    const el = line.parentElement;
-    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
-  };
-
-  for (let line of hlines) {
-    let pre = findPreParent(line);
-    if (pre && !preParents.includes(pre)) preParents.push(pre);
-  }
-  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
-})(document);</script>
+})();</script>
 
 <script>
 slideshow._releaseMath = function(el) {
