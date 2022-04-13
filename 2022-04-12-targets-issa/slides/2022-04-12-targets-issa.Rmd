@@ -14,7 +14,7 @@ output:
           <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
           </div>
         </div>
-    css: ["xaringan-themer.css"]
+    css: ["2022-04-12-xaringan-themer.css"]
 ---
 
 ```{r xaringan-themer, include=FALSE, warning=FALSE}
@@ -31,6 +31,7 @@ h3 <- "1.3rem"
 code_color <- darken_color(base_color, 0.7)
 
 style_mono_dark(
+	outfile = '2022-04-12-xaringan-themer.css',
   base_color = base_color,
   link_color = lighter_base,
   code_inline_color = lighter_base,
