@@ -19,7 +19,7 @@ output:
 
 ```{r xaringan-themer, include=FALSE, warning=FALSE}
 library(xaringanthemer)
-base_color <- "#5d8fa4"
+base_color <- "#b68e7d"
 lighter_base <- lighten_color(base_color, 0.35)
 h4_color <- darken_color(lighter_base, 0.2)
 
