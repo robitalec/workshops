@@ -1,0 +1,70 @@
+---
+title: Troubleshooting in R
+# subtitle: 
+author: Alec L. Robitaille
+institute:  Wildlife Evolutionary Ecology Lab <br> Memorial University
+date: "2022-04-18"
+output: 
+  xaringan::moon_reader:
+    nature:
+      beforeInit: "2022-04-18-troubleshooting.js"
+      highlightStyle: agate
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+    css: ["2022-04-18-troubleshooting-xaringan-themer.css"]
+---
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+base_color <- "#5d8fa4"
+lighter_base <- lighten_color(base_color, 0.35)
+h4_color <- darken_color(lighter_base, 0.2)
+
+regular <- "1rem"
+small <- "0.75rem"
+h1 <- "2.25rem"
+h2 <- "2rem"
+h3 <- "1.3rem"
+
+code_color <- darken_color(base_color, 0.7)
+
+style_mono_dark(
+	outfile = '2022-04-18-troubleshooting-xaringan-themer.css',
+  base_color = base_color,
+  link_color = lighter_base,
+  code_inline_color = lighter_base,
+	left_column_selected_color = apply_alpha(base_color, 0.7),
+  code_inline_background_color = code_color,
+
+  text_font_size = "1.5rem",
+  header_h3_font_size = "0.75rem",
+  extra_css = list(
+		".remark-slide-content h4" = list("font-size" = regular, "color" = h4_color),
+		".left-column" = list("width" = "20%", 'font-size' = regular,
+													"height" = '95%'
+													# 'border-right' = '0.1px solid var(--link-color)'
+													),
+		".hljs-agate .hljs" = list("background" = code_color, "color" = lighter_base),
+		".panelset" = list("font-size" = regular),
+		".medium" = list("font-size" = regular),
+		".small" = list("font-size" = small),
+		".footnote" = list("font-size" = small,  "left" = '75%'),
+		".title-slide h1" = list("font-size" = h1),
+		".title-slide h2" = list("font-size" = h2),
+		".title-slide h3" = list("font-size" = h3)
+	),
+  header_font_google = google_font("Roboto Slab", "200"),
+  text_font_google = google_font("Roboto Slab", "300"),
+  code_font_google   = google_font("Fira Mono")
+)
+xaringanExtra::use_panelset()
+```
+
+
+
+
+
+
