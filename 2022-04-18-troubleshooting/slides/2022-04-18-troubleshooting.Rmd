@@ -123,3 +123,47 @@ Keep R, R packages, OS updated
 ++Track package versions with renv
 ++Use Git
 ++Use targets
+
+---
+
+
+.left-column[
+<br><br><br><br><br><br>
+### Discussion
+### Prevention
+### **Strategies**
+### and more strategies
+### Resources
+]
+
+---
+
+.left-column[
+<br><br><br><br><br><br>
+### Discussion
+### Prevention
+### Strategies
+### **and more strategies**
+### Resources
+]
+
+Read documentation and vignettes
+
+Restart R, clear workspace
+
+Update R 
+
+Update R packages
+
+Check your Rprofile, Renviron 
+- (usethis) 
+- https://csgillespie.github.io/efficientR/set-up.html#an-overview-of-rs-startup-files
+
+Ask for help! 
+Definitely MWE for opening an issue
+(link JBF and IR first issues)
+
+Collaborators, colleagues
+
+SO
+
