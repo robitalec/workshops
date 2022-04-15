@@ -68,3 +68,13 @@ xaringanExtra::use_panelset()
 
 
 
+.left-column[
+<br><br><br><br><br><br>
+### **Discussion**
+### Prevention
+### Strategies
+### and more strategies
+### Resources
+]
+
+
