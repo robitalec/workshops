@@ -78,3 +78,25 @@ xaringanExtra::use_panelset()
 ]
 
 
+---
+
+.left-column[
+<br><br><br><br><br><br>
+### **Discussion**
+### Prevention
+### Strategies
+### and more strategies
+### Resources
+]
+
+
+? How do you start to solve a problem in R
+? How do you troubleshoot once you've hit an error
+
+Types of errors
+rlang
+
+MWE
+Reprex
+
+
