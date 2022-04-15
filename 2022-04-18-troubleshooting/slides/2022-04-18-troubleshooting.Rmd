@@ -100,3 +100,26 @@ MWE
 Reprex
 
 
+
+---
+
+.left-column[
+<br><br><br><br><br><br>
+### Discussion
+### **Prevention**
+### Strategies
+### and more strategies
+### Resources
+]
+
+
+Setup
+RStudio https://csgillespie.github.io/efficientR/set-up.html#rstudio-options 
+
+Use a project, relative file paths
+
+Keep R, R packages, OS updated
+
+++Track package versions with renv
+++Use Git
+++Use targets
