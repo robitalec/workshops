@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting in R
-# subtitle: 
+title: Troubleshooting
+subtitle: and problem solving in R
 author: Alec L. Robitaille
 institute:  Wildlife Evolutionary Ecology Lab <br> Memorial University
 date: "2022-04-18"
