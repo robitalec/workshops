@@ -43,23 +43,23 @@
   --header-h3-font-size: 0.75rem;
 
   /* Colors */
-  --text-color: #DEE8EC;
-  --header-color: #5d8fa4;
-  --background-color: #0D1518;
-  --link-color: #95B6C3;
-  --text-bold-color: #5d8fa4;
+  --text-color: #F0E8E5;
+  --header-color: #b68e7d;
+  --background-color: #1B1512;
+  --link-color: #CFB5AA;
+  --text-bold-color: #b68e7d;
   --code-highlight-color: rgba(255,255,0,0.5);
-  --inverse-text-color: #0D1518;
-  --inverse-background-color: #5d8fa4;
-  --inverse-header-color: #0D1518;
-  --inverse-link-color: #95B6C3;
-  --title-slide-background-color: #5d8fa4;
-  --title-slide-text-color: #0D1518;
-  --header-background-color: #5d8fa4;
-  --header-background-text-color: #0D1518;
-  --base: #5d8fa4;
-  --white: #DEE8EC;
-  --black: #0D1518;
+  --inverse-text-color: #1B1512;
+  --inverse-background-color: #b68e7d;
+  --inverse-header-color: #1B1512;
+  --inverse-link-color: #CFB5AA;
+  --title-slide-background-color: #b68e7d;
+  --title-slide-text-color: #1B1512;
+  --header-background-color: #b68e7d;
+  --header-background-text-color: #1B1512;
+  --base: #b68e7d;
+  --white: #F0E8E5;
+  --black: #1B1512;
 }
 
 html {
@@ -100,12 +100,12 @@ h1, h2, h3 {
 }
 .remark-inline-code {
   font-size: var(--code-inline-font-size);
-  color: #95B6C3;
-  background-color: #1B2A31;
+  color: #CFB5AA;
+  background-color: #362A25;
   padding: 2px;
 }
 .remark-slide-number {
-  color: #5d8fa4;
+  color: #b68e7d;
   opacity: 1;
   font-size: 0.9rem;
 }
@@ -153,10 +153,10 @@ a, a > code {
   float: left;
 }
 .left-column h2, .left-column h3 {
-  color: #5d8fa499;
+  color: #b68e7d99;
 }
 .left-column h2:last-of-type, .left-column h3:last-child {
-  color: #5d8fa4b2;
+  color: #b68e7db2;
 }
 .right-column {
   width: 75%;
@@ -178,7 +178,7 @@ img, video, iframe {
   max-width: 100%;
 }
 blockquote {
-  border-left: solid 5px #5d8fa480;
+  border-left: solid 5px #b68e7d80;
   padding-left: 1em;
 }
 .remark-slide table {
@@ -193,7 +193,7 @@ th, td {
   padding: 5px;
 }
 .remark-slide thead, .remark-slide tfoot, .remark-slide tr:nth-child(even) {
-  background: #1B2A31;
+  background: #362A25;
 }
 table.dataTable tbody {
   background-color: var(--background-color);
@@ -203,7 +203,7 @@ table.dataTable.display tbody tr.odd {
   background-color: var(--background-color);
 }
 table.dataTable.display tbody tr.even {
-  background-color: #1B2A31;
+  background-color: #362A25;
 }
 table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {
   background-color: rgba(255, 255, 255, 0.5);
@@ -297,7 +297,7 @@ table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {
 /* Extra CSS */
 .remark-slide-content h4 {
   font-size: 1rem;
-  color: #77919C;
+  color: #A59088;
 }
 .left-column {
   width: 20%;
@@ -305,8 +305,8 @@ table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {
   height: 95%;
 }
 .hljs-agate .hljs {
-  background: #1B2A31;
-  color: #95B6C3;
+  background: #362A25;
+  color: #CFB5AA;
 }
 .panelset {
   font-size: 1rem;
