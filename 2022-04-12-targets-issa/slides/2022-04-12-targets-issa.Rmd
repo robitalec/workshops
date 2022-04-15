@@ -426,8 +426,12 @@ with `renv` for package management
 
 
 
-[targets User Manual](https://books.ropensci.org/targets/)
+targets: 
 
-[targets documentation](https://docs.ropensci.org/targets/)
+[ User Manual](https://books.ropensci.org/targets/)
 
-[renv documentation](https://rstudio.github.io/renv/)
+[ Documentation](https://docs.ropensci.org/targets/)
+
+renv: 
+
+[ Documentation](https://rstudio.github.io/renv/)
