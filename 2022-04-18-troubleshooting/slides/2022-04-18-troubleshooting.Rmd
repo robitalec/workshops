@@ -131,17 +131,23 @@ Keep R, R packages, and OS updated
 ### Resources
 ]
 
+#### Extras
 
-Setup
-RStudio https://csgillespie.github.io/efficientR/set-up.html#rstudio-options 
+Track package versions with `renv`
 
-Use a project, relative file paths
+Use Git
 
-Keep R, R packages, OS updated
+Reproducible workflows with `targets`
 
-++Track package versions with renv
-++Use Git
-++Use targets
+???
+renv tracks package versions for each project, so global updates to packages 
+won't break eg. older projects
+
+Git helps with the feedback cycle of coding -> tracked changes -> commit -> coding
+
+A workflow defined in targets ensures steps are only rerun when they are outdated 
+and helps branching by eg. individuals or study sites
+
 
 ---
 
