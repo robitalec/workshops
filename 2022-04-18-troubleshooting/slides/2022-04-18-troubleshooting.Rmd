@@ -199,7 +199,24 @@ SO
 <br><br><br><br><br><br>
 ### Discussion
 ### Prevention
-### Strategies
-### and more strategies
+### Simplifying
+### and other strategies
 ### **Resources**
 ]
+
+-[`reprex`: introduction](https://reprex.tidyverse.org/articles/reprex-dos-and-donts.html)  
+-[SO: Making a great R reproducible example](https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example/16532098)  
+-[`reprex`: datapasta](https://reprex.tidyverse.org/articles/datapasta-reprex.html)
+
+
+-[Advanced R: Debugging](https://adv-r.hadley.nz/debugging.html0)
+
+
+-[Description of startup files](https://csgillespie.github.io/efficientR/set-up.html#an-overview-of-rs-startup-files=)  
+-[Editing startup files](https://usethis.r-lib.org/reference/edit.html)
+
+-[`targets` manual](https://books.ropensci.org/targets/)  
+-[`renv` documentation](https://rstudio.github.io/renv/)
+
+-[Efficient R: Version control](https://csgillespie.github.io/efficientR/collaboration.html#version-control)  
+-[Happy Git with R](https://happygitwithr.com/)
