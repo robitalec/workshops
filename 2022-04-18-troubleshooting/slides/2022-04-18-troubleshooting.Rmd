@@ -65,15 +65,12 @@ xaringanExtra::use_panelset()
 
 
 
-
-
-
 .left-column[
 <br><br><br><br><br><br>
 ### **Discussion**
 ### Prevention
-### Strategies
-### and more strategies
+### Simplifying
+### and other strategies
 ### Resources
 ]
 
@@ -84,8 +81,8 @@ xaringanExtra::use_panelset()
 <br><br><br><br><br><br>
 ### **Discussion**
 ### Prevention
-### Strategies
-### and more strategies
+### Simplifying
+### and other strategies
 ### Resources
 ]
 
@@ -109,8 +106,8 @@ Starting a new analysis?
 <br><br><br><br><br><br>
 ### Discussion
 ### **Prevention**
-### Strategies
-### and more strategies
+### Simplifying
+### and other strategies
 ### Resources
 ]
 
@@ -129,8 +126,8 @@ Keep R, R packages, and OS updated
 <br><br><br><br><br><br>
 ### Discussion
 ### **Prevention**
-### Strategies
-### and more strategies
+### Simplifying
+### and other strategies
 ### Resources
 ]
 
