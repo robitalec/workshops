@@ -136,15 +136,17 @@ Keep R, R packages, and OS updated
 
 Track package versions with `renv`
 
-Use Git
-
 Reproducible workflows with `targets`
+
+Use Git
 
 ???
 renv tracks package versions for each project, so global updates to packages 
 won't break eg. older projects
 
 Git helps with the feedback cycle of coding -> tracked changes -> commit -> coding
+Also, Git lets you create branches to explore alternatives, without 
+breaking your current working versions
 
 A workflow defined in targets ensures steps are only rerun when they are outdated 
 and helps branching by eg. individuals or study sites
