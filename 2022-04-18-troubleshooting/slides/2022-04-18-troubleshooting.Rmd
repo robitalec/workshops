@@ -54,7 +54,8 @@ style_mono_dark(
 		".footnote" = list("font-size" = small,  "left" = '75%'),
 		".title-slide h1" = list("font-size" = h1),
 		".title-slide h2" = list("font-size" = h2),
-		".title-slide h3" = list("font-size" = h3)
+		".title-slide h3" = list("font-size" = h3),
+		"img" = list("box-shadow" = "2px 2px 5px var(--link-color)")
 	),
   header_font_google = google_font("Roboto Slab", "200"),
   text_font_google = google_font("Roboto Slab", "300"),
