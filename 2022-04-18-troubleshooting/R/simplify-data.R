@@ -9,8 +9,8 @@ library(ggplot2)
 
 # (Extras)
 library(charlatan)
-
-
+library(mapview)
+library(sf)
 
 
 # Helpers -----------------------------------------------------------------
@@ -67,6 +67,8 @@ fake_walk <- function(N) {
 
 plot(fake_walk(1e3))
 
+# See below for a UTM version
+
 
 
 # Extras (with charlatan) -------------------------------------------------
@@ -86,6 +88,39 @@ ch_date_time(N)
 ch_lon(N)
 ch_lat(N)
 
+
+
+
+# Extras (spatial) --------------------------------------------------------
+# UTM fake (simple) walks
+fake_utm_walk <- function(N) {
+	x <- seq.int(N)
+	y <- cumsum(sample(rnorm(N), N, TRUE))
+
+	y_mid <- sample(runif(1e3, 1e4, 9e6), 1);y_mid
+	data.frame(x_utm = scales::rescale(x, to = c(4e5, 6e5)),
+						 y_utm = scales::rescale(y, to = c(y_mid - 0.5e5, y_mid + 0.5e5)))
+}
+
+plot(fake_utm_walk(1e3))
+
+# (Use any UTM zone you'd like)
+fake_utm_walk_sf <- st_as_sf(
+	fake_utm_walk(1e3),
+	coords = c('x_utm', 'y_utm'),
+	crs = st_crs(32614)
+)
+mapview(fake_utm_walk_sf)
+
+
+# Fake landscapes with NLMR
+# See: https://ropensci.github.io/NLMR/
+
+# Random points in bbox
+poly_bbox <- st_as_sfc(st_bbox(fake_utm_walk_sf))
+random_pts <- st_sample(poly_bbox, N)
+
+mapview(poly_bbox) + random_pts + fake_utm_walk_sf
 
 
 # Function ----------------------------------------------------------------
