@@ -67,4 +67,23 @@ plot(fake_walk(1e3))
 
 
 
+# Extras (with charlatan) -------------------------------------------------
+# Taxonomies
+ch_taxonomic_species(N)
+ch_taxonomic_genus(N)
+ch_taxonomic_epithet(N)
+
+
+# Colors
+ch_color_name(N)
+
+# Date times
+ch_date_time(N)
+
+# Lon, lat
+ch_lon(N)
+ch_lat(N)
+
+
+
 
