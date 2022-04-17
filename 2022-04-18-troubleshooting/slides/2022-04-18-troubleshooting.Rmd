@@ -159,10 +159,77 @@ and helps branching by eg. individuals or study sites
 <br><br><br><br><br><br>
 ### Discussion
 ### Prevention
-### **Strategies**
-### and more strategies
+### **Simplifying**
+### and other strategies
 ### Resources
 ]
+
+#### Generate minimal data
+
+Simplest: built in or package data  
+`data(mtcars)`  
+`palmerpenguins`  
+
+Or build your own:  
+Identify columns, types, units, limits
+and generate fake data
+
+
+.footnote[
+FIX LINK
+[`R/simplify-data.R`](k)
+]
+
+<!--
+~~MWE~~ MBE ? minimum broken example? you have a maximum broken example.. 
+
+Reprex
+
+https://reprex.tidyverse.org/articles/reprex-dos-and-donts.html
+https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example/16532098
+https://reprex.tidyverse.org/articles/datapasta-reprex.html
+
+
+Built in data
+https://stat.ethz.ch/R-manual/R-patched/library/datasets/html/00Index.html
+example data from the package you are having trouble with
+
+
+Types of errors
+rlang
+-->
+
+---
+.left-column[
+<br><br><br><br><br><br>
+### Discussion
+### Prevention
+### **Simplifying**
+### and other strategies
+### Resources
+]
+
+#### Learning a new package
+
+1. Generate minimal data
+1. 
+
+
+---
+.left-column[
+<br><br><br><br><br><br>
+### Discussion
+### Prevention
+### **Simplifying**
+### and other strategies
+### Resources
+]
+
+#### Troubleshooting
+
+
+
+
 
 ---
 
@@ -170,30 +237,27 @@ and helps branching by eg. individuals or study sites
 <br><br><br><br><br><br>
 ### Discussion
 ### Prevention
-### Strategies
-### **and more strategies**
+### Simplifying
+### **and other strategies**
 ### Resources
 ]
 
-Read documentation and vignettes
+Explore the traceback [[1]](https://adv-r.hadley.nz/debugging.html#traceback)
 
-Restart R, clear workspace
+Read (and reread) documentation
 
-Update R 
+Restart R, clear the environment
 
-Update R packages
+Update R, R packages, OS
 
-Check your Rprofile, Renviron 
-- (usethis) 
-- https://csgillespie.github.io/efficientR/set-up.html#an-overview-of-rs-startup-files
+Check your .Rprofile, .Renviron
+[[2]](https://csgillespie.github.io/efficientR/set-up.html#an-overview-of-rs-startup-files=), [[3]](https://usethis.r-lib.org/reference/edit.html)
+
+GitHub Issues [(e.g. [4])](https://github.com/rstudio/bookdown/issues/1263)  
+Stack Overflow [(e.g. [5])](https://stackoverflow.com/questions/42149427/group-membership-by-pairwise-criteria-matching)
 
 Ask for help! 
-Definitely MWE for opening an issue
-(link JBF and IR first issues)
 
-Collaborators, colleagues
-
-SO
 
 
 ---
