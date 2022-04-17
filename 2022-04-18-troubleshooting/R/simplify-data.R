@@ -86,4 +86,29 @@ ch_lat(N)
 
 
 
+# Function ----------------------------------------------------------------
+# Combine relevant helpers and other things into a function
+#   to make a fake dataset relevant to your analysis
+make_fake_data <- function(N_id, N) {
+	N_by_id <- N / N_id
+	DT <- data.table(id = rep(sample(LETTERS, N_id), each = N_by_id))
+
+	DT[, c('x', 'y') := fake_walk(N_by_id),
+		 by = id]
+
+	start_datetime <- as.POSIXct('2015-01-01 9:00')
+	end_datetime <- as.POSIXct('2015-01-31 9:00')
+
+	DT[, datetime := seq.POSIXt(start_datetime, end_datetime, length.out = N_by_id),
+		 by = id]
+
+}
+
+
+DT <- make_fake_data(5, N)[]
+
+ggplot(DT) +
+	geom_path(aes(x, y, color = id)) +
+	theme_minimal()
+
 
