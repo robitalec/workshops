@@ -330,3 +330,6 @@ table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {
 .title-slide h3 {
   font-size: 1.3rem;
 }
+img {
+  box-shadow: 2px 2px 5px var(--link-color);
+}
