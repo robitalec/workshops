@@ -4,6 +4,8 @@
 
 
 # Packages ----------------------------------------------------------------
+library(data.table)
+library(ggplot2)
 
 # (Extras)
 library(charlatan)
@@ -13,7 +15,7 @@ library(charlatan)
 
 # Helpers -----------------------------------------------------------------
 # Set an consistent number to sample
-N <- 10
+N <- 100
 
 
 
@@ -25,9 +27,9 @@ letters
 LETTERS[seq.int(N)]
 letters[seq.int(N)]
 
-# Sample N letters
-sample(LETTERS, N)
-sample(letters, N)
+# Sample N letters (careful about replace = TRUE since sample is larger than set)
+sample(LETTERS, N, replace = TRUE)
+sample(letters, N, replace = TRUE)
 
 
 
@@ -46,8 +48,8 @@ seq.POSIXt(start_datetime, end_datetime, by = 'hour')
 seq.POSIXt(start_datetime, end_datetime, length.out = N)
 
 
-# Random numbers between min and max
-rnorm(N, min = 0, max = 1)
+# Random numbers with mean and sd
+rnorm(N, mean = 0, sd = 1)
 
 # Uniform numbers between min and max
 runif(N, min = 0, max = 1)
@@ -104,7 +106,7 @@ make_fake_data <- function(N_id, N) {
 
 }
 
-
+N <- 1e3
 DT <- make_fake_data(5, N)[]
 
 ggplot(DT) +
