@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Troubleshooting</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Alec L. Robitaille" />
+    <meta name="date" content="2022-04-18" />
+    <script src="2022-04-18-troubleshooting_files/header-attrs/header-attrs.js"></script>
+    <link href="2022-04-18-troubleshooting_files/panelset/panelset.css" rel="stylesheet" />
+    <script src="2022-04-18-troubleshooting_files/panelset/panelset.js"></script>
+    <link rel="stylesheet" href="/home/alecr/Documents/Local-git/workshops/2022-04-18-troubleshooting/slides/2022-04-18-troubleshooting-xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Troubleshooting
+## and problem solving in R
+### Alec L. Robitaille
+### Wildlife Evolutionary Ecology Lab <br> Memorial University
+### 2022-04-18
+
+---
+
+
+
+
+
+
+.left-column[
+&lt;br&gt;&lt;br&gt;
+### **Discussion**
+### Prevention
+### Simplifying
+### and other strategies
+### Resources
+]
+
+
+---
+
+.left-column[
+&lt;br&gt;&lt;br&gt;
+### **Discussion**
+### Prevention
+### Simplifying
+### and other strategies
+### Resources
+]
+
+
+#### What are your strategies for
+
+
+...troubleshooting errors?
+
+...problem solving?
+
+...learning a new package?
+
+...starting a new analysis?
+
+
+
+---
+
+.left-column[
+&lt;br&gt;&lt;br&gt;
+### Discussion
+### **Prevention**
+### Simplifying
+### and other strategies
+### Resources
+]
+
+#### First, some preventative measures
+
+Adjust RStudio settings [[1]](https://csgillespie.github.io/efficientR/set-up.html#rstudio-options)
+
+Use an RStudio project, relative file paths
+
+Keep R, R packages, and OS updated
+
+
+---
+
+.left-column[
+&lt;br&gt;&lt;br&gt;
+### Discussion
+### **Prevention**
+### Simplifying
+### and other strategies
+### Resources
+]
+
+#### Extras
+
+Track package versions with `renv`
+
+Reproducible workflows with `targets`
+
+Use Git
+
+???
+renv tracks package versions for each project, so global updates to packages 
+won't break eg. older projects
+
+Git helps with the feedback cycle of coding -&gt; tracked changes -&gt; commit -&gt; coding
+Also, Git lets you create branches to explore alternatives, without 
+breaking your current working versions
+
+A workflow defined in targets ensures steps are only rerun when they are outdated 
+and helps branching by eg. individuals or study sites
+
+
+---
+
+
+.left-column[
+&lt;br&gt;&lt;br&gt;
+### Discussion
+### Prevention
+### **Simplifying**
+### and other strategies
+### Resources
+]
+
+####  Overview
+
+Simplify the complexity of the task
+
+...to identify source of the error
+
+...to clarify steps of the analysis
+
+...to learn new functions or packages
+
+
+???
+
+Tasks: troubleshooting, learning a new package, starting a new analysis...
+
+We'll first look at making minimal data, then using that data to
+learn a new package, then finally taking a complex script + data and
+reducing it to a minimum example
+
+
+---
+
+
+.left-column[
+&lt;br&gt;&lt;br&gt;
+### Discussion
+### Prevention
+### **Simplifying**
+### and other strategies
+### Resources
+]
+
+#### Data
+
+Goal: minimal and representative data
+
+Option 1 - available example data
+
+Option 2 - build your own
+
+???
+
+Representative: retains variables, types and grouping levels of original data
+
+---
+
+.left-column[
+&lt;br&gt;&lt;br&gt;
+### Discussion
+### Prevention
+### **Simplifying**
+### and other strategies
+### Resources
+]
+
+#### Available data
+
+.panelset[
+.panel[.panel-name[Penguins]
+
+
+```r
+library(palmerpenguins)
+data(penguins)
+nrow(penguins)
+```
+
+```
+## [1] 344
+```
+
+```r
+colnames(penguins)
+```
+
+```
+## [1] "species"           "island"            "bill_length_mm"   
+## [4] "bill_depth_mm"     "flipper_length_mm" "body_mass_g"      
+## [7] "sex"               "year"
+```
+]
+.panel[.panel-name[Cars]
+
+```r
+data(mtcars)
+nrow(mtcars)
+```
+
+```
+## [1] 32
+```
+
+```r
+colnames(mtcars)
+```
+
+```
+##  [1] "mpg"  "cyl"  "disp" "hp"   "drat" "wt"   "qsec" "vs"   "am"   "gear"
+## [11] "carb"
+```
+]
+.panel[.panel-name[Etc]
+
+```r
+# Run data() to see a list of available data
+data()
+
+# for spatial data, see the spData package
+data(package = 'spData')
+```
+]
+]
+---
+
+.left-column[
+&lt;br&gt;&lt;br&gt;
+### Discussion
+### Prevention
+### **Simplifying**
+### and other strategies
+### Resources
+]
+
+#### Exercise: build your own data
+
+1) Take your real data
+
+2) List  
+-columns  
+-data types  
+-units  
+-limits  
+-factors or levels
+
+3) Generate a representative and minimal fake data
+
+.footnote[
+[`R/simplify-data.R`](https://github.com/robitalec/workshops/tree/master/2022-04-18-troubleshooting/R/simplify-data.R)
+]
+
+
+
+---
+.left-column[
+&lt;br&gt;&lt;br&gt;
+### Discussion
+### Prevention
+### **Simplifying**
+### and other strategies
+### Resources
+]
+
+#### Learning a new package
+
+Use a simple dataset
+
+to focus on learning functions 
+
+without complexity of real data or specific analyses
+
+
+---
+.left-column[
+&lt;br&gt;&lt;br&gt;
+### Discussion
+### Prevention
+### **Simplifying**
+### and other strategies
+### Resources
+]
+
+#### Exercise: learn a new package
+
+1) Use a minimal dataset
+
+2) Open package website or documentation
+
+3) Fill the [template](https://github.com/robitalec/workshops/tree/master/2022-04-18-troubleshooting/R/learn-package-template.R) (see the [example](https://github.com/robitalec/workshops/tree/master/2022-04-18-troubleshooting/R/learn-package-chk.R))
+
+4) Learn a few functions!
+
+.footnote[
+Pick any package or one from this list:  
+-[`ggplot2`](https://ggplot2.tidyverse.org/)  
+-[`sf`](https://r-spatial.github.io/sf/)  
+-[`chk`](https://poissonconsulting.github.io/chk/)  
+-[`anytime`](https://eddelbuettel.github.io/anytime/)    
+-[`patchwork`](https://patchwork.data-imaginist.com/)  
+]
+
+
+
+---
+.left-column[
+&lt;br&gt;&lt;br&gt;
+### Discussion
+### Prevention
+### **Simplifying**
+### and other strategies
+### Resources
+]
+
+#### Troubleshooting
+
+To troubleshoot an error,  
+simplify the data and analyses 
+
+Isolate the erroring function and   
+use a minimal dataset
+
+If the error is not reproduced, check differences 
+in data and/or use of functions
+
+If error is reproduced, check GitHub Issues, SO, try on another
+computer, or contact package authors. 
+
+
+???
+A MWE that reproduces an error is ~~ proof of the error
+
+
+---
+.left-column[
+&lt;br&gt;&lt;br&gt;
+### Discussion
+### Prevention
+### **Simplifying**
+### and other strategies
+### Resources
+]
+
+#### Exercise: troubleshooting
+
+Given a complex script (e.g.  [1](https://github.com/wildlifeevoeco/SocCaribou/blob/master/scripts/2-HomeRangeAnalysis.R), [2](https://github.com/robitalec/ScaleInMultilayerNetworks/blob/master/scripts/03-temporal-layers.R), [3](https://github.com/wildlifeevoeco/study-area-figs/blob/master/R/10-riding-mountain-prep.R), [4](https://github.com/robitalec/spatsoc-application-paper/blob/master/scripts/figure-2-group-pts.R)),  
+build a reprex
+
+
+1) Start a new script
+
+2) Only load essential packages
+
+3) Use a minimal dataset
+
+4) Isolate the erroring function
+
+5) Reproduce the error  
+or find your mistake
+
+
+.footnote[
+[`reprex` vignette](https://reprex.tidyverse.org/articles/reprex-dos-and-donts.html)  
+[SO reprex how to](https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example/16532098)
+]
+
+???
+Ideally, bring your own script
+
+Say you hit an error halfway through some complex analysis... 
+
+`reprex_selection`
+
+---
+
+.left-column[
+&lt;br&gt;&lt;br&gt;
+### Discussion
+### Prevention
+### Simplifying
+### **and other strategies**
+### Resources
+]
+
+Explore the traceback [[1]](https://adv-r.hadley.nz/debugging.html#traceback)
+
+Read (and reread) documentation
+
+Restart R, clear the environment
+
+Update R, R packages, OS
+
+Check your .Rprofile, .Renviron
+[[2]](https://csgillespie.github.io/efficientR/set-up.html#an-overview-of-rs-startup-files=), [[3]](https://usethis.r-lib.org/reference/edit.html)
+
+GitHub Issues [(e.g. [4])](https://github.com/rstudio/bookdown/issues/1263)  
+Stack Overflow [(e.g. [5])](https://stackoverflow.com/questions/42149427/group-membership-by-pairwise-criteria-matching)
+
+Ask for help! 
+
+
+
+---
+
+.left-column[
+&lt;br&gt;&lt;br&gt;
+### Discussion
+### Prevention
+### Simplifying
+### and other strategies
+### **Resources**
+]
+
+-[`reprex`: introduction](https://reprex.tidyverse.org/articles/reprex-dos-and-donts.html)  
+-[SO: Making a great R reproducible example](https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example/16532098)  
+-[`reprex`: datapasta](https://reprex.tidyverse.org/articles/datapasta-reprex.html)
+
+
+-[Advanced R: Debugging](https://adv-r.hadley.nz/debugging.html0)
+
+
+-[Description of startup files](https://csgillespie.github.io/efficientR/set-up.html#an-overview-of-rs-startup-files=)  
+-[Editing startup files](https://usethis.r-lib.org/reference/edit.html)
+
+-[`targets` manual](https://books.ropensci.org/targets/)  
+-[`renv` documentation](https://rstudio.github.io/renv/)
+
+-[Efficient R: Version control](https://csgillespie.github.io/efficientR/collaboration.html#version-control)  
+-[Happy Git with R](https://happygitwithr.com/)
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="2022-04-18-troubleshooting.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "agate",
+"slideNumberFormat": "<div class=\"progress-bar-container\">\n  <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">\n  </div>\n</div>\n"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

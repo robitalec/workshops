@@ -5,10 +5,10 @@
     <meta charset="utf-8" />
     <meta name="author" content="Alec Robitaille" />
     <meta name="date" content="2017-11-02" />
-    <script src="2017-11-02-intro-ggplot_files/header-attrs-2.11.3/header-attrs.js"></script>
+    <script src="2017-11-02-intro-ggplot_files/header-attrs-2.8/header-attrs.js"></script>
     <link href="2017-11-02-intro-ggplot_files/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
     <link href="2017-11-02-intro-ggplot_files/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
-    <link rel="stylesheet" href="2017-11-02-intro-ggplot.css" type="text/css" />
+    <link rel="stylesheet" href="/home/alecr/Documents/Local-git/workshops/2017-11-02-intro-ggplot/slides/2017-11-02-intro-ggplot.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
@@ -75,7 +75,6 @@ really important to think about data like this
 
 ```
 ##    cut_color price
-##       &lt;char&gt; &lt;int&gt;
 ## 1:   Ideal_E   326
 ## 2: Premium_E   326
 ## 3:    Good_E   327
@@ -87,14 +86,12 @@ really important to think about data like this
 * rows with multiple measures of the same individual/group
 
 ```
-## Key: &lt;price&gt;
-##    price  Fair  Good Very Good Premium Ideal
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt;     &lt;int&gt;   &lt;int&gt; &lt;int&gt;
-## 1:   326     0     0         0       1     1
-## 2:   327     0     1         0       0     0
-## 3:   334     0     0         0       1     0
-## 4:   335     0     1         0       0     0
-## 5:   336     0     0         2       0     0
+##    price Fair Good Very Good Premium Ideal
+## 1:   326    0    0         0       1     1
+## 2:   327    0    1         0       0     0
+## 3:   334    0    0         0       1     0
+## 4:   335    0    1         0       0     0
+## 5:   336    0    0         2       0     0
 ```
 
 
@@ -120,13 +117,12 @@ melt(DT, measure.vars = colnames(DT)[-1],
 
 
 ```
-##     Price       Cut Count
-##    &lt;char&gt;    &lt;fctr&gt; &lt;int&gt;
-## 1:    514 Very Good     7
-## 2:    119      Good    12
-## 3:    294      Good     8
-## 4:    605     Ideal    14
-## 5:    394     Ideal     8
+##    Price       Cut Count
+## 1:   514 Very Good     7
+## 2:   119      Good    12
+## 3:   294      Good     8
+## 4:   605     Ideal    14
+## 5:   394     Ideal     8
 ```
 
 ---
