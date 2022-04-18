@@ -276,24 +276,7 @@ data(package = 'spData')
 [`R/simplify-data.R`](https://github.com/robitalec/workshops/tree/master/2022-04-18-troubleshooting/R/simplify-data.R)
 ]
 
-<!--
-~~MWE~~ MBE ? minimum broken example? you have a maximum broken example.. 
 
-Reprex
-
-https://reprex.tidyverse.org/articles/reprex-dos-and-donts.html
-https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example/16532098
-https://reprex.tidyverse.org/articles/datapasta-reprex.html
-
-
-Built in data
-https://stat.ethz.ch/R-manual/R-patched/library/datasets/html/00Index.html
-example data from the package you are having trouble with
-
-
-Types of errors
-rlang
--->
 
 ---
 .left-column[
@@ -307,8 +290,42 @@ rlang
 
 #### Learning a new package
 
-1. Generate minimal data
-1. 
+Use a simple dataset
+
+to focus on learning functions 
+
+without complexity of real data or specific analyses
+
+
+---
+.left-column[
+<br><br><br><br><br><br>
+### Discussion
+### Prevention
+### **Simplifying**
+### and other strategies
+### Resources
+]
+
+#### Exercise: learn a new package
+
+1) Use a minimal dataset
+
+2) Open package website or documentation
+
+3) Fill the [template](https://github.com/robitalec/workshops/tree/master/2022-04-18-troubleshooting/R/learn-package-template.R) (see the [example](https://github.com/robitalec/workshops/tree/master/2022-04-18-troubleshooting/R/learn-package-chk.R))
+
+4) Learn a few functions!
+
+.footnote[
+Pick any package or one from this list:  
+-[`ggplot2`](https://ggplot2.tidyverse.org/)  
+-[`sf`](https://r-spatial.github.io/sf/)  
+-[`chk`](https://poissonconsulting.github.io/chk/)  
+-[`anytime`](https://eddelbuettel.github.io/anytime/)    
+-[`patchwork`](https://patchwork.data-imaginist.com/)  
+]
+
 
 
 ---
