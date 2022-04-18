@@ -14,12 +14,11 @@
 # For data, if suitable
 # library(palmerpenguins)
 
-library(data.table)
 
 
 
 # Data --------------------------------------------------------------------
-DT <- data.table(penguins)
+DT <- penguins
 
 
 
