@@ -164,16 +164,113 @@ and helps branching by eg. individuals or study sites
 ### Resources
 ]
 
-#### Generate minimal data
+####  Overview
 
-Simplest: built in or package data  
-`data(mtcars)`  
-`palmerpenguins`  
+Simplify the complexity of the task
 
-Or build your own:  
-Identify columns, types, units, limits
-and generate fake data
+...to identify source of the error
 
+...to clarify steps of the analysis
+
+...to learn new functions or packages
+
+
+???
+
+Tasks: troubleshooting, learning a new package, starting a new analysis...
+
+We'll first look at making minimal data, then using that data to
+learn a new package, then finally taking a complex script + data and
+reducing it to a minimum example
+
+
+---
+
+
+.left-column[
+<br><br><br><br><br><br>
+### Discussion
+### Prevention
+### **Simplifying**
+### and other strategies
+### Resources
+]
+
+#### Data
+
+Goal: minimal and representative data
+
+Option 1 - available example data
+
+Option 2 - build your own
+
+???
+
+Representative: retains variables, types and grouping levels of original data
+
+---
+
+.left-column[
+<br><br><br><br><br><br>
+### Discussion
+### Prevention
+### **Simplifying**
+### and other strategies
+### Resources
+]
+
+#### Available data
+
+.panelset[
+.panel[.panel-name[Penguins]
+
+```{r}
+library(palmerpenguins)
+data(penguins)
+nrow(penguins)
+colnames(penguins)
+```
+]
+.panel[.panel-name[Cars]
+```{r}
+data(mtcars)
+nrow(mtcars)
+colnames(mtcars)
+```
+]
+.panel[.panel-name[Etc]
+```{r, eval = FALSE}
+# Run data() to see a list of available data
+data()
+
+# for spatial data, see the spData package
+data(package = 'spData')
+```
+]
+]
+---
+
+.left-column[
+<br><br><br><br><br><br>
+### Discussion
+### Prevention
+### **Simplifying**
+### and other strategies
+### Resources
+]
+
+#### Exercise: build your own data
+
+1) Take your real data
+
+2) List  
+-columns  
+-data types  
+-units  
+-limits  
+-factors or levels
+
+3) Generate a representative and minimal fake data
 
 .footnote[
 FIX LINK
