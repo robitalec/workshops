@@ -345,6 +345,46 @@ Pick any package or one from this list:
 
 
 ---
+.left-column[
+<br><br><br><br><br><br>
+### Discussion
+### Prevention
+### **Simplifying**
+### and other strategies
+### Resources
+]
+
+#### Exercise: troubleshooting
+
+Given a complex script (e.g.  [1](https://github.com/wildlifeevoeco/SocCaribou/blob/master/scripts/2-HomeRangeAnalysis.R), [2](https://github.com/robitalec/ScaleInMultilayerNetworks/blob/master/scripts/03-temporal-layers.R), [3](https://github.com/wildlifeevoeco/study-area-figs/blob/master/R/10-riding-mountain-prep.R), [4](https://github.com/robitalec/spatsoc-application-paper/blob/master/scripts/figure-2-group-pts.R)),  
+build a reprex
+
+
+1) Start a new script
+
+2) Only load essential packages
+
+3) Use a minimal dataset
+
+4) Isolate the erroring function
+
+5) Reproduce the error  
+or find your mistake
+
+
+.footnote[
+[`reprex` vignette](https://reprex.tidyverse.org/articles/reprex-dos-and-donts.html)  
+[SO reprex how to](https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example/16532098)
+]
+
+???
+Ideally, bring your own script
+
+Say you hit an error halfway through some complex analysis... 
+
+`reprex_selection`
+
+---
 
 .left-column[
 <br><br><br><br><br><br>
