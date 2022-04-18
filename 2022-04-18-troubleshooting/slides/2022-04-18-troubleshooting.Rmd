@@ -88,16 +88,16 @@ xaringanExtra::use_panelset()
 ]
 
 
-#### What are your strategies for...
+#### What are your strategies for
 
 
-Troubleshooting errors?
+...troubleshooting errors?
 
-Problem solving?
+...problem solving?
 
-Learning a new package?
+...learning a new package?
 
-Starting a new analysis?
+...starting a new analysis?
 
 
 
