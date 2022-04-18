@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="author" content="Alec L. Robitaille" />
     <meta name="date" content="2022-04-18" />
-    <script src="2022-04-18-troubleshooting_files/header-attrs-2.11.3/header-attrs.js"></script>
+    <script src="2022-04-18-troubleshooting_files/header-attrs-2.8/header-attrs.js"></script>
     <link href="2022-04-18-troubleshooting_files/panelset-0.2.6/panelset.css" rel="stylesheet" />
     <script src="2022-04-18-troubleshooting_files/panelset-0.2.6/panelset.js"></script>
     <link rel="stylesheet" href="2022-04-18-troubleshooting-xaringan-themer.css" type="text/css" />
@@ -28,7 +28,7 @@ class: center, middle, inverse, title-slide
 
 
 .left-column[
-&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;br&gt;&lt;br&gt;
 ### **Discussion**
 ### Prevention
 ### Simplifying
@@ -40,7 +40,7 @@ class: center, middle, inverse, title-slide
 ---
 
 .left-column[
-&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;br&gt;&lt;br&gt;
 ### **Discussion**
 ### Prevention
 ### Simplifying
@@ -49,23 +49,23 @@ class: center, middle, inverse, title-slide
 ]
 
 
-#### What are your strategies for...
+#### What are your strategies for
 
 
-Troubleshooting errors?
+...troubleshooting errors?
 
-Problem solving?
+...problem solving?
 
-Learning a new package?
+...learning a new package?
 
-Starting a new analysis?
+...starting a new analysis?
 
 
 
 ---
 
 .left-column[
-&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;br&gt;&lt;br&gt;
 ### Discussion
 ### **Prevention**
 ### Simplifying
@@ -85,7 +85,7 @@ Keep R, R packages, and OS updated
 ---
 
 .left-column[
-&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;br&gt;&lt;br&gt;
 ### Discussion
 ### **Prevention**
 ### Simplifying
@@ -117,7 +117,7 @@ and helps branching by eg. individuals or study sites
 
 
 .left-column[
-&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;br&gt;&lt;br&gt;
 ### Discussion
 ### Prevention
 ### **Simplifying**
@@ -125,44 +125,151 @@ and helps branching by eg. individuals or study sites
 ### Resources
 ]
 
-#### Generate minimal data
+####  Overview
 
-Simplest: built in or package data  
-`data(mtcars)`  
-`palmerpenguins`  
+Simplify the complexity of the task
 
-Or build your own:  
-Identify columns, types, units, limits
-and generate fake data
+...to identify source of the error
+
+...to clarify steps of the analysis
+
+...to learn new functions or packages
 
 
-.footnote[
-FIX LINK
-[`R/simplify-data.R`](k)
+???
+
+Tasks: troubleshooting, learning a new package, starting a new analysis...
+
+We'll first look at making minimal data, then using that data to
+learn a new package, then finally taking a complex script + data and
+reducing it to a minimum example
+
+
+---
+
+
+.left-column[
+&lt;br&gt;&lt;br&gt;
+### Discussion
+### Prevention
+### **Simplifying**
+### and other strategies
+### Resources
 ]
 
-&lt;!--
-~~MWE~~ MBE ? minimum broken example? you have a maximum broken example.. 
+#### Data
 
-Reprex
+Goal: minimal and representative data
 
-https://reprex.tidyverse.org/articles/reprex-dos-and-donts.html
-https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example/16532098
-https://reprex.tidyverse.org/articles/datapasta-reprex.html
+Option 1 - available example data
+
+Option 2 - build your own
+
+???
+
+Representative: retains variables, types and grouping levels of original data
+
+---
+
+.left-column[
+&lt;br&gt;&lt;br&gt;
+### Discussion
+### Prevention
+### **Simplifying**
+### and other strategies
+### Resources
+]
+
+#### Available data
+
+.panelset[
+.panel[.panel-name[Penguins]
 
 
-Built in data
-https://stat.ethz.ch/R-manual/R-patched/library/datasets/html/00Index.html
-example data from the package you are having trouble with
+```r
+library(palmerpenguins)
+data(penguins)
+nrow(penguins)
+```
+
+```
+## [1] 344
+```
+
+```r
+colnames(penguins)
+```
+
+```
+## [1] "species"           "island"            "bill_length_mm"   
+## [4] "bill_depth_mm"     "flipper_length_mm" "body_mass_g"      
+## [7] "sex"               "year"
+```
+]
+.panel[.panel-name[Cars]
+
+```r
+data(mtcars)
+nrow(mtcars)
+```
+
+```
+## [1] 32
+```
+
+```r
+colnames(mtcars)
+```
+
+```
+##  [1] "mpg"  "cyl"  "disp" "hp"   "drat" "wt"   "qsec" "vs"   "am"   "gear"
+## [11] "carb"
+```
+]
+.panel[.panel-name[Etc]
+
+```r
+# Run data() to see a list of available data
+data()
+
+# for spatial data, see the spData package
+data(package = 'spData')
+```
+]
+]
+---
+
+.left-column[
+&lt;br&gt;&lt;br&gt;
+### Discussion
+### Prevention
+### **Simplifying**
+### and other strategies
+### Resources
+]
+
+#### Exercise: build your own data
+
+1) Take your real data
+
+2) List  
+-columns  
+-data types  
+-units  
+-limits  
+-factors or levels
+
+3) Generate a representative and minimal fake data
+
+.footnote[
+[`R/simplify-data.R`](https://github.com/robitalec/workshops/tree/master/2022-04-18-troubleshooting/R/simplify-data.R)
+]
 
 
-Types of errors
-rlang
---&gt;
 
 ---
 .left-column[
-&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;br&gt;&lt;br&gt;
 ### Discussion
 ### Prevention
 ### **Simplifying**
@@ -172,13 +279,47 @@ rlang
 
 #### Learning a new package
 
-1. Generate minimal data
-1. 
+Use a simple dataset
+
+to focus on learning functions 
+
+without complexity of real data or specific analyses
 
 
 ---
 .left-column[
-&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;br&gt;&lt;br&gt;
+### Discussion
+### Prevention
+### **Simplifying**
+### and other strategies
+### Resources
+]
+
+#### Exercise: learn a new package
+
+1) Use a minimal dataset
+
+2) Open package website or documentation
+
+3) Fill the [template](https://github.com/robitalec/workshops/tree/master/2022-04-18-troubleshooting/R/learn-package-template.R) (see the [example](https://github.com/robitalec/workshops/tree/master/2022-04-18-troubleshooting/R/learn-package-chk.R))
+
+4) Learn a few functions!
+
+.footnote[
+Pick any package or one from this list:  
+-[`ggplot2`](https://ggplot2.tidyverse.org/)  
+-[`sf`](https://r-spatial.github.io/sf/)  
+-[`chk`](https://poissonconsulting.github.io/chk/)  
+-[`anytime`](https://eddelbuettel.github.io/anytime/)    
+-[`patchwork`](https://patchwork.data-imaginist.com/)  
+]
+
+
+
+---
+.left-column[
+&lt;br&gt;&lt;br&gt;
 ### Discussion
 ### Prevention
 ### **Simplifying**
@@ -188,14 +329,67 @@ rlang
 
 #### Troubleshooting
 
+To troubleshoot an error,  
+simplify the data and analyses 
+
+Isolate the erroring function and   
+use a minimal dataset
+
+If the error is not reproduced, check differences 
+in data and/or use of functions
+
+If error is reproduced, check GitHub Issues, SO, try on another
+computer, or contact package authors. 
 
 
+???
+A MWE that reproduces an error is ~~ proof of the error
 
+
+---
+.left-column[
+&lt;br&gt;&lt;br&gt;
+### Discussion
+### Prevention
+### **Simplifying**
+### and other strategies
+### Resources
+]
+
+#### Exercise: troubleshooting
+
+Given a complex script (e.g.  [1](https://github.com/wildlifeevoeco/SocCaribou/blob/master/scripts/2-HomeRangeAnalysis.R), [2](https://github.com/robitalec/ScaleInMultilayerNetworks/blob/master/scripts/03-temporal-layers.R), [3](https://github.com/wildlifeevoeco/study-area-figs/blob/master/R/10-riding-mountain-prep.R), [4](https://github.com/robitalec/spatsoc-application-paper/blob/master/scripts/figure-2-group-pts.R)),  
+build a reprex
+
+
+1) Start a new script
+
+2) Only load essential packages
+
+3) Use a minimal dataset
+
+4) Isolate the erroring function
+
+5) Reproduce the error  
+or find your mistake
+
+
+.footnote[
+[`reprex` vignette](https://reprex.tidyverse.org/articles/reprex-dos-and-donts.html)  
+[SO reprex how to](https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example/16532098)
+]
+
+???
+Ideally, bring your own script
+
+Say you hit an error halfway through some complex analysis... 
+
+`reprex_selection`
 
 ---
 
 .left-column[
-&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;br&gt;&lt;br&gt;
 ### Discussion
 ### Prevention
 ### Simplifying
@@ -224,7 +418,7 @@ Ask for help!
 ---
 
 .left-column[
-&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;br&gt;&lt;br&gt;
 ### Discussion
 ### Prevention
 ### Simplifying
