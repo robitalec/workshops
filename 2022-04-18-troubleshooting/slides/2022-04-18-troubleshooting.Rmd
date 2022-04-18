@@ -340,8 +340,21 @@ Pick any package or one from this list:
 
 #### Troubleshooting
 
+To troubleshoot an error,  
+simplify the data and analyses 
+
+Isolate the erroring function and   
+use a minimal dataset
+
+If the error is not reproduced, check differences 
+in data and/or use of functions
+
+If error is reproduced, check GitHub Issues, SO, try on another
+computer, or contact package authors. 
 
 
+???
+A MWE that reproduces an error is ~~ proof of the error
 
 
 ---
