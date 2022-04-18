@@ -67,7 +67,7 @@ xaringanExtra::use_panelset()
 
 
 .left-column[
-<br><br><br><br><br><br>
+<br><br>
 ### **Discussion**
 ### Prevention
 ### Simplifying
@@ -79,7 +79,7 @@ xaringanExtra::use_panelset()
 ---
 
 .left-column[
-<br><br><br><br><br><br>
+<br><br>
 ### **Discussion**
 ### Prevention
 ### Simplifying
@@ -104,7 +104,7 @@ xaringanExtra::use_panelset()
 ---
 
 .left-column[
-<br><br><br><br><br><br>
+<br><br>
 ### Discussion
 ### **Prevention**
 ### Simplifying
@@ -124,7 +124,7 @@ Keep R, R packages, and OS updated
 ---
 
 .left-column[
-<br><br><br><br><br><br>
+<br><br>
 ### Discussion
 ### **Prevention**
 ### Simplifying
@@ -156,7 +156,7 @@ and helps branching by eg. individuals or study sites
 
 
 .left-column[
-<br><br><br><br><br><br>
+<br><br>
 ### Discussion
 ### Prevention
 ### **Simplifying**
@@ -188,7 +188,7 @@ reducing it to a minimum example
 
 
 .left-column[
-<br><br><br><br><br><br>
+<br><br>
 ### Discussion
 ### Prevention
 ### **Simplifying**
@@ -211,7 +211,7 @@ Representative: retains variables, types and grouping levels of original data
 ---
 
 .left-column[
-<br><br><br><br><br><br>
+<br><br>
 ### Discussion
 ### Prevention
 ### **Simplifying**
@@ -251,7 +251,7 @@ data(package = 'spData')
 ---
 
 .left-column[
-<br><br><br><br><br><br>
+<br><br>
 ### Discussion
 ### Prevention
 ### **Simplifying**
@@ -280,7 +280,7 @@ data(package = 'spData')
 
 ---
 .left-column[
-<br><br><br><br><br><br>
+<br><br>
 ### Discussion
 ### Prevention
 ### **Simplifying**
@@ -299,7 +299,7 @@ without complexity of real data or specific analyses
 
 ---
 .left-column[
-<br><br><br><br><br><br>
+<br><br>
 ### Discussion
 ### Prevention
 ### **Simplifying**
@@ -330,7 +330,7 @@ Pick any package or one from this list:
 
 ---
 .left-column[
-<br><br><br><br><br><br>
+<br><br>
 ### Discussion
 ### Prevention
 ### **Simplifying**
@@ -359,7 +359,7 @@ A MWE that reproduces an error is ~~ proof of the error
 
 ---
 .left-column[
-<br><br><br><br><br><br>
+<br><br>
 ### Discussion
 ### Prevention
 ### **Simplifying**
@@ -400,7 +400,7 @@ Say you hit an error halfway through some complex analysis...
 ---
 
 .left-column[
-<br><br><br><br><br><br>
+<br><br>
 ### Discussion
 ### Prevention
 ### Simplifying
@@ -429,7 +429,7 @@ Ask for help!
 ---
 
 .left-column[
-<br><br><br><br><br><br>
+<br><br>
 ### Discussion
 ### Prevention
 ### Simplifying
