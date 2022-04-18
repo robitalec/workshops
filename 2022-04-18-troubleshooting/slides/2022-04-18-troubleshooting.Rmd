@@ -273,8 +273,7 @@ data(package = 'spData')
 3) Generate a representative and minimal fake data
 
 .footnote[
-FIX LINK
-[`R/simplify-data.R`](k)
+[`R/simplify-data.R`](https://github.com/robitalec/workshops/tree/master/2022-04-18-troubleshooting/R/simplify-data.R)
 ]
 
 <!--
