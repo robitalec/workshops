@@ -7,7 +7,7 @@ output: github_document
 
 ```{r, echo = FALSE}
 library(data.table)
-DT <- fread('workshops.csv')
+DT <- fread('workshops.csv', header = TRUE)
 setnames(DT, 'V1', ' ')
 setorder(DT, -Date)
 
