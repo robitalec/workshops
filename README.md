@@ -1,10 +1,11 @@
 Workshops
 ================
 Alec L. Robitaille
-2024-10-16
+2024-10-25
 
 |  | Date | Title | Audience | Location | Slides | Resources |
 |---:|:---|:---|:---|:---|:---|:---|
+| 28 | 2024-10-25 | Open Science guest lecture (w/ Alex Arkilanian) | BIOL7000 | Memorial University, St. John’s, NL | []() | []() |
 | 27 | 2024-10-08 | Structured Reading, Systematic Maps and Reviews using Covidence | WEEL | Memorial University, St. John’s, NL | []() | []() |
 | 26 | 2024-08 | Code club: targets | WEEL | Memorial University, St. John’s, NL | []() | []() |
 | 25 | 2024-07 | Code club: functions | WEEL | Memorial University, St. John’s, NL | []() | []() |
@@ -14,7 +15,7 @@ Alec L. Robitaille
 | 21 | 2023-10-31 | Incorporating Memory in Step Selection Functions | WEEL | Memorial University, St. John’s, NL | []() | []() |
 | 20 | 2023-10-24 | Open Science guest lecture (w/ Alex Arkilanian) | BIOL7000 | Memorial University, St. John’s, NL | []() | []() |
 | 19 | 2023-09-19 | Figures: Data Types, Color Theory | WEEL | Memorial University, St. John’s, NL | []() | []() |
-| 18 | 2023-06-11 | Reproducible Workflows in R (w/ Isabella Richmond) | Canadian Society for Ecology and Evolution | Winnipeg, MB | [2023-CSEE-reproducible-workflows-workshop?tab=readme-ov-file](https://github.com/robitalec/2023-CSEE-reproducible-workflows-workshop?tab=readme-ov-file) | []() |
+| 18 | 2023-06-11 | Reproducible Workflows in R (w/ Isabella Richmond) | Canadian Society for Ecology and Evolution | Winnipeg, MB | [2023-CSEE-reproducible-workflows-workshop](https://github.com/robitalec/2023-CSEE-reproducible-workflows-workshop) | []() |
 | 17 | 2023-03-07 | Reproducible Research | WEEL | Memorial University, St. John’s, NL | []() | []() |
 | 16 | 2022-04-12 | targets iSSA workshop | iSSA guild | Online | [book](https://issa-guild.github.io/book/) | [targets-issa](https://github.com/robitalec/targets-issa) |
 | 15 | 2021-10-27 | Introduction to Git | WEEL | Memorial University, St. John’s, NL | [2021-10-27-git-intro.html](https://robitalec.github.io/workshops/2021-10-27-git-intro.html) | [2021-10-27-git-intro](https://github.com/robitalec/workshops/tree/master/2021-10-27-git-intro) |
