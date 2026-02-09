@@ -5,6 +5,9 @@ Alec L. Robitaille
 
 |  | Date | Title | Audience | Location | Slides | Resources |
 |---:|:---|:---|:---|:---|:---|:---|
+| 33 | 2026-02-10 | Introduction to Causal Inference | WEEL | Memorial University, St. John’s, NL | []() | []() |
+| 32 | 2026-01-13 | Sharing Code and Data Alongside Publications | WEEL | Memorial University, St. John’s, NL | []() | []() |
+| 31 | 2025-10-25 | Open Science guest lecture (w/ Alex Arkilanian) | BIOL7000 | Memorial University, St. John’s, NL | []() | []() |
 | 30 | 2024-12-03 | Troubleshooting and problem solving in R (w/ Jack Hendrix) | WEEL | Memorial University, St. John’s, NL | []() | []() |
 | 29 | 2024-10-25 | Open Science guest lecture (w/ Alex Arkilanian) | BIOL7000 | Memorial University, St. John’s, NL | []() | []() |
 | 28 | 2024-10-08 | Structured Reading, Systematic Maps and Reviews using Covidence | WEEL | Memorial University, St. John’s, NL | []() | []() |
